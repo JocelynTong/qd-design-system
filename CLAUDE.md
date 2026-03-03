@@ -62,6 +62,53 @@ L3 Tokens（组件层）
 | `Radius/Small` | 4px |
 | `Radius/Mini` | 2px |
 
+### 文字规范（Typography）
+
+详见 `components/typography.json`。设计稿基准：375×667px 一倍图。
+
+| Token | 字号 | 字重 | 行高 | 字体 | 典型用途 |
+|-------|------|------|------|------|---------|
+| `H1` | 24px | 500 | 30px | PingFang SC | 页面大标题 |
+| `H2` | 20px | 500 | 26px | PingFang SC | 区块标题 |
+| `H3` | 18px | 500 | 25px | PingFang SC | 卡片主标题 |
+| `H4` | 16px | 500 | 24px | PingFang SC | NavBar 标题、列表标题 |
+| `H5` | 14px | 500 | 22px | PingFang SC | 按钮文字、正文加粗 |
+| `H6` | 12px | 500 | 18px | PingFang SC | Tab 文字、辅助标签 |
+| `H7` | 11px | 500 | 13px | PingFang SC | 角标文字 |
+| `B4` | 16px | 400 | 24px | PingFang SC | 正文标准 |
+| `B5` | 14px | 400 | 22px | PingFang SC | 常规正文（feed 标题、评论）|
+| `B6` | 12px | 400 | 18px | PingFang SC | 辅助正文、描述 |
+| `N5` | 14px | 500 | 22px | **Roboto** | 数字、英文内容 |
+| `N6` | 12px | 500 | 18px | **Roboto** | 点赞数、评论数、角标数字 |
+
+**规则**：中文用 H/B 系列（PingFang SC），数字/价格/统计数据用 N 系列（Roboto）。
+
+---
+
+### 图标规范（Icons）
+
+详见 `components/icons.json`。
+
+- **字体库**：`KurilIcons`（iconfont 项目 3550031）
+- **CSS 引入**：`<link rel="stylesheet" href="//at.alicdn.com/t/c/font_3550031_uwcy4h4l9a9.css">`
+- **使用方式**：`<i class="KurilIcons kuril-{name}"></i>`
+- **颜色**：继承父元素 color，配合 `icon/1`、`icon/2` token
+
+| 场景 | 图标名 |
+|------|-------|
+| 返回 | `kuril-arrow_left` |
+| 搜索 | `kuril-search` |
+| 点赞 | `kuril-like_normal` / `kuril-like_selected_filled` |
+| 评论 | `kuril-comment` |
+| 分享 | `kuril-share` |
+| 关闭 | `kuril-close` |
+| 更多 | `kuril-more` |
+| 视频播放 | `kuril-video_play_circle_filled` |
+| 购物车 | `kuril-cart` |
+| 消息 | `kuril-message` |
+| 设置 | `kuril-setting` |
+| 关注/想要 | `kuril-have_normal` / `kuril-have_selected` |
+
 ---
 
 ## 二、组件规范（已录入）

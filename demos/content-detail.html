@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=390, initial-scale=1.0, maximum-scale=1.0">
+<title>内容详情页 · 千岛设计系统原型</title>
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_3550031_uwcy4h4l9a9.css">
+<style>
+/* =============================
+   千岛设计系统 Token CSS Variables
+   来源：tokens/processed.json
+   ============================= */
+:root {
+  /* L2 Background */
+  --bg-1: #FFFFFF;
+  --bg-2: #F7F7F9;
+  --bg-3: #FFFFFF;
+  --bg-4: #EDEDF2;
+
+  /* L2 Text */
+  --text-1: #000000;
+  --text-2: rgba(0,0,0,0.64);
+  --text-3: rgba(0,0,0,0.40);
+  --text-disabled: rgba(0,0,0,0.16);
+
+  /* L2 Icon */
+  --icon-1: #2B263B;
+  --icon-2: #625E76;
+  --icon-3: #918B9F;
+  --icon-disabled: #D4D0DA;
+
+  /* L2 Border */
+  --border-1: rgba(0,0,0,0.12);
+  --border-2: rgba(0,0,0,0.08);
+
+  /* L2 Primary */
+  --primary-1: #F2F0FF;
+  --primary-5: #7C66FF;
+  --primary-6: #5C4CD9;
+  --primary-solid-bg: #7C66FF;
+  --primary-solid-color: #FFFFFF;
+  --primary-soft-bg: #F2F0FF;
+  --primary-color: #7C66FF;
+  --primary-text-color: #7C66FF;
+
+  /* L2 Mask */
+  --mask-1: rgba(0,0,0,0.88);
+  --mask-2: rgba(0,0,0,0.64);
+  --mask-3: rgba(0,0,0,0.40);
+  --mask-4: rgba(0,0,0,0.24);
+
+  /* L2 Error / Success */
+  --error-5: #F96464;
+  --error-solid-bg: #F96464;
+  --success-5: #52BA5C;
+
+  /* White tokens */
+  --white-solid-bg: #FFFFFF;
+  --white-text-color: #FFFFFF;
+  --white-soft-bg: rgba(255,255,255,0.12);
+  --white-border: rgba(255,255,255,0.88);
+  --white-color: rgba(255,255,255,0.88);
+
+  /* Default bt */
+  --default-bt-border: rgba(0,0,0,0.16);
+  --default-bt-soft-bg: rgba(0,0,0,0.04);
+
+  /* L3 Primary bt */
+  --primary-bt-solid-bg: #7C66FF;
+  --primary-bt-solid-color: #FFFFFF;
+  --primary-bt-soft-bg: #F2F0FF;
+  --primary-bt-color: #7C66FF;
+  --primary-bt-border: #7C66FF;
+
+  /* Spacing Token */
+  --spacing-large: 16px;
+  --spacing-medium: 12px;
+  --spacing-normal: 8px;
+  --spacing-small: 4px;
+  --spacing-mini: 2px;
+
+  /* Radius Token */
+  --radius-large: 16px;
+  --radius-medium: 12px;
+  --radius-normal: 8px;
+  --radius-small: 4px;
+}
+
+[data-theme="dark"] {
+  --bg-1: #1F1F1F;
+  --bg-2: #2A2A2A;
+  --bg-3: #1F1F1F;
+  --bg-4: #333333;
+  --text-1: #FFFFFF;
+  --text-2: rgba(255,255,255,0.64);
+  --text-3: rgba(255,255,255,0.40);
+  --text-disabled: rgba(255,255,255,0.16);
+  --icon-1: #FFFFFF;
+  --icon-2: #FFFFFF;
+  --icon-3: #FFFFFF;
+  --icon-disabled: rgba(255,255,255,0.24);
+  --border-1: rgba(255,255,255,0.12);
+  --border-2: rgba(255,255,255,0.08);
+  --default-bt-border: rgba(255,255,255,0.16);
+  --default-bt-soft-bg: rgba(255,255,255,0.04);
+}
+
+/* =============================
+   Reset & Base
+   ============================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+body {
+  background: #EDEDF2;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  font-family: 'PingFang SC', -apple-system, 'Hiragino Sans GB', 'Helvetica Neue', sans-serif;
+}
+/* 数字/计数用 Roboto (N 系列) */
+.num { font-family: 'Roboto', 'PingFang SC', sans-serif; }
+
+/* KurilIcons sizing helpers */
+.KurilIcons { line-height: 1; display: inline-flex; align-items: center; justify-content: center; }
+.ki-22 { font-size: 22px; } .ki-20 { font-size: 20px; } .ki-16 { font-size: 16px; }
+.ki-14 { font-size: 14px; } .ki-12 { font-size: 12px; } .ki-10 { font-size: 10px; }
+
+/* =============================
+   Phone Frame
+   ============================= */
+.phone {
+  width: 390px;
+  min-height: 844px;
+  background: var(--bg-1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.2);
+}
+
+/* =============================
+   Navigation Bar (Ghost=True)
+   Component: 💙 01.01_Navigation Bar
+   Terminal=App, Ghost=True
+   ============================= */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--spacing-large);
+  /* Ghost=True: 透明背景 */
+  background: transparent;
+}
+.navbar-left, .navbar-right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-small);
+}
+/* Icon Button: 💙 00.05_Button / Icon - ghost 模式白色图标 */
+.icon-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--white-soft-bg);
+  cursor: pointer;
+  border: none;
+  color: var(--white-text-color);
+  flex-shrink: 0;
+}
+.icon-btn svg, .icon-btn i { width: 20px; height: 20px; font-size: 20px; }
+
+/* =============================
+   Status Bar (系统状态栏)
+   ============================= */
+.status-bar {
+  height: 44px;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 101;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  pointer-events: none;
+}
+.status-bar-time {
+  font-size: 15px;
+  font-weight: 600; /* 系统状态栏保持系统风格 */
+}
+.status-bar-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--white-text-color);
+  font-size: 12px;
+}
+
+/* =============================
+   Cover Image
+   ============================= */
+.cover {
+  width: 100%;
+  height: 460px;
+  background: linear-gradient(145deg, #C7B8FF 0%, #7C66FF 40%, #5C4CD9 100%);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.cover-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(transparent, var(--bg-1));
+}
+.cover-placeholder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: rgba(255,255,255,0.5);
+  font-size: 13px;
+  margin-top: -20px;
+}
+.cover-emoji { font-size: 48px; display: block; margin-bottom: 8px; }
+
+/* =============================
+   Content Area (scrollable)
+   ============================= */
+.scroll-area {
+  overflow-y: auto;
+  height: 844px;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+.scroll-area::-webkit-scrollbar { display: none; }
+
+.content {
+  background: var(--bg-1);
+  position: relative;
+  padding-bottom: 80px; /* space for bottom bar */
+}
+
+/* =============================
+   Author Row
+   Component: 💙 03.05_Avatar / Basic - Size=Normal, Color=Default
+   Button: 💙 00.05_Button / MH - Color=Primary, Type=Outline, Size=Small(28)
+   ============================= */
+.author-row {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-large);
+  gap: var(--spacing-normal);
+}
+.avatar {
+  /* Avatar/Basic Size=Normal: 40px */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #C7B8FF, #7C66FF);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: white;
+  font-weight: 600;
+  overflow: hidden;
+}
+.author-info {
+  flex: 1;
+  min-width: 0;
+}
+.author-name {
+  /* H5: 14px / Medium(500) / 22px */
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-1);
+  line-height: 22px;
+}
+.author-meta {
+  /* B6: 12px / Regular(400) / 18px */
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--text-3);
+  margin-top: 1px;
+}
+/* Button: MH / Outline / Small(28) */
+.btn-follow {
+  height: 28px;
+  padding: 0 12px;
+  border-radius: var(--radius-normal);
+  border: 1px solid var(--primary-bt-border);
+  background: transparent;
+  color: var(--primary-bt-color);
+  /* H6: 12px / Medium(500) */
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* =============================
+   Post Title & Body
+   ============================= */
+.post-body {
+  padding: 0 var(--spacing-large) var(--spacing-large);
+}
+.post-title {
+  /* H2: 20px / Medium(500) / 26px */
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-1);
+  line-height: 26px;
+  margin-bottom: var(--spacing-normal);
+}
+.post-text {
+  /* B4: 16px / Regular(400) / 24px */
+  font-size: 16px;
+  color: var(--text-2);
+  line-height: 24px;
+}
+.post-text p { margin-bottom: var(--spacing-normal); }
+.post-text p:last-child { margin-bottom: 0; }
+
+/* =============================
+   Tags
+   Component: 💙 03.02_Tag / Echo - className=Tag, Size=Small
+   Color token: primary/1 bg, primary/5 text
+   ============================= */
+.tags-row {
+  padding: var(--spacing-normal) var(--spacing-large) var(--spacing-large);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-small);
+}
+.tag {
+  /* Tag/Basic: Size=Small(20), Color=Primary, Type=Soft */
+  height: 20px;
+  padding: 0 var(--spacing-small);
+  border-radius: var(--radius-small);
+  background: var(--primary-1);
+  color: var(--primary-color);
+  font-size: 11px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* =============================
+   Stats
+   ============================= */
+.stats-row {
+  padding: 0 var(--spacing-large) var(--spacing-large);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-large);
+}
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-small);
+  /* N6: 12px / Medium(500) / Roboto — 数字统计 */
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Roboto', 'PingFang SC', sans-serif;
+  color: var(--text-3);
+}
+.stat-item svg, .stat-item i { width: 16px; height: 16px; font-size: 16px; color: var(--icon-3); }
+
+/* =============================
+   Divider (💙 00.06_Divider / 0.5px)
+   token: border/1
+   ============================= */
+.divider {
+  height: 0.5px;
+  background: var(--border-1);
+  margin: 0 var(--spacing-large);
+}
+
+/* =============================
+   Section Header
+   ============================= */
+.section-header {
+  padding: var(--spacing-large) var(--spacing-large) var(--spacing-normal);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.section-title {
+  /* H4: 16px / Medium(500) / 24px */
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-1);
+}
+.section-meta {
+  /* B6: 12px / Regular(400) */
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+/* =============================
+   Comment Items
+   Component: Avatar/Basic Size=Small(32)
+   ============================= */
+.comment-list { padding: 0 var(--spacing-large); }
+.comment-item {
+  display: flex;
+  gap: var(--spacing-normal);
+  padding: var(--spacing-normal) 0;
+  border-bottom: 0.5px solid var(--border-1);
+}
+.comment-item:last-child { border-bottom: none; }
+.comment-avatar {
+  /* Avatar/Basic Size=Small: 32px */
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: white;
+  font-weight: 600;
+}
+.comment-content { flex: 1; min-width: 0; }
+.comment-name {
+  /* H6: 12px / Medium(500) / 18px */
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-2);
+  margin-bottom: 3px;
+}
+.comment-text {
+  /* B5: 14px / Regular(400) / 22px */
+  font-size: 14px;
+  color: var(--text-1);
+  line-height: 22px;
+}
+.comment-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--spacing-small);
+}
+/* B6: 12px/400 时间；N6: 12px/500/Roboto 点赞数 */
+.comment-time { font-size: 12px; line-height: 18px; color: var(--text-3); }
+.comment-like {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-mini);
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Roboto', 'PingFang SC', sans-serif;
+  color: var(--text-3);
+  cursor: pointer;
+}
+.comment-like svg, .comment-like i { width: 14px; height: 14px; font-size: 14px; }
+
+/* =============================
+   View More
+   ============================= */
+.view-more {
+  text-align: center;
+  padding: var(--spacing-large);
+  font-size: 14px;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+/* =============================
+   Bottom Bar (fixed)
+   Component: 💙 01.07_Bottom Bar
+   tokens: bg/1, border/1, default/bt/border
+   ============================= */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 390px;
+  background: var(--bg-1);
+  border-top: 0.5px solid var(--border-1);
+  padding: var(--spacing-normal) var(--spacing-large) calc(var(--spacing-normal) + 20px);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-normal);
+  z-index: 200;
+}
+/* Input: 💙 02.03_Input_Frame - State=Default, Size=Normal(32) */
+.comment-input {
+  flex: 1;
+  height: 32px;
+  border-radius: var(--radius-normal);
+  background: var(--bg-2);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--spacing-normal);
+  cursor: text;
+}
+.comment-input-placeholder {
+  font-size: 14px;
+  color: var(--text-3);
+}
+.bottom-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-large);
+  flex-shrink: 0;
+}
+/* Icon button 互动 */
+.action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  position: relative;
+}
+.action-btn svg, .action-btn i { width: 22px; height: 22px; font-size: 22px; color: var(--icon-1); }
+.action-btn.active svg, .action-btn.active i { color: var(--error-5); }
+.action-btn.active-star svg, .action-btn.active-star i { color: #FFC107; }
+.action-count {
+  /* H7: 11px / Medium(500) / 13px */
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-3);
+  line-height: 13px;
+}
+/* Badge: 💙 03.01_Badge - error/solidBg, white/textColor */
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background: var(--error-solid-bg);
+  color: var(--white-text-color);
+  font-size: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  border: 1.5px solid var(--white-solid-bg);
+}
+
+/* =============================
+   Theme Toggle (for demo)
+   ============================= */
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 9999;
+  background: var(--primary-solid-bg);
+  color: var(--primary-solid-color);
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(124,102,255,0.4);
+}
+
+/* =============================
+   Token Label (for demo - shows component names)
+   ============================= */
+.token-label {
+  display: none;
+  font-size: 10px;
+  color: var(--primary-color);
+  border: 1px dashed var(--primary-1);
+  border-radius: 2px;
+  padding: 1px 4px;
+  white-space: nowrap;
+}
+body.show-tokens .token-label { display: inline; }
+
+.show-tokens-btn {
+  position: fixed;
+  bottom: 100px;
+  right: 16px;
+  z-index: 9999;
+  background: var(--bg-1);
+  border: 1px solid var(--border-1);
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 12px;
+  color: var(--text-2);
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()">🌙 深色</button>
+<button class="show-tokens-btn" onclick="document.body.classList.toggle('show-tokens')">🔍 Token</button>
+
+<div class="phone">
+  <div class="scroll-area">
+    <div class="content">
+
+      <!-- Cover Image -->
+      <!-- 使用渐变色模拟封面图，实际用图片替换 -->
+      <div class="cover">
+        <div class="cover-placeholder">
+          <span class="cover-emoji">🎴</span>
+          封面图片区域
+        </div>
+        <div class="cover-gradient"></div>
+      </div>
+
+      <!-- Navigation Bar (Ghost=True) -->
+      <!-- Component: 💙 01.01_Navigation Bar · Terminal=App · Ghost=True -->
+      <div class="navbar" style="top:44px">
+        <div class="navbar-left">
+          <!-- Icon Button: 💙 00.05_Button / Icon · Size=Normal -->
+          <button class="icon-btn" onclick="history.back()">
+            <i class="KurilIcons kuril-arrow_left"></i>
+          </button>
+        </div>
+        <div class="navbar-right">
+          <button class="icon-btn">
+            <i class="KurilIcons kuril-share"></i>
+          </button>
+          <button class="icon-btn">
+            <i class="KurilIcons kuril-more"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Status Bar -->
+      <div class="status-bar">
+        <span class="status-bar-time">9:41</span>
+        <div class="status-bar-icons">
+          <span>●●●</span>
+          <span>WiFi</span>
+          <span>🔋</span>
+        </div>
+      </div>
+
+      <!-- Author Row -->
+      <!-- Components: 💙 03.05_Avatar / Basic · Size=Normal · Color=Default -->
+      <!--             💙 00.05_Button / MH · Color=Primary · Type=Outline · Size=Small(28) -->
+      <div class="author-row">
+        <div class="avatar">洁</div>
+        <div class="author-info">
+          <div class="author-name">Jocelyn · 设计碎碎念</div>
+          <div class="author-meta">2025-12-18 · 广东</div>
+        </div>
+        <button class="btn-follow">+ 关注</button>
+      </div>
+
+      <!-- Post Body -->
+      <div class="post-body">
+        <h1 class="post-title">用 Figma Variables 搭了一套完整的县城设计系统，真的救活了产品团队</h1>
+        <div class="post-text">
+          <p>去年底开始接手了一个县城级政务+生活服务的产品，团队小，设计师就我一个，但要同时维护 App、小程序、H5 三端。</p>
+          <p>之前每次换色换间距都要改几百个地方，噩梦。后来痛定思痛，花了三周时间用 Figma Variables 搭了一套三级 Token 映射的设计系统。</p>
+          <p>L1 是原始值（hex），L2 是语义层（primary/solidBg 这种），L3 是组件层（primary/bt/solidBg）。换主题色只要改 L1 那一层，下面几百个组件全自动更新，属实爽到飞起。</p>
+          <p>最近把这套系统整理成了设计系统浏览器，放到 GitHub Pages 上给全团队用，顺便还训练了个 AI 助手帮 PM 画原型……</p>
+        </div>
+      </div>
+
+      <!-- Tags Row -->
+      <!-- Component: 💙 03.02_Tag / Echo · className=Tag · Size=Small -->
+      <!-- Token: primary/1 背景, primary/5 文字 -->
+      <div class="tags-row">
+        <span class="tag"># Figma</span>
+        <span class="tag"># 设计系统</span>
+        <span class="tag"># Design Token</span>
+        <span class="tag"># UI设计</span>
+        <span class="tag"># 效率工具</span>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-row">
+        <div class="stat-item">
+          <i class="KurilIcons kuril-discover ki-16"></i>
+          2.4万 浏览
+        </div>
+        <div class="stat-item">
+          <i class="KurilIcons kuril-comment ki-16"></i>
+          386 评论
+        </div>
+        <div class="stat-item">
+          <i class="KurilIcons kuril-community_like_selected_filled ki-16" style="color:var(--error-solid-bg)"></i>
+          1.2万 喜欢
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Comments Section -->
+      <div class="section-header">
+        <span class="section-title">评论 386</span>
+        <span class="section-meta">最热 ▾</span>
+      </div>
+
+      <div class="comment-list">
+        <!-- Comment 1 -->
+        <!-- Component: 💙 03.05_Avatar / Basic · Size=Small(32) -->
+        <div class="comment-item">
+          <div class="comment-avatar" style="background:linear-gradient(135deg,#C7B8FF,#7C66FF)">小</div>
+          <div class="comment-content">
+            <div class="comment-name">小鱼爱设计</div>
+            <div class="comment-text">太有用了！我们公司也是这个情况，设计师就一个，要维护好几个端。请问你们的 token 命名规范有没有文档可以参考？</div>
+            <div class="comment-footer">
+              <span class="comment-time">3天前 · 上海</span>
+              <span class="comment-like">
+                <i class="KurilIcons kuril-community_like_normal ki-14"></i>
+                248
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comment 2 -->
+        <div class="comment-item">
+          <div class="comment-avatar" style="background:linear-gradient(135deg,#9DE09D,#52BA5C)">前</div>
+          <div class="comment-content">
+            <div class="comment-name">前端小明</div>
+            <div class="comment-text">作为开发来说真的很感谢这种设计师，token 直接对应 CSS 变量，换主题简直不要太爽</div>
+            <div class="comment-footer">
+              <span class="comment-time">5天前 · 北京</span>
+              <span class="comment-like">
+                <i class="KurilIcons kuril-community_like_normal ki-14"></i>
+                186
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comment 3 -->
+        <div class="comment-item">
+          <div class="comment-avatar" style="background:linear-gradient(135deg,#FFABAB,#F96464)">产</div>
+          <div class="comment-content">
+            <div class="comment-name">产品汪小白</div>
+            <div class="comment-text">请问那个 AI 帮 PM 画原型是怎么实现的？我们 PM 画的原型每次和设计稿差很多，感觉有这个工具会大大提效！</div>
+            <div class="comment-footer">
+              <span class="comment-time">1周前 · 广州</span>
+              <span class="comment-like">
+                <i class="KurilIcons kuril-community_like_normal ki-14"></i>
+                112
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="view-more">查看全部 386 条评论 →</div>
+
+    </div><!-- .content -->
+  </div><!-- .scroll-area -->
+
+  <!-- Bottom Bar -->
+  <!-- Component: 💙 01.07_Bottom Bar -->
+  <!-- Token: bg/1 背景, border/1 顶部分割线 -->
+  <div class="bottom-bar">
+    <!-- Input: 💙 02.03_Input_Frame · State=Default · Size=Normal(32) -->
+    <div class="comment-input">
+      <span class="comment-input-placeholder">说点什么…</span>
+    </div>
+    <div class="bottom-actions">
+      <!-- Like: active state uses error/5 -->
+      <div class="action-btn active" id="likeBtn" onclick="toggleLike()">
+        <i class="KurilIcons kuril-community_like_selected_filled"></i>
+        <span class="action-count">1.2万</span>
+      </div>
+      <!-- Collect: active uses #FFC107 -->
+      <div class="action-btn" id="starBtn" onclick="toggleStar()">
+        <i class="KurilIcons kuril-collect_normal" id="starIcon"></i>
+        <span class="action-count">收藏</span>
+      </div>
+      <!-- Share -->
+      <div class="action-btn">
+        <i class="KurilIcons kuril-share"></i>
+        <span class="action-count">分享</span>
+      </div>
+    </div>
+  </div>
+
+</div><!-- .phone -->
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.querySelector('.theme-toggle');
+  if (html.dataset.theme === 'light') {
+    html.dataset.theme = 'dark';
+    btn.textContent = '☀️ 亮色';
+  } else {
+    html.dataset.theme = 'light';
+    btn.textContent = '🌙 深色';
+  }
+}
+
+function toggleLike() {
+  const btn = document.getElementById('likeBtn');
+  btn.classList.toggle('active');
+  const icon = btn.querySelector('i');
+  icon.className = btn.classList.contains('active')
+    ? 'KurilIcons kuril-community_like_selected_filled'
+    : 'KurilIcons kuril-community_like_normal';
+}
+
+function toggleStar() {
+  const btn = document.getElementById('starBtn');
+  btn.classList.toggle('active-star');
+  const icon = document.getElementById('starIcon');
+  if (btn.classList.contains('active-star')) {
+    icon.className = 'KurilIcons kuril-have_selected';
+    icon.style.color = '#FFC107';
+  } else {
+    icon.className = 'KurilIcons kuril-collect_normal';
+    icon.style.color = '';
+  }
+}
+</script>
+</body>
+</html>

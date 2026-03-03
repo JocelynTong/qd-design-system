@@ -340,9 +340,28 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text'
   .spacing-row{display:grid;grid-template-columns:1fr 1fr}
 }
 
-/* ════════════════════════════════
-   LARGE DESKTOP ≥ 1200px
-════════════════════════════════ */
+/* ─── Demo Page ─── */
+.demo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;padding:4px 0}
+.demo-card{
+  background:var(--bg-card);border:1px solid var(--border-c);border-radius:16px;
+  overflow:hidden;text-decoration:none;color:inherit;display:block;
+  transition:box-shadow .2s,transform .2s;
+}
+.demo-card:hover{box-shadow:0 8px 32px rgba(124,102,255,.16);transform:translateY(-2px)}
+.demo-card-preview{
+  height:200px;display:flex;align-items:center;justify-content:center;
+  font-size:48px;position:relative;overflow:hidden;
+}
+.demo-card-body{padding:14px 16px 16px}
+.demo-card-title{font-size:15px;font-weight:600;color:var(--text-1);margin-bottom:4px}
+.demo-card-desc{font-size:12px;color:var(--text-3);line-height:1.6}
+.demo-card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.demo-card-tag{font-size:10px;font-weight:500;padding:2px 8px;border-radius:10px;
+  background:var(--accent-soft);color:var(--accent)}
+.demo-intro{font-size:13px;color:var(--text-2);line-height:1.7;
+  background:var(--bg-card2);border-radius:12px;padding:14px 16px;margin-bottom:20px;border:1px solid var(--border-c)}
+
+
 @media(min-width:1200px){
   :root{--sidebar-w:240px}
   .token-grid{grid-template-columns:1fr 1fr 1fr}
@@ -383,6 +402,7 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text'
         <button class="tab active" onclick="switchTab('l1')">L1 · 原子</button>
         <button class="tab" onclick="switchTab('l2')">L2 · 语义</button>
         <button class="tab" onclick="switchTab('l3')">L3 · 组件</button>
+        <button class="tab" onclick="switchTab('demo')">Demo · 原型</button>
       </div>
 
       <div class="principle-wrap" id="principle-wrap">
@@ -543,6 +563,56 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text'
           <div id="l3-tokens"></div>
         </div>
 
+        <!-- Demo 原型 -->
+        <div class="page" id="page-demo">
+          <div class="demo-intro">
+            以下页面由 Claude 根据本设计系统规范自动生成，使用真实 Token、KurilIcons 图标库和 PingFang SC / Roboto 字体。点击卡片在新标签页预览。
+          </div>
+          <div class="demo-grid">
+
+            <a class="demo-card" href="demos/home-feed.html" target="_blank">
+              <div class="demo-card-preview" style="background:linear-gradient(145deg,#F2F0FF 0%,#E8E4FF 100%)">
+                <span style="font-size:56px">🏠</span>
+                <div style="position:absolute;bottom:12px;right:12px;background:rgba(124,102,255,.12);
+                  border-radius:8px;padding:4px 10px;font-size:11px;font-weight:600;color:#7C66FF">
+                  双列 / 单列切换
+                </div>
+              </div>
+              <div class="demo-card-body">
+                <div class="demo-card-title">首页 · 信息流</div>
+                <div class="demo-card-desc">瀑布流双列 Feed + 单列 Feed，含 NavBar、SearchBar、Tabs、TabBar 完整页面骨架</div>
+                <div class="demo-card-tags">
+                  <span class="demo-card-tag">NavBar</span>
+                  <span class="demo-card-tag">Feed 双列/单列</span>
+                  <span class="demo-card-tag">Tabs</span>
+                  <span class="demo-card-tag">TabBar</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="demo-card" href="demos/content-detail.html" target="_blank">
+              <div class="demo-card-preview" style="background:linear-gradient(145deg,#C7B8FF 0%,#7C66FF 60%,#5C4CD9 100%)">
+                <span style="font-size:56px">📄</span>
+                <div style="position:absolute;bottom:12px;right:12px;background:rgba(255,255,255,.2);
+                  border-radius:8px;padding:4px 10px;font-size:11px;font-weight:600;color:white">
+                  Ghost NavBar
+                </div>
+              </div>
+              <div class="demo-card-body">
+                <div class="demo-card-title">内容详情页</div>
+                <div class="demo-card-desc">Ghost 透明导航栏 + 封面图 + 作者行 + 正文 + 评论列表 + 底部互动 BottomBar</div>
+                <div class="demo-card-tags">
+                  <span class="demo-card-tag">NavBar Ghost</span>
+                  <span class="demo-card-tag">Avatar</span>
+                  <span class="demo-card-tag">BottomBar</span>
+                  <span class="demo-card-tag">Tag</span>
+                </div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -622,7 +692,7 @@ function toggleTheme(){
 // ── Tab ──
 function switchTab(tab){
   currentTab=tab;
-  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',['l1','l2','l3'][i]===tab));
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',['l1','l2','l3','demo'][i]===tab));
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+tab).classList.add('active');
 }
