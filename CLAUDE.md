@@ -82,10 +82,17 @@ L3 Tokens（组件层）
 
 | 组件 | Figma 名称 | 关键 Variant | 适用场景 |
 |------|-----------|-------------|---------|
+| Feed 双列卡片 | `💙 03.07_Feed / Post` | Size=4:3/3:4, Image=True/False | 首页/发现页瀑布流 |
+| Feed 单列卡片 | `💙 03.07_Feed / Post` | Size=1 Column, Image=True | 关注页/搜索结果全宽信息流 |
 | Tag | `💙 03.02_Tag / Echo` | className=Tag/SPU/Post/Spec | 内容标签、商品状态、帖子角标 |
 | Avatar | `💙 03.05_Avatar / Basic` | Size=Normal/Small, Color=Default | 作者头像、评论列表 |
 | Avatar Echo | `💙 03.05_Avatar / Echo` | className=AvatarLive/AvatarReddot | 直播状态、未读提示 |
 | Badge | `💙  03.01_Badge/Shop/Normal` | 无 Variant | Tab 角标、消息未读数 |
+
+**Feed 布局规则：**
+- 双列：卡片宽 174px，间距 8px（Spacing/Normal），页面两侧各 8px
+- 单列：卡片全宽，左右各 16px（Spacing/Large）边距
+- 图片圆角：Radius/Normal(8px)
 
 ### 交互输入组件
 

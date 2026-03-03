@@ -1,0 +1,67 @@
+{
+  "component": "Feed / Post",
+  "figma_node": "48178:346516",
+  "figma_file": "HjpmfUPwU7HGMRj9X80TAY",
+  "description": "内容信息流卡片，支持双列瀑布流和单列详情流两种布局。内容社区首页、发现页的核心展示单元。",
+  "usage_rules": [
+    "首页/发现页默认用双列（Size=4:3 或 3:4），实现瀑布流效果",
+    "关注页、搜索结果页用单列（Size=1 Column），展示更多信息",
+    "Image=False（无图卡片）适用于纯文字内容帖，展示纹理背景区分",
+    "卡片圆角用 Radius/Normal(8px)，图片区同样 8px 圆角",
+    "卡片间距用 Spacing/Normal(8px)，页面边距 Spacing/Normal(8px)"
+  ],
+  "dimensions": {
+    "dual_column_card": { "width": 174, "height": 172, "note": "390px屏幕双列，含8px间距" },
+    "image_4_3": { "width": 174, "height": 110, "ratio": "4:3(landscape)" },
+    "image_3_4": { "width": 174, "height": 232, "ratio": "3:4(portrait)" },
+    "user_info_row": { "width": 174, "height": 36 }
+  },
+  "variants": {
+    "DualCol_4_3": {
+      "figma_name": "💙 03.07_Feed / Post",
+      "desc": "双列卡片，横版图（4:3），标准信息流卡片",
+      "props": { "Size": "4:3", "Image": "True" },
+      "structure": {
+        "Post.Image": "图片区 174×110，Radius/Normal，可叠加视频图标和标签",
+        "Post.Contents": "标题文字区，text/1，2行最多",
+        "User.Info": "用户信息行：头像(24px) + 名称(text/3) + 点赞数(icon/2)"
+      },
+      "tokens_used": {
+        "color": ["text/1", "text/2", "text/3", "icon/1", "icon/2", "icon/3",
+                  "bg/4", "mask/2", "primary/color", "primary/textColor",
+                  "primary/tag/solidBg", "primary/tag/solidColor",
+                  "trade/tag/solidBg", "trade/tag/solidColor",
+                  "white/textColor", "white/border"],
+        "spacing": ["Spacing/Normal(8px)", "Spacing/Small(4px)", "Spacing/Mini(2px)"],
+        "radius": ["Radius/Normal(8px)", "Radius/Small(4px)"]
+      }
+    },
+    "DualCol_3_4": {
+      "figma_name": "💙 03.07_Feed / Post",
+      "desc": "双列卡片，竖版图（3:4），高图内容（潮玩/手办）",
+      "props": { "Size": "3:4", "Image": "True" }
+    },
+    "DualCol_Mixed": {
+      "figma_name": "💙 03.07_Feed / Post",
+      "desc": "双列卡片，混合比例（4:3~3:4），瀑布流等高自适应",
+      "props": { "Size": "4:3~3:4", "Image": "True" }
+    },
+    "DualCol_NoImage": {
+      "figma_name": "💙 03.07_Feed / Post",
+      "desc": "双列纯文字卡片，无图，显示纹理背景",
+      "props": { "Size": "4:3", "Image": "False" }
+    },
+    "SingleColumn": {
+      "figma_name": "💙 03.07_Feed / Post",
+      "desc": "单列全宽卡片，展示更完整的内容：作者行 + 正文 + 图片组 + 标签 + 评论预览",
+      "props": { "Size": "1 Column", "Image": "True" },
+      "structure": {
+        "User": "作者头像(32px) + 昵称 + 发布时间 + 关注按钮",
+        "Contents": "话题标签 + 正文文字（3行截断）+ 更多",
+        "ImageGrid": "图片组：1图/3图/9图网格",
+        "Tags": "💙 03.02_Tag / Echo / Tag",
+        "Comments": "热门评论预览，最多3条"
+      }
+    }
+  }
+}
