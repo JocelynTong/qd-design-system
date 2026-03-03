@@ -4,8 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=390, initial-scale=1.0, maximum-scale=1.0">
 <title>内容详情页 · 千岛设计系统原型</title>
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_3550031_uwcy4h4l9a9.css">
+<link rel="stylesheet" href="https://at.alicdn.com/t/c/font_3550031_uwcy4h4l9a9.css">
 <style>
+/* ===== KurilIcons @font-face 内联保底 ===== */
+@font-face {
+  font-family: 'KurilIcons';
+  src: url('https://at.alicdn.com/t/c/font_3550031_uwcy4h4l9a9.woff2?t=1732610985115') format('woff2'),
+       url('https://at.alicdn.com/t/c/font_3550031_uwcy4h4l9a9.ttf?t=1732610985115') format('truetype');
+  font-display: swap;
+}
 /* =============================
    千岛设计系统 Token CSS Variables
    来源：tokens/processed.json
@@ -621,10 +628,9 @@ body.show-tokens .token-label { display: inline; }
     <div class="content">
 
       <!-- Cover Image -->
-      <!-- 使用渐变色模拟封面图，实际用图片替换 -->
-      <div class="cover">
+      <div class="cover" id="coverEl">
         <div class="cover-placeholder">
-          <span class="cover-emoji">🎴</span>
+          <span class="cover-emoji" id="coverEmoji">🎴</span>
           封面图片区域
         </div>
         <div class="cover-gradient"></div>
@@ -663,9 +669,9 @@ body.show-tokens .token-label { display: inline; }
       <!-- Components: 💙 03.05_Avatar / Basic · Size=Normal · Color=Default -->
       <!--             💙 00.05_Button / MH · Color=Primary · Type=Outline · Size=Small(28) -->
       <div class="author-row">
-        <div class="avatar">洁</div>
+        <div class="avatar" id="authorAvatar">洁</div>
         <div class="author-info">
-          <div class="author-name">Jocelyn · 设计碎碎念</div>
+          <div class="author-name" id="authorName">Jocelyn · 设计碎碎念</div>
           <div class="author-meta">2025-12-18 · 广东</div>
         </div>
         <button class="btn-follow">+ 关注</button>
@@ -673,7 +679,7 @@ body.show-tokens .token-label { display: inline; }
 
       <!-- Post Body -->
       <div class="post-body">
-        <h1 class="post-title">用 Figma Variables 搭了一套完整的县城设计系统，真的救活了产品团队</h1>
+        <h1 class="post-title" id="postTitle">用 Figma Variables 搭了一套完整的县城设计系统，真的救活了产品团队</h1>
         <div class="post-text">
           <p>去年底开始接手了一个县城级政务+生活服务的产品，团队小，设计师就我一个，但要同时维护 App、小程序、H5 三端。</p>
           <p>之前每次换色换间距都要改几百个地方，噩梦。后来痛定思痛，花了三周时间用 Figma Variables 搭了一套三级 Token 映射的设计系统。</p>
@@ -836,6 +842,57 @@ function toggleStar() {
     icon.style.color = '';
   }
 }
+
+// 从 URL 参数动态渲染卡片对应的封面和内容
+(function() {
+  const p = new URLSearchParams(window.location.search);
+  if (!p.has('emoji')) return;
+
+  const emoji  = p.get('emoji');
+  const c1     = p.get('c1') || 'C7B8FF';
+  const c2     = p.get('c2') || '7C66FF';
+  const title  = p.get('title');
+  const author = p.get('author');
+  const ac     = p.get('avatarC') || c1;
+
+  // 封面背景渐变（三色：浅→主色→深）
+  const cover = document.getElementById('coverEl');
+  if (cover) cover.style.background =
+    `linear-gradient(145deg, #${c1} 0%, #${c2} 55%, #${darkenHex(c2, 40)} 100%)`;
+
+  function darkenHex(hex, amount) {
+    const n = parseInt(hex, 16);
+    const r = Math.max(0, (n >> 16) - amount);
+    const g = Math.max(0, ((n >> 8) & 0xff) - amount);
+    const b = Math.max(0, (n & 0xff) - amount);
+    return ((r << 16) | (g << 8) | b).toString(16).padStart(6, '0');
+  }
+
+  // 封面 emoji
+  const em = document.getElementById('coverEmoji');
+  if (em) em.textContent = emoji;
+
+  // 文章标题
+  if (title) {
+    const t = document.getElementById('postTitle');
+    if (t) t.textContent = title;
+  }
+
+  // 作者名 + 头像首字
+  if (author) {
+    const nameEl = document.getElementById('authorName');
+    if (nameEl) nameEl.textContent = author;
+    const avatarEl = document.getElementById('authorAvatar');
+    if (avatarEl) {
+      avatarEl.textContent = author.charAt(0);
+      avatarEl.style.background = `linear-gradient(135deg,#${ac},#${c2})`;
+    }
+  }
+
+  // 返回按钮 → 回信息流
+  document.querySelector('.navbar-left button')
+    ?.addEventListener('click', () => history.back());
+})();
 </script>
 </body>
 </html>

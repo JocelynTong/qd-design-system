@@ -4,8 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=390, initial-scale=1.0">
 <title>首页 · Feed · 千岛设计系统原型</title>
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_3550031_uwcy4h4l9a9.css">
+<link rel="stylesheet" href="https://at.alicdn.com/t/c/font_3550031_uwcy4h4l9a9.css">
 <style>
+/* ===== KurilIcons @font-face 内联保底（本地/离线也能显示图标）===== */
+@font-face {
+  font-family: 'KurilIcons';
+  src: url('https://at.alicdn.com/t/c/font_3550031_uwcy4h4l9a9.woff2?t=1732610985115') format('woff2'),
+       url('https://at.alicdn.com/t/c/font_3550031_uwcy4h4l9a9.ttf?t=1732610985115') format('truetype');
+  font-display: swap;
+}
 /* ===== 千岛 Design Token Variables ===== */
 :root {
   --bg-1:#FFFFFF; --bg-2:#F7F7F9; --bg-3:#FFFFFF; --bg-4:#EDEDF2;
@@ -170,7 +177,9 @@ body{background:#EDEDF2;display:flex;justify-content:center;font-family:'PingFan
 .tab-bar-item.publish svg,.tab-bar-item.publish i{color:var(--primary-5)}
 .tb-badge{position:absolute;top:6px;right:calc(50% - 18px);background:var(--error-solid-bg);color:var(--white-text-color);font-size:9px;font-weight:700;min-width:14px;height:14px;border-radius:7px;display:flex;align-items:center;justify-content:center;padding:0 3px;border:1.5px solid var(--bg-1)}
 
-/* ===== Demo controls ===== */
+/* 阻止 stat/button 区域点击穿透到卡片 */
+.single-stats,.btn-follow-sm{position:relative;z-index:2}
+.feed-card,.feed-card-single{cursor:pointer}
 .demo-ctrl{position:fixed;top:12px;right:12px;display:flex;flex-direction:column;gap:6px;z-index:9999}
 .ctrl-btn{background:var(--primary-solid-bg);color:#fff;border:none;border-radius:20px;padding:5px 12px;font-size:12px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(124,102,255,.4);white-space:nowrap}
 </style>
@@ -236,8 +245,8 @@ body{background:#EDEDF2;display:flex;justify-content:center;font-family:'PingFan
     <!-- Card width: 183px, gap: 8px, page padding: 8px -->
     <div id="feed-dual">
 
-      <!-- Card 1: Size=4:3 (4:3比例图) -->
-      <div class="feed-card" onclick="">
+      <!-- Card 1: Size=4:3 -->
+      <div class="feed-card" onclick="openDetail('🎴','C7B8FF','7C66FF','这套 Figma Variables 三级映射真的绝了，换色只需要改一处','设计师洁','C7B8FF')">
         <div class="card-img" style="aspect-ratio:4/3">
           <div class="img-placeholder" style="height:100%;background:linear-gradient(135deg,#C7B8FF,#7C66FF)">🎴</div>
           <!-- Post Tag: 💙 03.02_Tag / Post · 角标=Hot -->
@@ -259,7 +268,7 @@ body{background:#EDEDF2;display:flex;justify-content:center;font-family:'PingFan
       </div>
 
       <!-- Card 2: Size=3:4 (竖版图) -->
-      <div class="feed-card">
+      <div class="feed-card" onclick="openDetail('🌿','9DE09D','379E45','手办开箱 | 这款限定版真的太好看了','潮玩研究所','9DE09D')">
         <div class="card-img" style="aspect-ratio:3/4">
           <div class="img-placeholder" style="height:100%;background:linear-gradient(135deg,#9DE09D,#379E45)">🌿</div>
           <!-- Tag: Primary -->
@@ -285,7 +294,7 @@ body{background:#EDEDF2;display:flex;justify-content:center;font-family:'PingFan
       </div>
 
       <!-- Card 3: Size=4:3 -->
-      <div class="feed-card">
+      <div class="feed-card" onclick="openDetail('🎠','FFABAB','F96464','县城设计师的成长日记：从0到1搭建设计系统','设计进阶路','FFABAB')">
         <div class="card-img" style="aspect-ratio:4/3">
           <div class="img-placeholder" style="height:100%;background:linear-gradient(135deg,#FFABAB,#F96464)">🎠</div>
         </div>
@@ -306,7 +315,7 @@ body{background:#EDEDF2;display:flex;justify-content:center;font-family:'PingFan
 
       <!-- Card 4: Image=False (纯文字卡) -->
       <!-- Component: 💙 03.07_Feed / Post · Size=4:3 · Image=False -->
-      <div class="feed-card">
+      <div class="feed-card" onclick="openDetail('📝','EDEDF2','D4D0DA','Sketch → Figma 迁移踩坑实录','UI设计师','C7C3D4')">
         <div class="card-img" style="aspect-ratio:4/3;background:var(--bg-4);display:flex;align-items:center;justify-content:center;padding:12px">
           <p style="font-size:13px;color:var(--text-2);line-height:1.6;text-align:left">用了 3 年 Sketch 之后转 Figma，现在已经完全回不去了，Auto Layout 真的救了我...</p>
         </div>
@@ -326,7 +335,7 @@ body{background:#EDEDF2;display:flex;justify-content:center;font-family:'PingFan
       </div>
 
       <!-- Card 5 -->
-      <div class="feed-card">
+      <div class="feed-card" onclick="openDetail('🔮','C7B8FF','5C4CD9','【限定款】紫水晶联名手办首次开放预定，数量有限','潮玩预告官','C7B8FF')">
         <div class="card-img" style="aspect-ratio:3/4">
           <div class="img-placeholder" style="height:100%;background:linear-gradient(135deg,#C7B8FF,#5C4CD9)">🔮</div>
           <div class="card-img-tags"><span class="img-tag primary">预定</span></div>
@@ -347,7 +356,7 @@ body{background:#EDEDF2;display:flex;justify-content:center;font-family:'PingFan
       </div>
 
       <!-- Card 6 -->
-      <div class="feed-card">
+      <div class="feed-card" onclick="openDetail('⭐','FFD700','FF8C00','设计 token 命名规范整理，看这一篇就够了','Token 研究员','FFD700')">
         <div class="card-img" style="aspect-ratio:4/3">
           <div class="img-placeholder" style="height:100%;background:linear-gradient(135deg,#FFD700,#FF8C00)">⭐</div>
         </div>
@@ -373,7 +382,7 @@ body{background:#EDEDF2;display:flex;justify-content:center;font-family:'PingFan
     <div id="feed-single">
 
       <!-- Single Card 1 -->
-      <div class="feed-card-single">
+      <div class="feed-card-single" onclick="openDetail('🎴','C7B8FF','7C66FF','用 Figma Variables 搭的三级 Token 映射设计系统','Jocelyn · 设计碎碎念','C7B8FF')">
         <!-- Author: 💙 03.05_Avatar / Basic · Size=Small(32) + Button/MH/Outline/Mini -->
         <div class="single-author">
           <div class="avatar-sm" style="background:linear-gradient(135deg,#C7B8FF,#7C66FF)">洁</div>
@@ -398,7 +407,7 @@ body{background:#EDEDF2;display:flex;justify-content:center;font-family:'PingFan
           <span class="tag-chip"># Design Token</span>
         </div>
         <!-- Stats -->
-        <div class="single-stats">
+        <div class="single-stats" onclick="event.stopPropagation()">
           <div class="stat">
             <i class="KurilIcons kuril-comment ki-16"></i>
             386
@@ -419,7 +428,7 @@ body{background:#EDEDF2;display:flex;justify-content:center;font-family:'PingFan
       </div>
 
       <!-- Single Card 2 -->
-      <div class="feed-card-single">
+      <div class="feed-card-single" onclick="openDetail('🔮','C7B8FF','5C4CD9','手办开箱 | 限定版莫兰迪紫，整体配色精致','潮玩研究所','C7B8FF')">
         <div class="single-author">
           <div class="avatar-sm" style="background:linear-gradient(135deg,#9DE09D,#379E45)">潮</div>
           <div class="single-author-info">
@@ -458,7 +467,7 @@ body{background:#EDEDF2;display:flex;justify-content:center;font-family:'PingFan
       <span class="tb-label">首页</span>
     </div>
     <div class="tab-bar-item">
-      <i class="KurilIcons kuril-all"></i>
+      <i class="KurilIcons kuril-topic"></i>
       <span class="tb-label">发现</span>
     </div>
     <!-- FAB publish: 💙 00.05_Button / FAB -->
@@ -480,6 +489,12 @@ body{background:#EDEDF2;display:flex;justify-content:center;font-family:'PingFan
 </div><!-- .phone -->
 
 <script>
+// 跳转到内容详情页，携带卡片信息
+function openDetail(emoji, c1, c2, title, author, avatarC) {
+  const p = new URLSearchParams({ emoji, c1, c2, title, author, avatarC: avatarC||c1 });
+  window.location.href = 'content-detail.html?' + p.toString();
+}
+
 function toggleTheme() {
   const html = document.documentElement;
   const btn = document.querySelector('.ctrl-btn');
