@@ -10,80 +10,9 @@
 
 ---
 
-## 指令与话术
-
-> 各角色与 AI 交互时的标准指令和建议沟通方式，持续更新。
-
-### 🛠 常用 npm 指令
-
-```bash
-npm run new-demo <需求名>          # 初始化新需求文件夹（复制冻结 CSS + 显示候选警告）
-npm run figma-sync <需求名>        # 将需求的 figma-config.json 同步到 Figma
-npm run notify-feishu              # 手动触发飞书候选池周报
-bash preview.sh                    # 本地预览默认页面
-bash preview.sh demos/xxx/yyy.html # 本地预览指定页面
-```
-
----
-
-### 💬 PM → AI 话术
-
-**发起新需求**
-> 「我要在帖子详情页增加 XX 功能，用户可以 YY，点击后 ZZ」
-
-不需要说明用哪个组件，AI 会读 `business/community.md` 和规范稿自行判断。
-
-**跨业务需求**
-> 「这是社区内容变现需求，用户在帖子里看到商品标签，点击跳转到 C2C 商品详情页」
-
-跨业务时说清楚起点和终点，AI 会同时读两个业务的规范。
-
-**在已有页面上改**
-> 「在帖子详情页的评论区上方加一个 XX 模块，参考 YY 的样式」
-
-AI 会从 `business/community/content-detail.html` 作为基线开始改，不从头搭。
-
-**迭代修改**
-> 「第三稿的 XX 改成 YY，其他不动」
-
-在同一需求文件夹内改，不新建文件夹。
-
----
-
-### 🎨 设计师 → AI 话术
-
-**精调完成，回写规范稿**
-> 「精调完了，这是导出的 JSON：[粘贴插件导出内容]，请更新 community 的规范稿」
-
-AI 会对比差异，回写 `business/community/*.html`，并标注候选池 warning。
-
-**新增了自定义设计元素**
-> 「我在首页新加了一个渐变 banner，用的是 #7C66FF 到 #A594FF，高度 120px」
-
-AI 会生成对应 CSS 并追加到候选池，等待收口人决策是否 token 化。
-
----
-
-### ✅ 收口人 → AI 话术（候选池决策）
-
-**Token 化**
-> 「渐变紫色背景这个 token 化，命名为 `--brand-gradient-primary`」
-
-AI 会将新 token 加入 `business/_styles.css` 并从候选池移除。
-
-**做成业务组件**
-> 「这个虚线分割线做成社区的业务组件，叫 community-divider」
-
-AI 会在 `business/community/` 里建对应的 HTML 片段。
-
-**忽略**
-> 「这个手绘插画忽略，一次性的不用沉淀」
-
-AI 会从候选池移除该条目。
-
----
-
 ## 完整工作流程
+
+> 各角色的话术和指令随流程内嵌，持续更新。
 
 ```
 ① PM 描述需求
@@ -111,130 +40,136 @@ AI 会从候选池移除该条目。
 
 ---
 
-**① PM 描述需求**
+**① PM 描述需求** `角色：PM`
 
-PM 用自然语言描述需求，不需要特定格式。AI 需要从中识别：
-- 属于哪个业务模块（社区？C2C？跨业务？）
-- 涉及哪些页面（新页面还是在现有页面上改）
-- 核心功能点是什么
+话术建议：
 
----
+> 「我要在帖子详情页增加 XX 功能，用户可以 YY，点击后 ZZ」
+> 「这是社区内容变现需求，从帖子里的商品标签跳转到 C2C 商品详情页」
+> 「在已有的首页 Feed 上改，在搜索栏下方加一个 XX 入口」
 
-**② AI 识别业务归属 → 读 `business/*.md`**
-
-| PM 说的关键词 | AI 读取的文件 |
-|-------------|-------------|
-| 社区、帖子、Feed、内容详情 | `business/community.md` |
-| C2C、商品、二手、下单 | `business/c2c.md` |
-| 跨业务（如社区内容变现） | 两个都读 |
-
-读取目的：确认页面的基线组件顺序，不自己发明结构。
+不需要说明用哪个组件或怎么实现，只描述用户行为和目标页面即可。跨业务需求说清起点和终点。
 
 ---
 
-**③ AI 规划页面清单**
+**② AI 识别业务归属** `角色：AI`
 
-确定本次需求涉及的所有页面，区分：
-- **改已有页面**：在基线结构上增删组件
-- **新建页面**：按 `business/{module}/*.html` 的规范稿从头搭
+AI 自动根据关键词判断并读取对应规范：
 
-同时规划页面间的跳转关系，为后续写 `figma-config.json` 做准备。
+| 关键词 | 读取文件 |
+|---|---|
+| 社区、帖子、Feed、内容详情 | `business/community.md` + `community/*.html` |
+| C2C、商品、二手、下单 | `business/c2c.md` + `c2c/*.html` |
+| 跨业务 | 两个都读 |
+
+此步骤无需 PM 干预，AI 自行完成。
 
 ---
 
-**④ 创建需求文件夹**
+**③ AI 规划页面清单** `角色：AI`
 
-命名规则：`{业务}-{需求简称}-v{版本号}`，一键初始化：
+AI 自动确认本次需求涉及的所有页面：
+- **改已有页面** → 从 `business/{module}/*.html` 规范稿开始改
+- **新建页面** → 按规范稿的组件结构从头搭
+
+同时规划页面间跳转关系，为写 `figma-config.json` 做准备。此步骤无需 PM 干预。
+
+---
+
+**④ 创建需求文件夹** `角色：AI 或开发`
 
 ```bash
-npm run new-demo community-feed-v1
+npm run new-demo community-feed-v1   # 命名规则：{业务}-{需求简称}-v{版本号}
 ```
 
-自动从 `business/_styles.css` 复制冻结 CSS——此刻复制即冻结，后续 token 升级不影响旧需求视觉。同时显示候选池待决策数量。
+自动从 `business/_styles.css` 复制冻结 CSS，创建时即与外部脱钩，后续 token 升级不影响旧需求视觉。启动时同步显示候选池待决策数量。
 
 ---
 
-**⑤ 搭建 HTML 原型**
+**⑤ 搭建 HTML 原型** `角色：AI`
 
-从 `business/{module}/` 复制对应页面 HTML 作为起点，按需求修改：
-- 引用 `./styles.css`（文件夹内的冻结版本）
-- 页面专属样式写在 HTML 的 `<style>` 块里
-- 图片占位用实色色块，不用渐变
+AI 从 `business/{module}/` 复制规范 HTML 作为起点，按需求修改后输出至需求文件夹。PM 无需操作，等待预览链接即可。
 
 ---
 
-**⑥ 编写 `figma-config.json`**
+**⑥ 编写 `figma-config.json`** `角色：AI`
 
-描述需求内所有页面的跳转关系：
+AI 同步生成页面流转配置：
 
 ```json
 {
   "name": "社区内容变现 v1",
-  "pages": [
-    { "name": "01 首页Feed" },
-    { "name": "02 帖子详情" },
-    { "name": "03 商品弹层" }
-  ],
+  "pages": [{ "name": "01 首页Feed" }, { "name": "02 帖子详情" }],
   "connections": [
-    { "from": "01 首页Feed", "to": "02 帖子详情", "trigger": "FeedCard" },
-    { "from": "02 帖子详情", "to": "03 商品弹层", "trigger": "商品标签" }
+    { "from": "01 首页Feed", "to": "02 帖子详情", "trigger": "FeedCard" }
   ]
 }
 ```
 
-跨业务跳转直接在 `connections` 里写，不受业务模块归属限制。
+跨业务跳转直接写在 `connections` 里，不受业务模块限制。
 
 ---
 
-**⑦ 预览 & 迭代**
+**⑦ 预览 & 迭代** `角色：PM`
 
 ```bash
 bash preview.sh                                          # 默认打开基线页面
-bash preview.sh demos/community-feed-v1/home-feed.html  # 指定页面
+bash preview.sh demos/community-feed-v1/home-feed.html  # 指定需求页面
 ```
 
-同一需求的迭代在同一文件夹内改，不新建文件夹。
+话术建议：
+
+> 「第一稿的 XX 改成 YY，其他不动」
+> 「把这个模块移到评论区下面，间距大一点」
+
+同一需求的所有迭代在同一文件夹内改，不新建文件夹，不算新需求。
 
 ---
 
-**⑧ 确认交付 → 文件夹冻结存档**
+**⑧ 确认交付 → 文件夹冻结存档** `角色：PM`
 
-PM 最终确认后该文件夹不再修改，下一期迭代新建 v2 文件夹。回看历史原型直接打开对应文件夹的 HTML，视觉还原当时的 token 版本。
+话术建议：
+
+> 「这版 OK 了，可以交付」
+
+PM 确认后该文件夹不再修改，下一期迭代新建 v2 文件夹。
 
 ---
 
-**⑨ 同步到 Figma**
+**⑨ 同步到 Figma** `角色：AI 或开发`
 
 ```bash
 npm run figma-sync community-feed-v1
 ```
 
-读取需求文件夹的 `figma-config.json` → 自动在 Figma 里生成页面和跳转关系，供设计师精调。
+读取需求文件夹的 `figma-config.json` → 复制到剪贴板 → 在 Figma 插件里粘贴运行，自动生成页面帧和跳转连线。
 
 ---
 
-**⑩ 设计师精调 → 插件导出 → 回写 business/ 规范稿**
+**⑩ 设计师精调 → 回写规范稿** `角色：设计师 → AI`
 
-设计师精调完成后：
-1. 在 Figma 里选中对应 Section
-2. 插件点「导出结构」→ 自动导出 variants + 文字内容 + 自定义节点 CSS
-3. 将导出 JSON 粘给 AI
-4. AI 对比差异，回写 `business/{module}/*.html` 规范稿
-5. 规范稿更新后，下次 PM 新需求从最新规范稿开始
+设计师在 Figma 精调完成后：
 
-导出时插件自动校验 Frame 命名，并将非 token 节点追加到 `business/_candidates.md`。
+话术建议：
+
+> 「精调完了，这是导出的 JSON：[粘贴插件导出内容]，请更新 community 的规范稿」
+> 「我在首页新加了一个渐变 banner，用的是 #7C66FF 到 #A594FF，高度 120px，帮我加进去」
+
+AI 对比差异后回写 `business/{module}/*.html`，非 token 节点自动追加到候选池，Frame 命名异常时给出警告。
 
 ---
 
-**⑪ 候选池决策（每周一 11:00 飞书提醒）**
+**⑪ 候选池决策** `角色：收口人`  每周一 11:00 飞书提醒
 
-飞书群机器人每周一自动推送候选池状态，收口人做三选一决策：
+话术建议：
 
-| 选项 | 操作 |
-|---|---|
-| token 化 | AI 将新值加入 `business/_styles.css` |
-| 业务组件 | AI 在 `business/{module}/` 里建组件片段 |
-| 忽略 | 从候选池移除，保留为一次性裸值 |
+> 「渐变紫色背景 token 化，命名 `--brand-gradient-primary`」  → AI 加入 `business/_styles.css`
+> 「虚线分割线做成社区业务组件，叫 community-divider」  → AI 在 `business/community/` 建片段
+> 「手绘插画忽略，一次性的」  → AI 从候选池移除
+
+```bash
+npm run notify-feishu   # 手动触发飞书周报（测试用）
+```
 
 ---
 
@@ -353,7 +288,7 @@ MD 管「怎么做」，HTML 管「现在是什么」，两者不重叠。
 
 ### 设计师改了 Figma，怎么同步回来？
 
-插件「导出结构」功能会导出：组件 key + variant 属性 + 文字内容 + 非组件节点的 CSS（via `getCSSAsync`）。将导出 JSON 粘给 AI，AI 对比现有规范稿后回写 `business/{module}/*.html`。
+插件「导出结构」功能会导出：组件 key + variant 属性 + 文字内容 + 非组件节点的 CSS。将导出 JSON 粘给 AI，AI 对比现有规范稿后回写 `business/{module}/*.html`。
 
 非 token 的自定义节点会自动追加到 `business/_candidates.md`，每周一飞书提醒收口人决策。
 
