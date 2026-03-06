@@ -2,8 +2,35 @@
 
 > 本文件供 AI（如 Claude）自动读取。当产品经理或设计师向你描述界面需求时，请严格按照本文件中的规范输出设计方案。
 
-设计系统浏览器：https://jocelyntong.github.io/qd-design-system/
+设计系统浏览器：https://jocelyntong.github.io/echo-design-system/
 组件文档目录：`components/` 目录下每个 JSON 文件
+
+---
+
+## 零、全局页面尺寸与 iOS 安全区（所有页面必须遵守）
+
+**设计基准：iPhone 375×812（1x）**，对应 iPhone X/11/12/13 mini 等主流机型。
+
+```
+┌─────────────────────────┐  ↑
+│     Status Bar 44px     │  │ 顶部安全区（iOS 状态栏）
+├─────────────────────────┤  │
+│                         │  │
+│      内容区              │  812px
+│                         │  │
+├─────────────────────────┤  │
+│   Home Indicator 34px   │  │ 底部安全区（iOS 手势条）
+└─────────────────────────┘  ↓
+         375px
+```
+
+| 区域 | 高度 | 说明 |
+|------|------|------|
+| Status Bar | 44px | 顶部，使用 `💙 01.00_Status Bar` 组件；透明时 opacity=0 |
+| Home Indicator | 34px | 底部，使用 `💙 01.11_Home Indicator` 组件 |
+| 纯内容区 | 734px | 812 - 44 - 34 |
+
+**注意：** TabBar（83px）和 BottomBar/ActionBar（83px）内部已包含 Home Indicator 的 34px 安全区，不需要额外叠加。独立页面（无 TabBar/BottomBar）才需要单独放置 Home Indicator 组件。
 
 ---
 
@@ -203,7 +230,23 @@ Button 尺寸：Large(40px) 主CTA · Medium(36px) 弹窗 · Normal(32px) 卡片
 
 ---
 
-## 四、输出格式模板
+## 六、业务模块（按需加载）
+
+> CLAUDE.md 只维护全局规范。各业务线的页面模板、组件 Key 表、变体选择指引存放在独立文件中。
+> **PM 提出原型需求时，根据业务归属读取对应文件，不要把所有业务内容加载进来。**
+
+| 业务线 | 文件 | 状态 |
+|--------|------|------|
+| 社区（内容详情页、首页 Feed） | `business/community.md` | ✅ 可用 |
+| C2C（二手交易、商品详情） | `business/c2c.md` | ⚠️ 待补充 |
+
+### 调用规则
+
+- PM 说"社区"、"内容详情"、"帖子"、"Feed"→ 读取 `business/community.md`
+- PM 说"C2C"、"商品"、"二手"→ 读取 `business/c2c.md`
+- 不确定时询问 PM 属于哪个业务线
+
+
 
 当帮 PM 设计一个页面时，请使用以下格式：
 

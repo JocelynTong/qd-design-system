@@ -1,5 +1,5 @@
 {
-  "name": "qd-design-system",
+  "name": "echo-design-system",
   "version": "1.0.0",
   "scripts": {
     "new-demo": "node scripts/new-demo.js",

@@ -44,7 +44,7 @@ function formatRows(rows) {
   return rows.map(r => `• **${r[0]}** × ${r[2]}次｜最近：${r[3]}`).join('\n');
 }
 
-const repoUrl = 'https://github.com/jocelyntong/qd-design-system/blob/main/business/_candidates.md';
+const repoUrl = 'https://github.com/jocelyntong/echo-design-system/blob/main/business/_candidates.md';
 
 const card = {
   msg_type: 'interactive',

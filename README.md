@@ -27,8 +27,8 @@
 **一次性初始化（所有人）**
 
 ```bash
-git clone https://github.com/JocelynTong/qd-design-system.git
-cd qd-design-system
+git clone https://github.com/JocelynTong/echo-design-system.git
+cd echo-design-system
 ```
 
 ---
