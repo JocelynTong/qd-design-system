@@ -127,6 +127,21 @@ npm run new-demo community-feed-v1   # 命名：{业务}-{需求简称}-v{版本
 
 ---
 
+**插件安装（一次性，需要 Figma Desktop）**
+
+两个插件均为本地插件，需手动导入：
+
+Figma Desktop → 顶部菜单「Plugins」→「Development」→「Import plugin from manifest...」
+
+| 插件 | 选择的 manifest 路径 | 用途 |
+|---|---|---|
+| 千岛建稿助手 | `figma-plugin/manifest.json` | 建稿 + 导出结构 |
+| 组件 Key 查找器 | `figma-plugin-keyfinder/manifest.json` | 按名字搜索组件 Key |
+
+导入后在 Figma 里通过「Plugins → Development → 插件名」运行。
+
+---
+
 **步骤一：同步建稿到 Figma**（插件：千岛建稿助手）
 
 ```bash
