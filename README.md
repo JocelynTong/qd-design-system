@@ -44,9 +44,7 @@ AI 生成 HTML 原型 + figma-config.json
        ↓
 产品经理 确认交付 → 冻结存档
        ↓
-同步到 Figma
-       ↓
-设计师 精调 → 导出 → 回写规范稿
+设计师 同步建稿 → Figma 精调 → 导出回写规范稿
        ↓
 候选池决策（每周一 11:00 飞书提醒）
 ```
@@ -127,15 +125,29 @@ npm run new-demo community-feed-v1   # 命名：{业务}-{需求简称}-v{版本
 
 运行 `npm run dev` → `http://localhost:8081`，可按 APP 切换（千岛 / 临界 / 奇货）、按分类筛选、点击色块复制色值。
 
-**同步到 Figma**
+---
+
+**步骤一：同步建稿到 Figma**（插件：千岛建稿助手）
 
 ```bash
 npm run figma-sync community-feed-v1
 ```
 
-读取 `figma-config.json` → 复制到剪贴板 → Figma 插件粘贴运行，自动生成页面帧和跳转连线。
+config 已复制到剪贴板。打开 Figma → 运行「千岛建稿助手」插件 → 粘贴 JSON → 点击「建稿」，自动生成页面帧 + 跳转连线。
 
-**精调完成 → 回写规范稿**
+> 如果需要查某个组件在 Figma 里的 Key，运行「组件 Key 查找器」插件，输入组件名搜索，把找到的 key 告诉 AI 更新进 `figma-plugin/code.js`。
+
+---
+
+**步骤二：Figma 精调**
+
+在生成的 Frame 里正常做设计。组件尽量用库里已有的，自定义节点（渐变、特殊图形等）会在导出时标记为候选池候选项，等收口人决策。
+
+---
+
+**步骤三：导出结构 → 回写规范稿**（插件：千岛建稿助手）
+
+精调完成后：Figma 里选中对应 Section 或 Frame → 插件点击「导出结构」→ 复制导出的 JSON。
 
 把这段话发给 Claude Code：
 
@@ -146,7 +158,11 @@ npm run figma-sync community-feed-v1
 请更新对应业务的规范稿。
 ```
 
-**新增了自定义设计元素**
+AI 对比差异后回写 `business/{module}/*.html`，Frame 命名与 HTML 文件名不一致时会给出警告。
+
+---
+
+**新增了自定义设计元素（无法通过插件导出）**
 
 > 「我在首页新加了一个渐变 banner，用的是 #7C66FF 到 #A594FF，高度 120px，帮我加进去」
 
