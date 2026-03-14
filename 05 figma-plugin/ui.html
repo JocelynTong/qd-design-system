@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: -apple-system, 'PingFang SC', sans-serif;
+  font-size: 12px;
+  color: #1a1a2e;
+  background: #f5f5f7;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Tab 栏（Segmented Control 样式，让新人一眼看出是可切换的） ── */
+.tabs-wrap {
+  padding: 10px 12px;
+  background: #fff;
+  border-bottom: 1px solid #e5e5ea;
+  flex-shrink: 0;
+}
+.tabs {
+  display: flex;
+  background: #ebebf0;
+  border-radius: 9px;
+  padding: 3px;
+  gap: 3px;
+}
+.tab {
+  flex: 1;
+  padding: 7px 0;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: #6c6c80;
+  cursor: pointer;
+  border-radius: 7px;
+  transition: all 0.18s;
+  user-select: none;
+  letter-spacing: 0.01em;
+}
+.tab.active {
+  background: #fff;
+  color: #1a1a2e;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.13), 0 0 0 0.5px rgba(0,0,0,0.06);
+}
+.tab:hover:not(.active) { color: #333; background: rgba(255,255,255,0.45); }
+
+/* ── 面板 ── */
+.panel {
+  display: none;
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  flex-direction: column;
+  gap: 10px;
+}
+.panel.active { display: flex; }
+.panel::-webkit-scrollbar { width: 4px; }
+.panel::-webkit-scrollbar-thumb { background: #ddd; border-radius: 2px; }
+
+/* ── 说明条 ── */
+.hint {
+  font-size: 11px;
+  color: #6c6c80;
+  line-height: 1.6;
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px 12px;
+  border-left: 3px solid #7C66FF;
+}
+.hint strong { color: #1a1a2e; }
+.hint .sub { color: #aaa; margin-top: 2px; }
+
+/* ── 卡片 ── */
+.card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.card-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1a1a2e;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1.4;
+}
+.badge {
+  font-size: 10px;
+  font-weight: 500;
+  background: #f0eeff;
+  color: #7C66FF;
+  border-radius: 4px;
+  padding: 1px 5px;
+  white-space: nowrap;
+}
+.badge.green { background: #e8f5e9; color: #2e7d32; }
+.card-desc {
+  font-size: 11px;
+  color: #6c6c80;
+  line-height: 1.6;
+}
+.card-desc code {
+  background: #f0eeff;
+  color: #5c4ccc;
+  border-radius: 3px;
+  padding: 0 3px;
+  font-family: 'Menlo', monospace;
+}
+
+/* ── 表单元素 ── */
+select, input[type="text"], textarea {
+  width: 100%;
+  border: 1px solid #e5e5ea;
+  border-radius: 6px;
+  font-size: 11px;
+  color: #1a1a2e;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.15s;
+}
+select { padding: 6px 8px; cursor: pointer; }
+select:focus { border-color: #7C66FF; }
+input[type="text"] { padding: 7px 8px; }
+input[type="text"]:focus { border-color: #7C66FF; }
+input[type="text"]::placeholder { color: #aaa; }
+textarea {
+  padding: 8px;
+  font-family: 'Menlo', 'Consolas', monospace;
+  line-height: 1.4;
+  resize: none;
+}
+textarea.input  { height: 160px; }
+textarea.output { height: 140px; background: #f9f9fb; color: #3c3c50; }
+textarea:focus  { border-color: #7C66FF; }
+
+/* ── 按钮 ── */
+.btn {
+  padding: 7px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  text-align: center;
+}
+.btn:active { opacity: 0.7; }
+.btn-primary   { background: #7C66FF; color: #fff; width: 100%; }
+.btn-secondary { background: #f0eeff; color: #7C66FF; flex: 1; }
+.btn-row { display: flex; gap: 6px; }
+
+/* ── 状态提示 ── */
+.status {
+  font-size: 11px;
+  padding: 7px 10px;
+  border-radius: 6px;
+  line-height: 1.5;
+  display: none;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.status.show { display: block; }
+.status.ok   { background: #e8f5e9; color: #2e7d32; }
+.status.err  { background: #fce4ec; color: #c62828; }
+.status.info { background: #f0eeff; color: #5c4ccc; }
+
+/* ── 分隔线 ── */
+.sep { height: 1px; background: #ebebf0; margin: 2px 0; }
+
+/* ── 折叠区 ── */
+.collapsible-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1a1a2e;
+  padding: 2px 0;
+}
+.collapsible-header .arrow {
+  font-size: 10px;
+  color: #aaa;
+  transition: transform 0.18s;
+}
+.collapsible-header.open .arrow { transform: rotate(90deg); }
+.collapsible-body { display: none; flex-direction: column; gap: 8px; }
+.collapsible-body.open { display: flex; }
+
+</style>
+</head>
+<body>
+
+<!-- ══ Tab 栏 ══ -->
+<div class="tabs-wrap">
+  <div class="tabs">
+    <div class="tab active" data-tab="build">📥 导入</div>
+    <div class="tab" data-tab="export">📤 导出</div>
+  </div>
+</div>
+
+<!-- ══ 构建 Panel ══ -->
+<div class="panel active" id="panel-build">
+
+  <div class="hint">
+    <strong>导入原型帧</strong>
+    <div class="sub">把 Claude 生成的 JSON 配置粘贴进来，一键在当前 Figma 文件里生成带连线的原型帧组。PM 和设计师都可以用。</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">JSON 配置</div>
+    <div class="card-desc">从 Claude 处复制 JSON，粘贴到下方，格式为 <code>{ "name", "pages", "connections" }</code></div>
+    <textarea class="input" id="buildInput" placeholder='{
+  "name": "首页 Feed",
+  "pages": [
+    {
+      "name": "home-feed",
+      "bg": "bg-2",
+      "components": [
+        { "key": "StatusBarGhost" },
+        { "key": "NavBar" }
+      ]
+    }
+  ],
+  "connections": [
+    { "from": "home-feed", "to": "content-detail", "trigger": "点击卡片" }
+  ]
+}'></textarea>
+    <button class="btn btn-primary" id="buildBtn">▶ 开始导入</button>
+    <div class="status" id="buildStatus"></div>
+  </div>
+
+</div>
+
+<!-- ══ 导出 Panel ══ -->
+<div class="panel" id="panel-export">
+
+  <div class="hint">
+    <strong>导出给 Claude</strong>
+    <div class="sub">选中任意区域，插件自动递归识别其中所有 💙/👻 前缀的组件并导出。<br>
+    💙 = 原子分子组件（02 components）· 👻 = 业务组件（03 business）<br>
+    无 💙/👻 的 Frame / 包裹层会被自动跳过，不产生干扰警告。</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">导出选中内容</div>
+    <div class="card-desc">
+      · <strong>组件库</strong>：选中面板 / Section / Frame，自动找出所有 💙/👻 组件定义<br>
+      · <strong>原型文件</strong>：选中 Section，自动按 Frame 分组输出 👻 实例<br>
+      · 直接选中单个 COMPONENT_SET / COMPONENT → 精确导出该组件
+    </div>
+    <button class="btn btn-primary" id="exportBtn">导出选中内容</button>
+    <div class="status" id="exportStatus"></div>
+    <textarea class="output" id="exportOutput" readonly placeholder="导出结果会出现在这里…" style="height:180px"></textarea>
+    <div class="btn-row">
+      <button class="btn btn-secondary" id="exportCopy">复制结果</button>
+    </div>
+    <div class="sep"></div>
+    <div class="collapsible-header" id="findToggle">
+      🔍 查找组件 Key <span class="arrow">▶</span>
+    </div>
+    <div class="collapsible-body" id="findBody">
+      <input type="text" id="findKeyword" placeholder="如「👻」「Status Bar」「Post」「Islands」" />
+      <div class="btn-row">
+        <button class="btn btn-secondary" id="findCurrentBtn">当前页</button>
+        <button class="btn btn-secondary" id="findAllBtn">全部页面</button>
+      </div>
+      <div class="status" id="findStatus"></div>
+      <textarea class="output" id="findOutput" readonly placeholder="结果会出现在这里…" style="height:140px"></textarea>
+      <div class="btn-row">
+        <button class="btn btn-secondary" id="findCopy">复制结果</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ── Tab 切换 ──────────────────────────────────────────────
+document.querySelectorAll('.tab').forEach(function(tab) {
+  tab.addEventListener('click', function() {
+    var target = this.dataset.tab;
+    document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+    document.querySelectorAll('.panel').forEach(function(p) { p.classList.remove('active'); });
+    this.classList.add('active');
+    document.getElementById('panel-' + target).classList.add('active');
+  }.bind(tab));
+});
+
+// ── 查找区折叠 ───────────────────────────────────────────
+document.getElementById('findToggle').addEventListener('click', function() {
+  this.classList.toggle('open');
+  document.getElementById('findBody').classList.toggle('open');
+});
+
+// ── 接收来自 code.js 的消息 ───────────────────────────────
+window.onmessage = function(e) {
+  var msg = e.data.pluginMessage;
+  if (!msg) return;
+
+  if (msg.type === 'exportResult') {
+    document.getElementById('exportOutput').value = msg.json;
+    var st = document.getElementById('exportStatus');
+    if (msg.warnings && msg.warnings.length) {
+      st.className = 'status info show';
+      st.textContent = msg.warnings.join('\n');
+    } else {
+      st.className = 'status ok show';
+      st.textContent = '✅ 导出成功';
+    }
+  }
+
+  if (msg.type === 'exportError') {
+    var st = document.getElementById('exportStatus');
+    st.className = 'status err show';
+    st.textContent = '❌ ' + msg.message;
+  }
+
+  if (msg.type === 'buildDone') {
+    var st = document.getElementById('buildStatus');
+    st.className = 'status ok show';
+    st.textContent = '✅ 已生成 ' + msg.count + ' 个页面（Section ' + msg.sectionW + '×' + msg.sectionH + 'px）';
+  }
+
+  if (msg.type === 'buildError') {
+    var st = document.getElementById('buildStatus');
+    st.className = 'status err show';
+    st.textContent = '❌ ' + msg.message;
+  }
+
+  if (msg.type === 'findKeysResult') {
+    var st = document.getElementById('findStatus');
+    var out = document.getElementById('findOutput');
+    if (!msg.results || msg.results.length === 0) {
+      st.className = 'status err show';
+      st.textContent = '❌ 未找到包含「' + msg.keyword + '」的组件';
+      out.value = '';
+      return;
+    }
+    st.className = 'status ok show';
+    st.textContent = '✅ 找到 ' + msg.results.length + ' 个组件';
+    var lines = [];
+    msg.results.forEach(function(r) {
+      lines.push('[' + r.type + '] ' + r.name + (msg.results[0].page !== msg.results[msg.results.length - 1].page || msg.results[0].page !== r.page ? '  (页面: ' + r.page + ')' : ''));
+      lines.push('key: ' + r.key);
+      if (r.variants) {
+        Object.keys(r.variants).forEach(function(vname) {
+          lines.push('· ' + vname + ': ' + r.variants[vname]);
+        });
+      }
+      lines.push('');
+    });
+    out.value = lines.join('\n').trim();
+  }
+
+  if (msg.type === 'findKeysError') {
+    var st = document.getElementById('findStatus');
+    st.className = 'status err show';
+    st.textContent = '❌ ' + msg.message;
+  }
+};
+
+// ── 导出 ──────────────────────────────────────────────────
+document.getElementById('exportBtn').addEventListener('click', function() {
+  var st = document.getElementById('exportStatus');
+  st.className = 'status info show';
+  st.textContent = '⏳ 导出中…';
+  document.getElementById('exportOutput').value = '';
+  parent.postMessage({ pluginMessage: { type: 'export' } }, '*');
+});
+
+// ── 构建 ─────────────────────────────────────────────────
+document.getElementById('buildBtn').addEventListener('click', function() {
+  var input = document.getElementById('buildInput').value.trim();
+  var st = document.getElementById('buildStatus');
+  if (!input) {
+    st.className = 'status err show';
+    st.textContent = '❌ 请先粘贴 JSON 配置';
+    return;
+  }
+  var config;
+  try { config = JSON.parse(input); }
+  catch(e) {
+    st.className = 'status err show';
+    st.textContent = '❌ JSON 格式错误：' + e.message;
+    return;
+  }
+  st.className = 'status info show';
+  st.textContent = '⏳ 导入中，请稍候…';
+  parent.postMessage({ pluginMessage: { type: 'build', config: config } }, '*');
+});
+
+// ── 查找 ──────────────────────────────────────────────────
+function doFind(scope) {
+  var keyword = document.getElementById('findKeyword').value;
+  var st = document.getElementById('findStatus');
+  if (!keyword.trim()) {
+    st.className = 'status err show';
+    st.textContent = '❌ 请先输入关键词';
+    return;
+  }
+  st.className = 'status info show';
+  st.textContent = '⏳ 查找中…';
+  document.getElementById('findOutput').value = '';
+  parent.postMessage({ pluginMessage: { type: 'findKeys', keyword: keyword, scope: scope } }, '*');
+}
+document.getElementById('findCurrentBtn').addEventListener('click', function() { doFind('current'); });
+document.getElementById('findAllBtn').addEventListener('click', function() { doFind('all'); });
+
+// ── Enter 键触发当前页查找 ───────────────────────────────
+document.getElementById('findKeyword').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') doFind('current');
+});
+
+// ── 复制按钮 ─────────────────────────────────────────────
+function makeCopyBtn(btnId, taId) {
+  var btn = document.getElementById(btnId);
+  btn.addEventListener('click', function() {
+    var ta = document.getElementById(taId);
+    if (!ta.value) return;
+    ta.select();
+    document.execCommand('copy');
+    var orig = btn.textContent;
+    btn.textContent = '已复制 ✓';
+    setTimeout(function() { btn.textContent = orig; }, 2000);
+  });
+}
+makeCopyBtn('exportCopy', 'exportOutput');
+makeCopyBtn('findCopy', 'findOutput');
+</script>
+</body>
+</html>

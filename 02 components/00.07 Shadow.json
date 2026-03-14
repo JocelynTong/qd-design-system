@@ -1,0 +1,26 @@
+{
+  "component": "Shadow",
+  "figma_page": "00.07 Shadow",
+  "chips": ["y:5 blur:10", "y:1 blur:10"],
+  "description": "千岛阴影规范，两种层级覆盖内容卡片与浮层场景，统一通过 CSS 变量引用。",
+  "variants": {
+    "Card": {
+      "figma_name": "💙 y:5 ; Blur=10（资料库C2C卡片）",
+      "desc": "卡片阴影，用于 C2C 商品卡片、内容卡片等，视觉权重较轻",
+      "preview_html": "<div style=\"display:flex;gap:24px;align-items:center;flex-wrap:wrap\"><div style=\"width:80px;height:80px;background:var(--bg-card,#fff);border-radius:12px;box-shadow:0px 5px 10px 0px rgba(0,0,0,0.06)\"></div><code style=\"font-size:11px;color:var(--text-3)\">box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.06)</code></div>",
+      "css": {
+        "box-shadow": "0px 5px 10px 0px rgba(0,0,0,0.06)"
+      },
+      "token": "var(--shadow-card, 0px 5px 10px 0px rgba(0,0,0,0.06))"
+    },
+    "Float": {
+      "figma_name": "💙 y:1 ; Blur=10",
+      "desc": "浮层阴影，较轻，用于底部栏、悬浮按钮、弹出层底部等",
+      "preview_html": "<div style=\"display:flex;gap:24px;align-items:center;flex-wrap:wrap\"><div style=\"width:80px;height:80px;background:var(--bg-card,#fff);border-radius:12px;box-shadow:0px 1px 10px 0px rgba(0,0,0,0.08)\"></div><code style=\"font-size:11px;color:var(--text-3)\">box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.08)</code></div>",
+      "css": {
+        "box-shadow": "0px 1px 10px 0px rgba(0,0,0,0.08)"
+      },
+      "token": "var(--shadow-float, 0px 1px 10px 0px rgba(0,0,0,0.08))"
+    }
+  }
+}

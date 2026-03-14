@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=390, initial-scale=1.0">
+<title>管理员后台 · 千岛</title>
+<link rel="stylesheet" href="https://at.alicdn.com/t/c/font_3550031_uwcy4h4l9a9.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+.phone { display:flex; flex-direction:column; background:var(--bg-2); }
+.scroll-area { flex:1; overflow-y:auto; }
+
+/* ── 管理员专属顶部 ── */
+.admin-header {
+  background:var(--secondary-solid-bg); padding-bottom:var(--spacing-large); flex-shrink:0;
+}
+.admin-header .status-bar { background:transparent; }
+.admin-header .status-bar-time { color:var(--white-text-color); }
+.admin-header .status-bar-icons { color:var(--white-text-color); }
+
+.admin-navbar {
+  height:44px; display:flex; align-items:center;
+  padding:0 var(--spacing-large); gap:var(--spacing-normal);
+  background:transparent;
+}
+.admin-back-btn {
+  width:36px; height:36px; border-radius:50%;
+  background:var(--white-2); border:none; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; color:var(--white-text-color);
+}
+.admin-nav-title { flex:1; color:var(--white-text-color); }
+.admin-role-badge {
+  background:rgba(255,215,0,.2); border:1px solid rgba(255,215,0,.5);
+  border-radius:var(--radius-large); padding:4px 10px;
+  display:flex; align-items:center; gap:4px;
+}
+.admin-role-text { color:#FFD700; font-size:11px; font-weight:700; }
+
+/* ── 统计卡片行 ── */
+.stats-row {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:var(--spacing-small);
+  padding:0 var(--spacing-large); margin-top:var(--spacing-normal);
+}
+.stat-card {
+  background:var(--white-2); border-radius:var(--radius-medium);
+  padding:var(--spacing-medium) var(--spacing-small); text-align:center;
+}
+.stat-num { color:var(--white-text-color); font-family:'Roboto',sans-serif; }
+.stat-label { color:var(--white-text-2); margin-top:2px; }
+
+/* ── 快捷操作 ── */
+.section { padding:var(--spacing-large); }
+.section-title { color:var(--text-2); margin-bottom:var(--spacing-medium); }
+
+.quick-actions { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--spacing-normal); }
+.qa-item { display:flex; flex-direction:column; align-items:center; gap:var(--spacing-small); cursor:pointer; }
+.qa-icon {
+  width:48px; height:48px; border-radius:var(--radius-large);
+  display:flex; align-items:center; justify-content:center;
+}
+.qa-icon.purple { background:var(--primary-soft-bg); color:var(--primary-color); }
+.qa-icon.dark   { background:var(--secondary-solid-bg); color:var(--white-text-color); }
+.qa-icon.warn   { background:var(--warning-soft-bg); color:var(--warning-solid-bg); }
+.qa-icon.success{ background:var(--success-soft-bg); color:var(--success-color); }
+.qa-label { color:var(--text-2); text-align:center; }
+
+/* ── 待处理事项 ── */
+.todo-list { display:flex; flex-direction:column; gap:var(--spacing-normal); }
+.todo-item {
+  background:var(--bg-1); border-radius:var(--radius-large);
+  padding:var(--spacing-medium); display:flex; gap:var(--spacing-medium); align-items:flex-start;
+  cursor:pointer;
+}
+.todo-icon-wrap {
+  width:40px; height:40px; border-radius:var(--radius-medium);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:18px;
+}
+.todo-icon-wrap.p { background:var(--primary-soft-bg); }
+.todo-icon-wrap.w { background:var(--warning-soft-bg); }
+.todo-icon-wrap.s { background:var(--success-soft-bg); }
+.todo-body { flex:1; min-width:0; }
+.todo-title { color:var(--text-1); }
+.todo-desc { color:var(--text-3); margin-top:2px; }
+.todo-tag {
+  display:inline-flex; align-items:center;
+  border-radius:var(--radius-small); padding:2px 6px; margin-top:6px;
+  font-size:11px; font-weight:600;
+}
+.todo-tag.urgent { background:var(--error-soft-bg); color:var(--error-color); }
+.todo-tag.normal { background:var(--primary-soft-bg); color:var(--primary-color); }
+.todo-tag.done   { background:var(--success-soft-bg); color:var(--success-color); }
+.todo-arrow { color:var(--icon-3); align-self:center; }
+
+/* ── 本周封面进度 ── */
+.cover-progress-card {
+  background:var(--bg-1); border-radius:var(--radius-large);
+  overflow:hidden; cursor:pointer;
+}
+.cover-progress-header {
+  padding:var(--spacing-medium);
+  display:flex; align-items:center; justify-content:space-between;
+}
+.cover-progress-title { color:var(--text-1); display:flex; align-items:center; gap:var(--spacing-small); }
+.cover-badge {
+  background:rgba(255,215,0,.15); border:1px solid rgba(255,215,0,.4);
+  border-radius:var(--radius-small); padding:2px 6px;
+  font-size:11px; font-weight:700; color:#B8860B;
+}
+.cover-progress-link { color:var(--primary-color); }
+.cover-preview {
+  height:80px; background:var(--secondary-7);
+  display:flex; align-items:center; justify-content:center;
+  font-size:36px; position:relative;
+}
+.cover-preview-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to right, rgba(0,0,0,.5) 0%, rgba(0,0,0,.0) 60%);
+}
+.cover-preview-text {
+  position:absolute; left:var(--spacing-medium); top:50%; transform:translateY(-50%);
+  display:flex; flex-direction:column; gap:2px;
+}
+.cover-winner-label { color:rgba(255,215,0,.9); font-size:10px; font-weight:700; }
+.cover-winner-name  { color:var(--white-text-color); }
+.cover-progress-footer {
+  padding:var(--spacing-medium);
+  display:flex; align-items:center; justify-content:space-between;
+}
+.cover-progress-track { flex:1; height:6px; border-radius:3px; background:var(--bg-4); margin-right:var(--spacing-medium); overflow:hidden; }
+.cover-progress-fill  { height:100%; border-radius:3px; background:#FFD700; width:72%; }
+.cover-progress-label { color:var(--text-3); white-space:nowrap; }
+
+/* home indicator */
+.home-indicator { height:34px; display:flex; align-items:center; justify-content:center; background:var(--bg-2); }
+.hi-bar { width:120px; height:4px; border-radius:2px; background:var(--secondary-3); }
+</style>
+</head>
+<body>
+<div class="prototype-layout">
+<div class="phone">
+
+  <!-- 管理员专属顶部 -->
+  <div class="admin-header">
+    <div class="status-bar">
+      <span class="status-bar-time t-h6">9:41</span>
+      <div class="status-bar-icons t-b6"><span>●●● WiFi 🔋</span></div>
+    </div>
+    <div class="admin-navbar">
+      <button class="admin-back-btn" onclick="location.href='home-feed.html'">
+        <i class="KurilIcons kuril-arrow_left ki-20"></i>
+      </button>
+      <span class="admin-nav-title t-h5">社区管理</span>
+      <div class="admin-role-badge">
+        <span>⚡</span>
+        <span class="admin-role-text">管理员</span>
+      </div>
+    </div>
+
+    <!-- 统计数据 -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <p class="stat-num t-h3">3</p>
+        <p class="stat-label t-b7">活跃 Boost</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-num t-h3">4/6</p>
+        <p class="stat-label t-b7">资源位使用</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-num t-h3">2</p>
+        <p class="stat-label t-b7">进行中活动</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-area">
+
+    <!-- 本周封面进度 -->
+    <div class="section">
+      <p class="section-title t-h6">本周封面</p>
+      <div class="cover-progress-card" onclick="location.href='cover-race.html'">
+        <div class="cover-progress-header">
+          <div class="cover-progress-title">
+            <span class="t-h6">👑 春日街拍 · 领先</span>
+          </div>
+          <span class="cover-progress-link t-b6">查看榜单 ›</span>
+        </div>
+        <div class="cover-preview">
+          🌸
+          <div class="cover-preview-overlay"></div>
+          <div class="cover-preview-text">
+            <span class="cover-winner-label">当前第一</span>
+            <span class="cover-winner-name t-h6">MikoStyle</span>
+          </div>
+        </div>
+        <div class="cover-progress-footer">
+          <div class="cover-progress-track">
+            <div class="cover-progress-fill"></div>
+          </div>
+          <span class="cover-progress-label t-b7">8,621 票 · 还剩 2 天</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 快捷操作 -->
+    <div class="section" style="padding-top:0">
+      <p class="section-title t-h6">快捷操作</p>
+      <div class="quick-actions">
+        <div class="qa-item" onclick="location.href='resource-mgmt.html'">
+          <div class="qa-icon dark"><i class="KurilIcons kuril-setting ki-22"></i></div>
+          <span class="qa-label t-b7">资源位</span>
+        </div>
+        <div class="qa-item">
+          <div class="qa-icon purple"><i class="KurilIcons kuril-have_selected ki-22"></i></div>
+          <span class="qa-label t-b7">Boost 帖子</span>
+        </div>
+        <div class="qa-item" onclick="location.href='activity-mgmt.html'">
+          <div class="qa-icon success"><i class="KurilIcons kuril-discover ki-22"></i></div>
+          <span class="qa-label t-b7">社区活动</span>
+        </div>
+        <div class="qa-item">
+          <div class="qa-icon warn"><i class="KurilIcons kuril-more ki-22"></i></div>
+          <span class="qa-label t-b7">内容审核</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 待处理事项 -->
+    <div class="section" style="padding-top:0">
+      <p class="section-title t-h6">待处理</p>
+      <div class="todo-list">
+
+        <div class="todo-item">
+          <div class="todo-icon-wrap w">⚡</div>
+          <div class="todo-body">
+            <p class="todo-title t-h6">3 个帖子申请 Boost</p>
+            <p class="todo-desc t-b7">作者提交了流量加权申请，待审核</p>
+            <span class="todo-tag urgent">● 待审核</span>
+          </div>
+          <i class="KurilIcons kuril-arrow_left ki-16 todo-arrow" style="transform:rotate(180deg)"></i>
+        </div>
+
+        <div class="todo-item" onclick="location.href='resource-mgmt.html'">
+          <div class="todo-icon-wrap p">📌</div>
+          <div class="todo-body">
+            <p class="todo-title t-h6">资源位 #3 即将到期</p>
+            <p class="todo-desc t-b7">「胶片教程」资源位明日 18:00 到期</p>
+            <span class="todo-tag normal">● 需续期或替换</span>
+          </div>
+          <i class="KurilIcons kuril-arrow_left ki-16 todo-arrow" style="transform:rotate(180deg)"></i>
+        </div>
+
+        <div class="todo-item" onclick="location.href='activity-mgmt.html'">
+          <div class="todo-icon-wrap s">🎉</div>
+          <div class="todo-body">
+            <p class="todo-title t-h6">「春日穿搭挑战」参与量破千</p>
+            <p class="todo-desc t-b7">活动表现优秀，可考虑联动封面争夺</p>
+            <span class="todo-tag done">● 可操作</span>
+          </div>
+          <i class="KurilIcons kuril-arrow_left ki-16 todo-arrow" style="transform:rotate(180deg)"></i>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="home-indicator"><div class="hi-bar"></div></div>
+  </div>
+
+</div><!-- .phone -->
+
+<!-- 流程图 -->
+<div class="flow-chart">
+  <a class="flow-node" href="home-feed.html">
+    <span class="node-icon">🏠</span>
+    <span class="node-label">首页 Feed</span>
+  </a>
+  <div class="flow-edge"><span class="flow-edge-label">管理员入口</span></div>
+  <a class="flow-node active" href="admin-dashboard.html">
+    <span class="node-icon">⚙️</span>
+    <span class="node-label">管理员后台</span>
+  </a>
+  <div class="flow-edge"><span class="flow-edge-label">资源位管理</span></div>
+  <a class="flow-node" href="resource-mgmt.html">
+    <span class="node-icon">📌</span>
+    <span class="node-label">资源位管理</span>
+  </a>
+  <div class="flow-edge"><span class="flow-edge-label">社区活动</span></div>
+  <a class="flow-node" href="activity-mgmt.html">
+    <span class="node-icon">🎉</span>
+    <span class="node-label">社区活动</span>
+  </a>
+</div>
+
+</div><!-- .prototype-layout -->
+</body>
+</html>

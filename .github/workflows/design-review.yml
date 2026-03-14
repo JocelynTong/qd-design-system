@@ -5,7 +5,7 @@ on:
     - cron: '0 3 * * 1'   # 每周一 03:00 UTC = 北京时间 11:00
   push:
     paths:
-      - 'business/_candidates.md'   # 候选池有新增时也触发
+      - '03 business/_candidates.md'   # 候选池有新增时也触发
   workflow_dispatch:                 # 支持手动触发
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
           node-version: '20'
 
       - name: 发送飞书候选池周报
-        run: node scripts/notify-feishu.js
+        run: node '03 business/notify-feishu.js'
         env:
           FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
           FEISHU_WEBHOOK_SECRET: ${{ secrets.FEISHU_WEBHOOK_SECRET }}

@@ -1,0 +1,90 @@
+{
+  "component": "Divider",
+  "figma_page": "00.06 Divider",
+  "chips": ["0.5px", "1px", "2px", "Footer"],
+  "description": "分割线组件，提供 0.5px / 1px / 2px 三种线宽和带文本的 Footer 形态，覆盖列表分隔、内容区块分隔、页面底部提示等场景。",
+  "usage_rules": [
+    "0.5px 用于紧凑列表项之间的弱分隔（如 Feed 列表内部）",
+    "1px 是默认分割线，适用于大多数内容区块分隔",
+    "2px 用于强分隔，通常带白色背景 var(--bg-card)，视觉权重更高",
+    "Footer 用于列表/页面底部「已经到底了」类提示，左右线中间放文本",
+    "带文本时遵守就近原则：Divider 与下一段内容间距要小于与上一段内容间距",
+    "研发实现时 0.5px 推荐用 transform:scaleY(0.5) 或 box-shadow 实现，避免兼容问题"
+  ],
+  "figma_keys": {
+    "Footer": "909a1e6293b786d905c3db4752febbb1464f8345",
+    "1px":    "c56c6d9243f27149fe7d92e463db190a5243e01f",
+    "2px":    "739df9b489af5b7c73c4ef16bb71ddbca02ce8b0",
+    "0.5px":  "586dc76f209fcb0ee184ec315b7830c9432fde1c"
+  },
+  "variants": {
+    "Line_0_5px": {
+      "figma_name": "💙 00.06_Divider / 0.5px",
+      "desc": "超细分割线，0.5px 高度，适合极紧凑场景",
+      "preview_html": "<div style=\"height:1px;background:var(--border-c,rgba(0,0,0,.08));transform:scaleY(0.5);transform-origin:50% 0\"></div>",
+      "css": {
+        "width": "100%",
+        "height": "1px",
+        "background": "var(--border-c, rgba(0,0,0,0.08))",
+        "transform": "scaleY(0.5)",
+        "transform-origin": "50% 0"
+      },
+      "note": "Figma 实现：wrapper height:1px + padding-top:0.5px 产生 0.5px 视觉线；研发推荐 scaleY(0.5)"
+    },
+    "Line_1px": {
+      "figma_name": "💙 00.06_Divider / 1px",
+      "desc": "标准 1px 分割线，最常用",
+      "preview_html": "<div style=\"height:1px;background:var(--border-c,rgba(0,0,0,.08))\"></div>",
+      "css": {
+        "width": "100%",
+        "height": "1px",
+        "background": "var(--border-c, rgba(0,0,0,0.08))"
+      }
+    },
+    "Line_2px": {
+      "figma_name": "💙 00.06_Divider / 2px",
+      "desc": "粗分割线，2px 高度，通常配白色背景作为强分区",
+      "preview_html": "<div style=\"background:var(--bg-card,#FFF);padding:8px 0\"><div style=\"height:2px;background:var(--border-c,rgba(0,0,0,.08))\"></div></div>",
+      "css": {
+        "width": "100%",
+        "height": "2px",
+        "background": "var(--border-c, rgba(0,0,0,0.08))"
+      },
+      "wrapper_css": {
+        "background": "var(--bg-card, #FFF)"
+      },
+      "note": "Figma 组件自带白色背景 var(--Main-white_09, #FFF)，实现时 wrapper 需带背景色"
+    },
+    "Footer": {
+      "figma_name": "💙 00.06_Divider / Footer",
+      "desc": "带文本的底部分割线，左右横线夹住中间文字，常用于「已经到底了」",
+      "preview_html": "<div style=\"display:flex;align-items:center;gap:12px;width:100%\"><div style=\"flex:1;height:1px;background:var(--border-c,rgba(0,0,0,.08))\"></div><span style=\"font-size:12px;line-height:18px;color:var(--text-3,rgba(0,0,0,.4));white-space:nowrap;flex-shrink:0\">已经到底了</span><div style=\"flex:1;height:1px;background:var(--border-c,rgba(0,0,0,.08))\"></div></div>",
+      "css": {
+        "display": "flex",
+        "align-items": "center",
+        "gap": "12px",
+        "width": "100%"
+      },
+      "children": {
+        "Line": {
+          "css": {
+            "flex": "1 0 0",
+            "height": "1px",
+            "background": "var(--border-c, rgba(0,0,0,0.08))"
+          }
+        },
+        "Text": {
+          "css": {
+            "font": "var(--font-b6)",
+            "font-size": "12px",
+            "line-height": "18px",
+            "color": "var(--text-3, rgba(0,0,0,0.4))",
+            "white-space": "nowrap",
+            "flex-shrink": "0"
+          }
+        }
+      },
+      "note": "右侧 Line 是左侧 Line 的镜像（scaleY(-1)），保证两侧视觉一致"
+    }
+  }
+}

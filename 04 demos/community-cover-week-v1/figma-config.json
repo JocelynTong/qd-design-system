@@ -1,0 +1,21 @@
+{
+  "name": "community-cover-week-v1",
+  "pages": [
+    { "id": "home-feed",        "title": "首页 Feed",     "file": "home-feed.html",      "emoji": "🏠" },
+    { "id": "cover-race",       "title": "封面争夺榜",    "file": "cover-race.html",     "emoji": "👑" },
+    { "id": "admin-dashboard",  "title": "管理员后台",    "file": "admin-dashboard.html","emoji": "⚙️" },
+    { "id": "resource-mgmt",    "title": "资源位管理",    "file": "resource-mgmt.html",  "emoji": "📌" },
+    { "id": "activity-mgmt",    "title": "社区活动管理",  "file": "activity-mgmt.html",  "emoji": "🎉" }
+  ],
+  "connections": [
+    { "from": "home-feed",       "to": "cover-race",      "label": "点击本周封面 Banner" },
+    { "from": "home-feed",       "to": "admin-dashboard", "label": "管理员入口" },
+    { "from": "cover-race",      "to": "home-feed",       "label": "返回" },
+    { "from": "admin-dashboard", "to": "cover-race",      "label": "查看封面争夺榜" },
+    { "from": "admin-dashboard", "to": "resource-mgmt",   "label": "进入资源位管理" },
+    { "from": "admin-dashboard", "to": "activity-mgmt",   "label": "进入社区活动" },
+    { "from": "resource-mgmt",   "to": "admin-dashboard", "label": "返回" },
+    { "from": "activity-mgmt",   "to": "admin-dashboard", "label": "返回" },
+    { "from": "activity-mgmt",   "to": "cover-race",      "label": "查看封面联动" }
+  ]
+}

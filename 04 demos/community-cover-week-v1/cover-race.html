@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=390, initial-scale=1.0">
+<title>封面争夺榜 · 千岛</title>
+<link rel="stylesheet" href="https://at.alicdn.com/t/c/font_3550031_uwcy4h4l9a9.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+.phone { display:flex; flex-direction:column; background:var(--bg-2); }
+.scroll-area { flex:1; overflow-y:auto; }
+
+/* ── Hero：本周封面候选区 ── */
+.cover-hero {
+  position:relative; height:280px; overflow:hidden; flex-shrink:0;
+  background:var(--secondary-8);
+  display:flex; align-items:center; justify-content:center; font-size:80px;
+}
+.cover-hero-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.1) 60%);
+}
+
+/* Ghost NavBar 浮在 Hero 上 */
+.navbar-hero {
+  position:absolute; top:44px; left:0; right:0; z-index:10;
+  height:44px; display:flex; align-items:center;
+  padding:0 var(--spacing-large); gap:var(--spacing-normal);
+}
+.hero-back-btn {
+  width:36px; height:36px; border-radius:50%;
+  background:var(--white-soft-bg); display:flex; align-items:center; justify-content:center;
+  color:var(--white-text-color); border:none; cursor:pointer;
+}
+.hero-title { flex:1; text-align:center; color:var(--white-text-color); }
+.hero-share-btn {
+  width:36px; height:36px; border-radius:50%;
+  background:var(--white-soft-bg); display:flex; align-items:center; justify-content:center;
+  color:var(--white-text-color); border:none; cursor:pointer;
+}
+
+/* 封面信息浮层 */
+.cover-hero-body {
+  position:absolute; bottom:0; left:0; right:0; z-index:5;
+  padding:var(--spacing-normal) var(--spacing-large) var(--spacing-medium);
+}
+.cover-rank-1-tag {
+  display:inline-flex; align-items:center; gap:4px;
+  background:rgba(255,215,0,.2); border:1px solid rgba(255,215,0,.5);
+  border-radius:var(--radius-small); padding:3px 8px; margin-bottom:6px;
+}
+.cover-rank-1-tag span { color:#FFD700; font-size:11px; font-weight:700; }
+.cover-post-title { color:var(--white-text-color); margin-bottom:var(--spacing-small); }
+.cover-post-meta { display:flex; align-items:center; gap:var(--spacing-normal); margin-bottom:var(--spacing-medium); }
+.cover-author { display:flex; align-items:center; gap:6px; }
+.cover-avatar { width:20px; height:20px; border-radius:50%; background:var(--primary-4); border:1.5px solid rgba(255,255,255,.5); }
+.cover-author-name { color:var(--white-text-2); }
+.cover-votes { display:flex; align-items:center; gap:4px; }
+.cover-votes-num { color:#FFD700; font-family:'Roboto',sans-serif; }
+.cover-votes-label { color:var(--white-text-3); }
+
+/* 助力按钮 */
+.boost-btn {
+  width:100%; height:44px; border:none; border-radius:var(--radius-medium);
+  background:rgba(255,215,0,.95); color:#3D2800;
+  font-size:15px; font-weight:700; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; gap:6px;
+}
+
+/* ── 倒计时 ── */
+.countdown-banner {
+  background:var(--bg-1); border-bottom:.5px solid var(--border-1);
+  padding:var(--spacing-normal) var(--spacing-large);
+  display:flex; align-items:center; gap:var(--spacing-normal);
+}
+.countdown-label { color:var(--text-2); flex:1; }
+.countdown-blocks { display:flex; align-items:center; gap:var(--spacing-small); }
+.cblock {
+  background:var(--secondary-solid-bg); border-radius:var(--radius-small);
+  padding:4px 8px; display:flex; flex-direction:column; align-items:center;
+}
+.cblock-num { color:var(--white-text-color); font-family:'Roboto',sans-serif; font-size:16px; font-weight:700; line-height:1; }
+.cblock-unit { color:var(--white-text-2); font-size:9px; margin-top:2px; }
+.cblock-sep { color:var(--text-3); font-size:16px; font-weight:700; }
+
+/* ── 排行榜 ── */
+.rank-section { padding:var(--spacing-large); }
+.rank-section-title { color:var(--text-1); margin-bottom:var(--spacing-medium); }
+
+.rank-item {
+  background:var(--bg-1); border-radius:var(--radius-large);
+  padding:var(--spacing-medium);
+  margin-bottom:var(--spacing-normal);
+  display:flex; gap:var(--spacing-medium);
+  cursor:pointer;
+}
+.rank-item:last-child { margin-bottom:0; }
+
+.rank-thumb {
+  width:64px; height:64px; border-radius:var(--radius-normal);
+  background:var(--bg-4); flex-shrink:0;
+  display:flex; align-items:center; justify-content:center; font-size:28px;
+  position:relative;
+}
+.rank-medal {
+  position:absolute; top:-6px; left:-6px;
+  width:20px; height:20px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:11px; font-weight:800;
+}
+.rank-medal.gold   { background:#FFD700; color:#3D2800; }
+.rank-medal.silver { background:#C0C0C0; color:#333; }
+.rank-medal.bronze { background:#CD7F32; color:#fff; }
+
+.rank-info { flex:1; min-width:0; display:flex; flex-direction:column; gap:4px; }
+.rank-post-title { color:var(--text-1); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.rank-author-row { display:flex; align-items:center; gap:6px; }
+.rank-author-avatar { width:14px; height:14px; border-radius:50%; background:var(--bg-4); }
+.rank-author-name { color:var(--text-3); }
+
+/* 进度条 */
+.rank-progress-row { display:flex; align-items:center; gap:var(--spacing-small); margin-top:4px; }
+.rank-progress-track { flex:1; height:4px; border-radius:2px; background:var(--bg-4); overflow:hidden; }
+.rank-progress-fill { height:100%; border-radius:2px; }
+.rank-progress-fill.gold-fill   { background:#FFD700; }
+.rank-progress-fill.silver-fill { background:var(--secondary-4); }
+.rank-progress-fill.bronze-fill { background:var(--secondary-5); }
+.rank-vote-count { color:var(--text-2); font-family:'Roboto',sans-serif; white-space:nowrap; }
+
+/* 小助力按钮 */
+.mini-boost-btn {
+  height:28px; border-radius:var(--radius-normal); border:none;
+  padding:0 var(--spacing-normal); cursor:pointer;
+  font-size:12px; font-weight:600;
+  display:flex; align-items:center; gap:3px;
+}
+.mini-boost-btn.boosted {
+  background:var(--primary-soft-bg); color:var(--primary-color);
+}
+.mini-boost-btn.unboosted {
+  background:var(--bg-2); color:var(--text-2);
+  border:1px solid var(--border-1);
+}
+
+/* ── 机制说明 ── */
+.rule-card {
+  margin:0 var(--spacing-large) var(--spacing-large);
+  background:var(--primary-1); border-radius:var(--radius-large);
+  padding:var(--spacing-medium);
+}
+.rule-title { color:var(--primary-color); margin-bottom:var(--spacing-small); display:flex; align-items:center; gap:4px; }
+.rule-item { display:flex; gap:6px; margin-bottom:4px; }
+.rule-dot { width:4px; height:4px; border-radius:50%; background:var(--primary-4); margin-top:7px; flex-shrink:0; }
+.rule-text { color:var(--text-2); }
+
+/* home indicator */
+.home-indicator { height:34px; display:flex; align-items:center; justify-content:center; background:var(--bg-1); }
+.hi-bar { width:120px; height:4px; border-radius:2px; background:var(--secondary-3); }
+</style>
+</head>
+<body>
+<div class="prototype-layout">
+<div class="phone">
+
+  <!-- Status Bar（浮在 Hero 上） -->
+  <div class="status-bar status-bar--ghost">
+    <span class="status-bar-time t-h6" style="color:var(--white-text-color)">9:41</span>
+    <div class="status-bar-icons t-b6" style="color:var(--white-text-color)"><span>●●● WiFi 🔋</span></div>
+  </div>
+
+  <!-- Hero 封面区 -->
+  <div class="cover-hero">
+    🌸
+    <div class="cover-hero-overlay"></div>
+
+    <!-- Ghost NavBar -->
+    <div class="navbar-hero">
+      <button class="hero-back-btn" onclick="location.href='home-feed.html'">
+        <i class="KurilIcons kuril-arrow_left ki-20"></i>
+      </button>
+      <span class="hero-title t-h5">本周封面争夺</span>
+      <button class="hero-share-btn">
+        <i class="KurilIcons kuril-share ki-20"></i>
+      </button>
+    </div>
+
+    <!-- 封面候选信息 -->
+    <div class="cover-hero-body">
+      <div class="cover-rank-1-tag">
+        <span>👑 当前领先</span>
+      </div>
+      <p class="cover-post-title t-h4">春日街拍 | 我的樱花季穿搭</p>
+      <div class="cover-post-meta">
+        <div class="cover-author">
+          <div class="cover-avatar"></div>
+          <span class="cover-author-name t-b6">@MikoStyle</span>
+        </div>
+        <div class="cover-votes">
+          <span class="cover-votes-num t-n5">8,621</span>
+          <span class="cover-votes-label t-b6">助力票</span>
+        </div>
+      </div>
+      <button class="boost-btn">⚡ 为 TA 助力（今日还剩 3 次）</button>
+    </div>
+  </div>
+
+  <!-- 倒计时 -->
+  <div class="countdown-banner">
+    <span class="countdown-label t-b6">本期截止</span>
+    <div class="countdown-blocks">
+      <div class="cblock">
+        <span class="cblock-num">02</span>
+        <span class="cblock-unit">天</span>
+      </div>
+      <span class="cblock-sep">:</span>
+      <div class="cblock">
+        <span class="cblock-num">14</span>
+        <span class="cblock-unit">时</span>
+      </div>
+      <span class="cblock-sep">:</span>
+      <div class="cblock">
+        <span class="cblock-num">23</span>
+        <span class="cblock-unit">分</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 排行榜 -->
+  <div class="scroll-area">
+    <div class="rank-section">
+      <p class="rank-section-title t-h5">本周候选 · 争夺中</p>
+
+      <!-- #1 -->
+      <div class="rank-item">
+        <div class="rank-thumb">
+          🌸
+          <div class="rank-medal gold">1</div>
+        </div>
+        <div class="rank-info">
+          <p class="rank-post-title t-h6">春日街拍 | 我的樱花季穿搭</p>
+          <div class="rank-author-row">
+            <div class="rank-author-avatar"></div>
+            <span class="rank-author-name t-b7">MikoStyle</span>
+          </div>
+          <div class="rank-progress-row">
+            <div class="rank-progress-track">
+              <div class="rank-progress-fill gold-fill" style="width:88%"></div>
+            </div>
+            <span class="rank-vote-count t-n6">8,621</span>
+            <button class="mini-boost-btn boosted">⚡ 已助力</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- #2 -->
+      <div class="rank-item">
+        <div class="rank-thumb">
+          🎨
+          <div class="rank-medal silver">2</div>
+        </div>
+        <div class="rank-info">
+          <p class="rank-post-title t-h6">Figma Variables 实战手册 完整版</p>
+          <div class="rank-author-row">
+            <div class="rank-author-avatar"></div>
+            <span class="rank-author-name t-b7">设计师小林</span>
+          </div>
+          <div class="rank-progress-row">
+            <div class="rank-progress-track">
+              <div class="rank-progress-fill silver-fill" style="width:63%"></div>
+            </div>
+            <span class="rank-vote-count t-n6">6,203</span>
+            <button class="mini-boost-btn unboosted">⚡ 助力</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- #3 -->
+      <div class="rank-item">
+        <div class="rank-thumb">
+          📷
+          <div class="rank-medal bronze">3</div>
+        </div>
+        <div class="rank-info">
+          <p class="rank-post-title t-h6">胶片质感后期教程 全流程分享</p>
+          <div class="rank-author-row">
+            <div class="rank-author-avatar"></div>
+            <span class="rank-author-name t-b7">暗房诗人</span>
+          </div>
+          <div class="rank-progress-row">
+            <div class="rank-progress-track">
+              <div class="rank-progress-fill bronze-fill" style="width:40%"></div>
+            </div>
+            <span class="rank-vote-count t-n6">3,988</span>
+            <button class="mini-boost-btn unboosted">⚡ 助力</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 机制说明 -->
+    <div class="rule-card">
+      <p class="rule-title t-h6">📋 封面机制</p>
+      <div class="rule-item">
+        <div class="rule-dot"></div>
+        <p class="rule-text t-b7">每周日 12:00 结算，票数最高的帖子成为下周封面</p>
+      </div>
+      <div class="rule-item">
+        <div class="rule-dot"></div>
+        <p class="rule-text t-b7">每位用户每日可助力 3 次，可分配给不同内容</p>
+      </div>
+      <div class="rule-item">
+        <div class="rule-dot"></div>
+        <p class="rule-text t-b7">封面作者获得「本周之星」徽章 + 流量加权</p>
+      </div>
+    </div>
+
+    <div class="home-indicator"><div class="hi-bar"></div></div>
+  </div>
+
+</div><!-- .phone -->
+
+<!-- 流程图 -->
+<div class="flow-chart">
+  <a class="flow-node" href="home-feed.html">
+    <span class="node-icon">🏠</span>
+    <span class="node-label">首页 Feed</span>
+  </a>
+  <div class="flow-edge"><span class="flow-edge-label">封面 Banner</span></div>
+  <a class="flow-node active" href="cover-race.html">
+    <span class="node-icon">👑</span>
+    <span class="node-label">封面争夺榜</span>
+  </a>
+  <div class="flow-edge"><span class="flow-edge-label">管理员入口</span></div>
+  <a class="flow-node" href="admin-dashboard.html">
+    <span class="node-icon">⚙️</span>
+    <span class="node-label">管理员后台</span>
+  </a>
+</div>
+
+</div><!-- .prototype-layout -->
+</body>
+</html>

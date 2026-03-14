@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=390, initial-scale=1.0">
+<title>首页 Feed · 千岛</title>
+<link rel="stylesheet" href="https://at.alicdn.com/t/c/font_3550031_uwcy4h4l9a9.css">
+<link rel="stylesheet" href="../_styles.css">
+<style>
+.phone { display:flex; flex-direction:column; }
+.scroll-area { flex:1; overflow-y:auto; -webkit-overflow-scrolling:touch; }
+.scroll-area::-webkit-scrollbar { display:none; }
+
+/* ════════════════════════════════
+   👻 Islands / Header（首页视图）
+   key: eecbc6c90b1707359ded719fde7ea758538f1a50
+   CSS 来自插件导出（自定义节点）
+   ════════════════════════════════ */
+.islands-header {
+  display:flex; width:375px; flex-direction:column;
+  align-items:flex-start; gap:10px;
+  background:var(--secondary-solid-bg); flex-shrink:0;
+}
+.islands-header .status-bar       { background:transparent; }
+.islands-header .status-bar-time  { color:var(--white-text-color); }
+.islands-header .status-bar-icons { color:var(--white-text-color); }
+.islands-header .navbar      { background:transparent; border-bottom:none; }
+.islands-header .navbar-logo { color:var(--white-text-color); }
+.islands-header .navbar-logo span { color:var(--white-text-color); }
+.islands-header .search-bar  { background:var(--white-soft-bg); }
+.islands-header .search-bar i    { color:var(--white-text-2); }
+.islands-header .search-bar span { color:var(--white-text-2); }
+.islands-header .icon-btn    { color:var(--white-text-color); }
+
+/* ════════════════════════════════
+   👻 Islands / Pin
+   key: e0eaba05d0e32d3ea7ef305765499b592ee04777
+   子格：👻 Islands / PinCell（Type=Home / Islands / MyIslands）
+         COMPONENT_SET key: 3b39931ea67f0639e205e7c99107dc05cd95d063
+   ════════════════════════════════ */
+.islands-pin {
+  display:flex; width:375px; align-items:flex-start;
+  overflow-x:auto; scrollbar-width:none; padding-bottom:var(--spacing-normal);
+}
+.islands-pin::-webkit-scrollbar { display:none; }
+.pin-item {
+  width:68px; flex-shrink:0;
+  display:flex; flex-direction:column; align-items:center; gap:var(--spacing-small);
+  cursor:pointer;
+}
+.pin-avatar {
+  width:48px; height:48px; border-radius:var(--radius-normal);
+  background:var(--white-soft-bg);
+  display:flex; align-items:center; justify-content:center; font-size:22px;
+}
+.pin-item.active .pin-avatar { outline:2px solid var(--white-text-color); outline-offset:2px; }
+.pin-name { color:var(--white-text-2); }
+.pin-item.active .pin-name { color:var(--white-text-color); font-weight:600; }
+
+/* ════════════════════════════════
+   👻 Islands / Grid（Contents）
+   key: 9c425cfa52d08f39c0bd2470df414befee021d0e
+   CSS 原样来自插件导出
+   ════════════════════════════════ */
+.islands-grid {
+  display:flex; width:375px; padding:10px 0; flex-direction:column;
+  align-items:flex-start; gap:var(--spacing-normal);
+  border-radius:var(--radius-medium); background:var(--bg-1);
+}
+
+/* ════════════════════════════════
+   👻 Islands / Slide
+   key: 11f0f10369d4947c619c4f74b9d00219f04e32bc
+   子格：👻 Islands / SlideCell · Type=Notice
+         COMPONENT_SET key: 949c93dae2f644fcc16dc1656188b282afa31aaa
+   ════════════════════════════════ */
+.islands-slide {
+  width:100%; display:flex; overflow-x:auto; scrollbar-width:none;
+  gap:var(--spacing-normal); padding:0 var(--spacing-medium);
+}
+.islands-slide::-webkit-scrollbar { display:none; }
+.slide-cell {
+  flex-shrink:0; width:calc(100% - 24px);
+  background:var(--bg-2); border-radius:var(--radius-normal);
+  padding:var(--spacing-small) var(--spacing-normal);
+  display:flex; align-items:center; gap:var(--spacing-normal);
+}
+.slide-tag {
+  background:var(--primary-soft-bg); color:var(--primary-color);
+  font-size:10px; font-weight:700; border-radius:var(--radius-small);
+  padding:2px 5px; flex-shrink:0;
+}
+.slide-text { color:var(--text-2); flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.slide-arrow { color:var(--icon-2); flex-shrink:0; }
+
+/* ════════════════════════════════
+   👻 Islands / Pair+QuickEntry · 数量=4~9
+   key: 03664d877db25b9fa5e10e056886bdd8db6cd496
+   子格：👻 Islands / QuickEntryCell / Title
+         COMPONENT_SET key: dec639b2e676dc978bcbe7dcf7d610a56c6c9d8c
+   子格：👻 Islands / QuickEntryCell / Info
+         COMPONENT_SET key: f5d42f186d7a4fa28511f36cf34e7dd75c775315
+   ════════════════════════════════ */
+.pair-quick-entry {
+  width:100%; display:flex; flex-direction:column; gap:var(--spacing-normal);
+  padding:0 var(--spacing-medium);
+}
+.pair-row { display:flex; gap:var(--spacing-normal); }
+.pair-card {
+  flex:1; background:var(--bg-2); border-radius:var(--radius-normal);
+  overflow:hidden; cursor:pointer;
+}
+.pair-card-img {
+  width:100%; aspect-ratio:4/3; background:var(--bg-4);
+  display:flex; align-items:center; justify-content:center; font-size:22px;
+}
+.pair-card-body { padding:var(--spacing-small); }
+.quick-entry-row { display:flex; overflow-x:auto; scrollbar-width:none; gap:0; }
+.quick-entry-row::-webkit-scrollbar { display:none; }
+.quick-entry-item {
+  flex-shrink:0; width:54px;
+  display:flex; flex-direction:column; align-items:center;
+  gap:var(--spacing-small); cursor:pointer;
+}
+.quick-entry-icon {
+  width:44px; height:44px; background:var(--primary-soft-bg);
+  border-radius:var(--radius-medium);
+  display:flex; align-items:center; justify-content:center; font-size:18px;
+}
+.quick-entry-info { color:var(--text-3); margin-top:-2px; }
+
+/* ════════════════════════════════
+   👻 Islands / GridCell
+   COMPONENT_SET key: 2184b6619f629c043de28f9bd34507af1b109e1f
+   Type=ISLANDS key: 86678f6945c04d9df33ae08a12475a4491c60090
+   Type=Search  key: 1ee4d24fc36777f53c8678406847ad28c93774a5
+   ════════════════════════════════ */
+.grid-row {
+  width:100%; display:grid; grid-template-columns:repeat(4, 1fr);
+  gap:var(--spacing-small); padding:0 var(--spacing-medium);
+}
+.grid-cell {
+  display:flex; flex-direction:column; align-items:center;
+  gap:var(--spacing-small); cursor:pointer;
+}
+.grid-cell-icon {
+  width:44px; height:44px; border-radius:var(--radius-medium);
+  background:var(--bg-2);
+  display:flex; align-items:center; justify-content:center; font-size:18px;
+}
+.grid-cell.type-search .grid-cell-icon { background:var(--primary-soft-bg); }
+.grid-cell-label { color:var(--text-2); text-align:center; }
+
+/* ════════════════════════════════
+   💙 Feed / Post · 2ColumnMobile
+   key: bc257468a92875667be7ef8502c1014821c5d58a
+   ════════════════════════════════ */
+.feed-dual {
+  column-count:2; column-gap:var(--spacing-normal);
+  padding:var(--spacing-normal); background:var(--bg-2);
+}
+.feed-card {
+  background:var(--bg-1); border-radius:var(--radius-normal);
+  overflow:hidden; cursor:pointer;
+  break-inside:avoid; display:inline-block; width:100%;
+  margin-bottom:var(--spacing-normal);
+}
+.card-img {
+  width:100%; aspect-ratio:4/3; background:var(--bg-4);
+  display:flex; align-items:center; justify-content:center; font-size:32px;
+}
+.card-body  { padding:var(--spacing-small); }
+.card-title { color:var(--text-1); }
+
+/* ════════════════════════════════
+   💙 00.05_Button / FAB · Normal=False
+   key: f2489b394dc9a7f57a1ffb7c6f7884b20d9773ae
+   ════════════════════════════════ */
+.fab {
+  position:absolute; right:var(--spacing-large);
+  bottom:calc(48px + 34px + var(--spacing-medium));
+  width:90px; height:56px;
+  display:flex; align-items:center; justify-content:center; gap:var(--spacing-small);
+  background:var(--primary-solid-bg); color:var(--primary-solid-color);
+  border-radius:var(--radius-large);
+  box-shadow:0 4px 16px rgba(124,102,255,.32);
+  cursor:pointer; z-index:100; border:none; font-family:inherit;
+}
+.fab i { font-size:20px; }
+.fab-text { font-size:14px; font-weight:500; }
+
+/* ════════════════════════════════
+   💙 01.05 Tab Bar / APP / 5Tabs — 深色变体
+   JSON: height:48px（不含 Home Indicator 安全区）
+   ════════════════════════════════ */
+.tabbar-island { height:48px; }
+.tabbar-dark { background:var(--secondary-solid-bg); border-top-color:var(--white-3); }
+.tabbar-dark .tab-bar-item i         { color:var(--white-text-3); }
+.tabbar-dark .tab-bar-item .tb-label { color:var(--white-text-3); }
+.tabbar-dark .tab-bar-item.active i  { color:var(--white-text-color); }
+.tabbar-dark .tab-bar-item.active .tb-label { color:var(--white-text-color); }
+.tabbar-dark .tb-badge { border-color:var(--secondary-solid-bg); }
+
+/* ════════════════════════════════
+   💙 01.11_Home Indicator · Property 1=Light
+   key: 74a01ec4929fea33d9c179977bed0a5fb69fedda
+   JSON: height:34px; background:var(--bg-1)
+   ════════════════════════════════ */
+.home-indicator {
+  height:34px; background:var(--bg-1);
+  display:flex; align-items:flex-end; justify-content:center;
+  padding-bottom:8px; flex-shrink:0;
+}
+.home-indicator-bar {
+  width:134px; height:5px;
+  background:var(--secondary-solid-bg); border-radius:3px; opacity:.2;
+}
+</style>
+</head>
+<body>
+
+<div class="prototype-layout">
+<div class="phone">
+
+  <!-- ════ ① 💙 01.00_Status Bar · Ghost=True ════ -->
+  <div class="status-bar status-bar--ghost">
+    <span class="status-bar-time t-h6" style="color:var(--white-text-color)">9:41</span>
+    <div class="status-bar-icons t-b6" style="color:var(--white-text-color)"><span>●●● WiFi 🔋</span></div>
+  </div>
+
+  <!-- ════ ② 👻 Islands / Header  key: eecbc6c90b1707359ded719fde7ea758538f1a50 ════ -->
+  <div class="islands-header">
+
+    <!-- NavBar：Logo + 搜索 + 消息（透明背景，内嵌于 Header） -->
+    <div class="navbar" style="padding-top:44px">
+      <span class="navbar-logo t-h4" style="color:var(--white-text-color)">千<span style="color:var(--white-text-color)">岛</span></span>
+      <div class="search-bar">
+        <i class="KurilIcons kuril-search ki-16" style="color:var(--white-text-2)"></i>
+        <span class="t-b5" style="color:var(--white-text-2)">搜索</span>
+      </div>
+      <button class="icon-btn" style="color:var(--white-text-color)">
+        <i class="KurilIcons kuril-message ki-22"></i>
+      </button>
+    </div>
+
+    <!-- ③ 👻 Islands / Pin  key: e0eaba05d0e32d3ea7ef305765499b592ee04777 -->
+    <!-- 子格：👻 Islands / PinCell（Type=Home / Islands / MyIslands） -->
+    <div class="islands-pin">
+      <!-- PinCell · Type=Home（首页，当前选中） -->
+      <div class="pin-item active" onclick="location.href='home-feed.html'">
+        <div class="pin-avatar" style="background:var(--white-soft-bg)">
+          <i class="KurilIcons kuril-discover ki-22" style="color:var(--white-text-color)"></i>
+        </div>
+        <span class="pin-name t-h8">首页</span>
+      </div>
+      <!-- PinCell · Type=Islands -->
+      <div class="pin-item" onclick="location.href='island-detail.html'">
+        <div class="pin-avatar">🎨</div>
+        <span class="pin-name t-h8">设计岛</span>
+      </div>
+      <div class="pin-item" onclick="location.href='island-detail.html'">
+        <div class="pin-avatar">🧸</div>
+        <span class="pin-name t-h8">潮玩岛</span>
+      </div>
+      <div class="pin-item" onclick="location.href='island-detail.html'">
+        <div class="pin-avatar">📷</div>
+        <span class="pin-name t-h8">摄影岛</span>
+      </div>
+      <div class="pin-item" onclick="location.href='island-detail.html'">
+        <div class="pin-avatar">✨</div>
+        <span class="pin-name t-h8">穿搭岛</span>
+      </div>
+      <!-- PinCell · Type=MyIslands -->
+      <div class="pin-item">
+        <div class="pin-avatar" style="background:var(--white-2)">
+          <i class="KurilIcons kuril-more ki-16" style="color:var(--white-text-2)"></i>
+        </div>
+        <span class="pin-name t-h8">更多</span>
+      </div>
+    </div>
+
+  </div><!-- .islands-header -->
+
+  <!-- ════ 滚动区（Grid + Feed，随手势整体滚动） ════ -->
+  <div class="scroll-area">
+
+    <!-- ④ 👻 Islands / Grid（Contents）  key: 9c425cfa52d08f39c0bd2470df414befee021d0e -->
+    <div class="islands-grid">
+
+      <!-- 👻 Islands / Slide  key: 11f0f10369d4947c619c4f74b9d00219f04e32bc -->
+      <!-- 子格：SlideCell · Type=Notice（横向公告条） -->
+      <div class="islands-slide">
+        <!-- SlideCell · Type=Notice（1） -->
+        <div class="slide-cell">
+          <span class="slide-tag">公告</span>
+          <span class="slide-text t-b7">千岛春节活动：晒出你的收藏，赢取限定礼盒</span>
+          <i class="KurilIcons kuril-arrow_right ki-12 slide-arrow"></i>
+        </div>
+        <!-- SlideCell · Type=Notice（2，横向预览） -->
+        <div class="slide-cell">
+          <span class="slide-tag">新功能</span>
+          <span class="slide-text t-b7">鉴别功能全新升级，一键提交更快出结果</span>
+          <i class="KurilIcons kuril-arrow_right ki-12 slide-arrow"></i>
+        </div>
+      </div>
+
+      <!-- 👻 Islands / Pair+QuickEntry · 数量=4~9 -->
+      <!-- key: 03664d877db25b9fa5e10e056886bdd8db6cd496 -->
+      <div class="pair-quick-entry">
+
+        <!-- Pair：两列精选内容卡片（首页聚合视角） -->
+        <div class="pair-row">
+          <div class="pair-card">
+            <div class="pair-card-img">🏆</div>
+            <div class="pair-card-body">
+              <p class="t-h8" style="color:var(--text-1)">本周精选合集</p>
+              <p class="t-b7 quick-entry-info">全平台最热内容</p>
+            </div>
+          </div>
+          <div class="pair-card">
+            <div class="pair-card-img">🎁</div>
+            <div class="pair-card-body">
+              <p class="t-h8" style="color:var(--text-1)">新人专享福利</p>
+              <p class="t-b7 quick-entry-info">限时 7 天</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- QuickEntry：快捷入口格（数量=4~9，8 个，横向可滚动） -->
+        <!-- 子格：👻 Islands / QuickEntryCell / Title（各 Type） -->
+        <!-- COMPONENT_SET key: dec639b2e676dc978bcbe7dcf7d610a56c6c9d8c -->
+        <div class="quick-entry-row">
+          <!-- Type=闲置  key: 27127a87ded28f22ec50809aeb682bebdd24acc3 -->
+          <div class="quick-entry-item">
+            <div class="quick-entry-icon">🏷️</div>
+            <span class="t-h8" style="color:var(--text-2)">闲置</span>
+          </div>
+          <!-- Type=闪购  key: 6a12de52216c26de614b00820c4a0bf67ebde2f9 -->
+          <div class="quick-entry-item">
+            <div class="quick-entry-icon">⚡</div>
+            <span class="t-h8" style="color:var(--text-2)">闪购</span>
+          </div>
+          <!-- Type=拍卖  key: fb7adcbd2ce958220f3fd751aa2cace5e9ae6dae -->
+          <div class="quick-entry-item">
+            <div class="quick-entry-icon">🔨</div>
+            <span class="t-h8" style="color:var(--text-2)">拍卖</span>
+          </div>
+          <!-- Type=福袋  key: 6196de8ffc5a651e9bf4f52e40e14ba8425590b9 -->
+          <div class="quick-entry-item">
+            <div class="quick-entry-icon">🎁</div>
+            <span class="t-h8" style="color:var(--text-2)">福袋</span>
+          </div>
+          <!-- Type=拼团  key: e596d0d6ee4079c6796b893de717971be46a32fc -->
+          <div class="quick-entry-item">
+            <div class="quick-entry-icon">👥</div>
+            <span class="t-h8" style="color:var(--text-2)">拼团</span>
+          </div>
+          <!-- Type=拼车  key: 960cb8a96156c37dcffe26659942f1b7a007487c -->
+          <div class="quick-entry-item">
+            <div class="quick-entry-icon">🚗</div>
+            <span class="t-h8" style="color:var(--text-2)">拼车</span>
+          </div>
+          <!-- Type=商城  key: 3fd3c90d9b37206a2997bf6719e46acaf407e01c -->
+          <div class="quick-entry-item">
+            <div class="quick-entry-icon">🛍️</div>
+            <span class="t-h8" style="color:var(--text-2)">商城</span>
+          </div>
+          <!-- Type=鉴别  key: 66130e8e869cc5cd1658fca0da98ea4f66832b4a -->
+          <div class="quick-entry-item">
+            <div class="quick-entry-icon">🔍</div>
+            <span class="t-h8" style="color:var(--text-2)">鉴别</span>
+          </div>
+        </div>
+
+      </div><!-- .pair-quick-entry -->
+
+      <!-- 👻 Islands / GridCell 行（首页通用资源入口） -->
+      <!-- Type=ISLANDS × 3 + Type=Search × 1 -->
+      <div class="grid-row">
+        <!-- GridCell · Type=ISLANDS：图鉴  key: 86678f6945c04d9df33ae08a12475a4491c60090 -->
+        <div class="grid-cell">
+          <div class="grid-cell-icon">📖</div>
+          <span class="grid-cell-label t-h8">图鉴</span>
+        </div>
+        <!-- GridCell · Type=ISLANDS：攻略 -->
+        <div class="grid-cell">
+          <div class="grid-cell-icon">🗺️</div>
+          <span class="grid-cell-label t-h8">攻略</span>
+        </div>
+        <!-- GridCell · Type=ISLANDS：商城 -->
+        <div class="grid-cell">
+          <div class="grid-cell-icon">🛒</div>
+          <span class="grid-cell-label t-h8">商城</span>
+        </div>
+        <!-- GridCell · Type=Search  key: 1ee4d24fc36777f53c8678406847ad28c93774a5 -->
+        <div class="grid-cell type-search">
+          <div class="grid-cell-icon">
+            <i class="KurilIcons kuril-search ki-18" style="color:var(--primary-color)"></i>
+          </div>
+          <span class="grid-cell-label t-h8">搜索</span>
+        </div>
+      </div>
+
+    </div><!-- .islands-grid -->
+
+    <!-- 💙 Feed / Post · 2ColumnMobile  key: bc257468a92875667be7ef8502c1014821c5d58a -->
+    <div class="feed-dual">
+
+      <div class="feed-card" onclick="location.href='content-detail.html'">
+        <div class="card-img">🎨</div>
+        <div class="card-body">
+          <p class="card-title t-b6">这套 Figma Variables 三级映射真的太绝了</p>
+        </div>
+      </div>
+
+      <div class="feed-card" onclick="location.href='content-detail.html'">
+        <div class="card-img" style="aspect-ratio:3/4">🌿</div>
+        <div class="card-body">
+          <p class="card-title t-b6">手办开箱 限定版</p>
+        </div>
+      </div>
+
+      <div class="feed-card" onclick="location.href='content-detail.html'">
+        <div class="card-img" style="aspect-ratio:3/4">📷</div>
+        <div class="card-body">
+          <p class="card-title t-b6">胶片感后期调色思路分享</p>
+        </div>
+      </div>
+
+      <div class="feed-card" onclick="location.href='content-detail.html'">
+        <div class="card-img">🧸</div>
+        <div class="card-body">
+          <p class="card-title t-b6">潮玩收纳怎么摆才好看？</p>
+        </div>
+      </div>
+
+      <div class="feed-card" onclick="location.href='content-detail.html'">
+        <div class="card-img">✨</div>
+        <div class="card-body">
+          <p class="card-title t-b6">今日穿搭 小个子显高秘籍</p>
+        </div>
+      </div>
+
+      <div class="feed-card" onclick="location.href='content-detail.html'">
+        <div class="card-img" style="aspect-ratio:3/4">🎮</div>
+        <div class="card-body">
+          <p class="card-title t-b6">游戏手柄改色全流程记录</p>
+        </div>
+      </div>
+
+    </div><!-- .feed-dual -->
+
+  </div><!-- .scroll-area -->
+
+  <!-- ════ ⑤ 💙 00.05_Button / FAB · Normal=False ════ -->
+  <!-- key: f2489b394dc9a7f57a1ffb7c6f7884b20d9773ae -->
+  <button class="fab">
+    <i class="KurilIcons kuril-edit ki-20"></i>
+    <span class="fab-text">发布</span>
+  </button>
+
+  <!-- ════ ⑥ 💙 01.05 Tab Bar / APP / 5Tabs — 深色变体 ════ -->
+  <!-- key: 58d45fd34a20eb2b8530af131a5291d7fa8782a9 -->
+  <div class="tabbar tabbar-island tabbar-dark">
+    <div class="tab-bar-item active">
+      <i class="KurilIcons kuril-discover"></i>
+      <span class="tb-label">岛</span>
+    </div>
+    <div class="tab-bar-item">
+      <i class="KurilIcons kuril-all"></i>
+      <span class="tb-label">发现</span>
+    </div>
+    <div class="tab-bar-item">
+      <i class="KurilIcons kuril-plus_circle_filled"></i>
+      <span class="tb-label">发布</span>
+    </div>
+    <div class="tab-bar-item" style="position:relative">
+      <i class="KurilIcons kuril-message"></i>
+      <span class="tb-label">消息</span>
+      <span class="tb-badge">2</span>
+    </div>
+    <div class="tab-bar-item">
+      <i class="KurilIcons kuril-me_account"></i>
+      <span class="tb-label">我的</span>
+    </div>
+  </div>
+
+  <!-- ════ ⑦ 💙 01.11_Home Indicator · Property 1=Light ════ -->
+  <!-- key: 74a01ec4929fea33d9c179977bed0a5fb69fedda -->
+  <div class="home-indicator">
+    <div class="home-indicator-bar"></div>
+  </div>
+
+</div><!-- .phone -->
+
+<!-- 流程图 -->
+<div class="flow-chart">
+  <a class="flow-node active" href="home-feed.html">
+    <span class="node-icon">🏠</span>
+    <span class="node-label">首页 Feed</span>
+  </a>
+  <div class="flow-edge"><span class="flow-edge-label">点击岛入口</span></div>
+  <a class="flow-node" href="island-detail.html">
+    <span class="node-icon">🎨</span>
+    <span class="node-label">岛详情页</span>
+  </a>
+  <div class="flow-edge"><span class="flow-edge-label">点击卡片</span></div>
+  <a class="flow-node" href="content-detail.html">
+    <span class="node-icon">📄</span>
+    <span class="node-label">内容详情页</span>
+  </a>
+</div>
+
+</div><!-- .prototype-layout -->
+</body>
+</html>

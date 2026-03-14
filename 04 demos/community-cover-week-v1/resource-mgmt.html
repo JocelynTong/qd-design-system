@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=390, initial-scale=1.0">
+<title>资源位管理 · 千岛</title>
+<link rel="stylesheet" href="https://at.alicdn.com/t/c/font_3550031_uwcy4h4l9a9.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+.phone { display:flex; flex-direction:column; background:var(--bg-2); }
+.scroll-area { flex:1; overflow-y:auto; }
+
+/* ── NavBar ── */
+.admin-navbar-wrap { background:var(--secondary-solid-bg); flex-shrink:0; }
+.admin-navbar-wrap .status-bar { background:transparent; }
+.admin-navbar-wrap .status-bar-time  { color:var(--white-text-color); }
+.admin-navbar-wrap .status-bar-icons { color:var(--white-text-color); }
+.admin-nb {
+  height:44px; display:flex; align-items:center;
+  padding:0 var(--spacing-large); gap:var(--spacing-normal); background:transparent;
+}
+.admin-back-btn {
+  width:36px; height:36px; border-radius:50%;
+  background:var(--white-2); border:none; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; color:var(--white-text-color);
+}
+.admin-nb-title { flex:1; color:var(--white-text-color); }
+.admin-nb-sub { color:var(--white-text-2); font-size:11px; }
+
+/* ── Feed 示意图（鸟瞰视图）── */
+.feed-overview {
+  margin:var(--spacing-large);
+  background:var(--bg-1); border-radius:var(--radius-large); overflow:hidden;
+}
+.feed-overview-header {
+  padding:var(--spacing-medium) var(--spacing-medium) var(--spacing-small);
+  display:flex; align-items:center; justify-content:space-between;
+}
+.feed-overview-title { color:var(--text-1); }
+.feed-overview-legend { display:flex; align-items:center; gap:var(--spacing-medium); }
+.legend-item { display:flex; align-items:center; gap:4px; }
+.legend-dot { width:8px; height:8px; border-radius:50%; }
+.legend-dot.active  { background:var(--primary-5); }
+.legend-dot.empty   { background:var(--bg-4); }
+.legend-dot.expiring{ background:var(--warning-solid-bg); }
+.legend-text { color:var(--text-3); font-size:10px; }
+
+/* Feed 缩略图 */
+.feed-mini {
+  padding:0 var(--spacing-medium) var(--spacing-medium);
+  display:grid; grid-template-columns:1fr 1fr; gap:6px;
+}
+.feed-mini-slot {
+  border-radius:var(--radius-small); height:52px;
+  display:flex; align-items:center; justify-content:center;
+  position:relative; cursor:pointer;
+  border:2px solid transparent;
+}
+.feed-mini-slot.occupied { background:var(--primary-1); border-color:var(--primary-4); }
+.feed-mini-slot.empty    { background:var(--bg-4); border:2px dashed var(--border-1); }
+.feed-mini-slot.expiring { background:var(--warning-soft-bg); border-color:var(--warning-solid-bg); }
+.feed-mini-slot.normal   { background:var(--bg-4); border-color:transparent; }
+.slot-num {
+  position:absolute; top:3px; left:5px;
+  font-size:9px; font-weight:700;
+}
+.slot-num.occ  { color:var(--primary-color); }
+.slot-num.emp  { color:var(--text-disabled); }
+.slot-num.exp  { color:var(--warning-solid-bg); }
+.slot-num.norm { color:var(--text-disabled); }
+.slot-icon { font-size:18px; }
+
+/* full-width slot */
+.feed-mini-full {
+  grid-column:1 / -1; border-radius:var(--radius-small); height:40px;
+  display:flex; align-items:center; justify-content:center;
+  position:relative; cursor:pointer; border:2px solid transparent;
+}
+.feed-mini-full.occupied { background:var(--primary-1); border-color:var(--primary-4); }
+
+/* ── 资源位列表 ── */
+.section { padding:0 var(--spacing-large) var(--spacing-large); }
+.section-title { color:var(--text-2); margin-bottom:var(--spacing-medium); }
+
+.slot-card {
+  background:var(--bg-1); border-radius:var(--radius-large);
+  margin-bottom:var(--spacing-normal); overflow:hidden; cursor:pointer;
+}
+.slot-card-header {
+  padding:var(--spacing-medium);
+  display:flex; align-items:center; gap:var(--spacing-medium);
+}
+.slot-pos-badge {
+  width:32px; height:32px; border-radius:var(--radius-normal);
+  display:flex; align-items:center; justify-content:center;
+  font-size:13px; font-weight:800; flex-shrink:0;
+}
+.slot-pos-badge.a { background:var(--primary-1); color:var(--primary-color); }
+.slot-pos-badge.b { background:var(--warning-soft-bg); color:var(--warning-solid-bg); }
+.slot-pos-badge.c { background:var(--bg-4); color:var(--text-3); }
+
+.slot-info { flex:1; min-width:0; }
+.slot-name  { color:var(--text-1); }
+.slot-pos-label { color:var(--text-3); margin-top:1px; }
+
+.slot-status-tag {
+  border-radius:var(--radius-large); padding:4px 10px;
+  font-size:11px; font-weight:600;
+}
+.slot-status-tag.active   { background:var(--primary-soft-bg); color:var(--primary-color); }
+.slot-status-tag.expiring { background:var(--warning-soft-bg); color:var(--warning-solid-bg); }
+.slot-status-tag.empty    { background:var(--bg-4); color:var(--text-3); }
+
+/* 已分配内容区 */
+.slot-content {
+  border-top:.5px solid var(--border-1);
+  padding:var(--spacing-medium);
+  display:flex; gap:var(--spacing-medium); align-items:center;
+}
+.slot-content-thumb {
+  width:48px; height:48px; border-radius:var(--radius-normal);
+  background:var(--bg-4); flex-shrink:0;
+  display:flex; align-items:center; justify-content:center; font-size:22px;
+}
+.slot-content-info { flex:1; min-width:0; }
+.slot-content-title { color:var(--text-1); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.slot-content-meta  { color:var(--text-3); margin-top:2px; }
+.slot-content-timer { display:flex; align-items:center; gap:4px; margin-top:4px; }
+.timer-dot { width:5px; height:5px; border-radius:50%; }
+.timer-dot.ok  { background:var(--success-color); }
+.timer-dot.warn{ background:var(--warning-solid-bg); }
+.timer-text { color:var(--text-3); }
+
+.slot-actions { display:flex; gap:var(--spacing-small); }
+.slot-action-btn {
+  height:28px; border-radius:var(--radius-normal); border:1px solid var(--border-1);
+  padding:0 var(--spacing-normal); cursor:pointer;
+  font-size:12px; font-weight:500; background:var(--bg-1); color:var(--text-2);
+}
+.slot-action-btn.primary {
+  background:var(--primary-solid-bg); color:var(--primary-solid-color); border-color:transparent;
+}
+
+/* 空资源位 */
+.slot-empty-row {
+  border-top:.5px solid var(--border-1);
+  padding:var(--spacing-medium);
+  display:flex; align-items:center; justify-content:center;
+  gap:var(--spacing-small);
+}
+.add-content-btn {
+  display:flex; align-items:center; gap:6px;
+  background:var(--bg-2); border:1.5px dashed var(--border-1);
+  border-radius:var(--radius-normal); padding:8px 16px;
+  cursor:pointer; color:var(--text-3);
+}
+.add-content-btn span { font-size:14px; }
+
+/* home indicator */
+.home-indicator { height:34px; display:flex; align-items:center; justify-content:center; background:var(--bg-2); }
+.hi-bar { width:120px; height:4px; border-radius:2px; background:var(--secondary-3); }
+</style>
+</head>
+<body>
+<div class="prototype-layout">
+<div class="phone">
+
+  <!-- 管理员 NavBar -->
+  <div class="admin-navbar-wrap">
+    <div class="status-bar">
+      <span class="status-bar-time t-h6">9:41</span>
+      <div class="status-bar-icons t-b6"><span>●●● WiFi 🔋</span></div>
+    </div>
+    <div class="admin-nb">
+      <button class="admin-back-btn" onclick="location.href='admin-dashboard.html'">
+        <i class="KurilIcons kuril-arrow_left ki-20"></i>
+      </button>
+      <div>
+        <p class="admin-nb-title t-h5">资源位管理</p>
+        <p class="admin-nb-sub">4 / 6 已使用</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-area">
+
+    <!-- Feed 鸟瞰示意图 -->
+    <div class="feed-overview">
+      <div class="feed-overview-header">
+        <span class="feed-overview-title t-h6">Feed 资源位分布</span>
+        <div class="feed-overview-legend">
+          <div class="legend-item"><div class="legend-dot active"></div><span class="legend-text">已占用</span></div>
+          <div class="legend-item"><div class="legend-dot expiring"></div><span class="legend-text">即将到期</span></div>
+          <div class="legend-item"><div class="legend-dot empty"></div><span class="legend-text">空闲</span></div>
+        </div>
+      </div>
+      <div class="feed-mini">
+        <!-- 封面资源位（全宽） -->
+        <div class="feed-mini-full occupied">
+          <span class="slot-num occ" style="top:5px;left:8px">★ 封面位</span>
+          <span class="slot-icon">🌸</span>
+        </div>
+        <!-- 双列 #1（已占） -->
+        <div class="feed-mini-slot occupied">
+          <span class="slot-num occ">①</span>
+          <span class="slot-icon">🎨</span>
+        </div>
+        <!-- 双列 #2（普通） -->
+        <div class="feed-mini-slot normal">
+          <span class="slot-num norm">②</span>
+        </div>
+        <!-- 双列 #3（普通） -->
+        <div class="feed-mini-slot normal">
+          <span class="slot-num norm">③</span>
+        </div>
+        <!-- 双列 #4（即将到期） -->
+        <div class="feed-mini-slot expiring">
+          <span class="slot-num exp">④</span>
+          <span class="slot-icon">📷</span>
+        </div>
+        <!-- 双列 #5（已占） -->
+        <div class="feed-mini-slot occupied">
+          <span class="slot-num occ">⑤</span>
+          <span class="slot-icon">🌿</span>
+        </div>
+        <!-- 双列 #6（空闲） -->
+        <div class="feed-mini-slot empty">
+          <span class="slot-num emp">⑥+</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 资源位列表 -->
+    <div class="section">
+      <p class="section-title t-h6">各资源位详情</p>
+
+      <!-- 封面资源位 -->
+      <div class="slot-card">
+        <div class="slot-card-header">
+          <div class="slot-pos-badge a">★</div>
+          <div class="slot-info">
+            <p class="slot-name t-h6">封面资源位</p>
+            <p class="slot-pos-label t-b7">首页顶部全宽 · 最高曝光</p>
+          </div>
+          <span class="slot-status-tag active">使用中</span>
+        </div>
+        <div class="slot-content">
+          <div class="slot-content-thumb">🌸</div>
+          <div class="slot-content-info">
+            <p class="slot-content-title t-h6">春日街拍 | 我的樱花季穿搭</p>
+            <p class="slot-content-meta t-b7">@MikoStyle · 封面争夺第一名</p>
+            <div class="slot-content-timer">
+              <div class="timer-dot ok"></div>
+              <span class="timer-text t-b7">周日 12:00 自动结算</span>
+            </div>
+          </div>
+        </div>
+        <div style="padding:0 var(--spacing-medium) var(--spacing-medium); display:flex; gap:var(--spacing-small)">
+          <button class="slot-action-btn" style="flex:1">查看争夺榜</button>
+          <button class="slot-action-btn primary" style="flex:1">手动指定内容</button>
+        </div>
+      </div>
+
+      <!-- 资源位 ① -->
+      <div class="slot-card">
+        <div class="slot-card-header">
+          <div class="slot-pos-badge a">①</div>
+          <div class="slot-info">
+            <p class="slot-name t-h6">双列第 1 位</p>
+            <p class="slot-pos-label t-b7">Feed 第一条 · 高点击率位置</p>
+          </div>
+          <span class="slot-status-tag active">Boosted</span>
+        </div>
+        <div class="slot-content">
+          <div class="slot-content-thumb">🎨</div>
+          <div class="slot-content-info">
+            <p class="slot-content-title t-h6">Figma Variables 三级映射实战</p>
+            <p class="slot-content-meta t-b7">@设计师小林 · 3.2k 点赞</p>
+            <div class="slot-content-timer">
+              <div class="timer-dot ok"></div>
+              <span class="timer-text t-b7">还剩 3 天 · 到期自动下撤</span>
+            </div>
+          </div>
+        </div>
+        <div style="padding:0 var(--spacing-medium) var(--spacing-medium); display:flex; gap:var(--spacing-small)">
+          <button class="slot-action-btn" style="flex:1">提前结束</button>
+          <button class="slot-action-btn" style="flex:1">延长 7 天</button>
+          <button class="slot-action-btn primary">替换</button>
+        </div>
+      </div>
+
+      <!-- 资源位 ④ 即将到期 -->
+      <div class="slot-card">
+        <div class="slot-card-header">
+          <div class="slot-pos-badge b">④</div>
+          <div class="slot-info">
+            <p class="slot-name t-h6">双列第 4 位</p>
+            <p class="slot-pos-label t-b7">Feed 第四条 · 中段曝光</p>
+          </div>
+          <span class="slot-status-tag expiring">明日到期</span>
+        </div>
+        <div class="slot-content">
+          <div class="slot-content-thumb">📷</div>
+          <div class="slot-content-info">
+            <p class="slot-content-title t-h6">胶片质感后期教程 全流程</p>
+            <p class="slot-content-meta t-b7">@暗房诗人 · 封面候选 #3</p>
+            <div class="slot-content-timer">
+              <div class="timer-dot warn"></div>
+              <span class="timer-text t-b7" style="color:var(--warning-solid-bg)">⚠ 明日 18:00 到期</span>
+            </div>
+          </div>
+        </div>
+        <div style="padding:0 var(--spacing-medium) var(--spacing-medium); display:flex; gap:var(--spacing-small)">
+          <button class="slot-action-btn" style="flex:1">结束</button>
+          <button class="slot-action-btn primary" style="flex:2">延长 7 天</button>
+        </div>
+      </div>
+
+      <!-- 资源位 ⑥ 空闲 -->
+      <div class="slot-card">
+        <div class="slot-card-header">
+          <div class="slot-pos-badge c">⑥</div>
+          <div class="slot-info">
+            <p class="slot-name t-h6">双列第 6 位</p>
+            <p class="slot-pos-label t-b7">Feed 第六条 · 空闲中</p>
+          </div>
+          <span class="slot-status-tag empty">空闲</span>
+        </div>
+        <div class="slot-empty-row">
+          <button class="add-content-btn">
+            <span>＋</span>
+            <span class="t-b6">指定内容到此位置</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+    <div class="home-indicator"><div class="hi-bar"></div></div>
+  </div>
+
+</div><!-- .phone -->
+
+<!-- 流程图 -->
+<div class="flow-chart">
+  <a class="flow-node" href="admin-dashboard.html">
+    <span class="node-icon">⚙️</span>
+    <span class="node-label">管理员后台</span>
+  </a>
+  <div class="flow-edge"><span class="flow-edge-label">资源位管理</span></div>
+  <a class="flow-node active" href="resource-mgmt.html">
+    <span class="node-icon">📌</span>
+    <span class="node-label">资源位管理</span>
+  </a>
+  <div class="flow-edge"><span class="flow-edge-label">社区活动</span></div>
+  <a class="flow-node" href="activity-mgmt.html">
+    <span class="node-icon">🎉</span>
+    <span class="node-label">社区活动</span>
+  </a>
+</div>
+
+</div><!-- .prototype-layout -->
+</body>
+</html>

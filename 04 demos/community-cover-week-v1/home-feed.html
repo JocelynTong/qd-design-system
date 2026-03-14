@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=390, initial-scale=1.0">
+<title>首页 Feed · 千岛</title>
+<link rel="stylesheet" href="https://at.alicdn.com/t/c/font_3550031_uwcy4h4l9a9.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+.phone { display:flex; flex-direction:column; }
+.scroll-area { flex:1; overflow-y:auto; -webkit-overflow-scrolling:touch; }
+.scroll-area::-webkit-scrollbar { display:none; }
+
+/* ════════════════════════════════════════════════════════
+   💙 👻 Islands / Header
+   key: eecbc6c90b1707359ded719fde7ea758538f1a50
+   flex col，gap:10px（候选池：gap 未 token 化）
+   子层级：StatusBar · NavBar · Pin · ✨封面占领区
+   ════════════════════════════════════════════════════════ */
+.islands-header {
+  display:flex; width:375px; flex-direction:column;
+  align-items:flex-start; gap:10px;
+  background:var(--secondary-solid-bg); flex-shrink:0;
+}
+.islands-header .status-bar       { background:transparent; width:100%; }
+.islands-header .status-bar-time  { color:var(--white-text-color); }
+.islands-header .status-bar-icons { color:var(--white-text-color); }
+.islands-header .navbar      { background:transparent; border-bottom:none; width:100%; }
+.islands-header .navbar-logo { color:var(--white-text-color); }
+.islands-header .navbar-logo span { color:var(--white-text-color); }
+.islands-header .search-bar  { background:var(--white-soft-bg); }
+.islands-header .search-bar i    { color:var(--white-text-2); }
+.islands-header .search-bar span { color:var(--white-text-2); }
+.islands-header .icon-btn    { color:var(--white-text-color); }
+
+/* ── 💙 👻 Islands / Pin  key: e0eaba05d0e32d3ea7ef305765499b592ee04777 ── */
+/* COMPONENT_SET key: 3b39931ea67f0639e205e7c99107dc05cd95d063           */
+/* 子格：👻 Islands / PinCell（Type=Home / Islands / MyIslands）          */
+.islands-pin {
+  display:flex; width:375px; align-items:flex-start;
+  overflow-x:auto; scrollbar-width:none;
+}
+.islands-pin::-webkit-scrollbar { display:none; }
+
+/* PinCell · Type=Home  key: 0ee323d2a0cc150322dd836552a8923f8dbddb4f */
+/* PinCell · Type=Islands  key: a0bda7eff5e42f43757ae1716d70065e6782534a */
+/* PinCell · Type=MyIslands  key: 73277f850c6f1e31e71bd8723e100fb8d3484ad8 */
+.pin-item {
+  width:68px; flex-shrink:0;
+  display:flex; flex-direction:column; align-items:center; gap:var(--spacing-small);
+  cursor:pointer; padding-bottom:var(--spacing-normal);
+}
+.pin-avatar {
+  width:48px; height:48px; border-radius:var(--radius-normal);
+  background:var(--white-soft-bg);
+  display:flex; align-items:center; justify-content:center; font-size:22px;
+}
+.pin-item.active .pin-avatar { outline:2px solid var(--white-text-color); outline-offset:2px; }
+.pin-name { color:var(--white-text-2); }
+.pin-item.active .pin-name { color:var(--white-text-color); font-weight:600; }
+
+/* ════════════════════════════════════════════════════════
+   ✨ 封面占领区（新增设计层，位于 Islands/Header flex 流中）
+   插入位置：Pin 之后，Islands/Grid 之前
+   ════════════════════════════════════════════════════════ */
+.cover-zone {
+  width:375px; overflow:hidden; flex-shrink:0;
+  transition:max-height .38s cubic-bezier(.4,0,.2,1), opacity .3s ease;
+  max-height:200px; opacity:1;
+}
+.cover-zone.collapsed { max-height:0; opacity:0; pointer-events:none; }
+
+.cover-img-area {
+  width:375px; height:160px; position:relative;
+  display:flex; align-items:center; justify-content:center;
+  font-size:60px; overflow:hidden;
+  background:var(--secondary-8); cursor:pointer;
+}
+.cover-gradient {
+  position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.78) 0%, rgba(0,0,0,0) 55%);
+}
+.cover-top-row {
+  position:absolute; top:var(--spacing-normal); left:var(--spacing-normal); right:var(--spacing-normal);
+  display:flex; align-items:center; gap:6px;
+}
+.cover-badge-gold {
+  display:inline-flex; align-items:center; gap:3px;
+  background:rgba(255,215,0,.2); border:1px solid rgba(255,215,0,.55);
+  border-radius:var(--radius-small); padding:3px 7px;
+}
+.cover-badge-gold span { color:#FFD700; font-size:11px; font-weight:700; }
+.cover-countdown {
+  display:inline-flex; align-items:center; gap:4px;
+  background:var(--mask-2); border-radius:var(--radius-small); padding:3px 7px;
+}
+.blink-dot { width:5px; height:5px; border-radius:50%; background:#FF6B6B; animation:blink 1s infinite; flex-shrink:0; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+.cover-countdown span { color:var(--white-text-color); font-size:11px; }
+.cover-collapse-btn {
+  margin-left:auto; width:28px; height:28px; border-radius:50%;
+  background:var(--mask-2); border:none; cursor:pointer; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center; color:var(--white-text-color);
+}
+.cover-info-row {
+  position:absolute; bottom:0; left:0; right:0; z-index:5;
+  padding:var(--spacing-normal) var(--spacing-medium);
+  display:flex; align-items:flex-end; justify-content:space-between; gap:var(--spacing-normal);
+}
+.cover-info-left { display:flex; flex-direction:column; gap:4px; }
+.cover-post-title { color:var(--white-text-color); }
+.cover-author-row { display:flex; align-items:center; gap:5px; }
+.cover-mini-avatar { width:16px; height:16px; border-radius:50%; background:var(--primary-4); border:1px solid rgba(255,255,255,.4); }
+.cover-author-name { color:var(--white-text-2); }
+.cover-boost-btn {
+  flex-shrink:0; height:32px; border:none; border-radius:var(--radius-normal);
+  padding:0 12px; background:rgba(255,215,0,.92); color:#3D2800;
+  font-size:12px; font-weight:700; cursor:pointer;
+  display:flex; align-items:center; gap:3px; white-space:nowrap;
+}
+
+/* 收起态紧凑条 */
+.cover-strip {
+  width:375px; height:40px; display:none;
+  align-items:center; gap:var(--spacing-normal);
+  padding:0 var(--spacing-medium); cursor:pointer; flex-shrink:0;
+}
+.cover-strip.visible { display:flex; }
+.strip-left { display:flex; align-items:center; gap:6px; flex:1; min-width:0; }
+.strip-crown { font-size:14px; flex-shrink:0; }
+.strip-text { color:var(--white-text-2); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.strip-expand-btn {
+  width:24px; height:24px; border-radius:50%;
+  background:var(--white-2); border:none; cursor:pointer; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center; color:var(--white-text-2);
+}
+
+/* ════════════════════════════════════════════════════════
+   💙 👻 Islands / Grid
+   key: 9c425cfa52d08f39c0bd2470df414befee021d0e
+   白色圆角卡片，padding:10px 0，flex col，gap:Spacing/Normal
+   子层级：Slide（公告）· GridCell × N（含 Type=Search）
+   ════════════════════════════════════════════════════════ */
+.islands-grid {
+  display:flex; width:100%; padding:10px 0;
+  flex-direction:column; align-items:flex-start;
+  gap:var(--spacing-normal);
+  background:var(--bg-1);
+}
+
+/* 💙 👻 Islands / Slide  key: 11f0f10369d4947c619c4f74b9d00219f04e32bc */
+/* SlideCell 只有一个变体：Type=Notice（横向滚动公告通知卡片）           */
+/* COMPONENT_SET key: 949c93dae2f644fcc16dc1656188b282afa31aaa           */
+/* SlideCell · Type=Notice  key: aa0156e774187570f2820701d3ed571c996c39c4 */
+.islands-slide {
+  width:100%;
+  overflow-x:auto; scrollbar-width:none;
+  display:flex; gap:var(--spacing-normal);
+  padding:0 var(--spacing-medium);
+}
+.islands-slide::-webkit-scrollbar { display:none; }
+/* SlideCell · Type=Notice：tag + 通知文字 + 箭头 */
+.slide-cell {
+  flex-shrink:0; width:calc(100% - 32px);
+  background:var(--bg-2); border-radius:var(--radius-normal);
+  padding:var(--spacing-small) var(--spacing-normal);
+  display:flex; align-items:center; gap:var(--spacing-small);
+  cursor:pointer;
+}
+.slide-tag {
+  flex-shrink:0;
+  background:var(--primary-soft-bg); color:var(--primary-color);
+  font-size:10px; font-weight:700; border-radius:var(--radius-small);
+  padding:2px 5px;
+}
+.slide-text {
+  flex:1; color:var(--text-2);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.slide-arrow { flex-shrink:0; color:var(--icon-3); }
+
+/* 💙 👻 Islands / GridCell
+   COMPONENT_SET key: 2184b6619f629c043de28f9bd34507af1b109e1f
+   Type=ISLANDS  key: 86678f6945c04d9df33ae08a12475a4491c60090
+   Type=Search   key: 1ee4d24fc36777f53c8678406847ad28c93774a5 */
+.grid-row {
+  width:100%; display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:var(--spacing-small); padding:0 var(--spacing-medium);
+}
+.grid-cell {
+  display:flex; flex-direction:column; align-items:center;
+  gap:var(--spacing-small); cursor:pointer;
+}
+.grid-cell-icon {
+  width:44px; height:44px; border-radius:var(--radius-medium);
+  background:var(--bg-2);
+  display:flex; align-items:center; justify-content:center;
+  font-size:18px; position:relative;
+}
+/* GridCell · Type=Search 样式 */
+.grid-cell-icon.search-type {
+  background:var(--primary-soft-bg);
+}
+/* 封面榜高亮（新增，观察中） */
+.grid-cell-icon.cover-entry {
+  background:rgba(255,215,0,.12);
+  border:1px solid rgba(255,215,0,.3);
+}
+.grid-cell-icon .dot {
+  position:absolute; top:4px; right:4px;
+  width:6px; height:6px; border-radius:50%; background:#FF6B6B;
+}
+.grid-cell-label { color:var(--text-2); text-align:center; }
+.grid-cell.cover-cell .grid-cell-label { color:rgba(200,170,0,1); }
+.grid-cell.search-cell .grid-cell-label { color:var(--primary-color); }
+
+/* ════════════════════════════════════════════════════════
+   💙 👻 Islands / Pair+QuickEntry
+   COMPONENT_SET key: b73b34e01e12a1637a206752cb7fad018de6349f
+   数量=4~9  key: 03664d877db25b9fa5e10e056886bdd8db6cd496
+   位于 Islands/Grid 之下、Feed 之上
+   ════════════════════════════════════════════════════════ */
+.pair-quickentry {
+  width:100%; background:var(--bg-1);
+  padding:var(--spacing-normal) 0;
+  display:flex; flex-direction:column; gap:var(--spacing-small);
+}
+/* QuickEntryCell / Title  COMPONENT_SET key: dec639b2e676dc978bcbe7dcf7d610a56c6c9d8c */
+.qe-title-row {
+  padding:0 var(--spacing-medium);
+  display:flex; align-items:center; justify-content:space-between;
+}
+.qe-title-text { color:var(--text-1); }
+.qe-more { color:var(--text-3); display:flex; align-items:center; gap:2px; }
+/* QuickEntryCell/Title 横向滚动格 */
+.qe-scroll {
+  display:flex; overflow-x:auto; scrollbar-width:none;
+  padding:0 var(--spacing-medium); gap:var(--spacing-normal);
+}
+.qe-scroll::-webkit-scrollbar { display:none; }
+.qe-cell {
+  flex-shrink:0; display:flex; flex-direction:column;
+  align-items:center; gap:var(--spacing-small); cursor:pointer;
+  width:52px;
+}
+.qe-icon {
+  width:44px; height:44px; border-radius:var(--radius-medium);
+  display:flex; align-items:center; justify-content:center; font-size:20px;
+}
+.qe-icon.idle    { background:#FFF3E0; }
+.qe-icon.flash   { background:#FFF1F0; }
+.qe-icon.auction { background:#F0F5FF; }
+.qe-icon.lootbag { background:#F6FFED; }
+.qe-icon.group   { background:#F9F0FF; }
+.qe-icon.carpool { background:#E6FFFB; }
+.qe-icon.mall    { background:var(--primary-soft-bg); }
+.qe-icon.cal     { background:#FFFBE6; }
+.qe-label { color:var(--text-2); text-align:center; white-space:nowrap; }
+/* QuickEntryCell / Info  COMPONENT_SET key: f5d42f186d7a4fa28511f36cf34e7dd75c775315 */
+.qe-info-row {
+  padding:0 var(--spacing-medium);
+  display:flex; gap:var(--spacing-normal);
+}
+.qe-info-chip {
+  background:var(--bg-2); border-radius:var(--radius-small);
+  padding:3px var(--spacing-normal);
+  display:flex; align-items:center; gap:4px;
+}
+.qe-info-dot { width:4px; height:4px; border-radius:50%; background:var(--trade-color); flex-shrink:0; }
+.qe-info-text { color:var(--text-3); }  /* 字号=11/12 对应 t-b7/t-b6 */
+
+/* ════════════════════════════════════════════════════════
+   💙 👻 Islands / Tag
+   key: 3bdc1589cd9fb7da92e95c95d63010b3b0c334cb
+   用于 Feed 卡片上标注帖子所属的岛
+   ════════════════════════════════════════════════════════ */
+.island-tag {
+  display:inline-flex; align-items:center; gap:2px;
+  background:var(--bg-2); border-radius:var(--radius-small);
+  padding:2px 5px;
+}
+.island-tag-dot {
+  width:5px; height:5px; border-radius:50%; flex-shrink:0;
+}
+.island-tag-name { color:var(--text-3); font-size:10px; font-weight:500; }
+
+/* ════════════════════════════════════════════════════════
+   Feed 滚动区
+   💙 👻 Feed / Post · 2ColumnMobile
+   key: bc257468a92875667be7ef8502c1014821c5d58a
+   ════════════════════════════════════════════════════════ */
+.feed-header {
+  padding:var(--spacing-normal) var(--spacing-normal) var(--spacing-small);
+  display:flex; align-items:center; justify-content:space-between;
+}
+.feed-header-label { color:var(--text-2); }
+
+.feed-dual {
+  column-count:2; column-gap:var(--spacing-normal);
+  padding:0 var(--spacing-normal) var(--spacing-large); background:var(--bg-2);
+}
+.feed-card {
+  background:var(--bg-1); border-radius:var(--radius-normal);
+  overflow:hidden; cursor:pointer; break-inside:avoid;
+  display:inline-block; width:100%; margin-bottom:var(--spacing-normal);
+}
+.card-img {
+  width:100%; aspect-ratio:4/3; background:var(--bg-4);
+  display:flex; align-items:center; justify-content:center; font-size:32px;
+  position:relative;
+}
+.card-img.tall { aspect-ratio:3/4; }
+.boost-badge {
+  position:absolute; top:var(--spacing-small); left:var(--spacing-small);
+  background:var(--primary-solid-bg); color:var(--primary-solid-color);
+  font-size:10px; font-weight:700; border-radius:var(--radius-small); padding:2px 5px;
+}
+.card-body { padding:var(--spacing-small); display:flex; flex-direction:column; gap:4px; }
+.card-island-row { display:flex; align-items:center; }
+.card-title { color:var(--text-1); }
+.card-meta { display:flex; align-items:center; gap:4px; }
+.card-avatar { width:14px; height:14px; border-radius:50%; background:var(--bg-4); flex-shrink:0; }
+.card-author { color:var(--text-3); flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.card-likes { display:flex; align-items:center; gap:2px; color:var(--text-3); flex-shrink:0; }
+
+/* TabBar 深色变体 */
+.tabbar-dark { background:var(--secondary-solid-bg); border-top-color:var(--white-3); }
+.tabbar-dark .tab-bar-item i        { color:var(--white-text-3); }
+.tabbar-dark .tab-bar-item .tb-label{ color:var(--white-text-3); }
+.tabbar-dark .tab-bar-item.active i { color:var(--white-text-color); }
+.tabbar-dark .tab-bar-item.active .tb-label { color:var(--white-text-color); }
+.tabbar-dark .tb-badge { border-color:var(--secondary-solid-bg); }
+
+/* Demo 演示切换 */
+.demo-toggle {
+  position:fixed; bottom:80px; right:16px; z-index:9999;
+  display:flex; flex-direction:column; gap:6px;
+}
+.demo-btn {
+  background:var(--primary-solid-bg); color:var(--primary-solid-color);
+  border:none; border-radius:var(--radius-large); padding:5px 10px;
+  font-size:11px; font-weight:600; cursor:pointer; white-space:nowrap;
+}
+</style>
+</head>
+<body>
+<div class="prototype-layout">
+<div class="phone">
+
+  <!-- ══════════════════════════════════════════════════════
+       💙 👻 Islands / Header
+       key: eecbc6c90b1707359ded719fde7ea758538f1a50
+       ══════════════════════════════════════════════════════ -->
+  <div class="islands-header" id="islandHeader">
+
+    <!-- StatusBar · Ghost=True -->
+    <div class="status-bar">
+      <span class="status-bar-time t-h6">9:41</span>
+      <div class="status-bar-icons t-b6"><span>●●● WiFi 🔋</span></div>
+    </div>
+
+    <!-- NavBar（深色，嵌入 Islands/Header） -->
+    <div class="navbar">
+      <span class="navbar-logo t-h4">千<span>岛</span></span>
+      <div class="search-bar">
+        <i class="KurilIcons kuril-search ki-16"></i>
+        <span class="t-b5">搜索感兴趣的内容</span>
+      </div>
+      <button class="icon-btn"><i class="KurilIcons kuril-message ki-22"></i></button>
+    </div>
+
+    <!-- 💙 👻 Islands / Pin  key: e0eaba05d0e32d3ea7ef305765499b592ee04777 -->
+    <div class="islands-pin">
+      <!-- PinCell · Type=Home  key: 0ee323d2a0cc150322dd836552a8923f8dbddb4f -->
+      <div class="pin-item active">
+        <div class="pin-avatar">🏠</div>
+        <span class="pin-name t-h8">首页</span>
+      </div>
+      <!-- PinCell · Type=Islands  key: a0bda7eff5e42f43757ae1716d70065e6782534a -->
+      <div class="pin-item">
+        <div class="pin-avatar">🎨</div>
+        <span class="pin-name t-h8">设计岛</span>
+      </div>
+      <div class="pin-item">
+        <div class="pin-avatar">🧸</div>
+        <span class="pin-name t-h8">潮玩岛</span>
+      </div>
+      <div class="pin-item">
+        <div class="pin-avatar">📷</div>
+        <span class="pin-name t-h8">摄影岛</span>
+      </div>
+      <div class="pin-item">
+        <div class="pin-avatar">✨</div>
+        <span class="pin-name t-h8">穿搭岛</span>
+      </div>
+      <!-- PinCell · Type=MyIslands  key: 73277f850c6f1e31e71bd8723e100fb8d3484ad8 -->
+      <div class="pin-item">
+        <div class="pin-avatar" style="background:var(--white-2)">
+          <i class="KurilIcons kuril-more ki-16" style="color:var(--white-text-2)"></i>
+        </div>
+        <span class="pin-name t-h8">管理</span>
+      </div>
+    </div>
+
+    <!-- ✨ 封面占领区（位于 Pin 之后、Islands/Grid 之前）
+         首次进岛本周 → 展开态；再次进岛 → 收起态          -->
+
+    <!-- 展开态：160px 大图 -->
+    <div class="cover-zone" id="coverZone">
+      <div class="cover-img-area" onclick="location.href='cover-race.html'">
+        🌸
+        <div class="cover-gradient"></div>
+        <div class="cover-top-row">
+          <div class="cover-badge-gold"><span>👑 本周封面 · 争夺中</span></div>
+          <div class="cover-countdown">
+            <div class="blink-dot"></div>
+            <span>2天后截止</span>
+          </div>
+          <button class="cover-collapse-btn" onclick="event.stopPropagation(); collapseHeader()">
+            <i class="KurilIcons kuril-close ki-12"></i>
+          </button>
+        </div>
+        <div class="cover-info-row">
+          <div class="cover-info-left">
+            <p class="cover-post-title t-h5">春日街拍 | 我的樱花季穿搭</p>
+            <div class="cover-author-row">
+              <div class="cover-mini-avatar"></div>
+              <span class="cover-author-name t-b7">@MikoStyle · 领先 2.4k 票</span>
+            </div>
+          </div>
+          <button class="cover-boost-btn" onclick="event.stopPropagation()">⚡ 助力</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 收起态：40px 紧凑条 -->
+    <div class="cover-strip" id="coverStrip" onclick="expandHeader()">
+      <div class="strip-left">
+        <span class="strip-crown">👑</span>
+        <span class="strip-text t-b7">MikoStyle 领先 · 2天后结算</span>
+      </div>
+      <button class="strip-expand-btn" onclick="event.stopPropagation(); expandHeader()">
+        <i class="KurilIcons kuril-arrow_left ki-10" style="transform:rotate(-90deg)"></i>
+      </button>
+    </div>
+
+  </div><!-- /islands-header -->
+
+  <!-- ══════════════════════════════════════════════════════
+       Feed 滚动区（Islands/Grid 在顶部，随 Feed 一起滚动）
+       💙 👻 Feed / Post · 2ColumnMobile
+       key: bc257468a92875667be7ef8502c1014821c5d58a
+       卡片上附 💙 👻 Islands / Tag
+       key: 3bdc1589cd9fb7da92e95c95d63010b3b0c334cb
+       ══════════════════════════════════════════════════════ -->
+  <div class="scroll-area" style="background:var(--bg-2)">
+
+    <!-- ══════════════════════════════════════════════════════
+         💙 👻 Islands / Grid
+         key: 9c425cfa52d08f39c0bd2470df414befee021d0e
+         白卡在 scroll-area 顶部，随 Feed 一起上滑（native 真实体验）
+         ══════════════════════════════════════════════════════ -->
+    <div class="islands-grid">
+
+      <!-- 💙 👻 Islands / Slide  key: 11f0f10369d4947c619c4f74b9d00219f04e32bc -->
+      <!-- 横向滚动公告行；每格 = SlideCell · Type=Notice                   -->
+      <!-- SlideCell COMPONENT_SET key: 949c93dae2f644fcc16dc1656188b282afa31aaa -->
+      <!-- SlideCell · Type=Notice  key: aa0156e774187570f2820701d3ed571c996c39c4 -->
+      <div class="islands-slide">
+        <div class="slide-cell">
+          <span class="slide-tag">公告</span>
+          <span class="slide-text t-b7">春日街拍挑战赛火热报名中，3月底截止</span>
+          <i class="KurilIcons kuril-arrow_left ki-10 slide-arrow" style="transform:rotate(180deg)"></i>
+        </div>
+        <div class="slide-cell">
+          <span class="slide-tag">活动</span>
+          <span class="slide-text t-b7">图鉴开放投稿，精选内容全站展示</span>
+          <i class="KurilIcons kuril-arrow_left ki-10 slide-arrow" style="transform:rotate(180deg)"></i>
+        </div>
+        <div class="slide-cell">
+          <span class="slide-tag">公告</span>
+          <span class="slide-text t-b7">本周封面争夺进入最后48小时</span>
+          <i class="KurilIcons kuril-arrow_left ki-10 slide-arrow" style="transform:rotate(180deg)"></i>
+        </div>
+      </div>
+
+      <!-- 💙 👻 Islands / GridCell                                         -->
+      <!-- COMPONENT_SET key: 2184b6619f629c043de28f9bd34507af1b109e1f    -->
+      <!-- Type=ISLANDS = 岛通用功能格  key: 86678f6945c04d9df33ae08a12475a4491c60090 -->
+      <!-- Type=Search  = 搜索格       key: 1ee4d24fc36777f53c8678406847ad28c93774a5 -->
+      <div class="grid-row">
+        <div class="grid-cell">
+          <div class="grid-cell-icon">📖</div>
+          <span class="grid-cell-label t-h8">图鉴</span>
+        </div>
+        <div class="grid-cell">
+          <div class="grid-cell-icon">🗺️</div>
+          <span class="grid-cell-label t-h8">攻略</span>
+        </div>
+        <div class="grid-cell">
+          <div class="grid-cell-icon">📚</div>
+          <span class="grid-cell-label t-h8">资料库</span>
+        </div>
+        <div class="grid-cell search-cell">
+          <div class="grid-cell-icon search-type">
+            <i class="KurilIcons kuril-search ki-18" style="color:var(--primary-color)"></i>
+          </div>
+          <span class="grid-cell-label t-h8">搜索</span>
+        </div>
+      </div>
+    </div><!-- /islands-grid -->
+
+    <!-- ══════════════════════════════════════════════════════
+         💙 👻 Islands / Pair+QuickEntry
+         COMPONENT_SET key: b73b34e01e12a1637a206752cb7fad018de6349f
+         数量=4~9  key: 03664d877db25b9fa5e10e056886bdd8db6cd496
+         ══════════════════════════════════════════════════════ -->
+    <div class="pair-quickentry">
+
+      <!-- QuickEntryCell / Title · Type=标题  key: f2950d98db8a87fdba06c01adfdfa14ed5deb84b -->
+      <div class="qe-title-row">
+        <span class="qe-title-text t-h6">岛商城</span>
+        <div class="qe-more">
+          <span class="t-b7">更多</span>
+          <i class="KurilIcons kuril-arrow_left ki-10" style="transform:rotate(180deg); color:var(--icon-3)"></i>
+        </div>
+      </div>
+
+      <!-- QuickEntryCell / Title × 8  key per Type（横向滚动）-->
+      <div class="qe-scroll">
+        <!-- Type=闲置  key: 27127a87ded28f22ec50809aeb682bebdd24acc3 -->
+        <div class="qe-cell">
+          <div class="qe-icon idle">🏷️</div>
+          <span class="qe-label t-h8">闲置</span>
+        </div>
+        <!-- Type=闃购  key: 6a12de52216c26de614b00820c4a0bf67ebde2f9 -->
+        <div class="qe-cell">
+          <div class="qe-icon flash">⚡</div>
+          <span class="qe-label t-h8">闃购</span>
+        </div>
+        <!-- Type=拍卖  key: fb7adcbd2ce958220f3fd751aa2cace5e9ae6dae -->
+        <div class="qe-cell">
+          <div class="qe-icon auction">🔨</div>
+          <span class="qe-label t-h8">拍卖</span>
+        </div>
+        <!-- Type=福袋  key: 6196de8ffc5a651e9bf4f52e40e14ba8425590b9 -->
+        <div class="qe-cell">
+          <div class="qe-icon lootbag">🎁</div>
+          <span class="qe-label t-h8">福袋</span>
+        </div>
+        <!-- Type=拼团  key: e596d0d6ee4079c6796b893de717971be46a32fc -->
+        <div class="qe-cell">
+          <div class="qe-icon group">👥</div>
+          <span class="qe-label t-h8">拼团</span>
+        </div>
+        <!-- Type=拼车  key: 960cb8a96156c37dcffe26659942f1b7a007487c -->
+        <div class="qe-cell">
+          <div class="qe-icon carpool">🚌</div>
+          <span class="qe-label t-h8">拼车</span>
+        </div>
+        <!-- Type=商城  key: 3fd3c90d9b37206a2997bf6719e46acaf407e01c -->
+        <div class="qe-cell">
+          <div class="qe-icon mall">🛍️</div>
+          <span class="qe-label t-h8">商城</span>
+        </div>
+        <!-- Type=日历  key: 4e4941a079ff13d23bc4a0414cd97c93d47dc52b -->
+        <div class="qe-cell">
+          <div class="qe-icon cal">📅</div>
+          <span class="qe-label t-h8">日历</span>
+        </div>
+      </div>
+
+      <!-- QuickEntryCell / Info · 字号=11  key: d559b6df89950dc19cd68e4fd24e18a6fe8c1819 -->
+      <div class="qe-info-row">
+        <div class="qe-info-chip">
+          <div class="qe-info-dot"></div>
+          <span class="qe-info-text t-b7">潮玩岛 · 闲置 38 件新上</span>
+        </div>
+        <div class="qe-info-chip">
+          <div class="qe-info-dot" style="background:var(--warning-solid-bg)"></div>
+          <span class="qe-info-text t-b7">今日闃购 · 23:00 截止</span>
+        </div>
+      </div>
+
+    </div><!-- /pair-quickentry -->
+
+    <div class="feed-header">
+      <span class="feed-header-label t-h6">推荐</span>
+    </div>
+    <div class="feed-dual">
+
+      <!-- 👻 Feed / Post · 2ColumnMobile + Islands/Tag → 设计岛 -->
+      <div class="feed-card">
+        <div class="card-img">
+          <span>🎨</span>
+          <div class="boost-badge">↑ 推荐</div>
+        </div>
+        <div class="card-body">
+          <!-- 💙 👻 Islands / Tag  key: 3bdc1589cd9fb7da92e95c95d63010b3b0c334cb -->
+          <div class="card-island-row">
+            <div class="island-tag">
+              <div class="island-tag-dot" style="background:#7C66FF"></div>
+              <span class="island-tag-name">设计岛</span>
+            </div>
+          </div>
+          <p class="card-title t-b6">Figma Variables 三级映射实战手册</p>
+          <div class="card-meta">
+            <div class="card-avatar"></div>
+            <span class="card-author t-b7">设计师小林</span>
+            <div class="card-likes"><i class="KurilIcons kuril-like_normal ki-12"></i><span class="t-n6">3.2k</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 👻 Feed / Post · 2ColumnMobile + Islands/Tag → 潮玩岛 -->
+      <div class="feed-card">
+        <div class="card-img tall">🌿</div>
+        <div class="card-body">
+          <div class="card-island-row">
+            <div class="island-tag">
+              <div class="island-tag-dot" style="background:#FF8C42"></div>
+              <span class="island-tag-name">潮玩岛</span>
+            </div>
+          </div>
+          <p class="card-title t-b6">限定手办开箱 KAWS×千岛联名款</p>
+          <div class="card-meta">
+            <div class="card-avatar"></div>
+            <span class="card-author t-b7">玩具控阿乐</span>
+            <div class="card-likes"><i class="KurilIcons kuril-like_normal ki-12"></i><span class="t-n6">1.8k</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 👻 Feed / Post · 2ColumnMobile + Islands/Tag → 摄影岛 -->
+      <div class="feed-card">
+        <div class="card-img tall">📷</div>
+        <div class="card-body">
+          <div class="card-island-row">
+            <div class="island-tag">
+              <div class="island-tag-dot" style="background:#4ABFB0"></div>
+              <span class="island-tag-name">摄影岛</span>
+            </div>
+          </div>
+          <p class="card-title t-b6">胶片质感后期教程 全流程</p>
+          <div class="card-meta">
+            <div class="card-avatar"></div>
+            <span class="card-author t-b7">暗房诗人</span>
+            <div class="card-likes"><i class="KurilIcons kuril-like_normal ki-12"></i><span class="t-n6">956</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 👻 Feed / Post · 2ColumnMobile + Islands/Tag → 穿搭岛（封面候选，高亮） -->
+      <div class="feed-card">
+        <div class="card-img">
+          <span>🌸</span>
+          <div class="boost-badge" style="background:rgba(255,215,0,.9); color:#3D2800;">👑 封面候选</div>
+        </div>
+        <div class="card-body">
+          <div class="card-island-row">
+            <div class="island-tag">
+              <div class="island-tag-dot" style="background:#FF6B9D"></div>
+              <span class="island-tag-name">穿搭岛</span>
+            </div>
+          </div>
+          <p class="card-title t-b6">春日街拍 | 我的樱花季穿搭</p>
+          <div class="card-meta">
+            <div class="card-avatar"></div>
+            <span class="card-author t-b7">MikoStyle</span>
+            <div class="card-likes"><i class="KurilIcons kuril-like_selected_filled ki-12" style="color:var(--error-color)"></i><span class="t-n6">6.1k</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 👻 Feed / Post · 2ColumnMobile（无 tag，通用内容） -->
+      <div class="feed-card">
+        <div class="card-img">☕</div>
+        <div class="card-body">
+          <div class="card-island-row">
+            <div class="island-tag">
+              <div class="island-tag-dot" style="background:#52C41A"></div>
+              <span class="island-tag-name">生活岛</span>
+            </div>
+          </div>
+          <p class="card-title t-b6">咖啡渣种多肉 意外好活</p>
+          <div class="card-meta">
+            <div class="card-avatar"></div>
+            <span class="card-author t-b7">懒人园艺</span>
+            <div class="card-likes"><i class="KurilIcons kuril-like_normal ki-12"></i><span class="t-n6">412</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feed-card">
+        <div class="card-img tall">🎵</div>
+        <div class="card-body">
+          <div class="card-island-row">
+            <div class="island-tag">
+              <div class="island-tag-dot" style="background:#1890FF"></div>
+              <span class="island-tag-name">数码岛</span>
+            </div>
+          </div>
+          <p class="card-title t-b6">今年最想要的便携音箱 横评</p>
+          <div class="card-meta">
+            <div class="card-avatar"></div>
+            <span class="card-author t-b7">数码派</span>
+            <div class="card-likes"><i class="KurilIcons kuril-like_normal ki-12"></i><span class="t-n6">2.3k</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /scroll-area -->
+
+  <!-- TabBar 深色 + 💙 浅色底部适配  key: aec27850bc717c09a87f743af26fe06a70e95027 -->
+  <div class="tabbar tabbar-dark">
+    <div class="tab-bar-item active">
+      <i class="KurilIcons kuril-discover"></i>
+      <span class="tb-label">岛</span>
+    </div>
+    <div class="tab-bar-item">
+      <i class="KurilIcons kuril-all"></i>
+      <span class="tb-label">发现</span>
+    </div>
+    <div class="tab-bar-item">
+      <i class="KurilIcons kuril-plus_circle_filled"></i>
+      <span class="tb-label">发布</span>
+    </div>
+    <div class="tab-bar-item" style="position:relative">
+      <i class="KurilIcons kuril-message"></i>
+      <span class="tb-label">消息</span>
+      <span class="tb-badge">3</span>
+    </div>
+    <div class="tab-bar-item">
+      <i class="KurilIcons kuril-me_account"></i>
+      <span class="tb-label">我的</span>
+    </div>
+  </div>
+
+</div><!-- /phone -->
+
+<!-- 流程图 -->
+<div class="flow-chart">
+  <a class="flow-node active" href="home-feed.html">
+    <span class="node-icon">🏠</span>
+    <span class="node-label">首页 Feed</span>
+  </a>
+  <div class="flow-edge"><span class="flow-edge-label">点击封面区</span></div>
+  <a class="flow-node" href="cover-race.html">
+    <span class="node-icon">👑</span>
+    <span class="node-label">封面争夺榜</span>
+  </a>
+  <div class="flow-edge"><span class="flow-edge-label">管理员入口</span></div>
+  <a class="flow-node" href="admin-dashboard.html">
+    <span class="node-icon">⚙️</span>
+    <span class="node-label">管理员后台</span>
+  </a>
+</div>
+
+</div><!-- /prototype-layout -->
+
+<!-- 演示切换 -->
+<div class="demo-toggle">
+  <button class="demo-btn" onclick="simulateFirstVisit()">📅 首次进岛</button>
+  <button class="demo-btn" onclick="simulateReturn()">🔄 再次进岛</button>
+</div>
+
+<script>
+const WEEK_KEY = 'cover_seen_week_' + (() => {
+  const d = new Date(), j = new Date(d.getFullYear(), 0, 1);
+  return d.getFullYear() + '_' + Math.ceil(((d - j) / 86400000 + j.getDay() + 1) / 7);
+})();
+
+function collapseHeader() {
+  document.getElementById('coverZone').classList.add('collapsed');
+  document.getElementById('coverStrip').classList.add('visible');
+  localStorage.setItem(WEEK_KEY, 'seen');
+}
+function expandHeader() {
+  document.getElementById('coverZone').classList.remove('collapsed');
+  document.getElementById('coverStrip').classList.remove('visible');
+  localStorage.removeItem(WEEK_KEY);
+}
+function simulateFirstVisit() { expandHeader(); }
+function simulateReturn()     { collapseHeader(); }
+
+if (localStorage.getItem(WEEK_KEY) === 'seen') collapseHeader();
+</script>
+</body>
+</html>

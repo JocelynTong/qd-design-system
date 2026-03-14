@@ -1,0 +1,59 @@
+{
+  "component": "Status Bar",
+  "figma_page": "01.00 Status Bar",
+  "chips": ["20px", "44px", "59px", "Ghost"],
+  "description": "状态栏组件，适配三种 iPhone 机型的安全区高度。Ghost 模式文字变为白色，用于深色/图片背景上。研发侧直接使用系统原生状态栏，无需实现此组件。",
+  "figma_key": "2f7f3dcad59956ff9d3edfb9dae060b8d0b20dca",
+  "usage_rules": [
+    "研发直接使用系统原生 SafeAreaInset，无需实现此组件",
+    "设计稿以 375×667px 一倍图为基准，安全区高度固定",
+    "Ghost=True 用于深色或图片背景，文字/图标变为白色",
+    "页面布局需预留对应高度的安全区：老机型 20px，iPhone X+ 44px，iPhone 14 Pro+ 59px"
+  ],
+  "figma_keys": {
+    "Default":        "537035984ef1002314dd3594dae53ffaf3449579",
+    "Ghost":          "cdb9db3f90421acac04c87e1988bd177f3a0f844",
+    "iPhoneX":        "2f0822c67ed4a4951a09fecb453f76ce7e882cf5",
+    "iPhoneX_Ghost":  "fca61ad869eda2219a414e1bd3799bfd88245da4",
+    "14Pro":          "dd536db6511351c5c12625189f2a7bbee6f6cdd2",
+    "14Pro_Ghost":    "54d52b4ac2a0c5ab3134728417487673e5bc3563"
+  },
+  "variants": {
+    "Default_20px": {
+      "figma_name": "Ghost=False, iPhone X 以上=False, iPhone 14pro 以上=False",
+      "desc": "老机型（iPhone 8 及以下），状态栏高度 20px，显示运营商、时间、电量",
+      "preview_html": "<div style=\"display:flex;gap:16px;align-items:center;flex-wrap:wrap\"><div style=\"width:375px;height:20px;background:var(--bg-card2,#f7f7f9);border-radius:4px;display:flex;align-items:center;justify-content:space-between;padding:0 8px;font-size:10px;color:var(--text-1,#000);font-family:-apple-system,sans-serif\"><span>中国移动 ✦</span><span>9:41 AM</span><span>100% ▌</span></div><code style=\"font-size:11px;color:var(--text-3)\">height: 20px</code></div>",
+      "css": {
+        "width": "375px",
+        "height": "20px"
+      },
+      "props": {
+        "Ghost": { "options": ["False", "True"] }
+      }
+    },
+    "iPhoneX_44px": {
+      "figma_name": "Ghost=False, iPhone X 以上=True, iPhone 14pro 以上=False",
+      "desc": "iPhone X / 11 / 12 / 13 系列，刘海屏，状态栏高度 44px",
+      "preview_html": "<div style=\"display:flex;gap:16px;align-items:center;flex-wrap:wrap\"><div style=\"width:375px;height:44px;background:var(--bg-card2,#f7f7f9);border-radius:4px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 20px 8px;font-size:11px;color:var(--text-1,#000);font-family:-apple-system,sans-serif\"><span>11:27</span><span>📶 ✦ 🔋</span></div><code style=\"font-size:11px;color:var(--text-3)\">height: 44px</code></div>",
+      "css": {
+        "width": "375px",
+        "height": "44px"
+      },
+      "props": {
+        "Ghost": { "options": ["False", "True"] }
+      }
+    },
+    "iPhone14Pro_59px": {
+      "figma_name": "Ghost=False, iPhone X 以上=False, iPhone 14pro 以上=True",
+      "desc": "iPhone 14 Pro / 15 / 16 系列，灵动岛，状态栏高度 59px",
+      "preview_html": "<div style=\"display:flex;gap:16px;align-items:center;flex-wrap:wrap\"><div style=\"width:375px;height:59px;background:var(--bg-card2,#f7f7f9);border-radius:4px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 20px 10px;font-size:11px;color:var(--text-1,#000);font-family:-apple-system,sans-serif\"><span>11:27</span><span>📶 ✦ 🔋</span></div><code style=\"font-size:11px;color:var(--text-3)\">height: 59px</code></div>",
+      "css": {
+        "width": "375px",
+        "height": "59px"
+      },
+      "props": {
+        "Ghost": { "options": ["False", "True"] }
+      }
+    }
+  }
+}

@@ -1,0 +1,289 @@
+{
+  "component": "Navigation Bar",
+  "figma_page": "01.01 Navigation Bar",
+  "chips": [
+    "App",
+    "小程序",
+    "Ghost",
+    "Search",
+    "Tabs"
+  ],
+  "description": "顶部导航栏，位于状态栏正下方，固定高度 44px。由 Left / Center / Right 三个插槽组合而成，每个插槽均可独立配置。支持 Ghost 透明模式用于沉浸式内容页，支持 App 和小程序两种 Terminal 形态。",
+  "usage_rules": [
+    "整体高度固定 44px，宽度 375px（全屏），padding:0 4px，gap:4px",
+    "Terminal=小程序 时左侧为小程序胶囊区（研发无需实现，由宿主注入）；Terminal=App 时左侧为普通 Left 插槽",
+    "Ghost=True 背景透明，图标/文字改为白色，适用于沉浸式图片/视频页顶部",
+    "Center 插槽五种类型：Search（搜索框）/ Tabs（多 Tab）/ SegmentedControl / Text（标题）/ Image（Logo）",
+    "Right 插槽最多 3 个图标，间距 gap:4px，图标 touch 区 ≥40×40px"
+  ],
+  "figma_key": "0edb2fce58bb443d85abe089e121aa1fa83977a0",
+  "figma_keys": {
+    "NavigationBar": "0edb2fce58bb443d85abe089e121aa1fa83977a0",
+    "Left": "32cf1dc3cbfeab85b94b2417c487a29a99335821",
+    "Center": "62dcaadc570a22efb4b8d7f0fdaddb36706c2f63",
+    "Right": "8ed2b78adb3d31892cda891656f97a96b4e51abf"
+  },
+  "variants": {
+    "App": {
+      "figma_name": "Terminal=App, Ghost=False",
+      "desc": "原生 App 标准形态，左侧返回箭头，中间标题，右侧图标组",
+      "preview_html": "<div style=\"display:flex;width:375px;height:44px;padding:0 4px;align-items:center;gap:4px;background:var(--bg-card,#fff);border-bottom:1px solid var(--border-c,rgba(0,0,0,0.08));box-sizing:border-box\"><div data-bool=\"👁️ Left\" style=\"display:inline-flex;height:44px;align-items:center;padding:0 8px\"><i class=\"kuril-arrow_left\" style=\"font-size:20px;color:var(--text-1,#000)\"></i></div><div data-bool=\"👁️ Center\" style=\"flex:1;display:flex;justify-content:center;align-items:center\"><span style=\"font:var(--font-h4);color:var(--text-1,#000)\">页面标题</span></div><div data-bool=\"👁️ Right\" style=\"display:inline-flex;height:44px;align-items:center;gap:4px\"><i class=\"kuril-share\" style=\"font-size:20px;color:var(--text-1,#000)\"></i><i class=\"kuril-more_h\" style=\"font-size:20px;color:var(--text-1,#000)\"></i></div></div>",
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "height": "44px",
+        "padding": "0 var(--Spacing-Small, 4px)",
+        "align-items": "center",
+        "gap": "4px"
+      },
+      "props": {
+        "Ghost": {
+          "options": [
+            "False",
+            "True"
+          ],
+          "desc": {
+            "False": "实底背景 var(--bg-card)",
+            "True": "透明背景，图标/文字变白"
+          }
+        },
+        "Booleans": {
+          "👁️ Left": {
+            "default": true,
+            "desc": "显隐左侧插槽"
+          },
+          "👁️ Center": {
+            "default": true,
+            "desc": "显隐中间插槽"
+          },
+          "👁️ Right": {
+            "default": true,
+            "desc": "显隐右侧插槽"
+          }
+        }
+      }
+    },
+    "App_Ghost": {
+      "figma_name": "Terminal=App, Ghost=True",
+      "desc": "沉浸式透明导航栏，用于图片/视频封面顶部，图标和文字白色",
+      "preview_html": "<div style=\"display:flex;width:375px;height:44px;padding:0 4px;align-items:center;gap:4px;background:linear-gradient(to bottom,rgba(0,0,0,0.3) 0%,transparent 100%);box-sizing:border-box;border-radius:4px\"><div data-bool=\"👁️ Left\" style=\"display:inline-flex;height:44px;align-items:center;padding:0 8px\"><i class=\"kuril-arrow_left\" style=\"font-size:20px;color:#fff\"></i></div><div data-bool=\"👁️ Center\" style=\"flex:1;display:flex;justify-content:center;align-items:center\"><span style=\"font:var(--font-h4);color:#fff\">页面标题</span></div><div data-bool=\"👁️ Right\" style=\"display:inline-flex;height:44px;align-items:center;gap:4px\"><i class=\"kuril-share\" style=\"font-size:20px;color:#fff\"></i><i class=\"kuril-more_h\" style=\"font-size:20px;color:#fff\"></i></div></div>",
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "height": "44px",
+        "padding": "0 var(--Spacing-Small, 4px)",
+        "align-items": "center",
+        "gap": "var(--Spacing-Small, 4px)",
+        "background": "transparent"
+      }
+    },
+    "MiniProgram": {
+      "figma_name": "Terminal=小程序, Ghost=False",
+      "desc": "微信小程序形态，右侧区域由宿主注入胶囊按钮，Left 和 Center 插槽同 App",
+      "preview_html": "<div style=\"display:flex;width:375px;height:44px;padding:0 4px;align-items:center;gap:4px;background:var(--bg-card,#fff);border-bottom:1px solid var(--border-c,rgba(0,0,0,0.08));box-sizing:border-box\"><div data-bool=\"👁️ Left\" style=\"display:inline-flex;height:44px;align-items:center;padding:0 8px\"><i class=\"kuril-arrow_left\" style=\"font-size:20px;color:var(--text-1,#000)\"></i></div><div data-bool=\"👁️ Center\" style=\"flex:1;display:flex;justify-content:center;align-items:center\"><span style=\"font:var(--font-h4);color:var(--text-1,#000)\">页面标题</span></div><div style=\"display:inline-flex;height:44px;padding:0 6px;align-items:center;gap:6px;border:1px solid var(--border-c,rgba(0,0,0,0.1));border-radius:20px;font-size:11px;color:var(--text-2,rgba(0,0,0,0.6))\"><i class=\"kuril-more_h\" style=\"font-size:16px\"></i><span style=\"width:1px;height:16px;background:var(--border-c)\"></span><i class=\"kuril-close\" style=\"font-size:16px\"></i></div></div>",
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "height": "44px",
+        "padding": "0 var(--Spacing-Small, 4px)",
+        "align-items": "center",
+        "gap": "var(--Spacing-Small, 4px)"
+      },
+      "note": "小程序右侧胶囊（「…｜×」按钮）由微信宿主自动注入，研发无需实现"
+    },
+    "Left_Slot": {
+      "figma_name": "💙 01.01_Navigation Bar / Left",
+      "desc": "左侧插槽，默认含 IconButton（返回）和可选 Logo。Ghost=True 时图标/Logo 变白",
+      "preview_html": "<div style=\"display:inline-flex;height:44px;align-items:center\"><div data-bool=\"IconButton\" style=\"display:flex;width:40px;height:40px;flex-direction:column;justify-content:center;align-items:center;gap:2px\"><i class=\"KurilIcons kuril-arrow_left\" style=\"font-size:20px;color:var(--text-1,#2B263B)\"></i></div><div data-bool=\"Logo\" style=\"display:flex;width:53px;height:44px;justify-content:center;align-items:center\"><div style=\"display:flex;width:37px;height:20px;align-items:center;gap:1px\"><div style=\"flex:1 0 0;height:100%;min-height:1px;min-width:1px;position:relative\"><svg preserveAspectRatio=\"none\" width=\"100%\" height=\"100%\" overflow=\"visible\" style=\"position:absolute;inset:0;display:block\" viewBox=\"0 0 17.9995 19.9996\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M11.5739 5.4625C11.7838 5.44041 11.954 5.60361 11.9392 5.81113L11.7439 8.61387C11.7317 8.76929 11.8503 8.89491 12.0056 8.89512H17.6726C17.8652 8.8952 18.0111 9.05396 17.9988 9.24668L17.8894 10.7936C17.8176 11.7993 16.9463 12.6147 15.9411 12.6148H11.7439C11.5885 12.615 11.4532 12.7407 11.4431 12.8961L11.0749 18.1656C11.0033 19.1789 10.1258 19.9996 9.11301 19.9996H6.85129C6.65876 19.9996 6.513 19.8416 6.52512 19.649L6.9968 12.8961C7.00884 12.7407 6.89035 12.615 6.73508 12.6148H0.326875C0.134501 12.6147 -0.0114147 12.4567 0.000703328 12.2643L0.110078 10.7164C0.181888 9.71084 1.05329 8.89536 2.05832 8.89512H6.9968C7.1522 8.89498 7.28753 8.76933 7.29758 8.61387L7.46359 6.22617C7.47594 6.04823 7.62168 5.89731 7.79953 5.87754L11.5739 5.4625ZM17.2624 0.0035161C17.4551 -0.0236565 17.6231 0.109578 17.6355 0.302344L17.737 1.82481C17.8035 2.8206 17.04 3.73956 16.0349 3.87559L1.74777 5.80625C1.57937 5.83001 1.42969 5.73078 1.38645 5.57676L1.37473 5.50938L1.27316 3.98691C1.20654 2.99097 1.97001 2.07206 2.97531 1.93613L17.2624 0.0035161Z\" fill=\"var(--text-1,#2B263B)\"/></svg></div><div style=\"flex:1 0 0;height:100%;min-height:1px;min-width:1px;position:relative\"><svg preserveAspectRatio=\"none\" width=\"100%\" height=\"100%\" overflow=\"visible\" style=\"position:absolute;inset:0;display:block\" viewBox=\"0 0 17.9989 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M11.809 0.0244141C12.0541 0.0269706 12.2119 0.268692 12.1225 0.507812L11.8842 1.21387H16.3315C17.3199 1.21396 18.0625 2.02812 17.9945 3.03223L17.7836 6.0918C17.7132 7.09591 16.856 7.91005 15.8676 7.91016H13.8734C13.684 7.91016 13.541 7.75202 13.5531 7.55957L13.7524 4.68066C13.7645 4.48575 13.6205 4.33008 13.4311 4.33008H5.86075C5.66888 4.33008 5.50376 4.48821 5.49161 4.68066L5.22403 8.55176C5.21194 8.74663 5.35591 8.90234 5.54532 8.90234H16.2826C17.2712 8.90234 18.0147 9.71651 17.9467 10.7207L17.9438 10.7227L17.4311 18.1816C17.3606 19.1858 16.5035 20 15.5151 20H13.2787C13.0893 20 12.9453 19.8419 12.9574 19.6494L13.4262 12.8223C13.4382 12.6275 13.2952 12.4727 13.1059 12.4727H2.85392C1.86555 12.4727 1.12212 11.6583 1.18986 10.6543L1.71427 3.03027C1.7847 2.02608 2.64274 1.21191 3.63126 1.21191H7.12833L7.47794 0.253906C7.53863 0.101101 7.68938 0.00016594 7.84708 0L11.809 0.0244141ZM6.29532 13.0947C7.28391 13.0947 8.0274 13.9089 7.95939 14.9131L7.88126 16.0381C7.87647 16.1169 7.93498 16.1786 8.01017 16.1787H8.9506C9.02816 16.1786 9.09314 16.1144 9.09806 16.0381L9.22696 14.1826C9.24153 13.9878 9.40678 13.8322 9.59611 13.832H10.3764L10.3734 13.8369C11.3619 13.8369 12.1054 14.6512 12.0375 15.6553L11.9067 17.5703C11.8362 18.5745 10.9782 19.3887 9.98966 19.3887H1.66837C0.679829 19.3887 -0.0636254 18.5744 0.00430831 17.5703L0.237707 14.1875C0.252286 13.9926 0.417392 13.8369 0.606847 13.8369H1.38614C2.37464 13.8369 3.11807 14.6512 3.05021 15.6553L3.02384 16.04C3.01898 16.119 3.07745 16.1807 3.15275 16.1807H4.0922C4.16993 16.1807 4.23578 16.1165 4.24064 16.04L4.41837 13.4453C4.43294 13.2504 4.59805 13.0947 4.78751 13.0947H6.29532ZM9.56583 4.71973C10.5932 4.7198 11.3701 5.56673 11.2973 6.61035C11.2242 7.65373 10.3333 8.49985 9.30607 8.5C8.27876 8.5 7.50103 7.65382 7.57364 6.61035C7.64651 5.56668 8.53838 4.71973 9.56583 4.71973Z\" fill=\"var(--text-1,#2B263B)\"/></svg></div></div></div></div>",
+      "css": {
+        "display": "inline-flex",
+        "height": "44px",
+        "align-items": "center"
+      },
+      "props": {
+        "Ghost": {
+          "options": [
+            "False",
+            "True"
+          ],
+          "desc": {
+            "False": "图标/Logo 黑色，标准形态",
+            "True": "图标/Logo 变白，用于深色/图片背景"
+          }
+        },
+        "Booleans": {
+          "Logo": {
+            "default": true,
+            "desc": "品牌 Logo 显隐（INSTANCE_SWAP，默认千岛 Logo 37×20px）"
+          },
+          "IconButton": {
+            "default": true,
+            "desc": "返回图标按钮显隐（40×40px）"
+          }
+        }
+      },
+      "slots": [
+        {
+          "name": "💙 00.05_Button / Icon",
+          "boolProp": "IconButton",
+          "css": {
+            "display": "flex",
+            "width": "40px",
+            "height": "40px",
+            "flex-direction": "column",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "var(--Spacing-Mini, 2px)"
+          }
+        },
+        {
+          "name": "Logo",
+          "boolProp": "Logo",
+          "css": {
+            "display": "flex",
+            "width": "53px",
+            "justify-content": "center",
+            "align-items": "center",
+            "align-self": "stretch"
+          }
+        },
+        {
+          "name": "💙 Logo / Islands",
+          "swapProp": "LogoInstance",
+          "instanceKey": "f9f5d1674c9c3421c1eb68b085a60f6c137f5168",
+          "instanceName": "语言=Chinese",
+          "css": {
+            "display": "flex",
+            "width": "36.999px",
+            "height": "20px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "1px",
+            "flex-shrink": "0"
+          }
+        }
+      ]
+    },
+    "Center_Search": {
+      "figma_name": "className=Search, Layout=Center, Ghost=False",
+      "desc": "中间搜索框形态，宽 232px，常见于首页/发现页导航栏",
+      "preview_html": "<div style=\"display:flex;width:232px;height:44px;justify-content:center;align-items:center;flex-direction:column;gap:2px\"><div style=\"display:flex;width:100%;height:32px;padding:0 12px;align-items:center;gap:6px;background:var(--bg-card2,#f7f7f9);border-radius:var(--radius-chip,20px)\"><span data-bool=\"Lead_Icon\" style=\"display:none;line-height:0\"><i class=\"kuril-star\" style=\"font-size:14px;color:var(--text-3,rgba(0,0,0,0.4))\"></i></span><span data-bool=\"Lead_Img\" style=\"display:none;line-height:0\"><span style=\"width:20px;height:20px;border-radius:50%;background:var(--border-c);display:inline-block;vertical-align:middle\"></span></span><span data-bool=\"Lead_Text\" style=\"display:none;font:var(--font-b6);color:var(--text-2,rgba(0,0,0,0.6));white-space:nowrap\">品类</span><i class=\"kuril-search\" style=\"font-size:16px;color:var(--text-3,rgba(0,0,0,0.4))\"></i><span style=\"font:var(--font-b5);color:var(--text-3,rgba(0,0,0,0.4));flex:1;min-width:0\">搜索内容</span><span data-bool=\"Trailing_Tag\" style=\"display:none;font-size:10px;color:var(--text-3);background:var(--bg-card,#fff);border:1px solid var(--border-c);border-radius:4px;padding:1px 5px;white-space:nowrap\">热门</span><span data-bool=\"Trailing_Arrow\" style=\"display:none;line-height:0\"><i class=\"kuril-arrow_right\" style=\"font-size:14px;color:var(--text-3,rgba(0,0,0,0.4))\"></i></span><span data-bool=\"Image\" style=\"width:20px;height:20px;background:var(--border-c);border-radius:3px;display:inline-block\"></span></div><div data-bool=\"Subtitle\" style=\"display:none;font-size:10px;color:var(--text-3,rgba(0,0,0,0.4));width:100%;text-align:center\">副标题文字</div></div>",
+      "css": {
+        "display": "flex",
+        "width": "232px",
+        "height": "44px",
+        "justify-content": "center",
+        "align-items": "center"
+      },
+      "props": {
+        "className": {
+          "options": [
+            "Search",
+            "Tabs",
+            "SegmentedControl",
+            "Text",
+            "Image"
+          ]
+        },
+        "Layout": {
+          "options": [
+            "Left",
+            "Center"
+          ]
+        },
+        "Ghost": {
+          "options": [
+            "False",
+            "True"
+          ]
+        },
+        "Booleans": {
+          "Bg": {
+            "default": false,
+            "desc": "搜索框背景显隐"
+          },
+          "Lead_Icon": {
+            "default": false,
+            "desc": "前置图标"
+          },
+          "Lead_Img": {
+            "default": false,
+            "desc": "前置图片（头像/商品图）"
+          },
+          "Lead_Text": {
+            "default": false,
+            "desc": "前置文字标签"
+          },
+          "Trailing_Tag": {
+            "default": false,
+            "desc": "后置 Tag"
+          },
+          "Trailing_Arrow": {
+            "default": false,
+            "desc": "后置箭头"
+          },
+          "Subtitle": {
+            "default": false,
+            "desc": "副标题"
+          },
+          "Image": {
+            "default": true,
+            "desc": "图片显隐（Image 类型时使用）"
+          }
+        }
+      },
+      "note": "Center 插槽宽度随 className 变化：Search 232px，Tabs/Text(Left) 396px，SegmentedControl/Text(Center)/Image 279px"
+    },
+    "Right_Slot": {
+      "figma_name": "💙 01.01_Navigation Bar / Right",
+      "desc": "右侧插槽，默认最多 3 个图标按钮（gap:4px），也可为搜索或图片形态",
+      "preview_html": "<div style=\"display:inline-flex;height:44px;justify-content:flex-end;align-items:center;gap:4px\"><div data-bool=\"Icon 1\" style=\"width:40px;height:40px;display:flex;align-items:center;justify-content:center\"><i class=\"kuril-share\" style=\"font-size:20px;color:var(--text-1,#000)\"></i></div><div data-bool=\"Icon 2\" style=\"width:40px;height:40px;display:flex;align-items:center;justify-content:center\"><i class=\"kuril-more_h\" style=\"font-size:20px;color:var(--text-1,#000)\"></i></div><div data-bool=\"Icon 3\" style=\"width:40px;height:40px;display:flex;align-items:center;justify-content:center\"><i class=\"kuril-search\" style=\"font-size:20px;color:var(--text-1,#000)\"></i></div><div data-bool=\"TextButton\" style=\"height:44px;display:flex;align-items:center;padding:0 4px\"><span style=\"font:var(--font-b5);color:var(--text-1,#000)\">关注</span></div></div>",
+      "css": {
+        "display": "inline-flex",
+        "height": "44px",
+        "justify-content": "flex-end",
+        "align-items": "center",
+        "gap": "var(--Spacing-Small, 4px)"
+      },
+      "props": {
+        "className": {
+          "options": [
+            "Button",
+            "Search",
+            "Image"
+          ],
+          "desc": {
+            "Button": "图标按钮组，最多 3 个（Icon 1/2/3 可独立显隐）",
+            "Search": "右侧搜索图标入口",
+            "Image": "图片形态（Lottie 动画或静态图，44×44px，padding:8px 0）"
+          }
+        },
+        "Ghost": {
+          "options": [
+            "True",
+            "False"
+          ]
+        },
+        "Booleans": {
+          "Icon 1": {
+            "default": true,
+            "desc": "第 1 个图标显隐"
+          },
+          "Icon 2": {
+            "default": true,
+            "desc": "第 2 个图标显隐"
+          },
+          "Icon 3": {
+            "default": true,
+            "desc": "第 3 个图标显隐"
+          },
+          "TextButton": {
+            "default": true,
+            "desc": "文字按钮显隐（如「关注」）"
+          }
+        }
+      },
+      "note": "Right Image 支持 Lottie 动画，元素在高度方向垂直居中，Image 类型高度 44px padding:8px 0"
+    }
+  }
+}

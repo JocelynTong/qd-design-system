@@ -1,0 +1,418 @@
+{
+  "component": "Button",
+  "figma_page": "00.08 Button",
+  "chips": [
+    "Primary",
+    "Large · 40px",
+    "Solid",
+    "Text"
+  ],
+  "description": "按钮组件，覆盖全局所有可交互按钮场景。主按钮支持多色系、四种形态和五种尺寸；辅助子类型覆盖图标按钮、FAB、浮动购物车等特殊场景。",
+  "usage_rules": [
+    "00.08_Button 为主按钮，支持 8 种颜色 × 4 种形态 × 5 种尺寸，优先使用",
+    "QH（起号）仅限单品牌色场景，无 Color 属性，用于品牌强调",
+    "MH（多彩）支持 Primary/Secondary 两色，历史沿用，新场景建议改用 00.08_Button",
+    "FAB 固定 56×56px，用于页面全局主浮动操作",
+    "Icon 仅包含图标无文字，用于工具栏、操作列表的图标入口",
+    "FloatCart 用于全局悬浮的购物车/发布等场景入口",
+    "禁用状态：Disable Temp = 临时禁用（保留品牌色），Default = 永久禁用（统一灰色 #F7F7F9）",
+    "Text 形态无水平内边距（padding-x: 0），宽度由内容撑开"
+  ],
+  "variants": {
+    "Main": {
+      "figma_name": "💙 00.08_Button",
+      "desc": "主按钮，多色系全功能版本，是绝大多数场景的标准按钮",
+      "props": {
+        "Color": {
+          "options": [
+            "Primary",
+            "Secondary",
+            "Success",
+            "Warning",
+            "Error",
+            "Default",
+            "Trade",
+            "White"
+          ],
+          "desc": {
+            "Primary": "主品牌色紫 #7C66FF，主操作 CTA",
+            "Secondary": "深色 #2B263B，次级操作或强调",
+            "Success": "绿色 #379E45，成功/确认类操作",
+            "Warning": "橙色 #FC7E22，警告提示类操作",
+            "Error": "红色 #D94A4E，删除/危险操作",
+            "Default": "黑色透明度，中性操作",
+            "Trade": "交易红 #F96464，电商/交易专用",
+            "White": "白色，用于深色背景上"
+          }
+        },
+        "Type": {
+          "options": [
+            "Solid",
+            "Soft",
+            "Outline",
+            "Text"
+          ],
+          "desc": {
+            "Solid": "实底，视觉权重最高，主 CTA",
+            "Soft": "淡底（品牌色浅色），次级操作",
+            "Outline": "描边无背景，轻量次级操作",
+            "Text": "无背景无边框，最轻量，内联操作"
+          }
+        },
+        "Size": {
+          "options": [
+            "Large(40)",
+            "Medium(36)",
+            "Normal(32)",
+            "Small(28)",
+            "Mini(24)"
+          ],
+          "heights_px": {
+            "Large": 40,
+            "Medium": 36,
+            "Normal": 32,
+            "Small": 28,
+            "Mini": 24
+          },
+          "padding_solid_soft_outline": {
+            "Large": "8px 16px",
+            "Medium": "7px 14px",
+            "Normal": "5px 12px",
+            "Small": "5px 10px",
+            "Mini": "3px 8px"
+          },
+          "padding_text": {
+            "Large": "8px 0",
+            "Medium": "7px 0",
+            "Normal": "5px 0",
+            "Small": "5px 0",
+            "Mini": "3px 0"
+          },
+          "border_radius": {
+            "Large": "var(--bt-Radius-Large, 8px)",
+            "Medium": "6px",
+            "Normal": "var(--Small, 4px)",
+            "Small": "var(--Small, 4px)",
+            "Mini": "var(--Small, 4px)"
+          },
+          "desc": {
+            "Large(40)": "主 CTA，页面唯一主操作",
+            "Medium(36)": "弹窗/Sheet 内按钮",
+            "Normal(32)": "卡片内操作、工具栏",
+            "Small(28)": "紧凑区域、Tag 旁",
+            "Mini(24)": "极紧凑场景"
+          }
+        },
+        "Disable": {
+          "options": [
+            "False",
+            "Disable Temp",
+            "Default"
+          ],
+          "desc": {
+            "False": "正常可交互状态",
+            "Disable Temp": "临时禁用，保留品牌色（颜色变浅，如 Primary Solid 变为 #C7B8FF）",
+            "Default": "永久禁用，统一灰色背景 var(--primary-bt-disabledBg, #F7F7F9)"
+          }
+        },
+        "Booleans": {
+          "Icon Leading": {
+            "default": true,
+            "desc": "前置图标显隐（INSTANCE_SWAP 默认 kuril-time）"
+          },
+          "Icon Trailing": {
+            "default": true,
+            "desc": "后置图标显隐（INSTANCE_SWAP 默认 kuril-time）"
+          },
+          "Right Arrow": {
+            "default": true,
+            "desc": "右侧专用箭头 kuril-arrow_right，独立于 Icon Trailing"
+          },
+          "Press": {
+            "default": true,
+            "desc": "按压/波纹状态层"
+          }
+        },
+        "IconSwaps": {
+          "Icon Lead": {
+            "default_node": "14235:27533",
+            "default_class": "kuril-time",
+            "desc": "前置图标实例，可替换为任意 kuril-* 图标"
+          },
+          "Icon Trail": {
+            "default_node": "14235:27533",
+            "default_class": "kuril-time",
+            "desc": "后置图标实例，可替换为任意 kuril-* 图标"
+          }
+        }
+      },
+      "tokens_used": {
+        "solid_bg": {
+          "Primary": "var(--primary-bt-solidBg, #7C66FF)",
+          "Secondary": "var(--secondary-bt-solidBg, #2B263B)",
+          "Success": "var(--success-bt-solidBg, #379E45)",
+          "Warning": "var(--warning-bt-solidBg, #FC7E22)",
+          "Error": "var(--error-bt-solidBg, #D94A4E)",
+          "Default": "var(--default-bt-solidBg, rgba(0, 0, 0, 0.40))",
+          "Trade": "var(--trade-bt-solidBg, #F96464)",
+          "White": "var(--white-bt-solidBg, #FFF)"
+        },
+        "soft_bg": {
+          "Primary": "var(--primary-bt-softBg, #F2F0FF)",
+          "Secondary": "var(--secondary-bt-softBg, #F7F7F9)",
+          "Success": "var(--success-bt-softBg, #E2F7E3)",
+          "Warning": "var(--warning-bt-softBg, #FFF0E6)",
+          "Error": "var(--error-bt-softBg, #FFEBE9)",
+          "Default": "var(--default-bt-softBg, rgba(0, 0, 0, 0.04))",
+          "Trade": "var(--trade-bt-softBg, #FFEBE9)",
+          "White": "var(--white-bt-softBg, rgba(255, 255, 255, 0.12))"
+        },
+        "outline_border": {
+          "Primary": "var(--primary-bt-border, #7C66FF)",
+          "Secondary": "var(--secondary-bt-border, #2B263B)",
+          "Success": "var(--success-bt-border, #379E45)",
+          "Warning": "var(--warning-bt-border, #FC7E22)",
+          "Error": "var(--error-bt-border, #D94A4E)",
+          "Default": "var(--default-bt-border, rgba(0, 0, 0, 0.16))",
+          "Trade": "var(--trade-bt-border, #F96464)",
+          "White": "var(--white-bt-border, rgba(255, 255, 255, 0.88))"
+        },
+        "disabled_temp_solid_bg": {
+          "Primary": "var(--primary-bt-solidDisabledtempBg, #C7B8FF)",
+          "Secondary": "var(--secondary-bt-solidDisabledtempBg, #BAB5C4)",
+          "Success": "var(--success-bt-solidDisabledtempBg, #9DE09D)",
+          "Warning": "var(--warning-bt-solidDisabledtempBg, #FFC299)",
+          "Error": "var(--error-bt-solidDisabledtempBg, #FFABAB)",
+          "Trade": "var(--trade-bt-solidDisabledtempBg, #FFABAB)",
+          "White": "var(--white-bt-solidDisabledtempBg, rgba(255, 255, 255, 0.24))"
+        },
+        "disabled_temp_soft_bg": {
+          "Primary": "var(--primary-bt-softDisabledtempBg, #F2F0FF)",
+          "Secondary": "var(--secondary-bt-softDisabledtempBg, #F7F7F9)",
+          "Success": "var(--success-bt-softDisabledtempBg, #E2F7E3)",
+          "Warning": "var(--warning-bt-softDisabledtempBg, #FFF0E6)",
+          "Error": "var(--error-bt-softDisabledtempBg, #FFEBE9)",
+          "Trade": "var(--trade-bt-softDisabledtempBg, #FFEBE9)",
+          "White": "var(--white-bt-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+        },
+        "disabled_temp_outline_border": {
+          "Primary": "var(--primary-bt-disabledtempBorder, #C7B8FF)",
+          "Secondary": "var(--secondary-bt-disabledtempBorder, #BAB5C4)",
+          "Success": "var(--success-bt-disabledtempBorder, #9DE09D)",
+          "Warning": "var(--warning-bt-disabledtempBorder, #FFC299)",
+          "Error": "var(--error-bt-disabledtempBorder, #FFABAB)",
+          "Default": "var(--default-bt-disabledtempBorder, rgba(0, 0, 0, 0.12))",
+          "Trade": "var(--trade-bt-disabledtempBorder, #FFABAB)",
+          "White": "var(--white-bt-disabledtempBorder, rgba(255, 255, 255, 0.40))"
+        },
+        "disabled_bg": "var(--primary-bt-disabledBg, #F7F7F9)"
+      }
+    },
+    "QH": {
+      "figma_name": "💙 00.05_Button / QH",
+      "desc": "单品牌色按钮，无 Color 属性，适用于品牌强调的单一色调场景",
+      "props": {
+        "Type": {
+          "options": [
+            "Solid",
+            "Soft",
+            "Outline",
+            "Text"
+          ]
+        },
+        "Size": {
+          "options": [
+            "Large(40)",
+            "Medium(36)",
+            "Normal(32)",
+            "Small(28)",
+            "Mini(24)"
+          ]
+        },
+        "Disable": {
+          "options": [
+            "False",
+            "Disable Temp",
+            "Disable"
+          ]
+        }
+      }
+    },
+    "MH": {
+      "figma_name": "💙 00.05_Button / MH",
+      "desc": "双色系按钮（Primary/Secondary），历史组件，新场景建议使用 00.08_Button",
+      "props": {
+        "Color": {
+          "options": [
+            "Primary",
+            "Secondary"
+          ]
+        },
+        "Type": {
+          "options": [
+            "Solid",
+            "Soft",
+            "Outline",
+            "Text"
+          ]
+        },
+        "Size": {
+          "options": [
+            "Large(40)",
+            "Medium(36)",
+            "Normal(32)",
+            "Small(28)",
+            "Mini(24)"
+          ]
+        },
+        "Disable": {
+          "options": [
+            "False",
+            "Disable Temp",
+            "Disable"
+          ]
+        }
+      }
+    },
+    "Icon": {
+      "figma_name": "💙 00.05_Button / Icon",
+      "figma_key": "2ea3337263b21b7ef6f500fe05b83ddcfb354aac",
+      "desc": "纯图标按钮，可选图标下方辅助文字（Text bool），用于工具栏、操作列表、导航栏图标入口",
+      "preview_html": "<div style=\"display:flex;align-items:flex-end;gap:8px;padding:4px\"><div style=\"display:flex;flex-direction:column;width:44px;height:44px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px;background:var(--bg-card2,#f7f7f9)\"><i class=\"KurilIcons kuril-time\" style=\"font-size:24px;color:var(--text-1,#2B263B)\"></i><span data-bool=\"Text\" style=\"display:none;font-size:11px;font-weight:500;line-height:13px;color:var(--text-2,rgba(0,0,0,0.64));text-align:center;white-space:nowrap\">图标</span></div><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px;background:var(--bg-card2,#f7f7f9)\"><i class=\"KurilIcons kuril-time\" style=\"font-size:20px;color:var(--text-1,#2B263B)\"></i><span data-bool=\"Text\" style=\"display:none;font-size:10px;font-weight:500;line-height:11px;color:var(--text-2,rgba(0,0,0,0.64));text-align:center;white-space:nowrap\">图标</span></div><div style=\"display:flex;flex-direction:column;width:36px;height:36px;justify-content:center;align-items:center;gap:var(--Spacing-Small,4px);border-radius:4px;background:var(--bg-card2,#f7f7f9)\"><i class=\"KurilIcons kuril-time\" style=\"font-size:16px;color:var(--text-1,#2B263B)\"></i><span data-bool=\"Text\" style=\"display:none;font-size:10px;font-weight:500;line-height:11px;color:var(--text-2,rgba(0,0,0,0.64));text-align:center;white-space:nowrap\">图标</span></div><div style=\"display:flex;flex-direction:column;width:32px;height:32px;justify-content:center;align-items:center;gap:var(--Spacing-Small,4px);border-radius:4px;background:var(--bg-card2,#f7f7f9)\"><i class=\"KurilIcons kuril-time\" style=\"font-size:14px;color:var(--text-1,#2B263B)\"></i><span data-bool=\"Text\" style=\"display:none;font-size:10px;font-weight:500;line-height:11px;color:var(--text-2,rgba(0,0,0,0.64));text-align:center;white-space:nowrap\">图标</span></div><div style=\"display:flex;flex-direction:column;width:28px;height:28px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:4px;background:var(--bg-card2,#f7f7f9)\"><i class=\"KurilIcons kuril-time\" style=\"font-size:12px;color:var(--text-1,#2B263B)\"></i><span data-bool=\"Text\" style=\"display:none;font-size:10px;font-weight:500;line-height:11px;color:var(--text-2,rgba(0,0,0,0.64));text-align:center;white-space:nowrap\">图标</span></div></div>",
+      "props": {
+        "Size": {
+          "options": [
+            "Large",
+            "Medium",
+            "Normal",
+            "Small",
+            "Mini"
+          ],
+          "dimensions_px": {
+            "Large": "44×44",
+            "Medium": "40×40",
+            "Normal": "36×36",
+            "Small": "32×32",
+            "Mini": "28×28"
+          },
+          "icon_size_px": {
+            "Large": "24",
+            "Medium": "20",
+            "Normal": "16",
+            "Small": "14",
+            "Mini": "12"
+          }
+        },
+        "Booleans": {
+          "Text": {
+            "default": false,
+            "desc": "图标下方辅助文字标签，Large 11px/13px，其余 10px/11px"
+          }
+        },
+        "IconSwaps": {
+          "Icon": {
+            "swapProp": "Icon",
+            "instanceKey": "6b86b0d40c4e41a18bf906bd874502a604148f05",
+            "desc": "INSTANCE_SWAP，可替换为任意 KurilIcons 图标"
+          }
+        }
+      },
+      "slots": [
+        {
+          "name": "Icon",
+          "swapProp": "Icon",
+          "instanceKey": "6b86b0d40c4e41a18bf906bd874502a604148f05",
+          "css_by_size": {
+            "Large": {
+              "width": "24px",
+              "height": "24px",
+              "flex-shrink": "0"
+            },
+            "Medium": {
+              "width": "20px",
+              "height": "20px",
+              "flex-shrink": "0"
+            },
+            "Normal": {
+              "width": "16px",
+              "height": "16px",
+              "flex-shrink": "0"
+            },
+            "Small": {
+              "width": "14px",
+              "height": "14px",
+              "flex-shrink": "0"
+            },
+            "Mini": {
+              "width": "12px",
+              "height": "12px",
+              "flex-shrink": "0"
+            }
+          }
+        },
+        {
+          "name": "Text",
+          "boolProp": "Text",
+          "default": false,
+          "css": {
+            "align-self": "stretch",
+            "color": "var(--text-2,rgba(0,0,0,0.64))",
+            "text-align": "center",
+            "font-family": "PingFang SC",
+            "font-weight": "500",
+            "font-size_by_size": {
+              "Large": "11px",
+              "others": "10px"
+            },
+            "line-height_by_size": {
+              "Large": "13px",
+              "others": "11px"
+            }
+          }
+        }
+      ]
+    },
+    "FAB": {
+      "figma_name": "💙 00.05_Button / FAB",
+      "desc": "全局悬浮主操作按钮（Floating Action Button），固定在页面右下角",
+      "props": {
+        "Normal": {
+          "options": [
+            "True",
+            "False",
+            "Back2Top"
+          ],
+          "desc": {
+            "True": "标准 FAB，56×56px 圆形",
+            "False": "展开态，90×56px，含文字标签",
+            "Back2Top": "回到顶部，56×56px"
+          }
+        }
+      }
+    },
+    "FloatCart": {
+      "figma_name": "💙 00.05_Button / FloatCart",
+      "desc": "全局悬浮功能入口，根据场景切换为购物车、发布等不同形态",
+      "props": {
+        "场景": {
+          "options": [
+            "back to top",
+            "home published",
+            "discovery published",
+            "discovery unfolded",
+            "wenda post",
+            "article post"
+          ],
+          "desc": {
+            "back to top": "回到顶部，白底圆形，box-shadow",
+            "home published": "首页发布，40×40px 圆形",
+            "discovery published": "发现页发布，深色底 #2B263B，圆形",
+            "discovery unfolded": "发现页展开，深色底，圆形",
+            "wenda post": "问答发帖，深色底，圆形",
+            "article post": "文章发布，深色底 icon/1，圆形"
+          }
+        }
+      }
+    }
+  }
+}

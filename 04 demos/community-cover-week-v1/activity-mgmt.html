@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=390, initial-scale=1.0">
+<title>社区活动管理 · 千岛</title>
+<link rel="stylesheet" href="https://at.alicdn.com/t/c/font_3550031_uwcy4h4l9a9.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+.phone { display:flex; flex-direction:column; background:var(--bg-2); }
+.scroll-area { flex:1; overflow-y:auto; }
+
+/* ── 管理员 NavBar ── */
+.admin-header { background:var(--secondary-solid-bg); flex-shrink:0; }
+.admin-header .status-bar { background:transparent; }
+.admin-header .status-bar-time  { color:var(--white-text-color); }
+.admin-header .status-bar-icons { color:var(--white-text-color); }
+.admin-nb {
+  height:44px; display:flex; align-items:center;
+  padding:0 var(--spacing-large); gap:var(--spacing-normal); background:transparent;
+}
+.back-btn {
+  width:36px; height:36px; border-radius:50%;
+  background:var(--white-2); border:none; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; color:var(--white-text-color);
+}
+.admin-nb-title { flex:1; color:var(--white-text-color); }
+.new-act-btn {
+  height:32px; border-radius:var(--radius-large); border:none;
+  padding:0 var(--spacing-medium); background:var(--primary-solid-bg); color:var(--primary-solid-color);
+  font-size:13px; font-weight:600; cursor:pointer;
+  display:flex; align-items:center; gap:4px;
+}
+
+/* ── Tabs ── */
+.tabs-wrap { background:var(--bg-1); border-bottom:.5px solid var(--border-1); flex-shrink:0; }
+
+/* ── 活动卡片 ── */
+.section { padding:var(--spacing-large); }
+.activity-list { display:flex; flex-direction:column; gap:var(--spacing-normal); }
+
+.activity-card {
+  background:var(--bg-1); border-radius:var(--radius-large);
+  overflow:hidden; cursor:pointer;
+}
+
+/* 活动封面 */
+.act-cover {
+  height:100px; position:relative;
+  display:flex; align-items:center; justify-content:center; font-size:40px;
+}
+.act-cover-bg-1 { background:var(--primary-2); }
+.act-cover-bg-2 { background:var(--secondary-3); }
+.act-cover-bg-3 { background:var(--warning-soft-bg); }
+.act-cover-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.6) 0%, rgba(0,0,0,.0) 55%);
+}
+.act-cover-tags {
+  position:absolute; top:var(--spacing-small); left:var(--spacing-small);
+  display:flex; gap:var(--spacing-small);
+}
+.act-tag {
+  border-radius:var(--radius-small); padding:3px 7px;
+  font-size:10px; font-weight:700;
+}
+.act-tag.live    { background:#FF4444; color:#fff; }
+.act-tag.cover   { background:rgba(255,215,0,.9); color:#3D2800; }
+.act-tag.soon    { background:var(--primary-solid-bg); color:var(--primary-solid-color); }
+.act-tag.ended   { background:var(--mask-3); color:var(--white-text-color); }
+
+.act-cover-stat {
+  position:absolute; right:var(--spacing-small); bottom:var(--spacing-small);
+  display:flex; align-items:center; gap:3px;
+  background:var(--mask-2); border-radius:var(--radius-small); padding:2px 6px;
+}
+.act-stat-num { color:var(--white-text-color); font-family:'Roboto',sans-serif; font-size:11px; font-weight:700; }
+.act-stat-label { color:var(--white-text-2); font-size:10px; }
+
+/* 活动信息 */
+.act-body { padding:var(--spacing-medium); }
+.act-title-row { display:flex; align-items:flex-start; justify-content:space-between; gap:var(--spacing-small); margin-bottom:4px; }
+.act-name { color:var(--text-1); flex:1; }
+.act-more-btn {
+  width:28px; height:28px; border-radius:50%; background:var(--bg-2); border:none;
+  display:flex; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0;
+  color:var(--icon-2);
+}
+.act-date { color:var(--text-3); margin-bottom:var(--spacing-normal); }
+
+/* 数据行 */
+.act-stats-row { display:flex; gap:var(--spacing-large); margin-bottom:var(--spacing-medium); }
+.act-stat-item { display:flex; flex-direction:column; gap:1px; }
+.act-stat-val { color:var(--text-1); font-family:'Roboto',sans-serif; }
+.act-stat-lbl { color:var(--text-3); }
+
+/* 进度条 */
+.act-progress-row { display:flex; align-items:center; gap:var(--spacing-normal); margin-bottom:var(--spacing-medium); }
+.act-progress-label { color:var(--text-3); white-space:nowrap; }
+.act-progress-track { flex:1; height:4px; border-radius:2px; background:var(--bg-4); overflow:hidden; }
+.act-progress-fill  { height:100%; border-radius:2px; background:var(--primary-5); }
+
+/* 操作按钮行 */
+.act-actions { display:flex; gap:var(--spacing-small); }
+.act-btn {
+  flex:1; height:32px; border-radius:var(--radius-normal); border:1px solid var(--border-1);
+  background:var(--bg-1); color:var(--text-2); font-size:12px; font-weight:500; cursor:pointer;
+}
+.act-btn.primary {
+  background:var(--primary-solid-bg); color:var(--primary-solid-color); border-color:transparent;
+}
+.act-btn.danger {
+  background:var(--error-soft-bg); color:var(--error-color); border-color:var(--error-border);
+}
+
+/* 封面联动 卡片扩展区 */
+.cover-link-bar {
+  border-top:.5px solid var(--border-1);
+  padding:var(--spacing-small) var(--spacing-medium);
+  background:rgba(255,215,0,.06);
+  display:flex; align-items:center; gap:var(--spacing-small);
+}
+.cover-link-icon { font-size:14px; }
+.cover-link-text { color:var(--text-2); flex:1; }
+.cover-link-switch {
+  width:36px; height:20px; border-radius:10px;
+  background:var(--primary-5); position:relative; cursor:pointer; flex-shrink:0;
+}
+.cover-link-switch::after {
+  content:''; position:absolute; width:16px; height:16px; border-radius:50%;
+  background:#fff; top:2px; right:2px; transition:right .2s;
+}
+
+/* ── 即将开始 tab 样式 ── */
+.upcoming-card {
+  background:var(--bg-1); border-radius:var(--radius-large); padding:var(--spacing-medium);
+  display:flex; gap:var(--spacing-medium); align-items:flex-start;
+}
+.upcoming-date-block {
+  width:44px; height:48px; border-radius:var(--radius-normal);
+  background:var(--primary-soft-bg); display:flex; flex-direction:column;
+  align-items:center; justify-content:center; flex-shrink:0;
+}
+.upcoming-month { color:var(--primary-color); font-size:10px; font-weight:600; }
+.upcoming-day   { color:var(--primary-color); font-family:'Roboto',sans-serif; font-size:20px; font-weight:700; line-height:1; }
+.upcoming-info  { flex:1; }
+.upcoming-name  { color:var(--text-1); margin-bottom:2px; }
+.upcoming-desc  { color:var(--text-3); }
+.upcoming-countdown { margin-top:var(--spacing-small); display:flex; align-items:center; gap:4px; }
+.countdown-pill {
+  background:var(--bg-2); border-radius:var(--radius-large); padding:2px 8px;
+  font-size:11px; color:var(--text-2);
+}
+
+/* FAB */
+.fab {
+  position:absolute; bottom:calc(var(--spacing-large) + 34px); right:var(--spacing-large);
+  width:48px; height:48px; border-radius:50%;
+  background:var(--primary-solid-bg); color:var(--primary-solid-color);
+  border:none; cursor:pointer; font-size:24px;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 16px rgba(124,102,255,.4);
+}
+
+/* home indicator */
+.home-indicator { height:34px; display:flex; align-items:center; justify-content:center; background:var(--bg-2); }
+.hi-bar { width:120px; height:4px; border-radius:2px; background:var(--secondary-3); }
+</style>
+</head>
+<body>
+<div class="prototype-layout">
+<div class="phone">
+
+  <!-- 管理员 NavBar -->
+  <div class="admin-header">
+    <div class="status-bar">
+      <span class="status-bar-time t-h6">9:41</span>
+      <div class="status-bar-icons t-b6"><span>●●● WiFi 🔋</span></div>
+    </div>
+    <div class="admin-nb">
+      <button class="back-btn" onclick="location.href='admin-dashboard.html'">
+        <i class="KurilIcons kuril-arrow_left ki-20"></i>
+      </button>
+      <span class="admin-nb-title t-h5">社区活动</span>
+      <button class="new-act-btn">＋ 新建</button>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs-wrap">
+    <div class="tabs-bar">
+      <div class="tab-item active">
+        <span class="tab-label">进行中</span>
+        <div class="tab-indicator"></div>
+      </div>
+      <div class="tab-item">
+        <span class="tab-label">即将开始</span>
+        <div class="tab-indicator"></div>
+      </div>
+      <div class="tab-item">
+        <span class="tab-label">已结束</span>
+        <div class="tab-indicator"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-area" style="position:relative">
+    <div class="section">
+      <div class="activity-list">
+
+        <!-- 活动 1：春日穿搭挑战（进行中 + 封面联动） -->
+        <div class="activity-card">
+          <div class="act-cover act-cover-bg-1">
+            🌸
+            <div class="act-cover-overlay"></div>
+            <div class="act-cover-tags">
+              <span class="act-tag live">● 进行中</span>
+              <span class="act-tag cover">👑 封面联动</span>
+            </div>
+            <div class="act-cover-stat">
+              <span class="act-stat-num">1,284</span>
+              <span class="act-stat-label">参与</span>
+            </div>
+          </div>
+          <div class="act-body">
+            <div class="act-title-row">
+              <p class="act-name t-h5">🌸 春日穿搭挑战</p>
+              <button class="act-more-btn"><i class="KurilIcons kuril-more ki-16"></i></button>
+            </div>
+            <p class="act-date t-b7">3月 5日 — 3月 31日</p>
+            <div class="act-stats-row">
+              <div class="act-stat-item">
+                <span class="act-stat-val t-n5">1,284</span>
+                <span class="act-stat-lbl t-b7">参与帖子</span>
+              </div>
+              <div class="act-stat-item">
+                <span class="act-stat-val t-n5">48.2k</span>
+                <span class="act-stat-lbl t-b7">活动曝光</span>
+              </div>
+              <div class="act-stat-item">
+                <span class="act-stat-val t-n5">92k</span>
+                <span class="act-stat-lbl t-b7">累计互动</span>
+              </div>
+            </div>
+            <div class="act-progress-row">
+              <span class="act-progress-label t-b7">活动进度</span>
+              <div class="act-progress-track">
+                <div class="act-progress-fill" style="width:18%"></div>
+              </div>
+              <span class="act-progress-label t-b7">18%</span>
+            </div>
+            <div class="act-actions">
+              <button class="act-btn">编辑规则</button>
+              <button class="act-btn">查看帖子</button>
+              <button class="act-btn primary">Boost 活动</button>
+            </div>
+          </div>
+          <!-- 封面联动开关 -->
+          <div class="cover-link-bar">
+            <span class="cover-link-icon">👑</span>
+            <span class="cover-link-text t-b7">本期封面争夺联动此活动</span>
+            <div class="cover-link-switch"></div>
+          </div>
+        </div>
+
+        <!-- 活动 2：潮玩摄影周（进行中） -->
+        <div class="activity-card">
+          <div class="act-cover act-cover-bg-2">
+            🧸
+            <div class="act-cover-overlay"></div>
+            <div class="act-cover-tags">
+              <span class="act-tag live">● 进行中</span>
+            </div>
+            <div class="act-cover-stat">
+              <span class="act-stat-num">376</span>
+              <span class="act-stat-label">参与</span>
+            </div>
+          </div>
+          <div class="act-body">
+            <div class="act-title-row">
+              <p class="act-name t-h5">🧸 潮玩摄影周</p>
+              <button class="act-more-btn"><i class="KurilIcons kuril-more ki-16"></i></button>
+            </div>
+            <p class="act-date t-b7">3月 8日 — 3月 14日</p>
+            <div class="act-stats-row">
+              <div class="act-stat-item">
+                <span class="act-stat-val t-n5">376</span>
+                <span class="act-stat-lbl t-b7">参与帖子</span>
+              </div>
+              <div class="act-stat-item">
+                <span class="act-stat-val t-n5">12.5k</span>
+                <span class="act-stat-lbl t-b7">活动曝光</span>
+              </div>
+              <div class="act-stat-item">
+                <span class="act-stat-val t-n5">23k</span>
+                <span class="act-stat-lbl t-b7">累计互动</span>
+              </div>
+            </div>
+            <div class="act-progress-row">
+              <span class="act-progress-label t-b7">活动进度</span>
+              <div class="act-progress-track">
+                <div class="act-progress-fill" style="width:43%"></div>
+              </div>
+              <span class="act-progress-label t-b7">43%</span>
+            </div>
+            <div class="act-actions">
+              <button class="act-btn">编辑规则</button>
+              <button class="act-btn">查看帖子</button>
+              <button class="act-btn danger">提前结束</button>
+            </div>
+          </div>
+          <!-- 封面联动（未开启） -->
+          <div class="cover-link-bar">
+            <span class="cover-link-icon">👑</span>
+            <span class="cover-link-text t-b7">联动本期封面争夺</span>
+            <div class="cover-link-switch" style="background:var(--secondary-3)">
+              <span style="position:absolute;width:16px;height:16px;border-radius:50%;background:#fff;top:2px;left:2px;"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 即将开始预览（折叠显示） -->
+        <div style="margin-top:var(--spacing-small)">
+          <p style="color:var(--text-3);margin-bottom:var(--spacing-medium);" class="t-b7">下期活动预览</p>
+          <div class="upcoming-card">
+            <div class="upcoming-date-block">
+              <span class="upcoming-month">APR</span>
+              <span class="upcoming-day">01</span>
+            </div>
+            <div class="upcoming-info">
+              <p class="upcoming-name t-h6">🌿 四月植物节</p>
+              <p class="upcoming-desc t-b7">全平台绿植养护主题活动</p>
+              <div class="upcoming-countdown">
+                <span class="countdown-pill">还有 22 天开始</span>
+                <span class="countdown-pill" style="background:var(--primary-soft-bg);color:var(--primary-color)">已关联封面</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FAB 新建活动 -->
+    <button class="fab">＋</button>
+
+    <div class="home-indicator"><div class="hi-bar"></div></div>
+  </div>
+
+</div><!-- .phone -->
+
+<!-- 流程图 -->
+<div class="flow-chart">
+  <a class="flow-node" href="admin-dashboard.html">
+    <span class="node-icon">⚙️</span>
+    <span class="node-label">管理员后台</span>
+  </a>
+  <div class="flow-edge"><span class="flow-edge-label">社区活动</span></div>
+  <a class="flow-node active" href="activity-mgmt.html">
+    <span class="node-icon">🎉</span>
+    <span class="node-label">社区活动</span>
+  </a>
+  <div class="flow-edge"><span class="flow-edge-label">查看争夺榜</span></div>
+  <a class="flow-node" href="cover-race.html">
+    <span class="node-icon">👑</span>
+    <span class="node-label">封面争夺榜</span>
+  </a>
+</div>
+
+</div><!-- .prototype-layout -->
+</body>
+</html>
