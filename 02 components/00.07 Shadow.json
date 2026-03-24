@@ -1,7 +1,10 @@
 {
   "component": "Shadow",
   "figma_page": "00.07 Shadow",
-  "chips": ["y:5 blur:10", "y:1 blur:10"],
+  "chips": [
+    "y:5 blur:10",
+    "y:1 blur:10"
+  ],
   "description": "千岛阴影规范，两种层级覆盖内容卡片与浮层场景，统一通过 CSS 变量引用。",
   "variants": {
     "Card": {
@@ -11,7 +14,8 @@
       "css": {
         "box-shadow": "0px 5px 10px 0px rgba(0,0,0,0.06)"
       },
-      "token": "var(--shadow-card, 0px 5px 10px 0px rgba(0,0,0,0.06))"
+      "token": "var(--shadow-card, 0px 5px 10px 0px rgba(0,0,0,0.06))",
+      "embed_html": "<div style=\"width:48px;height:48px;background:var(--bg-card,#fff);border-radius:8px;box-shadow:0px 5px 10px 0px rgba(0,0,0,0.06)\"></div>"
     },
     "Float": {
       "figma_name": "💙 y:1 ; Blur=10",
@@ -20,7 +24,8 @@
       "css": {
         "box-shadow": "0px 1px 10px 0px rgba(0,0,0,0.08)"
       },
-      "token": "var(--shadow-float, 0px 1px 10px 0px rgba(0,0,0,0.08))"
+      "token": "var(--shadow-float, 0px 1px 10px 0px rgba(0,0,0,0.08))",
+      "embed_html": "<div style=\"width:48px;height:48px;background:var(--bg-card,#fff);border-radius:8px;box-shadow:0px 1px 10px 0px rgba(0,0,0,0.08)\"></div>"
     }
   }
 }

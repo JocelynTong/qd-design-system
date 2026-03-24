@@ -20,7 +20,10 @@
   "variants": {
     "Main": {
       "figma_name": "💙 00.08_Button",
+      "figma_key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a",
+      "embed_html": "<div style=\"display:inline-flex;align-items:center;gap:4px;height:40px;padding:8px 16px;border-radius:8px;background:var(--primary-bt-solid-bg,#7C66FF)\"><span style=\"font:500 14px/22px 'PingFang SC';color:#FFF\">按钮</span></div>",
       "desc": "主按钮，多色系全功能版本，是绝大多数场景的标准按钮",
+
       "props": {
         "Color": {
           "options": [
@@ -210,6 +213,8 @@
     },
     "MH": {
       "figma_name": "💙 00.05_Button / MH",
+      "figma_key": "9b18bf9dd2d7dd4dab0921fff5a85fc784c8a021",
+      "embed_html": "<div style=\"display:inline-flex;align-items:center;gap:4px;height:40px;padding:8px 16px;border-radius:8px;background:var(--primary-bt-solid-bg,#7C66FF)\"><span style=\"font:500 14px/22px 'PingFang SC';color:#FFF\">按钮</span></div>",
       "desc": "双色系按钮（Primary/Secondary），历史组件，新场景建议使用 00.08_Button",
       "props": {
         "Color": {
@@ -247,6 +252,7 @@
     "Icon": {
       "figma_name": "💙 00.05_Button / Icon",
       "figma_key": "2ea3337263b21b7ef6f500fe05b83ddcfb354aac",
+      "embed_html": "<div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;border-radius:6px;background:var(--bg-2,#f7f7f9)\"><i class=\"KurilIcons kuril-time\" style=\"font-size:20px;color:var(--text-1,#2B263B)\"></i></div>",
       "desc": "纯图标按钮，可选图标下方辅助文字（Text bool），用于工具栏、操作列表、导航栏图标入口",
       "preview_html": "<div style=\"display:flex;align-items:flex-end;gap:8px;padding:4px\"><div style=\"display:flex;flex-direction:column;width:44px;height:44px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px;background:var(--bg-2,#f7f7f9)\"><i class=\"KurilIcons kuril-time\" style=\"font-size:24px;color:var(--text-1,#2B263B)\"></i><span data-bool=\"Text\" style=\"display:none;align-self:stretch;color:var(--text-2,rgba(0,0,0,0.64));text-align:center;font-family:PingFang SC;font-weight:500;font-size:11px;line-height:13px\">图标</span></div><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px;background:var(--bg-2,#f7f7f9)\"><i class=\"KurilIcons kuril-time\" style=\"font-size:20px;color:var(--text-1,#2B263B)\"></i><span data-bool=\"Text\" style=\"display:none;align-self:stretch;color:var(--text-2,rgba(0,0,0,0.64));text-align:center;font-family:PingFang SC;font-weight:500;font-size:10px;line-height:11px\">图标</span></div><div style=\"display:flex;flex-direction:column;width:36px;height:36px;justify-content:center;align-items:center;gap:var(--Spacing-Small,4px);border-radius:4px;background:var(--bg-2,#f7f7f9)\"><i class=\"KurilIcons kuril-time\" style=\"font-size:16px;color:var(--text-1,#2B263B)\"></i><span data-bool=\"Text\" style=\"display:none;align-self:stretch;color:var(--text-2,rgba(0,0,0,0.64));text-align:center;font-family:PingFang SC;font-weight:500;font-size:10px;line-height:11px\">图标</span></div><div style=\"display:flex;flex-direction:column;width:32px;height:32px;justify-content:center;align-items:center;gap:var(--Spacing-Small,4px);border-radius:4px;background:var(--bg-2,#f7f7f9)\"><i class=\"KurilIcons kuril-time\" style=\"font-size:14px;color:var(--text-1,#2B263B)\"></i><span data-bool=\"Text\" style=\"display:none;align-self:stretch;color:var(--text-2,rgba(0,0,0,0.64));text-align:center;font-family:PingFang SC;font-weight:500;font-size:10px;line-height:11px\">图标</span></div><div style=\"display:flex;flex-direction:column;width:28px;height:28px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:4px;background:var(--bg-2,#f7f7f9)\"><i class=\"KurilIcons kuril-time\" style=\"font-size:12px;color:var(--text-1,#2B263B)\"></i><span data-bool=\"Text\" style=\"display:none;align-self:stretch;color:var(--text-2,rgba(0,0,0,0.64));text-align:center;font-family:PingFang SC;font-weight:500;font-size:10px;line-height:11px\">图标</span></div></div>",
       "props": {
@@ -344,6 +350,8 @@
     },
     "FAB": {
       "figma_name": "💙 00.05_Button / FAB",
+      "figma_key": "57c904ab5666553a480b4943105b0c6fccdde16d",
+      "embed_html": "<div style=\"display:flex;width:48px;height:48px;align-items:center;justify-content:center;border-radius:40px;background:var(--primary-bt-solid-bg,#7C66FF);box-shadow:0 4px 4px rgba(83,54,254,0.4)\"><i class=\"KurilIcons kuril-plus_heavy\" style=\"font-size:16px;color:#FFF\"></i></div>",
       "desc": "全局悬浮主操作按钮（Floating Action Button），固定在页面右下角",
       "props": {
         "Normal": {
@@ -363,6 +371,8 @@
     },
     "FloatCart": {
       "figma_name": "💙 00.05_Button / FloatCart",
+      "figma_key": "8355bb12a6418883ff65603da0fe487d53a16193",
+      "embed_html": "<div style=\"display:inline-flex;padding:9px;border-radius:40px;background:white;box-shadow:0 1px 10px rgba(0,0,0,0.08)\"><i class=\"KurilIcons kuril-back_to_top\" style=\"font-size:22px;color:var(--text-1,#2B263B)\"></i></div>",
       "desc": "全局悬浮功能入口，根据场景切换为购物车、发布等不同形态",
       "props": {
         "场景": {
