@@ -11,7 +11,9 @@
   ],
   "variants": {
     "5Tabs": {
-      "figma_name": "💙 01.05 Tab Bar / APP / 5Tabs",
+      "figma_name": "💙 01.06 Tab Bar",
+      "figma_key": "58d45fd34a20eb2b8530af131a5291d7fa8782a9",
+      "embed_html": "<div style=\"width:375px;height:48px;display:flex;align-items:flex-end;padding:0 28px 5px;background:var(--bg-3,#FFF);border-top:0.5px solid var(--border-1,rgba(0,0,0,.08))\"><div style=\"display:flex;width:100%;justify-content:space-between\"><div style=\"display:flex;flex-direction:column;align-items:center;gap:2px\"><i class=\"KurilIcons kuril-discover\" style=\"font-size:22px;color:var(--text-3,rgba(0,0,0,.40))\"></i><span style=\"font:400 10px/11px 'PingFang SC';color:var(--text-3,rgba(0,0,0,.40))\">岛</span></div><div style=\"display:flex;flex-direction:column;align-items:center;gap:2px\"><i class=\"KurilIcons kuril-all\" style=\"font-size:22px;color:var(--text-3,rgba(0,0,0,.40))\"></i><span style=\"font:400 10px/11px 'PingFang SC';color:var(--text-3,rgba(0,0,0,.40))\">发现</span></div><div style=\"display:flex;flex-direction:column;align-items:center;gap:2px\"><i class=\"KurilIcons kuril-store\" style=\"font-size:22px;color:var(--text-3,rgba(0,0,0,.40))\"></i><span style=\"font:400 10px/11px 'PingFang SC';color:var(--text-3,rgba(0,0,0,.40))\">商城</span></div><div style=\"display:flex;flex-direction:column;align-items:center;gap:2px\"><i class=\"KurilIcons kuril-message\" style=\"font-size:22px;color:var(--text-3,rgba(0,0,0,.40))\"></i><span style=\"font:400 10px/11px 'PingFang SC';color:var(--text-3,rgba(0,0,0,.40))\">消息</span></div><div style=\"display:flex;flex-direction:column;align-items:center;gap:2px\"><i class=\"KurilIcons kuril-me_account\" style=\"font-size:22px;color:var(--text-3,rgba(0,0,0,.40))\"></i><span style=\"font:400 10px/11px 'PingFang SC';color:var(--text-3,rgba(0,0,0,.40))\">我的</span></div></div></div>",
       "desc": "5 个 Tab 的标准底部导航，内容社区标配（首页/发现/发布/消息/我的）",
       "props": {},
       "tokens_used": {
