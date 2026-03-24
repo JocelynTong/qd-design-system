@@ -14,6 +14,7 @@
     "InputLine": {
       "figma_name": "💙 02.03_Input_Line",
       "figma_key": "f69d0e289ff5bbc72d1f96a6775da43d477be599",
+      "_tree": {"type":"COMPONENT","css":{"display":"flex","width":"267px","flex-direction":"column","align-items":"center","gap":"2px"},"children":[]},
       "css": {"display":"flex","width":"267px","flex-direction":"column","align-items":"center","gap":"2px"},
       "desc": "线条型输入框，无背景，嵌入表单行使用",
       "props": {
@@ -31,6 +32,7 @@
     "InputFrame": {
       "figma_name": "💙 02.03_Input_Frame",
       "figma_key": "a233463c7ffa911334873633a891292336fba596",
+      "_tree": {"type":"COMPONENT","css":{"display":"inline-flex","flex-direction":"column","justify-content":"center","align-items":"flex-start","gap":"2px"},"children":[]},
       "css": {"display":"inline-flex","flex-direction":"column","justify-content":"center","align-items":"flex-start","gap":"2px"},
       "embed_html": "<div style=\"display:inline-flex;width:164px;padding:5px 8px;justify-content:center;align-items:center;gap:4px;border-radius:var(--radius-small,4px);border:1px solid var(--border-2,rgba(0,0,0,.08));flex-shrink:0\"><span style=\"font:var(--font-b5,400 14px/22px 'PingFang SC',sans-serif);color:var(--text-3,rgba(0,0,0,.4));flex:1\">预填文案</span></div>",
       "desc": "框型输入框，有背景和边框，独立使用",
@@ -54,6 +56,7 @@
     "InputSelect": {
       "figma_name": "💙 02.03_Input_Select",
       "figma_key": "5c8853eb59dcf67ca22373db750b21fb4c38f6b5",
+      "_tree": {"type":"COMPONENT","css":{"display":"flex","width":"267px","flex-direction":"column","align-items":"center","gap":"2px"},"children":[]},
       "css": {"display":"flex","width":"267px","flex-direction":"column","align-items":"center","gap":"2px"},
       "desc": "下拉选择型输入框，点击后弹出选择面板",
       "props": {

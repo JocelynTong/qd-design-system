@@ -34,6 +34,7 @@
   "variants": {
     "Column=2, Size=Small(4:3), Img=True": {
       "figma_key": "f0ec27a6b9af0c27581dbd28ccb32ec12087fe8d",
+      "_tree": {"type":"COMPONENT","css":{"display":"flex","width":"173.5px","flex-direction":"column","align-items":"center"},"children":[]},
       "embed_html": "<div style=\"width:173.5px;border-radius:var(--Radius-Normal,8px);background:var(--bg-1,#fff);overflow:hidden\"><div style=\"width:100%;height:110px;background:var(--bg-4,#ededf2)\"></div><div style=\"padding:4px 8px 0\"><p style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:var(--text-1,#000);margin:0\">留作纪念！</p></div><div style=\"display:flex;align-items:center;gap:4px;height:36px;padding:0 8px\"><div style=\"width:24px;height:24px;border-radius:50%;background:var(--bg-4,#ededf2);flex-shrink:0\"></div><span style=\"flex:1;font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:var(--text-3,rgba(0,0,0,.4));overflow:hidden;white-space:nowrap;text-overflow:ellipsis\">JocelynTong✨</span><i class=\"KurilIcons kuril-like_normal\" style=\"font-size:14px;color:var(--icon-2,#625e76)\"></i><span style=\"font:var(--font-n5,500 14px/22px Roboto,sans-serif);color:var(--icon-2,#625e76)\">784</span></div></div>",
       "desc": "双列卡片，横版图（4:3），标准信息流卡片",
       "css": {
@@ -46,6 +47,7 @@
     },
     "Column=2, Size=Medium(4:3~3:4), Img=True": {
       "figma_key": "4cbd3f07e947414a8731798c358120df6b62a712",
+      "_tree": {"type":"COMPONENT","css":{"display":"flex","width":"173.5px","flex-direction":"column","align-items":"center"},"children":[]},
       "embed_html": "<div style=\"width:173.5px;border-radius:var(--Radius-Normal,8px);background:var(--bg-1,#fff);overflow:hidden\"><div style=\"width:100%;height:173px;background:var(--bg-4,#ededf2)\"></div><div style=\"padding:4px 8px 0\"><p style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:var(--text-1,#000);margin:0\">手办开箱 限定版潮流娃娃</p></div><div style=\"display:flex;align-items:center;gap:4px;height:36px;padding:0 8px\"><div style=\"width:24px;height:24px;border-radius:50%;background:var(--bg-4,#ededf2);flex-shrink:0\"></div><span style=\"flex:1;font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:var(--text-3,rgba(0,0,0,.4));overflow:hidden;white-space:nowrap;text-overflow:ellipsis\">潮玩收藏家</span><i class=\"KurilIcons kuril-like_normal\" style=\"font-size:14px;color:var(--icon-2,#625e76)\"></i><span style=\"font:var(--font-n5,500 14px/22px Roboto,sans-serif);color:var(--icon-2,#625e76)\">1.2k</span></div></div>",
       "desc": "双列卡片，混合比例（4:3~3:4），瀑布流等高自适应",
       "css": {
@@ -58,6 +60,7 @@
     },
     "Column=2, Size=Large(3:4), Img=True": {
       "figma_key": "d46d1967dbe248345701408bb6415029f7b6155f",
+      "_tree": {"type":"COMPONENT","css":{"display":"flex","width":"173.5px","flex-direction":"column","align-items":"center"},"children":[]},
       "embed_html": "<div style=\"width:173.5px;border-radius:var(--Radius-Normal,8px);background:var(--bg-1,#fff);overflow:hidden\"><div style=\"width:100%;height:231px;background:var(--bg-4,#ededf2)\"></div><div style=\"padding:4px 8px 0\"><p style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:var(--text-1,#000);margin:0\">手办开箱 限定版 Labubu</p></div><div style=\"display:flex;align-items:center;gap:4px;height:36px;padding:0 8px\"><div style=\"width:24px;height:24px;border-radius:50%;background:var(--bg-4,#ededf2);flex-shrink:0\"></div><span style=\"flex:1;font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:var(--text-3,rgba(0,0,0,.4));overflow:hidden;white-space:nowrap;text-overflow:ellipsis\">潮玩收藏家</span><i class=\"KurilIcons kuril-like_normal\" style=\"font-size:14px;color:var(--icon-2,#625e76)\"></i><span style=\"font:var(--font-n5,500 14px/22px Roboto,sans-serif);color:var(--icon-2,#625e76)\">1.2k</span></div></div>",
       "desc": "双列卡片，竖版图（3:4），高图内容（潮玩/手办）",
       "css": {
@@ -70,6 +73,7 @@
     },
     "Column=2, Size=Small(4:3), Img=False": {
       "figma_key": "0cdbea117d7c441184564a94099c9fae2d2aea6d",
+      "_tree": {"type":"COMPONENT","css":{"display":"flex","width":"173.5px","flex-direction":"column","align-items":"center"},"children":[]},
       "embed_html": "<div style=\"width:173.5px;border-radius:var(--Radius-Normal,8px);background:var(--bg-1,#fff);overflow:hidden\"><div style=\"padding:12px 10px 8px;background:var(--bg-4,#ededf2)\"><p style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:var(--text-1,#000);margin:0;overflow:hidden;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical\">最近在研究设计系统的 token 分层，发现三级映射真的可以解决很多维护上的问题...</p></div><div style=\"display:flex;align-items:center;gap:4px;height:36px;padding:0 8px\"><div style=\"width:24px;height:24px;border-radius:50%;background:var(--bg-4,#ededf2);flex-shrink:0\"></div><span style=\"flex:1;font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:var(--text-3,rgba(0,0,0,.4));overflow:hidden;white-space:nowrap;text-overflow:ellipsis\">设计师小林</span><i class=\"KurilIcons kuril-like_normal\" style=\"font-size:14px;color:var(--icon-2,#625e76)\"></i><span style=\"font:var(--font-n5,500 14px/22px Roboto,sans-serif);color:var(--icon-2,#625e76)\">89</span></div></div>",
       "desc": "双列纯文字卡片，无图，显示纹理背景",
       "css": {
@@ -82,6 +86,7 @@
     },
     "Column=2, Size=Large(3:4), Img=False": {
       "figma_key": "bbb138bfb6c49ccff7f9a8651837276a5abaf725",
+      "_tree": {"type":"COMPONENT","css":{"display":"flex","width":"173.5px","flex-direction":"column","align-items":"flex-start"},"children":[]},
       "embed_html": "<div style=\"width:173.5px;border-radius:var(--Radius-Normal,8px);background:var(--bg-1,#fff);overflow:hidden\"><div style=\"padding:12px 10px 8px;background:var(--bg-4,#ededf2)\"><p style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:var(--text-1,#000);margin:0;overflow:hidden;display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical\">这套 Figma Variables 三级映射真的太绝了，分享给大家学习参考，做设计系统一定要看...</p></div><div style=\"display:flex;align-items:center;gap:4px;height:36px;padding:0 8px\"><div style=\"width:24px;height:24px;border-radius:50%;background:var(--bg-4,#ededf2);flex-shrink:0\"></div><span style=\"flex:1;font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:var(--text-3,rgba(0,0,0,.4));overflow:hidden;white-space:nowrap;text-overflow:ellipsis\">设计师小林</span><i class=\"KurilIcons kuril-like_normal\" style=\"font-size:14px;color:var(--icon-2,#625e76)\"></i><span style=\"font:var(--font-n5,500 14px/22px Roboto,sans-serif);color:var(--icon-2,#625e76)\">234</span></div></div>",
       "desc": "双列纯文字卡片，竖版无图，长文内容",
       "css": {
@@ -94,6 +99,7 @@
     },
     "Column=1, Size=Medium(4:3~3:4), Img=True": {
       "figma_key": "f24b6150376695053196df477d416451a8ec1f77",
+      "_tree": {"type":"COMPONENT","css":{"display":"flex","width":"375px","flex-direction":"column","align-items":"center","gap":"var(--Spacing-Normal,8px)","background":"var(--bg-1,#FFF)"},"children":[]},
       "embed_html": "<div style=\"width:375px;background:var(--bg-1,#fff);display:flex;flex-direction:column;gap:var(--Spacing-Normal,8px)\"><div style=\"display:flex;align-items:center;gap:8px;padding:0 10px\"><div style=\"width:32px;height:32px;border-radius:50%;background:var(--bg-4,#ededf2);flex-shrink:0\"></div><div style=\"flex:1\"><span style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:var(--text-1,#000)\">JocelynTong✨</span></div></div><div style=\"padding:0 10px\"><p style=\"font:var(--font-h4,500 16px/24px 'PingFang SC',sans-serif);color:var(--text-1,#000);margin:0\">二代chaka是氛围感软装的神!!</p></div><div style=\"display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:0 10px\"><div style=\"height:116px;background:var(--bg-4,#ededf2);border-radius:var(--Radius-Normal,8px)\"></div><div style=\"height:116px;background:var(--bg-4,#ededf2);border-radius:var(--Radius-Normal,8px)\"></div><div style=\"height:116px;background:var(--bg-4,#ededf2);border-radius:var(--Radius-Normal,8px)\"></div></div><div style=\"display:flex;border-top:0.5px solid var(--border-2,rgba(0,0,0,.08));padding:4px 0\"><div style=\"flex:1;display:flex;align-items:center;justify-content:center;gap:4px;height:38px\"><i class=\"KurilIcons kuril-share\" style=\"font-size:16px;color:var(--icon-2,#625e76)\"></i><span style=\"font:var(--font-n5,500 14px/22px Roboto,sans-serif);color:var(--default-bt-text-color,rgba(0,0,0,.64))\">86</span></div><div style=\"flex:1;display:flex;align-items:center;justify-content:center;gap:4px;height:38px\"><i class=\"KurilIcons kuril-comment\" style=\"font-size:16px;color:var(--icon-2,#625e76)\"></i><span style=\"font:var(--font-n5,500 14px/22px Roboto,sans-serif);color:var(--default-bt-text-color,rgba(0,0,0,.64))\">86</span></div><div style=\"flex:1;display:flex;align-items:center;justify-content:center;gap:4px;height:38px\"><i class=\"KurilIcons kuril-like_normal\" style=\"font-size:16px;color:var(--icon-2,#625e76)\"></i><span style=\"font:var(--font-n5,500 14px/22px Roboto,sans-serif);color:var(--default-bt-text-color,rgba(0,0,0,.64))\">784</span></div></div></div>",
       "desc": "单列全宽卡片，展示作者行、正文、图片组、投票、岛屿标签、互动栏",
       "css": {

@@ -14,6 +14,7 @@
     "Dialog": {
       "figma_name": "💙 04.04_Dialog",
       "figma_key": "cfc9ecae7531b8c7d0afff655fa8f3ac1d7e65c2",
+      "_tree": {"type":"COMPONENT","css":{"display":"inline-flex","flex-direction":"column","align-items":"flex-start","border-radius":"var(--Radius-Large,16px)","background":"var(--bg-3,#FFF)"},"children":[]},
       "css": {"display":"inline-flex","flex-direction":"column","align-items":"flex-start","border-radius":"var(--Radius-Large, 16px)","background":"var(--bg-3, #FFF)"},
       "embed_html": "<div style=\"display:inline-flex;width:311px;flex-direction:column;align-items:flex-start;border-radius:var(--radius-large,16px);background:var(--bg-1,#FFF);flex-shrink:0\"><div style=\"padding:24px 32px 0;align-self:stretch;background:var(--bg-1,#FFF)\"><span style=\"display:block;text-align:center;font:var(--font-h4,500 16px/24px 'PingFang SC',sans-serif);color:var(--text-1,#000)\">标题居中对齐展示</span></div><div style=\"display:flex;padding:0 20px 20px;align-items:center;gap:9px;align-self:stretch;background:var(--bg-1,#FFF)\"><div style=\"flex:1;padding:8px 16px;border-radius:var(--radius-normal,8px);border:1px solid rgba(0,0,0,.16);text-align:center;font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:var(--text-1,#000)\">取消</div><div style=\"flex:1;padding:8px 16px;border-radius:var(--radius-normal,8px);background:var(--primary-bt-solid-bg,#7C66FF);text-align:center;font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:#fff\">确认</div></div></div>",
       "desc": "主对话框容器，支持顶部/中部图片装饰",
@@ -36,6 +37,7 @@
     "DialogTitle": {
       "figma_name": "💙 04.04_Dialog / Title",
       "figma_key": "6dd7c6a9080e0e95b46b501fb0b55f52523d3977",
+      "_tree": {"type":"COMPONENT","css":{"display":"inline-flex","padding":"0 32px","align-items":"center","gap":"10px","background":"var(--bg-1,#FFF)"},"children":[]},
       "css": {"display":"inline-flex","padding":"0 32px","align-items":"center","gap":"10px","background":"var(--bg-1, #FFF)"},
       "embed_html": "<div style=\"display:inline-flex;padding:0 32px;align-items:center;background:var(--bg-1,#FFF);flex-shrink:0\"><span style=\"width:247px;text-align:center;font:var(--font-h4,500 16px/24px 'PingFang SC',sans-serif);color:var(--text-1,#000)\">标题居中对齐展示</span></div>",
       "desc": "对话框标题区域",
@@ -46,6 +48,7 @@
     "DialogButtonGroup": {
       "figma_name": "💙 04.04_Dialog / ButtonGroup",
       "figma_key": "18ee8850d78fda436b274a68bc60cf895b09c73b",
+      "_tree": {"type":"COMPONENT","css":{"display":"inline-flex","flex-direction":"column","align-items":"flex-start","border-radius":"0 0 var(--Radius-Large,16px) var(--Radius-Large,16px)"},"children":[]},
       "css": {"display":"inline-flex","flex-direction":"column","align-items":"flex-start","border-radius":"0 0 var(--Radius-Large, 16px) var(--Radius-Large, 16px)"},
       "embed_html": "<div style=\"display:inline-flex;flex-direction:column;align-items:flex-start;border-radius:0 0 var(--radius-large,16px) var(--radius-large,16px);flex-shrink:0\"><div style=\"display:flex;padding:0 20px 20px;align-items:center;gap:9px;align-self:stretch;background:var(--bg-1,#FFF)\"><div style=\"flex:1;padding:8px 16px;border-radius:var(--radius-normal,8px);background:var(--primary-bt-solid-bg,#7C66FF);text-align:center;font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:#fff\">确认</div></div></div>",
       "desc": "对话框按钮区域",
@@ -63,6 +66,7 @@
     "DialogDescription": {
       "figma_name": "💙 04.04_Dialog / Description",
       "figma_key": "82a99aaca592a3a045db436d05ccfd0e7ac7c68a",
+      "_tree": {"type":"COMPONENT","css":{"display":"inline-flex","max-height":"297px","padding":"0 20px","flex-direction":"column","align-items":"flex-start","gap":"16px"},"children":[]},
       "css": {"display":"inline-flex","max-height":"297px","padding":"0 20px","flex-direction":"column","align-items":"flex-start","gap":"16px"},
       "embed_html": "<div style=\"display:inline-flex;padding:0 20px;flex-direction:column;align-items:flex-start;gap:16px;flex-shrink:0\"><span style=\"width:271px;font:var(--font-b5,400 14px/22px 'PingFang SC',sans-serif);color:var(--text-1,#000)\">对话框正文描述内容文字</span></div>",
       "desc": "对话框正文描述区域，有高度限制",

@@ -846,3 +846,47 @@ new-demo.js 拼接三层 → 04 demos/{name}/styles.css（冻结快照）
    - ❌ 新建 `05 figma-plugin/schemas/` 存放 JSON Schema → 应写入 `00 CLAUDE.md`
    - ❌ 新建 `06 scripts/` 存放工具脚本 → 应归属到对应功能目录
    - ❌ 新建 `utils.js` 存放共用函数 → 应内联到调用方或加入已有脚本
+
+---
+
+## 11 · 暂存区（待推进事项）
+
+> 这里存放「已想清楚但还没开始做」的方向，回头说「执行暂存区的 XX」时直接从这里读。
+
+### 11-A · IDE 桥接：与 H5 同事的 figma-to-code 对接
+
+**背景**
+
+H5 同事已有一套 `figma-to-code` CLI 工具，核心思路：
+- Figma 骨架提取（去噪：INSTANCE 不展开、透传容器折叠、自适应宽度）
+- 输出干净 HTML 骨架 + `figma-context.md`（组件映射、UnoCSS 配置）
+- AI 读骨架 + `figma-context.md` → 翻译成项目业务代码（DuButton、DuInput 等）
+- 支持 CLI 调用，不依赖 IDE MCP 交互
+
+**他有的 / 我们有的**
+
+| figma-to-code | echo-design-system |
+|---|---|
+| 结构准确的 HTML 骨架 | `usage_rules`、`props` 语义、使用场景 |
+| INSTANCE → `<DuButton>` 占位 | 该用哪个 variant、为什么 |
+| `figma-context.md` 手动维护 | `figma_name` 可自动映射 |
+
+**缺的那一步（待实现）**
+
+在 `generate.py` 里加 `generate_figma_context()` 函数，从 `COMPONENTS_DATA` 自动生成 `figma-context.md`：
+
+```
+COMPONENTS_DATA
+  → figma_name → 项目组件名映射
+  → usage_rules → 何时用哪个 variant
+  → tokens_used → CSS 变量对应值
+  → 输出到 figma-context.md
+```
+
+他的工具读这个文件，AI 拿到完整上下文，直接输出符合规范的业务代码。**他不用改工具，我们不用造代码生成器。**
+
+**下一步行动**
+
+1. 和 H5 同事确认 `figma-context.md` 的具体格式（他用什么字段）
+2. 确认项目组件名前缀（Du*？还是其他？）
+3. 让 Claude 写 `generate_figma_context()` 函数，输出到指定路径

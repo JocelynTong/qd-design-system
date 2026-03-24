@@ -13,6 +13,7 @@
     "Badge": {
       "figma_name": "💙  03.01_Badge/Shop/Normal",
       "figma_key": "e6f1e13ba327dbbe2d5db23ba90047ac1082091c",
+      "_tree": {"type":"COMPONENT","css":{"display":"inline-flex","min-width":"18px","height":"18px","padding":"0 4px","justify-content":"center","align-items":"center","border-radius":"16px","background":"var(--error-solid-bg,#D94A4E)"},"children":[]},
       "embed_html": "<div style=\"display:inline-flex;min-width:18px;max-width:36px;height:18px;padding:0 4px;justify-content:center;align-items:center;border-radius:16px;background:var(--error-solid-bg,#D94A4E)\"><span style=\"font:var(--font-n6,500 12px/18px Roboto,sans-serif);color:#FFF;text-align:center\">6</span></div>",
       "desc": "商城/店铺场景角标，标准数字角标",
       "props": {},

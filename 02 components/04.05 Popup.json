@@ -14,6 +14,7 @@
     "Popup": {
       "figma_name": "💙 04.11_Popup",
       "figma_key": "923fdffa7a909fa0d4ed4d2c1d76054a0b43336e",
+      "_tree": {"type":"COMPONENT","css":{"display":"flex","width":"375px","height":"244px","flex-direction":"column","align-items":"flex-start","border-radius":"16px 16px 0 0","background":"var(--bg-1,#FFF)"},"children":[]},
       "embed_html": "<div style=\"display:flex;width:375px;height:244px;flex-direction:column;align-items:flex-start;border-radius:16px 16px 0 0;background:var(--bg-1,#FFF);overflow:hidden;flex-shrink:0\"><div style=\"display:flex;padding:15px 15px 0;align-items:center;justify-content:space-between;align-self:stretch\"><span style=\"font:var(--font-h4,500 16px/24px 'PingFang SC',sans-serif);color:var(--text-1,#2B263B)\">分享</span></div><div style=\"flex:1 0 0;align-self:stretch\"></div><div style=\"display:flex;width:375px;height:48px;padding:0 10px;align-items:center;border-top:0.5px solid var(--border-1,rgba(0,0,0,.08));background:var(--bg-1,#FFF)\"></div></div>",
       "desc": "底部弹出面板，支持 Small/Medium/Large 三种高度档位",
       "props": {
