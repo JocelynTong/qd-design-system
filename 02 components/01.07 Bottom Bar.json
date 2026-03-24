@@ -10,22 +10,4563 @@
     "购物场景可在右侧放加购/立即购买按钮"
   ],
   "variants": {
-    "BottomBar": {
+    "I0B1_Mini": {
       "figma_name": "💙 01.07_Bottom Bar",
       "figma_key": "223c9d06ca6d7cecfdc35f41afdd0ae927e39fea",
-      "_tree": {"type":"COMPONENT","css":{"display":"flex","width":"375px","height":"48px","align-items":"center","padding":"0 10px","background":"var(--bg-1,#FFF)"},"children":[]},
-      "embed_html": "<div style=\"width:375px;height:48px;display:flex;align-items:center;padding:0 10px;background:var(--bg-1,#FFF);border-top:0.5px solid var(--border-1,rgba(0,0,0,.08))\"><div style=\"flex:1;height:40px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:var(--primary-bt-solid-bg,#7C66FF)\"><span style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:#FFF\">立即购买</span></div></div>",
-      "desc": "内容页底部互动操作栏",
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "height": "48px",
+          "flex-direction": "column",
+          "justify-content": "center",
+          "align-items": "flex-start",
+          "gap": "var(--Spacing-Mini, 2px)",
+          "background": "var(--bg-1, #FFF)"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "height": "1px",
+              "padding-top": "0.5px",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "gap": "10px",
+              "position": "absolute",
+              "top": "0"
+            },
+            "ref": "00.06-divider",
+            "key": "586dc76f209fcb0ee184ec315b7830c9432fde1c"
+          },
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "padding": "0 10px",
+              "justify-content": "flex-end",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "355px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "height": "48px",
+        "flex-direction": "column",
+        "justify-content": "center",
+        "align-items": "flex-start",
+        "gap": "var(--Spacing-Mini, 2px)",
+        "background": "var(--bg-1, #FFF)"
+      },
+      "desc": "1 个主按钮，左宽0%(仅右侧)",
       "props": {},
+      "slots": [
+        {
+          "name": "00.06-divider",
+          "boolProp": "Divider#58712:0",
+          "css": {
+            "display": "flex",
+            "width": "375px",
+            "height": "1px",
+            "padding-top": "0.5px",
+            "flex-direction": "column",
+            "align-items": "flex-start",
+            "gap": "10px",
+            "position": "absolute",
+            "top": "0"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag#58700:21",
+          "css": {
+            "display": "inline-flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "left": "353px",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        }
+      ],
+      "embed_html": "<div style=\"width:375px;height:48px;display:flex;align-items:center;padding:0 10px;background:var(--bg-1,#FFF);border-top:0.5px solid var(--border-1,rgba(0,0,0,.08))\"><div style=\"flex:1;height:40px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:var(--primary-bt-solid-bg,#7C66FF)\"><span style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:#FFF\">立即购买</span></div></div>",
       "tokens_used": {
-        "color": ["bg/1", "border/1", "default/bt/border", "primary/bt/solidBg", "error/solidBg", "Main/white_09"],
-        "spacing": ["Spacing/Normal(8px)", "Spacing/Small(4px)", "Spacing/Mini(2px)"],
-        "radius": ["Radius/Small(4px)"]
+        "color": [
+          "bg/1",
+          "border/1",
+          "default/bt/border",
+          "primary/bt/solidBg",
+          "error/solidBg",
+          "Main/white_09"
+        ],
+        "spacing": [
+          "Spacing/Normal(8px)",
+          "Spacing/Small(4px)",
+          "Spacing/Mini(2px)"
+        ],
+        "radius": [
+          "Radius/Small(4px)"
+        ]
       },
       "typical_layout": {
         "left": "评论输入框（Input_Frame，State=Default）",
         "right": "图标按钮组（点赞 / 收藏 / 分享，使用 Icon Button）"
       }
+    },
+    "I0B1_Large": {
+      "figma_name": "💙 01.07_Bottom Bar",
+      "figma_key": "7969a09e71ddf2ab217f3ba59827a36fe9e2d191",
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "height": "48px",
+          "padding": "var(--Spacing-Small, 4px) 10px",
+          "align-items": "center",
+          "gap": "var(--Spacing-Normal, 8px)",
+          "background": "var(--bg-1, #FFF)"
+        },
+        "children": [
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "width": "251px",
+              "height": "40px",
+              "justify-content": "flex-end",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex-shrink": "0"
+            }
+          },
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "justify-content": "flex-end",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex": "1 0 0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "96px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "1px",
+              "padding-top": "0.5px",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "gap": "10px",
+              "position": "absolute"
+            },
+            "ref": "00.06-divider",
+            "key": "586dc76f209fcb0ee184ec315b7830c9432fde1c"
+          }
+        ]
+      },
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "height": "48px",
+        "padding": "var(--Spacing-Small, 4px) 10px",
+        "align-items": "center",
+        "gap": "var(--Spacing-Normal, 8px)",
+        "background": "var(--bg-1, #FFF)"
+      },
+      "desc": "1 个主按钮，左宽72%",
+      "props": {},
+      "slots": [
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag#58700:21",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "00.06-divider",
+          "boolProp": "Divider#58712:0",
+          "css": {
+            "display": "flex",
+            "height": "1px",
+            "padding-top": "0.5px",
+            "flex-direction": "column",
+            "align-items": "flex-start",
+            "gap": "10px",
+            "position": "absolute"
+          }
+        }
+      ]
+    },
+    "I0B1Text_Large": {
+      "figma_name": "💙 01.07_Bottom Bar",
+      "figma_key": "84388e85a668a94a6864bcaea0c4da7f546850a6",
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "var(--Spacing-Small, 4px) 10px",
+          "align-items": "center",
+          "gap": "var(--Spacing-Normal, 8px)",
+          "background": "var(--bg-1, #FFF)"
+        },
+        "children": [
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "width": "251px",
+              "justify-content": "flex-end",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex-shrink": "0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "251px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-end"
+                },
+                "children": [
+                  {
+                    "type": "FRAME",
+                    "css": {
+                      "display": "flex",
+                      "justify-content": "flex-end",
+                      "align-items": "center",
+                      "gap": "4px",
+                      "align-self": "stretch"
+                    },
+                    "children": [
+                      {
+                        "type": "TEXT",
+                        "css": {
+                          "flex": "1 0 0",
+                          "color": "var(--text-1, #000)",
+                          "text-align": "right",
+                          "font-feature-settings": "'liga' off, 'clig' off",
+                          "font-family": "\"PingFang SC\"",
+                          "font-size": "14px",
+                          "font-style": "normal",
+                          "font-weight": "400",
+                          "line-height": "22px /* 157.143% */"
+                        },
+                        "text": "文本"
+                      },
+                      {
+                        "type": "TEXT",
+                        "css": {
+                          "color": "var(--trade-textColor, #F96464)",
+                          "text-align": "right",
+                          "font-feature-settings": "'liga' off, 'clig' off",
+                          "font-family": "Roboto",
+                          "font-size": "14px",
+                          "font-style": "normal",
+                          "font-weight": "500",
+                          "line-height": "22px /* 157.143% */"
+                        },
+                        "text": "¥xx"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "TEXT",
+                    "css": {
+                      "align-self": "stretch",
+                      "color": "var(--text-3, rgba(0, 0, 0, 0.40))",
+                      "text-align": "right",
+                      "font-feature-settings": "'liga' off, 'clig' off",
+                      "font-family": "\"PingFang SC\"",
+                      "font-size": "12px",
+                      "font-style": "normal",
+                      "font-weight": "400",
+                      "line-height": "18px /* 150% */"
+                    },
+                    "text": "文本"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "justify-content": "flex-end",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex": "1 0 0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "96px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "1px",
+              "padding-top": "0.5px",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "gap": "10px",
+              "position": "absolute"
+            },
+            "ref": "00.06-divider",
+            "key": "586dc76f209fcb0ee184ec315b7830c9432fde1c"
+          }
+        ]
+      },
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "var(--Spacing-Small, 4px) 10px",
+        "align-items": "center",
+        "gap": "var(--Spacing-Normal, 8px)",
+        "background": "var(--bg-1, #FFF)"
+      },
+      "desc": "1 个主按钮，左侧有文字输入框，左宽72%",
+      "props": {},
+      "slots": [
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag#58700:21",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "00.06-divider",
+          "boolProp": "Divider#58712:0",
+          "css": {
+            "display": "flex",
+            "height": "1px",
+            "padding-top": "0.5px",
+            "flex-direction": "column",
+            "align-items": "flex-start",
+            "gap": "10px",
+            "position": "absolute"
+          }
+        }
+      ]
+    },
+    "I0B2_Mini": {
+      "figma_name": "💙 01.07_Bottom Bar",
+      "figma_key": "39c7560f0a92c9425260e40c8f7b3d6a1c17980f",
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "var(--Spacing-Small, 4px) 10px",
+          "align-items": "center",
+          "gap": "var(--Spacing-Normal, 8px)",
+          "background": "var(--bg-1, #FFF)"
+        },
+        "children": [
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "justify-content": "flex-end",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex": "1 0 0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "173.5px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "173.5px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "height": "1px",
+              "padding-top": "0.5px",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "gap": "10px",
+              "position": "absolute",
+              "top": "0"
+            },
+            "ref": "00.06-divider",
+            "key": "586dc76f209fcb0ee184ec315b7830c9432fde1c"
+          }
+        ]
+      },
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "var(--Spacing-Small, 4px) 10px",
+        "align-items": "center",
+        "gap": "var(--Spacing-Normal, 8px)",
+        "background": "var(--bg-1, #FFF)"
+      },
+      "desc": "2 个主按钮，左宽0%(仅右侧)",
+      "props": {},
+      "slots": [
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag2#58700:105",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "9.5px",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag#58700:21",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "00.06-divider",
+          "boolProp": "Divider#58712:0",
+          "css": {
+            "display": "flex",
+            "width": "375px",
+            "height": "1px",
+            "padding-top": "0.5px",
+            "flex-direction": "column",
+            "align-items": "flex-start",
+            "gap": "10px",
+            "position": "absolute",
+            "top": "0"
+          }
+        }
+      ]
+    },
+    "I0B2_Medium": {
+      "figma_name": "💙 01.07_Bottom Bar",
+      "figma_key": "8ea56f082adc7241d56743d8137d7e16ab875ef5",
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "var(--Spacing-Small, 4px) 10px",
+          "align-items": "center",
+          "gap": "var(--Spacing-Normal, 8px)",
+          "background": "var(--bg-1, #FFF)"
+        },
+        "children": [
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "width": "148px",
+              "justify-content": "flex-end",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex-shrink": "0",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "148px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "align-items": "center",
+                      "gap": "4px",
+                      "flex": "1 0 0",
+                      "align-self": "stretch"
+                    },
+                    "ref": "02.05-checkbox",
+                    "key": "46bfe62df4e9e395f55c640845b3319632b961c2"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "justify-content": "flex-end",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex": "1 0 0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "95.5px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "95.5px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "height": "1px",
+              "padding-top": "0.5px",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "gap": "10px",
+              "position": "absolute",
+              "top": "0"
+            },
+            "ref": "00.06-divider",
+            "key": "586dc76f209fcb0ee184ec315b7830c9432fde1c"
+          }
+        ]
+      },
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "var(--Spacing-Small, 4px) 10px",
+        "align-items": "center",
+        "gap": "var(--Spacing-Normal, 8px)",
+        "background": "var(--bg-1, #FFF)"
+      },
+      "desc": "2 个主按钮，左宽43%",
+      "props": {},
+      "slots": [
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag2#58700:105",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "11.5px",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag#58700:21",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "-0.5px",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "00.06-divider",
+          "boolProp": "Divider#58712:0",
+          "css": {
+            "display": "flex",
+            "width": "375px",
+            "height": "1px",
+            "padding-top": "0.5px",
+            "flex-direction": "column",
+            "align-items": "flex-start",
+            "gap": "10px",
+            "position": "absolute",
+            "top": "0"
+          }
+        }
+      ]
+    },
+    "I0B3_Small": {
+      "figma_name": "💙 01.07_Bottom Bar",
+      "figma_key": "7b3525bc19d7646fe2d9891f9a03849ee97563fc",
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "var(--Spacing-Small, 4px) 10px",
+          "align-items": "center",
+          "gap": "var(--Spacing-Normal, 8px)",
+          "background": "var(--bg-1, #FFF)"
+        },
+        "children": [
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "width": "44px",
+              "height": "40px",
+              "justify-content": "flex-end",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex-shrink": "0"
+            }
+          },
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "justify-content": "flex-end",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex": "1 0 0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "95.667px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "border": "1px solid var(--default-bt-border, rgba(0, 0, 0, 0.16))"
+                    },
+                    "ref": "00.08-button",
+                    "key": "22f63e6ad0f6b5a2644669d5675ecc59ff8b0015"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "95.667px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "border": "1px solid var(--default-bt-border, rgba(0, 0, 0, 0.16))"
+                    },
+                    "ref": "00.08-button",
+                    "key": "22f63e6ad0f6b5a2644669d5675ecc59ff8b0015"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "95.667px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "height": "1px",
+              "padding-top": "0.5px",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "gap": "10px",
+              "position": "absolute",
+              "top": "0"
+            },
+            "ref": "00.06-divider",
+            "key": "586dc76f209fcb0ee184ec315b7830c9432fde1c"
+          }
+        ]
+      },
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "var(--Spacing-Small, 4px) 10px",
+        "align-items": "center",
+        "gap": "var(--Spacing-Normal, 8px)",
+        "background": "var(--bg-1, #FFF)"
+      },
+      "desc": "3 个主按钮，左宽13%",
+      "props": {},
+      "slots": [
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag3#58700:126",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "7.667px",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag2#58700:105",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "7.667px",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag#58700:21",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "-0.333px",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "00.06-divider",
+          "boolProp": "Divider#58712:0",
+          "css": {
+            "display": "flex",
+            "width": "375px",
+            "height": "1px",
+            "padding-top": "0.5px",
+            "flex-direction": "column",
+            "align-items": "flex-start",
+            "gap": "10px",
+            "position": "absolute",
+            "top": "0"
+          }
+        }
+      ]
+    },
+    "I1B1_Small": {
+      "figma_name": "💙 01.07_Bottom Bar",
+      "figma_key": "5c87b6d518823691ae7e7241507a28fffc785504",
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "var(--Spacing-Small, 4px) 10px",
+          "align-items": "center",
+          "gap": "var(--Spacing-Normal, 8px)",
+          "background": "var(--bg-1, #FFF)"
+        },
+        "children": [
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "width": "44px",
+              "height": "40px",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex-shrink": "0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "inline-flex",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "justify-content": "flex-end",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex": "1 0 0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "303px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "height": "1px",
+              "padding-top": "0.5px",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "gap": "10px",
+              "position": "absolute",
+              "top": "0"
+            },
+            "ref": "00.06-divider",
+            "key": "586dc76f209fcb0ee184ec315b7830c9432fde1c"
+          }
+        ]
+      },
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "var(--Spacing-Small, 4px) 10px",
+        "align-items": "center",
+        "gap": "var(--Spacing-Normal, 8px)",
+        "background": "var(--bg-1, #FFF)"
+      },
+      "desc": "1 个图标按钮，1 个主按钮，左宽13%",
+      "props": {},
+      "slots": [
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge#58700:42",
+          "css": {
+            "display": "inline-flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "left": "21px",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag#58700:21",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "00.06-divider",
+          "boolProp": "Divider#58712:0",
+          "css": {
+            "display": "flex",
+            "width": "375px",
+            "height": "1px",
+            "padding-top": "0.5px",
+            "flex-direction": "column",
+            "align-items": "flex-start",
+            "gap": "10px",
+            "position": "absolute",
+            "top": "0"
+          }
+        }
+      ]
+    },
+    "I1B1_Large": {
+      "figma_name": "💙 01.07_Bottom Bar",
+      "figma_key": "ec130a2320bcb681cf9c0f0ca40f4a52ca189ca3",
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "var(--Spacing-Small, 4px) 10px",
+          "align-items": "center",
+          "gap": "var(--Spacing-Normal, 8px)",
+          "background": "var(--bg-1, #FFF)"
+        },
+        "children": [
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "width": "251px",
+              "height": "40px",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex-shrink": "0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "44px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "justify-content": "flex-end",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex": "1 0 0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "96px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "height": "1px",
+              "padding-top": "0.5px",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "gap": "10px",
+              "position": "absolute",
+              "top": "0"
+            },
+            "ref": "00.06-divider",
+            "key": "586dc76f209fcb0ee184ec315b7830c9432fde1c"
+          }
+        ]
+      },
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "var(--Spacing-Small, 4px) 10px",
+        "align-items": "center",
+        "gap": "var(--Spacing-Normal, 8px)",
+        "background": "var(--bg-1, #FFF)"
+      },
+      "desc": "1 个图标按钮，1 个主按钮，左宽72%",
+      "props": {},
+      "slots": [
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge#58700:42",
+          "css": {
+            "display": "flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag#58700:21",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "00.06-divider",
+          "boolProp": "Divider#58712:0",
+          "css": {
+            "display": "flex",
+            "width": "375px",
+            "height": "1px",
+            "padding-top": "0.5px",
+            "flex-direction": "column",
+            "align-items": "flex-start",
+            "gap": "10px",
+            "position": "absolute",
+            "top": "0"
+          }
+        }
+      ]
+    },
+    "I1B1Text_Large": {
+      "figma_name": "💙 01.07_Bottom Bar",
+      "figma_key": "4b08f3b4d0991944d192d989da434cf5056d5d1d",
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "var(--Spacing-Small, 4px) 10px",
+          "align-items": "center",
+          "gap": "var(--Spacing-Normal, 8px)",
+          "background": "var(--bg-1, #FFF)"
+        },
+        "children": [
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "width": "251px",
+              "height": "40px",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex-shrink": "0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "44px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "199px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-end"
+                },
+                "children": [
+                  {
+                    "type": "FRAME",
+                    "css": {
+                      "display": "flex",
+                      "justify-content": "flex-end",
+                      "align-items": "center",
+                      "gap": "4px",
+                      "align-self": "stretch"
+                    },
+                    "children": [
+                      {
+                        "type": "TEXT",
+                        "css": {
+                          "flex": "1 0 0",
+                          "color": "var(--text-1, #000)",
+                          "text-align": "right",
+                          "font-feature-settings": "'liga' off, 'clig' off",
+                          "font-family": "\"PingFang SC\"",
+                          "font-size": "14px",
+                          "font-style": "normal",
+                          "font-weight": "400",
+                          "line-height": "22px /* 157.143% */"
+                        },
+                        "text": "文本"
+                      },
+                      {
+                        "type": "TEXT",
+                        "css": {
+                          "color": "var(--trade-textColor, #F96464)",
+                          "text-align": "right",
+                          "font-feature-settings": "'liga' off, 'clig' off",
+                          "font-family": "Roboto",
+                          "font-size": "14px",
+                          "font-style": "normal",
+                          "font-weight": "500",
+                          "line-height": "22px /* 157.143% */"
+                        },
+                        "text": "¥xx"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "TEXT",
+                    "css": {
+                      "align-self": "stretch",
+                      "color": "var(--text-3, rgba(0, 0, 0, 0.40))",
+                      "text-align": "right",
+                      "font-feature-settings": "'liga' off, 'clig' off",
+                      "font-family": "\"PingFang SC\"",
+                      "font-size": "12px",
+                      "font-style": "normal",
+                      "font-weight": "400",
+                      "line-height": "18px /* 150% */"
+                    },
+                    "text": "文本"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "justify-content": "flex-end",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex": "1 0 0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "96px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "height": "1px",
+              "padding-top": "0.5px",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "gap": "10px",
+              "position": "absolute",
+              "top": "0"
+            },
+            "ref": "00.06-divider",
+            "key": "586dc76f209fcb0ee184ec315b7830c9432fde1c"
+          }
+        ]
+      },
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "var(--Spacing-Small, 4px) 10px",
+        "align-items": "center",
+        "gap": "var(--Spacing-Normal, 8px)",
+        "background": "var(--bg-1, #FFF)"
+      },
+      "desc": "1 个图标按钮，1 个主按钮，左侧有文字输入框，左宽72%",
+      "props": {},
+      "slots": [
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge#58700:42",
+          "css": {
+            "display": "flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag#58700:21",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "00.06-divider",
+          "boolProp": "Divider#58712:0",
+          "css": {
+            "display": "flex",
+            "width": "375px",
+            "height": "1px",
+            "padding-top": "0.5px",
+            "flex-direction": "column",
+            "align-items": "flex-start",
+            "gap": "10px",
+            "position": "absolute",
+            "top": "0"
+          }
+        }
+      ]
+    },
+    "I1B2_Small": {
+      "figma_name": "💙 01.07_Bottom Bar",
+      "figma_key": "977fa31875284cac22d2be5ae0e1c16e563c0717",
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "var(--Spacing-Small, 4px) 10px",
+          "align-items": "center",
+          "gap": "var(--Spacing-Normal, 8px)",
+          "background": "var(--bg-1, #FFF)"
+        },
+        "children": [
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "width": "44px",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex-shrink": "0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "inline-flex",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "justify-content": "flex-end",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex": "1 0 0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "147.5px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "147.5px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "height": "1px",
+              "padding-top": "0.5px",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "gap": "10px",
+              "position": "absolute",
+              "top": "0"
+            },
+            "ref": "00.06-divider",
+            "key": "586dc76f209fcb0ee184ec315b7830c9432fde1c"
+          }
+        ]
+      },
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "var(--Spacing-Small, 4px) 10px",
+        "align-items": "center",
+        "gap": "var(--Spacing-Normal, 8px)",
+        "background": "var(--bg-1, #FFF)"
+      },
+      "desc": "1 个图标按钮，2 个主按钮，左宽13%",
+      "props": {},
+      "slots": [
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge#58700:42",
+          "css": {
+            "display": "inline-flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "left": "21px",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag2#58700:105",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "3.5px",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag#58700:21",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "3.5px",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "00.06-divider",
+          "boolProp": "Divider#58712:0",
+          "css": {
+            "display": "flex",
+            "width": "375px",
+            "height": "1px",
+            "padding-top": "0.5px",
+            "flex-direction": "column",
+            "align-items": "flex-start",
+            "gap": "10px",
+            "position": "absolute",
+            "top": "0"
+          }
+        }
+      ]
+    },
+    "I1B2_Medium": {
+      "figma_name": "💙 01.07_Bottom Bar",
+      "figma_key": "8029348e57b5b5a1a0e3619c69359569960fde89",
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "var(--Spacing-Small, 4px) 10px",
+          "align-items": "center",
+          "gap": "var(--Spacing-Normal, 8px)",
+          "background": "var(--bg-1, #FFF)"
+        },
+        "children": [
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "width": "148px",
+              "height": "40px",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex-shrink": "0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "44px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "padding": "8px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "justify-content": "flex-end",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex": "1 0 0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "95.5px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "95.5px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "height": "1px",
+              "padding-top": "0.5px",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "gap": "10px",
+              "position": "absolute",
+              "top": "0"
+            },
+            "ref": "00.06-divider",
+            "key": "586dc76f209fcb0ee184ec315b7830c9432fde1c"
+          }
+        ]
+      },
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "var(--Spacing-Small, 4px) 10px",
+        "align-items": "center",
+        "gap": "var(--Spacing-Normal, 8px)",
+        "background": "var(--bg-1, #FFF)"
+      },
+      "desc": "1 个图标按钮，2 个主按钮，左宽43%",
+      "props": {},
+      "slots": [
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge#58700:42",
+          "css": {
+            "display": "flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag2#58700:105",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "5.5px",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag#58700:21",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "-0.5px",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "00.06-divider",
+          "boolProp": "Divider#58712:0",
+          "css": {
+            "display": "flex",
+            "width": "375px",
+            "height": "1px",
+            "padding-top": "0.5px",
+            "flex-direction": "column",
+            "align-items": "flex-start",
+            "gap": "10px",
+            "position": "absolute",
+            "top": "0"
+          }
+        }
+      ]
+    },
+    "I1B3_Small": {
+      "figma_name": "💙 01.07_Bottom Bar",
+      "figma_key": "181799f1f6ecacda986b3006bf8b8650cc28dad3",
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "var(--Spacing-Small, 4px) 10px",
+          "align-items": "center",
+          "gap": "var(--Spacing-Normal, 8px)",
+          "background": "var(--bg-1, #FFF)"
+        },
+        "children": [
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "width": "44px",
+              "height": "40px",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex-shrink": "0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "44px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "justify-content": "flex-end",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex": "1 0 0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "95.667px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "96px",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex-shrink": "0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "border": "1px solid var(--default-bt-border, rgba(0, 0, 0, 0.16))"
+                    },
+                    "ref": "00.08-button",
+                    "key": "22f63e6ad0f6b5a2644669d5675ecc59ff8b0015"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "95.667px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "96px",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex-shrink": "0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "border": "1px solid var(--default-bt-border, rgba(0, 0, 0, 0.16))"
+                    },
+                    "ref": "00.08-button",
+                    "key": "22f63e6ad0f6b5a2644669d5675ecc59ff8b0015"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "95.667px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "96px",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex-shrink": "0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "height": "1px",
+              "padding-top": "0.5px",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "gap": "10px",
+              "position": "absolute",
+              "top": "0"
+            },
+            "ref": "00.06-divider",
+            "key": "586dc76f209fcb0ee184ec315b7830c9432fde1c"
+          }
+        ]
+      },
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "var(--Spacing-Small, 4px) 10px",
+        "align-items": "center",
+        "gap": "var(--Spacing-Normal, 8px)",
+        "background": "var(--bg-1, #FFF)"
+      },
+      "desc": "1 个图标按钮，3 个主按钮，左宽13%",
+      "props": {},
+      "slots": [
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge#58700:42",
+          "css": {
+            "display": "inline-flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "left": "21px",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag3#58700:126",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "5.667px",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag2#58700:105",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "5.667px",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag#58700:21",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "-0.333px",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "00.06-divider",
+          "boolProp": "Divider#58712:0",
+          "css": {
+            "display": "flex",
+            "width": "375px",
+            "height": "1px",
+            "padding-top": "0.5px",
+            "flex-direction": "column",
+            "align-items": "flex-start",
+            "gap": "10px",
+            "position": "absolute",
+            "top": "0"
+          }
+        }
+      ]
+    },
+    "I2B1_Normal": {
+      "figma_name": "💙 01.07_Bottom Bar",
+      "figma_key": "e2c3bd0b9ca127b4b0d76d194a8cca6fa8b8b6df",
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "var(--Spacing-Small, 4px) 10px",
+          "align-items": "center",
+          "gap": "var(--Spacing-Normal, 8px)",
+          "background": "var(--bg-1, #FFF)"
+        },
+        "children": [
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "width": "96px",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex-shrink": "0",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "44px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "44px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "justify-content": "flex-end",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex": "1 0 0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "251px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "height": "1px",
+              "padding-top": "0.5px",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "gap": "10px",
+              "position": "absolute",
+              "top": "0"
+            },
+            "ref": "00.06-divider",
+            "key": "586dc76f209fcb0ee184ec315b7830c9432fde1c"
+          }
+        ]
+      },
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "var(--Spacing-Small, 4px) 10px",
+        "align-items": "center",
+        "gap": "var(--Spacing-Normal, 8px)",
+        "background": "var(--bg-1, #FFF)"
+      },
+      "desc": "2 个图标按钮，1 个主按钮，左宽28%",
+      "props": {},
+      "slots": [
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge#58700:42",
+          "css": {
+            "display": "flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge2#58700:63",
+          "css": {
+            "display": "flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag#58700:21",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "00.06-divider",
+          "boolProp": "Divider#58712:0",
+          "css": {
+            "display": "flex",
+            "width": "375px",
+            "height": "1px",
+            "padding-top": "0.5px",
+            "flex-direction": "column",
+            "align-items": "flex-start",
+            "gap": "10px",
+            "position": "absolute",
+            "top": "0"
+          }
+        }
+      ]
+    },
+    "I2B1_Large": {
+      "figma_name": "💙 01.07_Bottom Bar",
+      "figma_key": "8840588ec04d9d303ec36dd84fb5a948427cfe46",
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "var(--Spacing-Small, 4px) 10px",
+          "align-items": "center",
+          "gap": "var(--Spacing-Normal, 8px)",
+          "background": "var(--bg-1, #FFF)"
+        },
+        "children": [
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "width": "251px",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex-shrink": "0",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "44px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "44px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "justify-content": "flex-end",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex": "1 0 0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "96px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "height": "1px",
+              "padding-top": "0.5px",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "gap": "10px",
+              "position": "absolute",
+              "top": "0"
+            },
+            "ref": "00.06-divider",
+            "key": "586dc76f209fcb0ee184ec315b7830c9432fde1c"
+          }
+        ]
+      },
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "var(--Spacing-Small, 4px) 10px",
+        "align-items": "center",
+        "gap": "var(--Spacing-Normal, 8px)",
+        "background": "var(--bg-1, #FFF)"
+      },
+      "desc": "2 个图标按钮，1 个主按钮，左宽72%",
+      "props": {},
+      "slots": [
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge#58700:42",
+          "css": {
+            "display": "flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge2#58700:63",
+          "css": {
+            "display": "flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag#58700:21",
+          "css": {
+            "display": "inline-flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "left": "74px",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "00.06-divider",
+          "boolProp": "Divider#58712:0",
+          "css": {
+            "display": "flex",
+            "width": "375px",
+            "height": "1px",
+            "padding-top": "0.5px",
+            "flex-direction": "column",
+            "align-items": "flex-start",
+            "gap": "10px",
+            "position": "absolute",
+            "top": "0"
+          }
+        }
+      ]
+    },
+    "I2B2_Normal": {
+      "figma_name": "💙 01.07_Bottom Bar",
+      "figma_key": "2c68a8834e0cba213551696bc16f138798903dc6",
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "var(--Spacing-Small, 4px) 10px",
+          "align-items": "center",
+          "gap": "var(--Spacing-Normal, 8px)",
+          "background": "var(--bg-1, #FFF)"
+        },
+        "children": [
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "width": "96px",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex-shrink": "0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "44px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "44px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "justify-content": "flex-end",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex": "1 0 0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "121.5px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "121.5px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "height": "1px",
+              "padding-top": "0.5px",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "gap": "10px",
+              "position": "absolute",
+              "top": "0"
+            },
+            "ref": "00.06-divider",
+            "key": "586dc76f209fcb0ee184ec315b7830c9432fde1c"
+          }
+        ]
+      },
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "var(--Spacing-Small, 4px) 10px",
+        "align-items": "center",
+        "gap": "var(--Spacing-Normal, 8px)",
+        "background": "var(--bg-1, #FFF)"
+      },
+      "desc": "2 个图标按钮，2 个主按钮，左宽28%",
+      "props": {},
+      "slots": [
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge#58700:42",
+          "css": {
+            "display": "flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge2#58700:63",
+          "css": {
+            "display": "flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag2#58700:105",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "5.5px",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag#58700:21",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "00.06-divider",
+          "boolProp": "Divider#58712:0",
+          "css": {
+            "display": "flex",
+            "width": "375px",
+            "height": "1px",
+            "padding-top": "0.5px",
+            "flex-direction": "column",
+            "align-items": "flex-start",
+            "gap": "10px",
+            "position": "absolute",
+            "top": "0"
+          }
+        }
+      ]
+    },
+    "I2B2_Medium": {
+      "figma_name": "💙 01.07_Bottom Bar",
+      "figma_key": "1cd6de1e55535a4cc3b94ab6368dae93ae86bcca",
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "var(--Spacing-Small, 4px) 10px",
+          "align-items": "center",
+          "gap": "var(--Spacing-Normal, 8px)",
+          "background": "var(--bg-1, #FFF)"
+        },
+        "children": [
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "width": "147px",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex-shrink": "0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "44px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "44px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "justify-content": "flex-end",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex": "1 0 0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "96px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "96px",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex-shrink": "0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "96px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "96px",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex-shrink": "0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "height": "1px",
+              "padding-top": "0.5px",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "gap": "10px",
+              "position": "absolute",
+              "top": "0"
+            },
+            "ref": "00.06-divider",
+            "key": "586dc76f209fcb0ee184ec315b7830c9432fde1c"
+          }
+        ]
+      },
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "var(--Spacing-Small, 4px) 10px",
+        "align-items": "center",
+        "gap": "var(--Spacing-Normal, 8px)",
+        "background": "var(--bg-1, #FFF)"
+      },
+      "desc": "2 个图标按钮，2 个主按钮，左宽43%",
+      "props": {},
+      "slots": [
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge#58700:42",
+          "css": {
+            "display": "flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge2#58700:63",
+          "css": {
+            "display": "flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag2#58700:105",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "8px",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag#58700:21",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "6px",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "00.06-divider",
+          "boolProp": "Divider#58712:0",
+          "css": {
+            "display": "flex",
+            "width": "375px",
+            "height": "1px",
+            "padding-top": "0.5px",
+            "flex-direction": "column",
+            "align-items": "flex-start",
+            "gap": "10px",
+            "position": "absolute",
+            "top": "0"
+          }
+        }
+      ]
+    },
+    "I0B3_Normal": {
+      "figma_name": "💙 01.07_Bottom Bar",
+      "figma_key": "9aa8bd7a7c6aa356155a18494180efe59dde61f3",
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "var(--Spacing-Small, 4px) 10px",
+          "align-items": "center",
+          "gap": "var(--Spacing-Normal, 8px)",
+          "background": "var(--bg-1, #FFF)"
+        },
+        "children": [
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "width": "96px",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex-shrink": "0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "44px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "44px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "justify-content": "flex-end",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex": "1 0 0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "78.333px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "border": "1px solid var(--default-bt-border, rgba(0, 0, 0, 0.16))"
+                    },
+                    "ref": "00.08-button",
+                    "key": "22f63e6ad0f6b5a2644669d5675ecc59ff8b0015"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "78.333px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "border": "1px solid var(--default-bt-border, rgba(0, 0, 0, 0.16))"
+                    },
+                    "ref": "00.08-button",
+                    "key": "22f63e6ad0f6b5a2644669d5675ecc59ff8b0015"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "78.333px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "height": "1px",
+              "padding-top": "0.5px",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "gap": "10px",
+              "position": "absolute",
+              "top": "0"
+            },
+            "ref": "00.06-divider",
+            "key": "586dc76f209fcb0ee184ec315b7830c9432fde1c"
+          }
+        ]
+      },
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "var(--Spacing-Small, 4px) 10px",
+        "align-items": "center",
+        "gap": "var(--Spacing-Normal, 8px)",
+        "background": "var(--bg-1, #FFF)"
+      },
+      "desc": "3 个主按钮，左宽28%",
+      "props": {},
+      "slots": [
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge#58700:42",
+          "css": {
+            "display": "flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge2#58700:63",
+          "css": {
+            "display": "flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag3#58700:126",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "-4.667px",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag2#58700:105",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "-4.667px",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag#58700:21",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "-0.667px",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "00.06-divider",
+          "boolProp": "Divider#58712:0",
+          "css": {
+            "display": "flex",
+            "width": "375px",
+            "height": "1px",
+            "padding-top": "0.5px",
+            "flex-direction": "column",
+            "align-items": "flex-start",
+            "gap": "10px",
+            "position": "absolute",
+            "top": "0"
+          }
+        }
+      ]
+    },
+    "I3B1_Medium": {
+      "figma_name": "💙 01.07_Bottom Bar",
+      "figma_key": "446febc37ec186268e03d79da403f5c088a5adcc",
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "var(--Spacing-Small, 4px) 10px",
+          "align-items": "center",
+          "gap": "var(--Spacing-Normal, 8px)",
+          "background": "var(--bg-1, #FFF)"
+        },
+        "children": [
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "width": "148px",
+              "height": "40px",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex-shrink": "0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "44px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "44px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "44px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "justify-content": "flex-end",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex": "1 0 0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "199px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "height": "1px",
+              "padding-top": "0.5px",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "gap": "10px",
+              "position": "absolute",
+              "top": "0"
+            },
+            "ref": "00.06-divider",
+            "key": "586dc76f209fcb0ee184ec315b7830c9432fde1c"
+          }
+        ]
+      },
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "var(--Spacing-Small, 4px) 10px",
+        "align-items": "center",
+        "gap": "var(--Spacing-Normal, 8px)",
+        "background": "var(--bg-1, #FFF)"
+      },
+      "desc": "3 个图标按钮，1 个主按钮，左宽43%",
+      "props": {},
+      "slots": [
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge#58700:42",
+          "css": {
+            "display": "flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge2#58700:63",
+          "css": {
+            "display": "flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge3#58700:84",
+          "css": {
+            "display": "flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag#58700:21",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "00.06-divider",
+          "boolProp": "Divider#58712:0",
+          "css": {
+            "display": "flex",
+            "width": "375px",
+            "height": "1px",
+            "padding-top": "0.5px",
+            "flex-direction": "column",
+            "align-items": "flex-start",
+            "gap": "10px",
+            "position": "absolute",
+            "top": "0"
+          }
+        }
+      ]
+    },
+    "I3B2_Medium": {
+      "figma_name": "💙 01.07_Bottom Bar",
+      "figma_key": "39b7af8a811df08f9ba95f31a3a73caa542cea4f",
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "var(--Spacing-Small, 4px) 10px",
+          "align-items": "center",
+          "gap": "var(--Spacing-Normal, 8px)",
+          "background": "var(--bg-1, #FFF)"
+        },
+        "children": [
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "width": "148px",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex-shrink": "0",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "44px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "padding": "8px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "44px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "44px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "justify-content": "flex-end",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex": "1 0 0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "95.5px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "95.5px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "height": "1px",
+              "padding-top": "0.5px",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "gap": "10px",
+              "position": "absolute",
+              "top": "0"
+            },
+            "ref": "00.06-divider",
+            "key": "586dc76f209fcb0ee184ec315b7830c9432fde1c"
+          }
+        ]
+      },
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "var(--Spacing-Small, 4px) 10px",
+        "align-items": "center",
+        "gap": "var(--Spacing-Normal, 8px)",
+        "background": "var(--bg-1, #FFF)"
+      },
+      "desc": "3 个图标按钮，2 个主按钮，左宽43%",
+      "props": {},
+      "slots": [
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge#58700:42",
+          "css": {
+            "display": "flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge2#58700:63",
+          "css": {
+            "display": "flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge3#58700:84",
+          "css": {
+            "display": "flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "right": "0",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag2#58700:105",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "5.5px",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag#58700:21",
+          "css": {
+            "display": "flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "right": "-0.5px",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "00.06-divider",
+          "boolProp": "Divider#58712:0",
+          "css": {
+            "display": "flex",
+            "width": "375px",
+            "height": "1px",
+            "padding-top": "0.5px",
+            "flex-direction": "column",
+            "align-items": "flex-start",
+            "gap": "10px",
+            "position": "absolute",
+            "top": "0"
+          }
+        }
+      ]
+    },
+    "I5B1_Large": {
+      "figma_name": "💙 01.07_Bottom Bar",
+      "figma_key": "7e65c740a18219918be5bb26d8faec69f79307a4",
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "var(--Spacing-Small, 4px) 10px",
+          "align-items": "center",
+          "gap": "var(--Spacing-Normal, 8px)",
+          "background": "var(--bg-1, #FFF)"
+        },
+        "children": [
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "width": "251px",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex-shrink": "0",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "43.8px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "43.8px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "43.8px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "43.8px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "43.8px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "40px",
+                      "height": "40px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "var(--Spacing-Mini, 2px)",
+                      "flex-shrink": "0",
+                      "background": "rgba(217, 74, 78, 0.20)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "justify-content": "flex-end",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "flex": "1 0 0"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "width": "96px",
+                  "justify-content": "flex-end",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Normal, 8px)"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "padding": "8px 16px",
+                      "flex-direction": "column",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "10px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--bt-Radius-Large, 8px)",
+                      "background": "var(--primary-bt-solidBg, #7C66FF)"
+                    },
+                    "ref": "00.08-button",
+                    "key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "height": "1px",
+              "padding-top": "0.5px",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "gap": "10px",
+              "position": "absolute",
+              "top": "0"
+            },
+            "ref": "00.06-divider",
+            "key": "586dc76f209fcb0ee184ec315b7830c9432fde1c"
+          }
+        ]
+      },
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "var(--Spacing-Small, 4px) 10px",
+        "align-items": "center",
+        "gap": "var(--Spacing-Normal, 8px)",
+        "background": "var(--bg-1, #FFF)"
+      },
+      "desc": "5 个图标按钮，1 个主按钮，左宽72%",
+      "props": {},
+      "slots": [
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge#58700:42",
+          "css": {
+            "display": "flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "right": "-0.2px",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge2#58700:63",
+          "css": {
+            "display": "flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "right": "-0.2px",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge2#58700:63",
+          "css": {
+            "display": "flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "right": "-0.2px",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge2#58700:63",
+          "css": {
+            "display": "flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "right": "-0.2px",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.01-badge",
+          "boolProp": "Badge2#58700:63",
+          "css": {
+            "display": "flex",
+            "padding": "1px",
+            "justify-content": "center",
+            "align-items": "center",
+            "position": "absolute",
+            "right": "-0.2px",
+            "border-radius": "16px",
+            "border": "1px solid var(--white-border, rgba(255, 255, 255, 0.88))",
+            "background": "var(--error-solid-bg, #D94A4E)"
+          }
+        },
+        {
+          "name": "03.02-tag",
+          "boolProp": "Tag#58700:21",
+          "css": {
+            "display": "inline-flex",
+            "height": "15px",
+            "min-width": "15px",
+            "padding": "2px 3px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "2px",
+            "position": "absolute",
+            "left": "74px",
+            "border-radius": "var(--Radius-Small, 4px)",
+            "background": "var(--primary-tag-soft-bg, #F2F0FF)"
+          }
+        },
+        {
+          "name": "00.06-divider",
+          "boolProp": "Divider#58712:0",
+          "css": {
+            "display": "flex",
+            "width": "375px",
+            "height": "1px",
+            "padding-top": "0.5px",
+            "flex-direction": "column",
+            "align-items": "flex-start",
+            "gap": "10px",
+            "position": "absolute",
+            "top": "0"
+          }
+        }
+      ]
     }
   }
 }
