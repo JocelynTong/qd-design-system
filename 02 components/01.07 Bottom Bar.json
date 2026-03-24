@@ -12,6 +12,8 @@
   "variants": {
     "BottomBar": {
       "figma_name": "💙 01.07_Bottom Bar",
+      "figma_key": "223c9d06ca6d7cecfdc35f41afdd0ae927e39fea",
+      "embed_html": "<div style=\"width:375px;height:48px;display:flex;align-items:center;padding:0 10px;background:var(--bg-1,#FFF);border-top:0.5px solid var(--border-1,rgba(0,0,0,.08))\"><div style=\"flex:1;height:40px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:var(--primary-bt-solid-bg,#7C66FF)\"><span style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:#FFF\">立即购买</span></div></div>",
       "desc": "内容页底部互动操作栏",
       "props": {},
       "tokens_used": {
