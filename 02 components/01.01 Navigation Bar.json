@@ -531,7 +531,8 @@
             "border-radius": "6px"
           }
         }
-      ]
+      ],
+      "figma_key": "46bd85a18d60962234cd0a3e97c0233bc606400b"
     },
     "Right_Ghost": {
       "_hidden": true,
@@ -544,7 +545,8 @@
         "justify-content": "flex-end",
         "align-items": "center",
         "gap": "var(--Spacing-Small, 4px)"
-      }
+      },
+      "figma_key": "ffb44622472830243ea748fa21ce14810521dd67"
     }
   }
 }
