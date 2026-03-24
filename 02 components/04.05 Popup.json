@@ -1,6 +1,6 @@
 {
   "component": "Popup",
-  "figma_page": "04.05 Popup",
+  "figma_page": "04.11 Popup",
   "figma_page_id": "63053:125647",
   "description": "底部弹出面板，从屏幕底部滑入。用于需要展示较多内容但不想跳页的场景（评论列表、分享面板、筛选项等）。",
   "usage_rules": [
@@ -12,9 +12,17 @@
   ],
   "variants": {
     "Popup": {
-      "figma_name": "💙 04.05_Popup",
-      "desc": "底部弹出面板，在 Figma 中为固定设计帧，无 Variant 切换",
-      "props": {},
+      "figma_name": "💙 04.11_Popup",
+      "figma_key": "923fdffa7a909fa0d4ed4d2c1d76054a0b43336e",
+      "embed_html": "<div style=\"display:flex;width:375px;height:244px;flex-direction:column;align-items:flex-start;border-radius:16px 16px 0 0;background:var(--bg-1,#FFF);overflow:hidden;flex-shrink:0\"><div style=\"display:flex;padding:15px 15px 0;align-items:center;justify-content:space-between;align-self:stretch\"><span style=\"font:var(--font-h4,500 16px/24px 'PingFang SC',sans-serif);color:var(--text-1,#2B263B)\">分享</span></div><div style=\"flex:1 0 0;align-self:stretch\"></div><div style=\"display:flex;width:375px;height:48px;padding:0 10px;align-items:center;border-top:0.5px solid var(--border-1,rgba(0,0,0,.08));background:var(--bg-1,#FFF)\"></div></div>",
+      "desc": "底部弹出面板，支持 Small/Medium/Large 三种高度档位",
+      "props": {
+        "Size": {
+          "options": ["Small", "Medium", "Large"],
+          "sizes_px": { "Small": 244, "Medium": 486, "Large": 649 },
+          "desc": "面板高度档位"
+        }
+      },
       "tokens_used": {
         "color": ["bg/1", "mask/2"],
         "spacing": [],
