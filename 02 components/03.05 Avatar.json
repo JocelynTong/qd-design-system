@@ -4,9 +4,9 @@
   "figma_page_id": "50861:237696",
   "description": "用户头像组件，支持单个头像、头像组和带状态徽标的 Echo 形态。内容社区中用于作者信息、评论列表、用户主页。",
   "usage_rules": [
-    "内容卡片作者信息用 Normal(40px) 尺寸",
-    "评论列表用 Small(32px) 尺寸",
-    "用户主页大头像用 Large(64px)",
+    "内容卡片作者信息用 Normal(32px) 尺寸",
+    "评论列表用 Small(24px) 尺寸",
+    "用户主页大头像用 Large(56px)",
     "Echo/AvatarLive 用于直播状态展示",
     "Grouped 用于多人参与的场景（共同关注、群组等）"
   ],
@@ -19,7 +19,7 @@
       "props": {
         "Size": {
           "options": ["Large", "Medium", "Normal", "Small", "Mini"],
-          "sizes_px": { "Large": 64, "Medium": 48, "Normal": 40, "Small": 32, "Mini": 24 }
+          "sizes_px": { "Large": 56, "Medium": 48, "Normal": 32, "Small": 24, "Mini": 20 }
         },
         "Color": {
           "options": ["Primary", "Online", "Error", "Default", "Trade", "White"],
@@ -41,25 +41,21 @@
       "desc": "头像组，展示多个用户（如共同关注）",
       "props": {
         "Size": { "options": ["Large", "Medium", "Normal", "Small", "Mini"] },
-        "Count": { "options": ["1", "2", "3", "4", "5"], "desc": "显示的头像数量" },
-        "Spacing": {
-          "options": ["Large", "Small", "--"],
-          "desc": { "Large": "头像间距大", "Small": "头像叠加", "--": "自定义" }
-        },
+        "Num": { "options": ["1", "2", "3", "4", "5"], "desc": "显示的头像数量" },
         "Sequence": {
-          "options": ["PositiveOrder", "ReverseOrder", "--"],
+          "options": ["PositiveOrder", "ReverseOrder"],
           "desc": { "PositiveOrder": "正序叠加", "ReverseOrder": "逆序叠加" }
         }
       }
     },
     "Echo": {
-      "figma_name": "💙 03.05_Avatar / Echo",
+      "figma_name": "💙 03.05_Avatar / Kuril",
       "figma_key": "f890d0af0c27cb94d365c93d126e21f23c7d2bbe",
       "embed_html": "<div style=\"position:relative;width:38px;height:38px;flex-shrink:0\"><div style=\"width:32px;height:32px;border-radius:50%;background:var(--bg-4,#ededf2);position:absolute;bottom:0;left:0\"></div><div style=\"width:10px;height:10px;border-radius:50%;background:var(--error-solid-bg,#D94A4E);border:1.5px solid var(--bg-1,#fff);position:absolute;top:0;right:0\"></div></div>",
       "desc": "带状态徽标的头像，综合入口",
       "props": {
         "Size": { "options": ["Large", "Medium", "Normal", "Small", "Mini"] },
-        "className": {
+        "Type": {
           "options": ["AvatarReddot", "AvatarNumberReddot", "AvatarGender", "AvatarOnline", "AvatarLive"],
           "desc": {
             "AvatarReddot": "红点未读提示",
