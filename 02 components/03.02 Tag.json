@@ -15,6 +15,7 @@
     "Basic": {
       "figma_name": "💙 03.02_Tag / Basic",
       "figma_key": "a73fb77653b0e10c99e8b333d88a2b94e2bc3b0a",
+      "embed_html": "<div style=\"display:inline-flex;height:15px;min-width:15px;padding:2px 3px;align-items:center;justify-content:center;gap:2px;background:var(--default-tag-soft-bg,rgba(0,0,0,.04));border-radius:var(--radius-small,4px);box-sizing:border-box\"><span style=\"font:var(--font-b8,400 10px/11px 'PingFang SC',sans-serif);color:var(--default-tag-color,rgba(0,0,0,.64));white-space:nowrap\">标签</span></div>",
       "figma_file": "HjpmfUPwU7HGMRj9X80TAY",
       "desc": "基础标签，用于话题、分类等通用场景",
       "preview_html": "<div style=\"display:inline-flex;height:15px;min-width:15px;padding:2px 3px;align-items:center;justify-content:center;gap:2px;background:var(--default-tag-soft-bg,rgba(0,0,0,.04));border-radius:var(--radius-small,4px);box-sizing:border-box\"><i data-bool=\"iconLeading\" data-orig-display=\"inline-flex\" class=\"KurilIcons kuril-label_related\" style=\"display:none;font-size:8px;color:var(--default-tag-color,rgba(0,0,0,.64));flex-shrink:0\"></i><div data-bool=\"Tag\" data-orig-display=\"flex\" style=\"display:none;width:10px;height:10px;border-radius:2px;background:var(--bg-2,#F7F7F9);flex-shrink:0\"></div><div data-bool=\"Avatar\" data-orig-display=\"flex\" style=\"display:none;width:12px;height:12px;border-radius:50%;background:var(--bg-2,#F7F7F9);flex-shrink:0\"></div><span style=\"font:var(--font-b8,400 10px/11px 'PingFang SC',sans-serif);color:var(--default-tag-color,rgba(0,0,0,.64));white-space:nowrap\">标签</span><div data-bool=\"Img\" data-orig-display=\"flex\" style=\"display:none;width:33px;height:11px;background:var(--bg-2,#F7F7F9);border-radius:1px;flex-shrink:0\"></div><i data-bool=\"iconTrailing\" data-orig-display=\"inline-flex\" class=\"KurilIcons kuril-close\" style=\"display:none;font-size:8px;color:var(--default-tag-color,rgba(0,0,0,.64));flex-shrink:0\"></i><i data-bool=\"arrowTrailing\" data-orig-display=\"inline-flex\" class=\"KurilIcons kuril-arrow_heavy_down\" style=\"display:none;font-size:8px;color:var(--default-tag-color,rgba(0,0,0,.64));flex-shrink:0\"></i></div>",
@@ -158,6 +159,7 @@
     "Spec": {
       "figma_name": "💙 03.02_Tag / Spec",
       "figma_key": "ed71f587f834d2d88d93158e63aa3863caf705c2",
+      "embed_html": "<div style=\"display:inline-flex;height:15px;min-width:15px;padding:2px;align-items:center;justify-content:center;background:var(--semantics-blue-01,#E4EBF9);border-radius:var(--radius-small,4px);box-sizing:border-box\"><span style=\"font:var(--font-h8,500 10px/11px 'PingFang SC',sans-serif);color:var(--semantics-blue-06,#5077D9);white-space:nowrap\">由盒机直发</span></div>",
       "figma_file": "HjpmfUPwU7HGMRj9X80TAY",
       "desc": "规格标签，用于商品规格标注（如颜色/尺寸分级）",
       "preview_html": "<div style=\"display:inline-flex;height:15px;min-width:15px;padding:2px 3px;align-items:center;justify-content:center;background:var(--semantics-blue-01,#E4EBF9);border-radius:var(--radius-small,4px);box-sizing:border-box\"><span style=\"font:var(--font-h8,500 10px/11px 'PingFang SC',sans-serif);color:var(--semantics-blue-06,#5077D9);white-space:nowrap\">由盒机直发</span></div>",
@@ -188,6 +190,7 @@
     "SPU": {
       "figma_name": "💙 03.02_Tag / SPU",
       "figma_key": "8ef757f5ef09195672d1b304359b75f57a70c909",
+      "embed_html": "<div style=\"display:inline-flex;height:15px;min-width:15px;padding:2px;align-items:center;justify-content:center;background:var(--success-6,#379E45);border-radius:var(--radius-small,4px);box-sizing:border-box\"><span style=\"font:var(--font-h8,500 10px/11px 'PingFang SC',sans-serif);color:var(--white-text-color,#FFFFFF);white-space:nowrap\">预定</span></div>",
       "figma_file": "HjpmfUPwU7HGMRj9X80TAY",
       "desc": "商品发售状态专用标签，标注商品当前状态",
       "preview_html": "<div style=\"display:inline-flex;height:15px;min-width:15px;padding:2px;align-items:center;justify-content:center;background:var(--success-6,#379E45);border-radius:var(--radius-small,4px);box-sizing:border-box\"><span style=\"font:var(--font-h8,500 10px/11px 'PingFang SC',sans-serif);color:var(--white-text-color,#FFFFFF);white-space:nowrap\">预定</span></div>",
@@ -220,6 +223,7 @@
     "Post": {
       "figma_name": "💙 03.02_Tag / Post",
       "figma_key": "08ea9b9767b47cfb7ef596c6f7b48fcc8010d5ac",
+      "embed_html": "<div style=\"display:inline-flex;align-items:center;gap:8px;padding-left:4px\"><div style=\"width:16px;height:16px;border-radius:50%;background:rgba(0,0,0,.16);flex-shrink:0\"></div><div style=\"display:inline-flex;gap:4px;align-items:center;justify-content:center;padding:3px 8px;border-radius:26px;background:rgba(0,0,0,.64);backdrop-filter:blur(2.5px);flex-shrink:0\"><span style=\"font:var(--font-h6,500 12px/18px 'PingFang SC',sans-serif);color:var(--white-text-color,#FFFFFF);white-space:nowrap\">奈良美智</span></div></div>",
       "figma_file": "HjpmfUPwU7HGMRj9X80TAY",
       "desc": "帖子角标，叠加在帖子封面左上角",
       "preview_html": "<div style=\"display:inline-flex;align-items:center;gap:8px;padding-left:4px\"><div style=\"width:16px;height:16px;border-radius:50%;background:rgba(0,0,0,.16);flex-shrink:0\"></div><div style=\"display:inline-flex;gap:4px;align-items:center;justify-content:center;padding:3px 8px;border-radius:26px;background:rgba(0,0,0,.64);backdrop-filter:blur(2.5px);flex-shrink:0\"><span style=\"font:var(--font-h6,500 12px/18px 'PingFang SC',sans-serif);color:var(--white-text-color,#FFFFFF);white-space:nowrap\">奈良美智 Drumming Girls</span></div></div>",
@@ -249,6 +253,7 @@
     "Shelf": {
       "figma_name": "💙 03.02_Tag / Shelf",
       "figma_key": "633f735db2ebeaed4fff538a85161d51e492b810",
+      "embed_html": "<div style=\"display:inline-flex;padding:4px;background:rgba(0,0,0,.72);border-radius:var(--radius-small,4px)\"><div style=\"display:inline-flex;height:15px;min-width:15px;padding:2px 3px;align-items:center;justify-content:center;gap:2px;background:var(--white-tag-soft-bg,rgba(255,255,255,.12));border-radius:var(--radius-small,4px);box-sizing:border-box\"><span style=\"font:var(--font-h8,500 10px/11px 'PingFang SC',sans-serif);color:var(--white-tag-color,rgba(255,255,255,.88));white-space:nowrap\">强调</span></div></div>",
       "figma_file": "HjpmfUPwU7HGMRj9X80TAY",
       "desc": "货架标签，用于列表/货架场景，白色主题",
       "preview_html": "<div style=\"display:inline-flex;padding:8px;background:rgba(0,0,0,.72);border-radius:var(--radius-small,4px)\"><div style=\"display:inline-flex;height:15px;min-width:15px;padding:2px 3px;align-items:center;justify-content:center;gap:2px;background:var(--white-tag-soft-bg,rgba(255,255,255,.12));border-radius:var(--radius-small,4px);box-sizing:border-box\"><span style=\"font:var(--font-h8,500 10px/11px 'PingFang SC',sans-serif);color:var(--white-tag-color,rgba(255,255,255,.88));white-space:nowrap\">强调</span></div></div>",
@@ -277,6 +282,7 @@
     "Echo": {
       "figma_name": "💙 03.02_Tag / Echo",
       "figma_key": "6d666a48bf5dd317b17e1739a500d7c1937bf7c7",
+      "embed_html": "<div style=\"display:inline-flex;height:15px;min-width:15px;padding:2px 3px;align-items:center;justify-content:center;background:var(--semantics-blue-01,#E4EBF9);border-radius:var(--radius-small,4px);box-sizing:border-box\"><span style=\"font:var(--font-h8,500 10px/11px 'PingFang SC',sans-serif);color:var(--semantics-blue-06,#5077D9);white-space:nowrap\">由盒机直发</span></div>",
       "figma_file": "HjpmfUPwU7HGMRj9X80TAY",
       "desc": "综合 Tag 组件，通过 className 切换不同形态，是标准使用入口",
       "preview_html": "<div style=\"display:inline-flex;height:15px;min-width:15px;padding:2px 3px;align-items:center;justify-content:center;background:var(--semantics-blue-01,#E4EBF9);border-radius:var(--radius-small,4px);box-sizing:border-box\"><span style=\"font:var(--font-h8,500 10px/11px 'PingFang SC',sans-serif);color:var(--semantics-blue-06,#5077D9);white-space:nowrap\">由盒机直发</span></div>",
