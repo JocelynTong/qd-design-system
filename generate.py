@@ -323,6 +323,44 @@ def _css_to_embed(css):
     return f'<div style="{style};flex-shrink:0"></div>'
 
 
+def resolve_component_refs(components):
+    """对有 component_ref 的 variant，从引用组件查找 preview_html 并设为 _composed_preview_html。
+    component_ref 格式：{"cid": "03.07-feed", "props": {"Column": "2", "Size": "Large(3:4)", "Img": "True"}}
+    匹配策略：variant key 字符串包含 "k=v" 子串最多的为最优匹配。"""
+    count = 0
+    for cid, cdata in components.items():
+        for vk, vdata in (cdata.get('variants') or {}).items():
+            cref = vdata.get('component_ref')
+            if not cref:
+                continue
+            ref_cid = cref.get('cid', '')
+            ref_props = cref.get('props', {})
+            ref_comp = components.get(ref_cid)
+            if not ref_comp:
+                print(f'⚠️ [component_ref] {ref_cid} 未找到（{cid}/{vk}）')
+                continue
+            # 找 props 匹配分最高的 variant（跳过 _hidden）
+            best_vk, best_score = None, -1
+            for rvk, rvdata in (ref_comp.get('variants') or {}).items():
+                if rvdata.get('_hidden'):
+                    continue
+                score = sum(1 for k, v in ref_props.items() if f'{k}={v}' in rvk)
+                if score > best_score:
+                    best_score, best_vk = score, rvk
+            if best_vk:
+                ref_vdata = ref_comp['variants'][best_vk]
+                html = (ref_vdata.get('preview_html') or
+                        ref_vdata.get('_composed_preview_html') or
+                        ref_vdata.get('_tree_preview_html') or '')
+                if html and not vdata.get('preview_html') and not vdata.get('_composed_preview_html'):
+                    vdata['_composed_preview_html'] = html
+                    count += 1
+            else:
+                print(f'⚠️ [component_ref] {ref_cid} 无匹配 variant（props={ref_props}）')
+    if count:
+        print(f'✓ [component_ref] {count} 个引用已解析')
+
+
 def auto_generate_tree_previews(components):
     """对有 _tree 但缺 preview_html 的 variant，
     用 _tree_to_html 生成 _tree_preview_html（存入 components dict，不写 JSON）。
@@ -493,6 +531,8 @@ def write_components_html(components=None, ref_map=None):
 
     # 从 _tree 自动生成 _tree_preview_html（fallback，不写 JSON）
     auto_generate_tree_previews(components)
+    # 解析 component_ref 引用，从被引用组件复用 preview_html
+    resolve_component_refs(components)
 
     # 合并 _Ghost 变体：将 Foo_Ghost 的预览挂载到 Foo._ghost_preview_html，并标记隐藏
     for cdata in components.values():
@@ -573,6 +613,8 @@ def write_design_system_html(all_processed, components=None, ref_map=None):
 
     # 从 _tree 自动生成 _tree_preview_html（fallback，不写 JSON）
     auto_generate_tree_previews(components)
+    # 解析 component_ref 引用，从被引用组件复用 preview_html
+    resolve_component_refs(components)
 
     for cdata in components.values():
         variants = cdata.get('variants') or {}
