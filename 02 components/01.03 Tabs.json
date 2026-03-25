@@ -15,7 +15,41 @@
     "Basic": {
       "figma_name": "💙 01.02_Tabs / Basic",
       "figma_key": "f98bcc6058ae0216ee9ce856bc35fe834b192def",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "height": "44px", "padding": "7px 10px", "justify-content": "center", "align-items": "center", "gap": "2px"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "height": "44px",
+          "padding": "7px 10px",
+          "justify-content": "center",
+          "align-items": "center",
+          "gap": "2px"
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "css": {
+              "color": "var(--text-1, #000)",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "24px",
+              "font-weight": "500",
+              "line-height": "30px"
+            },
+            "text": "选中"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "width": "48px",
+              "height": "44px",
+              "position": "absolute",
+              "left": "10px"
+            },
+            "ref": "💙 01.02_Tabs / BasicLine",
+            "key": "1595056a58f8d809b8f5e295821e9296a83d73e0"
+          }
+        ]
+      },
       "desc": "Tab 单项，支持 Large/Normal/Small/Mini 四种尺寸，on/off 选中状态，Ghost 模式",
       "css": {
         "display": "inline-flex",
@@ -28,7 +62,7 @@
       "slots": [
         {
           "name": "纯图片（替换这个）",
-          "boolProp": "Picture#69374:0",
+          "boolProp": "Img#69374:0",
           "css": {
             "width": "68px",
             "height": "44px",
@@ -49,7 +83,7 @@
         },
         {
           "name": "💙 00.03_Icon / arrow_up",
-          "boolProp": "arrowdown#66016:10",
+          "boolProp": "arrowTrailing#66016:10",
           "css": {
             "width": "14px",
             "height": "14px",
@@ -71,20 +105,18 @@
             "Normal": "<div style=\"display:inline-flex;padding:4px 10px;align-items:center;justify-content:center;gap:2px;position:relative\"><span style=\"font:500 18px/25px 'PingFang SC',sans-serif;color:var(--text-1,#000);white-space:nowrap\">推荐</span><div style=\"position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:28px;height:3px;border-radius:2px;background:var(--primary-solid-bg,#7C66FF)\"></div></div>",
             "Small": "<div style=\"display:inline-flex;padding:3px 10px;align-items:center;justify-content:center;gap:2px;position:relative\"><span style=\"font:500 16px/24px 'PingFang SC',sans-serif;color:var(--text-1,#000);white-space:nowrap\">推荐</span><div style=\"position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:28px;height:3px;border-radius:2px;background:var(--primary-solid-bg,#7C66FF)\"></div></div>",
             "Mini": "<div style=\"display:inline-flex;padding:2px 10px;align-items:center;justify-content:center;gap:2px;position:relative\"><span style=\"font:500 14px/22px 'PingFang SC',sans-serif;color:var(--text-1,#000);white-space:nowrap\">推荐</span><div style=\"position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:28px;height:3px;border-radius:2px;background:var(--primary-solid-bg,#7C66FF)\"></div></div>"
-          },
-          "ghostPreviewMap": {
-            "Large": "<div style=\"display:inline-flex;padding:7px 10px;align-items:center;justify-content:center;gap:2px;position:relative\"><span style=\"font:500 24px/30px 'PingFang SC',sans-serif;color:var(--white-text-color,#fff);white-space:nowrap\">推荐</span><div style=\"position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:28px;height:3px;border-radius:2px;background:var(--white-text-color,#fff)\"></div></div>",
-            "Normal": "<div style=\"display:inline-flex;padding:4px 10px;align-items:center;justify-content:center;gap:2px;position:relative\"><span style=\"font:500 18px/25px 'PingFang SC',sans-serif;color:var(--white-text-color,#fff);white-space:nowrap\">推荐</span><div style=\"position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:28px;height:3px;border-radius:2px;background:var(--white-text-color,#fff)\"></div></div>",
-            "Small": "<div style=\"display:inline-flex;padding:3px 10px;align-items:center;justify-content:center;gap:2px;position:relative\"><span style=\"font:500 16px/24px 'PingFang SC',sans-serif;color:var(--white-text-color,#fff);white-space:nowrap\">推荐</span><div style=\"position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:28px;height:3px;border-radius:2px;background:var(--white-text-color,#fff)\"></div></div>",
-            "Mini": "<div style=\"display:inline-flex;padding:2px 10px;align-items:center;justify-content:center;gap:2px;position:relative\"><span style=\"font:500 14px/22px 'PingFang SC',sans-serif;color:var(--white-text-color,#fff);white-space:nowrap\">推荐</span><div style=\"position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:28px;height:3px;border-radius:2px;background:var(--white-text-color,#fff)\"></div></div>"
           }
         },
-        "Ghost": {
+        "Color": {
           "options": [
-            "False",
-            "True"
+            "Default",
+            "White"
           ],
-          "default": "False"
+          "default": "Default",
+          "previewMap": {
+            "Default": "<div style=\"display:inline-flex;padding:7px 10px;align-items:center;justify-content:center;gap:2px;position:relative\"><span style=\"font:500 24px/30px 'PingFang SC',sans-serif;color:var(--text-1,#000);white-space:nowrap\">推荐</span><div style=\"position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:28px;height:3px;border-radius:2px;background:var(--primary-solid-bg,#7C66FF)\"></div></div>",
+            "White": "<div style=\"background:#1a1a1a;display:inline-flex\"><div style=\"display:inline-flex;padding:7px 10px;align-items:center;justify-content:center;gap:2px;position:relative\"><span style=\"font:500 24px/30px 'PingFang SC',sans-serif;color:var(--white-textColor,#fff);white-space:nowrap\">推荐</span><div style=\"position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:28px;height:3px;border-radius:2px;background:var(--white-textColor,#fff)\"></div></div></div>"
+          }
         }
       },
       "preview_html": "<div style=\"display:inline-flex;padding:7px 10px;align-items:center;justify-content:center;gap:2px;position:relative\"><span style=\"font:500 24px/30px 'PingFang SC',sans-serif;color:var(--text-1,#000);white-space:nowrap\">推荐</span><div style=\"position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:28px;height:3px;border-radius:2px;background:var(--primary-solid-bg,#7C66FF)\"></div></div>",
@@ -93,7 +125,118 @@
     "CardTab": {
       "figma_name": "💙 01.02_CardTab/Basic",
       "figma_key": "f562aa2d64702eeeee1449c3fca5e9f68bdc4963",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "align-items": "center", "backdrop-filter": "blur(4px)"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "align-items": "center",
+          "backdrop-filter": "blur(4px)"
+        },
+        "children": [
+          {
+            "type": "FRAME",
+            "css": {
+              "width": "16px",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "RECTANGLE",
+                "css": {
+                  "width": "16px",
+                  "height": "50px",
+                  "border-radius": "var(--Radius-Medium, 12px) 0 0 0",
+                  "background": "var(--bg-1, #FFF)"
+                }
+              }
+            ]
+          },
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "width": "76px",
+              "min-width": "60.8px",
+              "min-height": "40px",
+              "padding": "var(--Spacing-Small, 4px) var(--Spacing-Normal, 8px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "background": "var(--bg-1, #FFF)"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Mini, 2px)"
+                },
+                "children": [
+                  {
+                    "type": "TEXT",
+                    "css": {
+                      "color": "var(--text-1, #000)",
+                      "font-family": "\"PingFang SC\"",
+                      "font-size": "16px",
+                      "font-weight": "500",
+                      "line-height": "24px"
+                    },
+                    "text": "选中"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "justify-content": "center",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Mini, 2px)"
+                },
+                "children": [
+                  {
+                    "type": "TEXT",
+                    "css": {
+                      "color": "var(--text-3, rgba(0, 0, 0, 0.40))",
+                      "font-family": "\"PingFang SC\"",
+                      "font-size": "12px",
+                      "font-weight": "400",
+                      "line-height": "18px"
+                    },
+                    "text": "为啥选这个"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "FRAME",
+            "css": {
+              "width": "28px",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "RECTANGLE",
+                "css": {
+                  "width": "28px",
+                  "height": "46px",
+                  "background": "var(--bg-4, #EDEDF2)"
+                }
+              },
+              {
+                "type": "VECTOR",
+                "css": {
+                  "width": "28px",
+                  "height": "50px",
+                  "fill": "var(--bg-1, #FFF)"
+                }
+              }
+            ]
+          }
+        ]
+      },
       "figma_file": "HjpmfUPwU7HGMRj9X80TAY",
       "desc": "卡片式 Tab，多 Tab 横向滑动场景",
       "css": {
@@ -132,7 +275,106 @@
     "Echo": {
       "figma_name": "💙 01.02_Tabs / Echo",
       "figma_key": "1aa866b3dcf60c27913f6b01a34c0f28f6cae456",
-      "_tree": {"type": "COMPONENT", "css": {"display": "flex", "width": "375px", "flex-direction": "column", "justify-content": "flex-end", "align-items": "flex-start"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "flex-direction": "column",
+          "justify-content": "flex-end",
+          "align-items": "flex-start"
+        },
+        "children": [
+          {
+            "type": "SLOT",
+            "css": {
+              "display": "flex",
+              "align-items": "center",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "display": "inline-flex",
+                  "height": "44px",
+                  "padding": "7px 10px",
+                  "justify-content": "center",
+                  "align-items": "center",
+                  "gap": "2px"
+                },
+                "ref": "💙 01.02_Tabs / Basic",
+                "key": "f98bcc6058ae0216ee9ce856bc35fe834b192def"
+              },
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "display": "inline-flex",
+                  "height": "44px",
+                  "padding": "7px 10px",
+                  "justify-content": "center",
+                  "align-items": "center",
+                  "gap": "2px"
+                },
+                "ref": "💙 01.02_Tabs / Basic",
+                "key": "4a569981b8044fba4a5d63d88c85007542c728e5"
+              },
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "display": "inline-flex",
+                  "height": "44px",
+                  "padding": "7px 10px",
+                  "justify-content": "center",
+                  "align-items": "center",
+                  "gap": "2px"
+                },
+                "ref": "💙 01.02_Tabs / Basic",
+                "key": "4a569981b8044fba4a5d63d88c85007542c728e5"
+              },
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "display": "inline-flex",
+                  "height": "44px",
+                  "padding": "7px 10px",
+                  "justify-content": "center",
+                  "align-items": "center",
+                  "gap": "2px"
+                },
+                "ref": "💙 01.02_Tabs / Basic",
+                "key": "4a569981b8044fba4a5d63d88c85007542c728e5"
+              },
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "display": "inline-flex",
+                  "height": "44px",
+                  "padding": "7px 10px",
+                  "justify-content": "center",
+                  "align-items": "center",
+                  "gap": "2px"
+                },
+                "ref": "💙 01.02_Tabs / Basic",
+                "key": "4a569981b8044fba4a5d63d88c85007542c728e5"
+              },
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "display": "inline-flex",
+                  "height": "44px",
+                  "padding": "7px 10px",
+                  "justify-content": "center",
+                  "align-items": "center",
+                  "gap": "2px"
+                },
+                "ref": "💙 01.02_Tabs / Basic",
+                "key": "4a569981b8044fba4a5d63d88c85007542c728e5"
+              }
+            ]
+          }
+        ]
+      },
       "figma_file": "HjpmfUPwU7HGMRj9X80TAY",
       "desc": "Echo 千岛定制 Tab，支持 Default（横向底线）/ Card（卡片）等样式",
       "css": {
@@ -189,7 +431,41 @@
     "Basic_Large_on": {
       "figma_name": "💙 01.02_Tabs / Basic",
       "figma_key": "f98bcc6058ae0216ee9ce856bc35fe834b192def",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "height": "44px", "padding": "7px 10px", "justify-content": "center", "align-items": "center", "gap": "2px"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "height": "44px",
+          "padding": "7px 10px",
+          "justify-content": "center",
+          "align-items": "center",
+          "gap": "2px"
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "css": {
+              "color": "var(--text-1, #000)",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "24px",
+              "font-weight": "500",
+              "line-height": "30px"
+            },
+            "text": "选中"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "width": "48px",
+              "height": "44px",
+              "position": "absolute",
+              "left": "10px"
+            },
+            "ref": "💙 01.02_Tabs / BasicLine",
+            "key": "1595056a58f8d809b8f5e295821e9296a83d73e0"
+          }
+        ]
+      },
       "desc": "Size=Large, 选中, 默认",
       "css": {
         "display": "inline-flex",
@@ -202,7 +478,7 @@
       "slots": [
         {
           "name": "纯图片（替换这个）",
-          "boolProp": "Picture#69374:0",
+          "boolProp": "Img#69374:0",
           "css": {
             "width": "68px",
             "height": "44px",
@@ -223,7 +499,7 @@
         },
         {
           "name": "💙 00.03_Icon / arrow_up",
-          "boolProp": "arrowdown#66016:10",
+          "boolProp": "arrowTrailing#66016:10",
           "css": {
             "width": "14px",
             "height": "14px",
@@ -232,15 +508,15 @@
         }
       ],
       "props": {
-        "Ghost": {
+        "Color": {
           "options": [
-            "False",
-            "True"
+            "Default",
+            "White"
           ],
-          "default": "False",
+          "default": "Default",
           "variantMap": {
-            "False": "Basic_Large_on",
-            "True": "Basic_Large_on_Ghost"
+            "Default": "Basic_Large_on",
+            "White": "Basic_Large_on_Ghost"
           }
         }
       },
@@ -251,7 +527,41 @@
     "Basic_Large_on_Ghost": {
       "figma_name": "💙 01.02_Tabs / Basic",
       "figma_key": "918f98578129a075543688bb4b83c9f5f9715f31",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "height": "44px", "padding": "7px 10px", "justify-content": "center", "align-items": "center", "gap": "2px"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "height": "44px",
+          "padding": "7px 10px",
+          "justify-content": "center",
+          "align-items": "center",
+          "gap": "2px"
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "css": {
+              "color": "var(--white-textColor, #FFF)",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "24px",
+              "font-weight": "500",
+              "line-height": "30px"
+            },
+            "text": "选中"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "width": "48px",
+              "height": "44px",
+              "position": "absolute",
+              "left": "10px"
+            },
+            "ref": "💙 01.02_Tabs / BasicLine",
+            "key": "1595056a58f8d809b8f5e295821e9296a83d73e0"
+          }
+        ]
+      },
       "desc": "Size=Large, 选中, Ghost(反白)",
       "css": {
         "display": "inline-flex",
@@ -264,7 +574,7 @@
       "slots": [
         {
           "name": "纯图片（替换这个）",
-          "boolProp": "Picture#69374:0",
+          "boolProp": "Img#69374:0",
           "css": {
             "width": "68px",
             "height": "44px",
@@ -285,7 +595,7 @@
         },
         {
           "name": "💙 00.03_Icon / arrow_up",
-          "boolProp": "arrowdown#66016:10",
+          "boolProp": "arrowTrailing#66016:10",
           "css": {
             "width": "14px",
             "height": "14px",
@@ -300,7 +610,30 @@
     "Basic_Large_off": {
       "figma_name": "💙 01.02_Tabs / Basic",
       "figma_key": "4a569981b8044fba4a5d63d88c85007542c728e5",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "height": "44px", "padding": "7px 10px", "justify-content": "center", "align-items": "center", "gap": "2px"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "height": "44px",
+          "padding": "7px 10px",
+          "justify-content": "center",
+          "align-items": "center",
+          "gap": "2px"
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "css": {
+              "color": "var(--text-3, rgba(0, 0, 0, 0.40))",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "24px",
+              "font-weight": "400",
+              "line-height": "30px"
+            },
+            "text": "未选"
+          }
+        ]
+      },
       "desc": "Size=Large, 未选, 默认",
       "css": {
         "display": "inline-flex",
@@ -313,7 +646,7 @@
       "slots": [
         {
           "name": "纯图片（替换这个）",
-          "boolProp": "Picture#69374:0",
+          "boolProp": "Img#69374:0",
           "css": {
             "width": "68px",
             "height": "44px",
@@ -334,7 +667,7 @@
         },
         {
           "name": "💙 00.03_Icon / arrow_up",
-          "boolProp": "arrowdown#66016:10",
+          "boolProp": "arrowTrailing#66016:10",
           "css": {
             "display": "flex",
             "width": "14px",
@@ -367,15 +700,15 @@
             "False": "Basic_Large_off"
           }
         },
-        "Ghost": {
+        "Color": {
           "options": [
-            "False",
-            "True"
+            "Default",
+            "White"
           ],
-          "default": "False",
+          "default": "Default",
           "variantMap": {
-            "False": "Basic_Large_off",
-            "True": "Basic_Large_off_Ghost"
+            "Default": "Basic_Large_off",
+            "White": "Basic_Large_off_Ghost"
           }
         }
       },
@@ -386,7 +719,30 @@
     "Basic_Large_off_Ghost": {
       "figma_name": "💙 01.02_Tabs / Basic",
       "figma_key": "b3073a72ff38ba096e64a8da001440bfbc113050",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "height": "44px", "padding": "7px 10px", "justify-content": "center", "align-items": "center", "gap": "2px"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "height": "44px",
+          "padding": "7px 10px",
+          "justify-content": "center",
+          "align-items": "center",
+          "gap": "2px"
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "css": {
+              "color": "var(--white-textColor2, rgba(255, 255, 255, 0.64))",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "24px",
+              "font-weight": "400",
+              "line-height": "30px"
+            },
+            "text": "未选"
+          }
+        ]
+      },
       "desc": "Size=Large, 未选, Ghost(反白)",
       "css": {
         "display": "inline-flex",
@@ -416,7 +772,40 @@
     "Basic_Normal_on": {
       "figma_name": "💙 01.02_Tabs / Basic",
       "figma_key": "360f4366b5a55fbeb5d17bbcf3d2afa8cd38af60",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "padding": "4px 10px", "justify-content": "center", "align-items": "center", "gap": "2px"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "padding": "4px 10px",
+          "justify-content": "center",
+          "align-items": "center",
+          "gap": "2px"
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "css": {
+              "color": "var(--text-1, #000)",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "18px",
+              "font-weight": "500",
+              "line-height": "25px"
+            },
+            "text": "选中"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "width": "36px",
+              "height": "33px",
+              "position": "absolute",
+              "left": "10px"
+            },
+            "ref": "💙 01.02_Tabs / BasicLine",
+            "key": "1595056a58f8d809b8f5e295821e9296a83d73e0"
+          }
+        ]
+      },
       "desc": "Size=Normal, 选中, 默认",
       "css": {
         "display": "inline-flex",
@@ -439,7 +828,7 @@
         },
         {
           "name": "💙 00.03_Icon / arrow_up",
-          "boolProp": "arrowdown#66016:10",
+          "boolProp": "arrowTrailing#66016:10",
           "css": {
             "width": "12px",
             "height": "12px",
@@ -468,15 +857,15 @@
             "False": "Basic_Normal_off"
           }
         },
-        "Ghost": {
+        "Color": {
           "options": [
-            "False",
-            "True"
+            "Default",
+            "White"
           ],
-          "default": "False",
+          "default": "Default",
           "variantMap": {
-            "False": "Basic_Normal_on",
-            "True": "Basic_Normal_on_Ghost"
+            "Default": "Basic_Normal_on",
+            "White": "Basic_Normal_on_Ghost"
           }
         }
       },
@@ -487,7 +876,40 @@
     "Basic_Normal_on_Ghost": {
       "figma_name": "💙 01.02_Tabs / Basic",
       "figma_key": "8b61abdf51fbba973d888b41dcd330611c046860",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "padding": "4px 10px", "justify-content": "center", "align-items": "center", "gap": "2px"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "padding": "4px 10px",
+          "justify-content": "center",
+          "align-items": "center",
+          "gap": "2px"
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "css": {
+              "color": "var(--white-textColor, #FFF)",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "18px",
+              "font-weight": "500",
+              "line-height": "25px"
+            },
+            "text": "选中"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "width": "36px",
+              "height": "33px",
+              "position": "absolute",
+              "left": "10px"
+            },
+            "ref": "💙 01.02_Tabs / BasicLine",
+            "key": "1595056a58f8d809b8f5e295821e9296a83d73e0"
+          }
+        ]
+      },
       "desc": "Size=Normal, 选中, Ghost(反白)",
       "css": {
         "display": "inline-flex",
@@ -516,7 +938,29 @@
     "Basic_Normal_off": {
       "figma_name": "💙 01.02_Tabs / Basic",
       "figma_key": "2dea4e03ceccf527d757833493b6f19161cbd4dc",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "padding": "4px 10px", "justify-content": "center", "align-items": "center", "gap": "2px"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "padding": "4px 10px",
+          "justify-content": "center",
+          "align-items": "center",
+          "gap": "2px"
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "css": {
+              "color": "var(--text-3, rgba(0, 0, 0, 0.40))",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "18px",
+              "font-weight": "400",
+              "line-height": "25px"
+            },
+            "text": "未选"
+          }
+        ]
+      },
       "desc": "Size=Normal, 未选, 默认",
       "css": {
         "display": "inline-flex",
@@ -545,7 +989,29 @@
     "Basic_Normal_off_Ghost": {
       "figma_name": "💙 01.02_Tabs / Basic",
       "figma_key": "25b21a22ddcd1367cd31df71e9b0082f5b170ad8",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "padding": "4px 10px", "justify-content": "center", "align-items": "center", "gap": "2px"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "padding": "4px 10px",
+          "justify-content": "center",
+          "align-items": "center",
+          "gap": "2px"
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "css": {
+              "color": "var(--white-textColor2, rgba(255, 255, 255, 0.64))",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "18px",
+              "font-weight": "400",
+              "line-height": "25px"
+            },
+            "text": "未选"
+          }
+        ]
+      },
       "desc": "Size=Normal, 未选, Ghost(反白)",
       "css": {
         "display": "inline-flex",
@@ -574,7 +1040,40 @@
     "Basic_Small_on": {
       "figma_name": "💙 01.02_Tabs / Basic",
       "figma_key": "bb45a231a951f25cc16b5eb2c52bbebfd39632aa",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "padding": "3px 10px", "justify-content": "center", "align-items": "center", "gap": "2px"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "padding": "3px 10px",
+          "justify-content": "center",
+          "align-items": "center",
+          "gap": "2px"
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "css": {
+              "color": "var(--text-1, #000)",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "16px",
+              "font-weight": "500",
+              "line-height": "24px"
+            },
+            "text": "选中"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "width": "32px",
+              "height": "30px",
+              "position": "absolute",
+              "left": "10px"
+            },
+            "ref": "💙 01.02_Tabs / BasicLine",
+            "key": "1595056a58f8d809b8f5e295821e9296a83d73e0"
+          }
+        ]
+      },
       "desc": "Size=Small, 选中, 默认",
       "css": {
         "display": "inline-flex",
@@ -617,15 +1116,15 @@
             "False": "Basic_Small_off"
           }
         },
-        "Ghost": {
+        "Color": {
           "options": [
-            "False",
-            "True"
+            "Default",
+            "White"
           ],
-          "default": "False",
+          "default": "Default",
           "variantMap": {
-            "False": "Basic_Small_on",
-            "True": "Basic_Small_on_Ghost"
+            "Default": "Basic_Small_on",
+            "White": "Basic_Small_on_Ghost"
           }
         }
       },
@@ -636,7 +1135,40 @@
     "Basic_Small_on_Ghost": {
       "figma_name": "💙 01.02_Tabs / Basic",
       "figma_key": "b3b6b6ab7fa4708c8edb34f965fbfecae9a852c2",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "padding": "3px 10px", "justify-content": "center", "align-items": "center", "gap": "2px"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "padding": "3px 10px",
+          "justify-content": "center",
+          "align-items": "center",
+          "gap": "2px"
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "css": {
+              "color": "var(--white-textColor, #FFF)",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "16px",
+              "font-weight": "500",
+              "line-height": "24px"
+            },
+            "text": "选中"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "width": "32px",
+              "height": "30px",
+              "position": "absolute",
+              "left": "10px"
+            },
+            "ref": "💙 01.02_Tabs / BasicLine",
+            "key": "1595056a58f8d809b8f5e295821e9296a83d73e0"
+          }
+        ]
+      },
       "desc": "Size=Small, 选中, Ghost(反白)",
       "css": {
         "display": "inline-flex",
@@ -665,7 +1197,29 @@
     "Basic_Small_off": {
       "figma_name": "💙 01.02_Tabs / Basic",
       "figma_key": "26bceafb431963b05281f11d5f9076137715f124",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "padding": "3px 10px", "justify-content": "center", "align-items": "center", "gap": "2px"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "padding": "3px 10px",
+          "justify-content": "center",
+          "align-items": "center",
+          "gap": "2px"
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "css": {
+              "color": "var(--text-3, rgba(0, 0, 0, 0.40))",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "16px",
+              "font-weight": "400",
+              "line-height": "24px"
+            },
+            "text": "未选"
+          }
+        ]
+      },
       "desc": "Size=Small, 未选, 默认",
       "css": {
         "display": "inline-flex",
@@ -694,7 +1248,29 @@
     "Basic_Small_off_Ghost": {
       "figma_name": "💙 01.02_Tabs / Basic",
       "figma_key": "fbb77ff32900d02e15ea078f68cecf5728a74f8e",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "padding": "3px 10px", "justify-content": "center", "align-items": "center", "gap": "2px"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "padding": "3px 10px",
+          "justify-content": "center",
+          "align-items": "center",
+          "gap": "2px"
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "css": {
+              "color": "var(--white-textColor2, rgba(255, 255, 255, 0.64))",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "16px",
+              "font-weight": "400",
+              "line-height": "24px"
+            },
+            "text": "未选"
+          }
+        ]
+      },
       "desc": "Size=Small, 未选, Ghost(反白)",
       "css": {
         "display": "inline-flex",
@@ -723,7 +1299,40 @@
     "Basic_Mini_on": {
       "figma_name": "💙 01.02_Tabs / Basic",
       "figma_key": "0804d1e04dd74df974bcd5afd6654cf4aff4c579",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "padding": "2px 10px", "justify-content": "center", "align-items": "center", "gap": "2px"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "padding": "2px 10px",
+          "justify-content": "center",
+          "align-items": "center",
+          "gap": "2px"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "width": "28px",
+              "height": "26px",
+              "position": "absolute",
+              "left": "10px"
+            },
+            "ref": "💙 01.02_Tabs / BasicLine",
+            "key": "1595056a58f8d809b8f5e295821e9296a83d73e0"
+          },
+          {
+            "type": "TEXT",
+            "css": {
+              "color": "var(--text-1, #000)",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "14px",
+              "font-weight": "500",
+              "line-height": "22px"
+            },
+            "text": "选中"
+          }
+        ]
+      },
       "desc": "Size=Mini, 选中, 默认",
       "css": {
         "display": "inline-flex",
@@ -766,15 +1375,15 @@
             "False": "Basic_Mini_off"
           }
         },
-        "Ghost": {
+        "Color": {
           "options": [
-            "False",
-            "True"
+            "Default",
+            "White"
           ],
-          "default": "False",
+          "default": "Default",
           "variantMap": {
-            "False": "Basic_Mini_on",
-            "True": "Basic_Mini_on_Ghost"
+            "Default": "Basic_Mini_on",
+            "White": "Basic_Mini_on_Ghost"
           }
         }
       },
@@ -785,7 +1394,40 @@
     "Basic_Mini_on_Ghost": {
       "figma_name": "💙 01.02_Tabs / Basic",
       "figma_key": "c0dcc9406c1b84db6c960a4defde13bfa3869cfa",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "padding": "2px 10px", "justify-content": "center", "align-items": "center", "gap": "2px"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "padding": "2px 10px",
+          "justify-content": "center",
+          "align-items": "center",
+          "gap": "2px"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "width": "28px",
+              "height": "26px",
+              "position": "absolute",
+              "left": "10px"
+            },
+            "ref": "💙 01.02_Tabs / BasicLine",
+            "key": "1595056a58f8d809b8f5e295821e9296a83d73e0"
+          },
+          {
+            "type": "TEXT",
+            "css": {
+              "color": "var(--white-textColor, #FFF)",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "14px",
+              "font-weight": "500",
+              "line-height": "22px"
+            },
+            "text": "选中"
+          }
+        ]
+      },
       "desc": "Size=Mini, 选中, Ghost(反白)",
       "css": {
         "display": "inline-flex",
@@ -814,7 +1456,29 @@
     "Basic_Mini_off": {
       "figma_name": "💙 01.02_Tabs / Basic",
       "figma_key": "acc1ec810f30432223cbe092275b732c81369ca7",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "padding": "2px 10px", "justify-content": "center", "align-items": "center", "gap": "2px"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "padding": "2px 10px",
+          "justify-content": "center",
+          "align-items": "center",
+          "gap": "2px"
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "css": {
+              "color": "var(--text-3, rgba(0, 0, 0, 0.40))",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "14px",
+              "font-weight": "400",
+              "line-height": "22px"
+            },
+            "text": "未选"
+          }
+        ]
+      },
       "desc": "Size=Mini, 未选, 默认",
       "css": {
         "display": "inline-flex",
@@ -843,7 +1507,29 @@
     "Basic_Mini_off_Ghost": {
       "figma_name": "💙 01.02_Tabs / Basic",
       "figma_key": "fce3921bc4ffa13e07fbd6b0ff30e162fc01a4e7",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "padding": "2px 10px", "justify-content": "center", "align-items": "center", "gap": "2px"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "padding": "2px 10px",
+          "justify-content": "center",
+          "align-items": "center",
+          "gap": "2px"
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "css": {
+              "color": "var(--white-textColor2, rgba(255, 255, 255, 0.64))",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "14px",
+              "font-weight": "400",
+              "line-height": "22px"
+            },
+            "text": "未选"
+          }
+        ]
+      },
       "desc": "Size=Mini, 未选, Ghost(反白)",
       "css": {
         "display": "inline-flex",
@@ -869,10 +1555,124 @@
       "preview_html": "<div style=\"display:inline-flex;padding:2px 10px;align-items:center;justify-content:center;gap:2px;position:relative\"><span style=\"font:400 14px/22px 'PingFang SC',sans-serif;color:var(--white-text-color,#fff);white-space:nowrap\">最新</span></div>",
       "embed_html": "<div style=\"display:inline-flex;padding:2px 10px;justify-content:center;align-items:center;gap:2px\"><span style=\"font:400 14px/22px 'PingFang SC',sans-serif;color:var(--white-text-color2,rgba(255,255,255,.64));white-space:nowrap\">未选</span></div>"
     },
+    "BasicLine_Default": {
+      "figma_name": "💙 01.02_Tabs / BasicLine",
+      "figma_key": "5677f555001530957f4563d333c01a10a070cfa6",
+      "_hidden": true,
+      "css": {
+        "width": "48px",
+        "height": "44px"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "width": "48px",
+          "height": "44px"
+        },
+        "children": [
+          {
+            "type": "VECTOR",
+            "css": {
+              "width": "20px",
+              "height": "4px",
+              "fill": "var(--secondary-solidBg, #2B263B)"
+            }
+          }
+        ]
+      }
+    },
+    "BasicLine_QD": {
+      "figma_name": "💙 01.02_Tabs / BasicLine",
+      "figma_key": "1595056a58f8d809b8f5e295821e9296a83d73e0",
+      "_hidden": true,
+      "css": {
+        "width": "48px",
+        "height": "44px"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "width": "48px",
+          "height": "44px"
+        },
+        "children": [
+          {
+            "type": "VECTOR",
+            "css": {
+              "width": "36px",
+              "height": "9.534px",
+              "transform": "rotate(-1.957deg)",
+              "fill": "var(--primary-border, #7C66FF)"
+            }
+          }
+        ]
+      }
+    },
+    "BasicLine_QH": {
+      "figma_name": "💙 01.02_Tabs / BasicLine",
+      "figma_key": "71a4eae1de444f465fbf99bead0dc1e9db685a69",
+      "_hidden": true,
+      "css": {
+        "width": "48px",
+        "height": "44px"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "width": "48px",
+          "height": "44px"
+        },
+        "children": [
+          {
+            "type": "VECTOR",
+            "css": {
+              "width": "20px",
+              "height": "7px",
+              "fill": "#FFF74A"
+            }
+          }
+        ]
+      }
+    },
+    "BasicLine_LJ": {
+      "figma_name": "💙 01.02_Tabs / BasicLine",
+      "figma_key": "482c52f4a4273fea3f8dd92b7ebd1ad714372d38",
+      "_hidden": true,
+      "css": {
+        "width": "48px",
+        "height": "44px"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "width": "48px",
+          "height": "44px"
+        },
+        "children": [
+          {
+            "type": "RECTANGLE",
+            "css": {
+              "width": "38px",
+              "height": "12px",
+              "transform": "rotate(-20deg)",
+              "background": "linear-gradient(90deg, rgba(114, 71, 220, 0.50) -4.2%, rgba(114, 71, 220, 0.00) 104.04%)"
+            }
+          }
+        ]
+      }
+    },
     "CardTab_on_First_Normal": {
       "figma_name": "💙 01.02_CardTab/Basic",
       "figma_key": "f562aa2d64702eeeee1449c3fca5e9f68bdc4963",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "align-items": "center", "backdrop-filter": "blur(4px)"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "align-items": "center",
+          "backdrop-filter": "blur(4px)"
+        },
+        "children": []
+      },
       "desc": "卡片 Tab，选中，Position=First，Size=Normal",
       "css": {
         "display": "inline-flex",
@@ -898,7 +1698,15 @@
     "CardTab_on_Middle_Normal": {
       "figma_name": "💙 01.02_CardTab/Basic",
       "figma_key": "bc1fd84676f2bdb9f5e1ae5a690e9d5a92580e28",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "align-items": "center", "backdrop-filter": "blur(4px)"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "align-items": "center",
+          "backdrop-filter": "blur(4px)"
+        },
+        "children": []
+      },
       "desc": "卡片 Tab，选中，Position=Middle，Size=Normal",
       "css": {
         "display": "inline-flex",
@@ -923,7 +1731,15 @@
     "CardTab_on_Last_Normal": {
       "figma_name": "💙 01.02_CardTab/Basic",
       "figma_key": "9b922cdd995f12ef36037e4df00af8153c1fa64a",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "align-items": "center", "backdrop-filter": "blur(4px)"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "align-items": "center",
+          "backdrop-filter": "blur(4px)"
+        },
+        "children": []
+      },
       "desc": "卡片 Tab，选中，Position=Last，Size=Normal",
       "css": {
         "display": "inline-flex",
@@ -948,7 +1764,15 @@
     "CardTab_off_First_Normal": {
       "figma_name": "💙 01.02_CardTab/Basic",
       "figma_key": "0f95182636330a6a3d7dc538ec893807c2180976",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "padding-top": "4px", "align-items": "center"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "padding-top": "4px",
+          "align-items": "center"
+        },
+        "children": []
+      },
       "desc": "卡片 Tab，未选，Position=First，Size=Normal",
       "css": {
         "display": "inline-flex",
@@ -974,7 +1798,15 @@
     "CardTab_off_Middle_Normal": {
       "figma_name": "💙 01.02_CardTab/Basic",
       "figma_key": "e030a17a7bf664814b800135df3e35acb8c1a0ea",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "padding-top": "4px", "align-items": "center"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "padding-top": "4px",
+          "align-items": "center"
+        },
+        "children": []
+      },
       "desc": "卡片 Tab，未选，Position=Middle，Size=Normal",
       "css": {
         "display": "inline-flex",
@@ -999,7 +1831,15 @@
     "CardTab_off_Last_Normal": {
       "figma_name": "💙 01.02_CardTab/Basic",
       "figma_key": "582f282606731b9c191f46e9de822f076d362135",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "padding-top": "4px", "align-items": "center"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "padding-top": "4px",
+          "align-items": "center"
+        },
+        "children": []
+      },
       "desc": "卡片 Tab，未选，Position=Last，Size=Normal",
       "css": {
         "display": "inline-flex",
@@ -1024,7 +1864,15 @@
     "CardTab_on_First_Mini": {
       "figma_name": "💙 01.02_CardTab/Basic",
       "figma_key": "70c6b3815eafdfc9e1f12b04fbdd5e95adbcc519",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "align-items": "center", "backdrop-filter": "blur(4px)"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "align-items": "center",
+          "backdrop-filter": "blur(4px)"
+        },
+        "children": []
+      },
       "desc": "卡片 Tab，选中，Position=First，Size=Mini",
       "css": {
         "display": "inline-flex",
@@ -1037,7 +1885,15 @@
     "CardTab_on_Middle_Mini": {
       "figma_name": "💙 01.02_CardTab/Basic",
       "figma_key": "34cfce7b40f5cc439f86a7d020e680014dc6a6de",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "align-items": "center", "backdrop-filter": "blur(4px)"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "align-items": "center",
+          "backdrop-filter": "blur(4px)"
+        },
+        "children": []
+      },
       "desc": "卡片 Tab，选中，Position=Middle，Size=Mini",
       "css": {
         "display": "inline-flex",
@@ -1050,7 +1906,15 @@
     "CardTab_on_Last_Mini": {
       "figma_name": "💙 01.02_CardTab/Basic",
       "figma_key": "5bc7cb55710a3843190e48d5ae109ccccd8a45f2",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "align-items": "center", "backdrop-filter": "blur(4px)"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "align-items": "center",
+          "backdrop-filter": "blur(4px)"
+        },
+        "children": []
+      },
       "desc": "卡片 Tab，选中，Position=Last，Size=Mini",
       "css": {
         "display": "inline-flex",
@@ -1063,7 +1927,18 @@
     "CardTab_off_First_Mini": {
       "figma_name": "💙 01.02_CardTab/Basic",
       "figma_key": "0f09959db926e0b620d3f8848a6d520ab29b86a7",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "height": "32px", "padding": "0 12px", "justify-content": "center", "align-items": "center", "border-radius": "8px 8px 0 0"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "height": "32px",
+          "padding": "0 12px",
+          "justify-content": "center",
+          "align-items": "center",
+          "border-radius": "8px 8px 0 0"
+        },
+        "children": []
+      },
       "desc": "卡片 Tab，未选，Position=First，Size=Mini",
       "css": {
         "display": "inline-flex",
@@ -1079,7 +1954,18 @@
     "CardTab_off_Middle_Mini": {
       "figma_name": "💙 01.02_CardTab/Basic",
       "figma_key": "667c2fea085c030f0ff69155a105df5f0c663b8b",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "height": "32px", "padding": "0 12px", "justify-content": "center", "align-items": "center", "border-radius": "8px 8px 0 0"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "height": "32px",
+          "padding": "0 12px",
+          "justify-content": "center",
+          "align-items": "center",
+          "border-radius": "8px 8px 0 0"
+        },
+        "children": []
+      },
       "desc": "卡片 Tab，未选，Position=Middle，Size=Mini",
       "css": {
         "display": "inline-flex",
@@ -1095,7 +1981,18 @@
     "CardTab_off_Last_Mini": {
       "figma_name": "💙 01.02_CardTab/Basic",
       "figma_key": "9998dc803900fb02a7cc187503d03d5307785c03",
-      "_tree": {"type": "COMPONENT", "css": {"display": "inline-flex", "height": "32px", "padding": "0 12px", "justify-content": "center", "align-items": "center", "border-radius": "8px 8px 0 0"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "height": "32px",
+          "padding": "0 12px",
+          "justify-content": "center",
+          "align-items": "center",
+          "border-radius": "8px 8px 0 0"
+        },
+        "children": []
+      },
       "desc": "卡片 Tab，未选，Position=Last，Size=Mini",
       "css": {
         "display": "inline-flex",
@@ -1111,7 +2008,17 @@
     "Echo_DefaultDark_Large_none": {
       "figma_name": "💙 01.02_Tabs / Echo",
       "figma_key": "1aa866b3dcf60c27913f6b01a34c0f28f6cae456",
-      "_tree": {"type": "COMPONENT", "css": {"display": "flex", "width": "375px", "flex-direction": "column", "justify-content": "flex-end", "align-items": "flex-start"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "flex-direction": "column",
+          "justify-content": "flex-end",
+          "align-items": "flex-start"
+        },
+        "children": []
+      },
       "desc": "className=DefaultDark, Size=Large, Amount=-",
       "css": {
         "display": "flex",
@@ -1139,22 +2046,24 @@
       ],
       "preview_html": "<div style=\"display:flex;flex-direction:column;width:375px;align-items:flex-start;justify-content:flex-end\"><div style=\"display:flex;align-items:center;width:100%;overflow:hidden\"><div style=\"display:inline-flex;height:44px;padding:7px 10px;align-items:center;justify-content:center;gap:2px;position:relative;flex-shrink:0\"><span style=\"font:500 24px/30px 'PingFang SC',sans-serif;color:var(--text-1,#000);white-space:nowrap\">推荐</span><div style=\"position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:28px;height:3px;border-radius:2px;background:var(--primary-solid-bg,#7C66FF)\"></div></div><div style=\"display:inline-flex;height:44px;padding:7px 10px;align-items:center;justify-content:center;gap:2px;position:relative;flex-shrink:0\"><span style=\"font:400 24px/30px 'PingFang SC',sans-serif;color:var(--text-3,rgba(0,0,0,.4));white-space:nowrap\">最新</span><i class=\"KurilIcons kuril-arrow_down\" style=\"font-size:12px;color:var(--text-3,rgba(0,0,0,.4));flex-shrink:0\"></i></div><div style=\"display:inline-flex;height:44px;padding:7px 10px;align-items:center;justify-content:center;flex-shrink:0\"><span style=\"font:400 24px/30px 'PingFang SC',sans-serif;color:var(--text-3,rgba(0,0,0,.4));white-space:nowrap\">关注</span></div><div style=\"display:inline-flex;height:44px;padding:7px 10px;align-items:center;justify-content:center;flex-shrink:0\"><span style=\"font:400 24px/30px 'PingFang SC',sans-serif;color:var(--text-3,rgba(0,0,0,.4));white-space:nowrap\">发现</span></div></div><div style=\"width:100%;height:0.5px;background:var(--border-1,rgba(0,0,0,.08))\"></div></div>",
       "_ghost_preview_html": "<div style=\"display:flex;flex-direction:column;width:375px;align-items:flex-start;justify-content:flex-end\"><div style=\"display:flex;align-items:center;width:100%;overflow:hidden\"><div style=\"display:inline-flex;height:44px;padding:7px 10px;align-items:center;justify-content:center;gap:2px;position:relative;flex-shrink:0\"><span style=\"font:500 24px/30px 'PingFang SC',sans-serif;color:var(--white-text-color,#fff);white-space:nowrap\">推荐</span><div style=\"position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:28px;height:3px;border-radius:2px;background:var(--white-text-color,#fff)\"></div></div><div style=\"display:inline-flex;height:44px;padding:7px 10px;align-items:center;justify-content:center;flex-shrink:0\"><span style=\"font:400 24px/30px 'PingFang SC',sans-serif;color:var(--white-text-color2,rgba(255,255,255,.64));white-space:nowrap\">最新</span></div><div style=\"display:inline-flex;height:44px;padding:7px 10px;align-items:center;justify-content:center;flex-shrink:0\"><span style=\"font:400 24px/30px 'PingFang SC',sans-serif;color:var(--white-text-color2,rgba(255,255,255,.64));white-space:nowrap\">关注</span></div></div></div>",
-      "props": {
-        "Ghost": {
-          "options": [
-            "False",
-            "True"
-          ],
-          "default": "False"
-        }
-      },
+      "props": {},
       "_hidden": true,
       "embed_html": "<div style=\"display:flex;flex-direction:column;width:375px;align-items:flex-start;justify-content:flex-end\"><div style=\"display:flex;align-items:center;width:100%;overflow:hidden\"><div style=\"display:inline-flex;height:44px;padding:7px 10px;align-items:center;justify-content:center;gap:2px;position:relative;flex-shrink:0\"><span style=\"font:500 24px/30px 'PingFang SC',sans-serif;color:var(--text-1,#000);white-space:nowrap\">推荐</span><div style=\"position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:28px;height:3px;border-radius:2px;background:var(--primary-solid-bg,#7C66FF)\"></div></div><div style=\"display:inline-flex;height:44px;padding:7px 10px;align-items:center;justify-content:center;gap:2px;position:relative;flex-shrink:0\"><span style=\"font:400 24px/30px 'PingFang SC',sans-serif;color:rgba(0,0,0,.4);white-space:nowrap\">最新</span></div><div style=\"display:inline-flex;height:44px;padding:7px 10px;align-items:center;justify-content:center;gap:2px;position:relative;flex-shrink:0\"><span style=\"font:400 24px/30px 'PingFang SC',sans-serif;color:rgba(0,0,0,.4);white-space:nowrap\">关注</span></div><div style=\"display:inline-flex;height:44px;padding:7px 10px;align-items:center;justify-content:center;gap:2px;position:relative;flex-shrink:0\"><span style=\"font:400 24px/30px 'PingFang SC',sans-serif;color:rgba(0,0,0,.4);white-space:nowrap\">发现</span></div></div><div style=\"width:100%;height:0.5px;background:var(--border-1,rgba(0,0,0,.08))\"></div></div>"
     },
     "Echo_DefaultDark_Large_none_Ghost": {
       "figma_name": "💙 01.02_Tabs / Echo",
       "figma_key": "3ad1b17ce59fda5e48761582c84d60607104d117",
-      "_tree": {"type": "COMPONENT", "css": {"display": "flex", "flex-direction": "column", "width": "375px", "align-items": "flex-start", "justify-content": "flex-end"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "flex-direction": "column",
+          "width": "375px",
+          "align-items": "flex-start",
+          "justify-content": "flex-end"
+        },
+        "children": []
+      },
       "desc": "className=DefaultGhost, Size=Large — Ghost 版（深色背景）",
       "_hidden": true,
       "preview_html": "<div style=\"display:flex;flex-direction:column;width:375px;align-items:flex-start;justify-content:flex-end\"><div style=\"display:flex;align-items:center;width:100%;overflow:hidden\"><div style=\"display:inline-flex;height:44px;padding:7px 10px;align-items:center;justify-content:center;gap:2px;position:relative;flex-shrink:0\"><span style=\"font:500 24px/30px 'PingFang SC',sans-serif;color:var(--white-text-color,#fff);white-space:nowrap\">推荐</span><div style=\"position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:28px;height:3px;border-radius:2px;background:var(--white-text-color,#fff)\"></div></div><div style=\"display:inline-flex;height:44px;padding:7px 10px;align-items:center;justify-content:center;flex-shrink:0\"><span style=\"font:400 24px/30px 'PingFang SC',sans-serif;color:var(--white-text-color2,rgba(255,255,255,.64));white-space:nowrap\">最新</span></div><div style=\"display:inline-flex;height:44px;padding:7px 10px;align-items:center;justify-content:center;flex-shrink:0\"><span style=\"font:400 24px/30px 'PingFang SC',sans-serif;color:var(--white-text-color2,rgba(255,255,255,.64));white-space:nowrap\">关注</span></div></div></div>",
@@ -1163,7 +2072,17 @@
     "Echo_DefaultDark_Normal_none": {
       "figma_name": "💙 01.02_Tabs / Echo",
       "figma_key": "53a2db0deada2e9bdd092a6ada67b1b9b8e6b383",
-      "_tree": {"type": "COMPONENT", "css": {"display": "flex", "width": "375px", "flex-direction": "column", "justify-content": "flex-end", "align-items": "flex-start"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "flex-direction": "column",
+          "justify-content": "flex-end",
+          "align-items": "flex-start"
+        },
+        "children": []
+      },
       "desc": "className=DefaultDark, Size=Normal, Amount=-",
       "css": {
         "display": "flex",
@@ -1195,7 +2114,17 @@
     "Echo_DefaultDark_Small_none": {
       "figma_name": "💙 01.02_Tabs / Echo",
       "figma_key": "3d540cf732cbefc6b4d5520e8c43e100ce65ee9c",
-      "_tree": {"type": "COMPONENT", "css": {"display": "flex", "width": "375px", "flex-direction": "column", "justify-content": "flex-end", "align-items": "flex-start"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "flex-direction": "column",
+          "justify-content": "flex-end",
+          "align-items": "flex-start"
+        },
+        "children": []
+      },
       "desc": "className=DefaultDark, Size=Small, Amount=-",
       "css": {
         "display": "flex",
@@ -1210,7 +2139,17 @@
     "Echo_DefaultDark_Mini_none": {
       "figma_name": "💙 01.02_Tabs / Echo",
       "figma_key": "040b9b3d073970c720cc3d89a3fb7ac47078d707",
-      "_tree": {"type": "COMPONENT", "css": {"display": "flex", "width": "375px", "flex-direction": "column", "justify-content": "flex-end", "align-items": "flex-start"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "flex-direction": "column",
+          "justify-content": "flex-end",
+          "align-items": "flex-start"
+        },
+        "children": []
+      },
       "desc": "className=DefaultDark, Size=Mini, Amount=-",
       "css": {
         "display": "flex",
@@ -1225,7 +2164,17 @@
     "Echo_DefaultGhost_Large_none": {
       "figma_name": "💙 01.02_Tabs / Echo",
       "figma_key": "3ad1b17ce59fda5e48761582c84d60607104d117",
-      "_tree": {"type": "COMPONENT", "css": {"display": "flex", "flex-direction": "column", "width": "375px", "align-items": "flex-start", "justify-content": "flex-end"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "flex-direction": "column",
+          "width": "375px",
+          "align-items": "flex-start",
+          "justify-content": "flex-end"
+        },
+        "children": []
+      },
       "desc": "className=DefaultGhost, Size=Large, Amount=-",
       "css": {
         "display": "flex",
@@ -1242,7 +2191,18 @@
     "Echo_DefaultGhost_Normal_none": {
       "figma_name": "💙 01.02_Tabs / Echo",
       "figma_key": "8fe508137798a9d6fe2cb4749bd09d9203344955",
-      "_tree": {"type": "COMPONENT", "css": {"display": "flex", "width": "375px", "flex-direction": "column", "justify-content": "flex-end", "align-items": "flex-start", "background": "var(--warning-solidBg, #FC7E22)"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "flex-direction": "column",
+          "justify-content": "flex-end",
+          "align-items": "flex-start",
+          "background": "var(--warning-solidBg, #FC7E22)"
+        },
+        "children": []
+      },
       "desc": "className=DefaultGhost, Size=Normal, Amount=-",
       "css": {
         "display": "flex",
@@ -1258,7 +2218,18 @@
     "Echo_DefaultGhost_Small_none": {
       "figma_name": "💙 01.02_Tabs / Echo",
       "figma_key": "95a02834dbf4b5eab077afef6cf506ed70d802e2",
-      "_tree": {"type": "COMPONENT", "css": {"display": "flex", "width": "375px", "flex-direction": "column", "justify-content": "flex-end", "align-items": "flex-start", "background": "var(--warning-solidBg, #FC7E22)"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "flex-direction": "column",
+          "justify-content": "flex-end",
+          "align-items": "flex-start",
+          "background": "var(--warning-solidBg, #FC7E22)"
+        },
+        "children": []
+      },
       "desc": "className=DefaultGhost, Size=Small, Amount=-",
       "css": {
         "display": "flex",
@@ -1274,7 +2245,18 @@
     "Echo_DefaultGhost_Mini_none": {
       "figma_name": "💙 01.02_Tabs / Echo",
       "figma_key": "94d24a8aba869617dd0386767ce144232b52f17e",
-      "_tree": {"type": "COMPONENT", "css": {"display": "flex", "width": "375px", "flex-direction": "column", "justify-content": "flex-end", "align-items": "flex-start", "background": "var(--warning-solidBg, #FC7E22)"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "flex-direction": "column",
+          "justify-content": "flex-end",
+          "align-items": "flex-start",
+          "background": "var(--warning-solidBg, #FC7E22)"
+        },
+        "children": []
+      },
       "desc": "className=DefaultGhost, Size=Mini, Amount=-",
       "css": {
         "display": "flex",
@@ -1290,7 +2272,16 @@
     "Echo_Tag_Mini_none": {
       "figma_name": "💙 01.02_Tabs / Echo",
       "figma_key": "e1ad6401462e859b69789ad8f606aa339efb0186",
-      "_tree": {"type": "COMPONENT", "css": {"display": "flex", "width": "375px", "padding": "0 10px", "align-items": "center"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "0 10px",
+          "align-items": "center"
+        },
+        "children": []
+      },
       "desc": "className=Tag, Size=Mini, Amount=-",
       "css": {
         "display": "flex",
@@ -1318,7 +2309,17 @@
     "Echo_Text_Mini_none": {
       "figma_name": "💙 01.02_Tabs / Echo",
       "figma_key": "06ace5014762042d5746d5f08a5e00434e137db0",
-      "_tree": {"type": "COMPONENT", "css": {"display": "flex", "width": "375px", "padding": "0 10px", "align-items": "center", "gap": "12px"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "0 10px",
+          "align-items": "center",
+          "gap": "12px"
+        },
+        "children": []
+      },
       "desc": "className=Text, Size=Mini, Amount=-",
       "css": {
         "display": "flex",
@@ -1333,7 +2334,15 @@
     "Echo_CardDefault_Normal_2": {
       "figma_name": "💙 01.02_Tabs / Echo",
       "figma_key": "de174107b2adf9b6987352f15c583f2d2e9068ef",
-      "_tree": {"type": "COMPONENT", "css": {"display": "flex", "width": "375px", "align-items": "center"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "align-items": "center"
+        },
+        "children": []
+      },
       "desc": "className=CardDefault, Size=Normal, Amount=2",
       "css": {
         "display": "flex",
@@ -1347,7 +2356,15 @@
     "Echo_CardDefault_Normal_3": {
       "figma_name": "💙 01.02_Tabs / Echo",
       "figma_key": "1ce579263bc44477dec5dbcb3f1d6708b8483c51",
-      "_tree": {"type": "COMPONENT", "css": {"display": "flex", "width": "375px", "align-items": "center"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "align-items": "center"
+        },
+        "children": []
+      },
       "desc": "className=CardDefault, Size=Normal, Amount=3",
       "css": {
         "display": "flex",
@@ -1360,7 +2377,15 @@
     "Echo_CardDefault_Normal_gt3": {
       "figma_name": "💙 01.02_Tabs / Echo",
       "figma_key": "c9686e38126de8f12027187be1a44b71ec9788bc",
-      "_tree": {"type": "COMPONENT", "css": {"display": "flex", "width": "375px", "align-items": "center"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "align-items": "center"
+        },
+        "children": []
+      },
       "desc": "className=CardDefault, Size=Normal, Amount=>3",
       "css": {
         "display": "flex",
@@ -1373,7 +2398,15 @@
     "Echo_CardDefault_Mini_none": {
       "figma_name": "💙 01.02_Tabs / Echo",
       "figma_key": "a7630cc834aad96838fb52ddac637ae88deb0f90",
-      "_tree": {"type": "COMPONENT", "css": {"display": "flex", "width": "375px", "align-items": "center"}, "children": []},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "align-items": "center"
+        },
+        "children": []
+      },
       "desc": "className=CardDefault, Size=Mini, Amount=-",
       "css": {
         "display": "flex",
