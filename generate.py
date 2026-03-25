@@ -240,9 +240,19 @@ def _tree_to_html(tree, cmap, fmap, depth=0, fkmap=None, _inline=False):
                     )
         ref = tree.get('ref', '')
         data_comp = f' data-component="{ref}"' if ref else ''
-        s = f' style="{style}"' if style else ''
         if embed:
+            # 使用 embed 时：外层 div 只保留布局属性（flex/尺寸/对齐），
+            # 去掉视觉属性（background/border-radius/padding/color），
+            # 防止与 embed_html 自带样式叠加导致双重背景/尺寸。
+            _VISUAL = {'background', 'background-color', 'border-radius', 'color',
+                       'box-shadow', 'padding', 'padding-top', 'padding-right',
+                       'padding-bottom', 'padding-left', 'border',
+                       'border-top', 'border-right', 'border-bottom', 'border-left'}
+            layout_css = {k: v for k, v in css.items() if k not in _VISUAL}
+            layout_style = ';'.join(f'{k}:{v}' for k, v in layout_css.items())
+            s = f' style="{layout_style}"' if layout_style else ''
             return f'<div{s}{data_comp}>{embed}</div>'
+        s = f' style="{style}"' if style else ''
         return f'<div{s}{data_comp}></div>'
 
     # FRAME / GROUP / COMPONENT 等容器
@@ -314,8 +324,9 @@ def _css_to_embed(css):
 
 
 def auto_generate_tree_previews(components):
-    """对有 _tree 但缺 preview_html 的 variant（非 _hidden），
+    """对有 _tree 但缺 preview_html 的 variant，
     用 _tree_to_html 生成 _tree_preview_html（存入 components dict，不写 JSON）。
+    _hidden 变体也处理，供 _canSwitch chip 切换时渲染用。
     返回生成数量。"""
     cmap, fmap = _get_token_maps()
 
@@ -330,7 +341,7 @@ def auto_generate_tree_previews(components):
     count = 0
     for cdata in components.values():
         for vdata in (cdata.get('variants') or {}).values():
-            if vdata.get('_hidden') or vdata.get('preview_html') or vdata.get('_tree_preview_html'):
+            if vdata.get('preview_html') or vdata.get('_tree_preview_html'):
                 continue
             tree = vdata.get('_tree')
             if not tree:
@@ -338,7 +349,7 @@ def auto_generate_tree_previews(components):
             html = _tree_to_html(tree, cmap, fmap, fkmap=fkmap)
             if html:
                 # 包 padding:0 10px 外边距，对齐 preview_html 手写规范（375px 容器由浏览器侧 _genBizVisual 包）
-                vdata['_tree_preview_html'] = f'<div style="padding:0 10px;box-sizing:border-box">{html}</div>'
+                vdata['_tree_preview_html'] = f'<div style="width:375px;box-sizing:border-box;overflow:hidden">{html}</div>'
                 count += 1
     if count:
         print(f'✓ [骨架翻译] 从 _tree 自动生成 {count} 个 _tree_preview_html')

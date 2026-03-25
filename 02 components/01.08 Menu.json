@@ -1,0 +1,202 @@
+{
+  "component": "💙 01.08_Menu",
+  "figma_page": "01.08 Menu",
+  "description": "侧边菜单项，用于页面左侧垂直导航栏（宽 80px）。Default 类型文字样式区分选中/未选中；Ranking 类型在文字前显示热度图标。支持多选模式（boolProp），但多选 prop 无独立 variant key，暂不纳入 props 交互。",
+  "variants": {
+    "Default_Selected": {
+      "figma_key": "6cb8658c7e72134c80812cb29a2587e6a00a5679",
+      "figma_name": "💙 01.08_Menu / Basic",
+      "css": {
+        "display": "inline-flex",
+        "padding": "16px 8px",
+        "justify-content": "center",
+        "align-items": "center",
+        "gap": "10px",
+        "background": "var(--bg-1, #FFF)"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "padding": "16px 8px",
+          "justify-content": "center",
+          "align-items": "center",
+          "gap": "10px",
+          "background": "var(--bg-1, #FFF)"
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "css": {
+              "width": "64px",
+              "color": "var(--text-1, #000)",
+              "text-align": "center",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "14px",
+              "font-style": "normal",
+              "font-weight": "500",
+              "line-height": "22px"
+            },
+            "text": "选中"
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "💙 02.06_Checkbox / Usual",
+          "boolProp": "多选#62389:0",
+          "css": {
+            "width": "16px",
+            "height": "16px"
+          }
+        }
+      ],
+      "props": {
+        "Type": {
+          "options": ["Default", "Ranking"],
+          "default": "Default"
+        },
+        "State": {
+          "options": ["Selected", "Unselected"],
+          "default": "Selected"
+        }
+      }
+    },
+    "Default_Unselected": {
+      "figma_key": "b48f6ef482eb3fd5faf161570bf0f5173891f255",
+      "figma_name": "💙 01.08_Menu / Basic",
+      "_hidden": true,
+      "css": {
+        "display": "inline-flex",
+        "padding": "16px 8px",
+        "justify-content": "flex-end",
+        "align-items": "center",
+        "gap": "10px"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "padding": "16px 8px",
+          "justify-content": "flex-end",
+          "align-items": "center",
+          "gap": "10px"
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "css": {
+              "width": "64px",
+              "color": "var(--text-3, rgba(0, 0, 0, 0.40))",
+              "text-align": "center",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "14px",
+              "font-style": "normal",
+              "font-weight": "400",
+              "line-height": "22px"
+            },
+            "text": "未选中"
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "💙 02.06_Checkbox / Usual",
+          "boolProp": "多选#62389:0",
+          "css": {
+            "width": "16px",
+            "height": "16px",
+            "border-radius": "16px",
+            "background": "var(--white-soft-bg, rgba(255, 255, 255, 0.12))"
+          }
+        }
+      ],
+      "props": {
+        "Type": {
+          "options": ["Default", "Ranking"],
+          "default": "Default"
+        },
+        "State": {
+          "options": ["Selected", "Unselected"],
+          "default": "Unselected"
+        }
+      }
+    },
+    "Ranking_Selected": {
+      "figma_key": "52baf198048539e078914232fa82fc826f9dcc21",
+      "figma_name": "💙 01.08_Menu / Basic",
+      "_hidden": true,
+      "css": {
+        "display": "inline-flex",
+        "padding": "16px 8px",
+        "justify-content": "flex-end",
+        "align-items": "center",
+        "gap": "10px"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "padding": "16px 8px",
+          "justify-content": "flex-end",
+          "align-items": "center",
+          "gap": "10px"
+        },
+        "children": [
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "justify-content": "center",
+              "align-items": "center",
+              "gap": "4px"
+            },
+            "children": [
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "width": "16px",
+                  "height": "16px"
+                },
+                "ref": "💙 00.03_Icon / 24 / hot_2",
+                "key": "90820f4bfa9692ceffdd2d7cd8aa6284b4812ffb"
+              }
+            ]
+          }
+        ]
+      },
+      "props": {
+        "Type": {
+          "options": ["Default", "Ranking"],
+          "default": "Ranking"
+        },
+        "State": {
+          "options": ["Selected", "Unselected"],
+          "default": "Selected"
+        }
+      }
+    },
+    "_container": {
+      "figma_key": "8e8c3c2638db292e0643da82d258d275ce96b786",
+      "_hidden": true,
+      "css": {
+        "display": "flex",
+        "height": "860px",
+        "flex-direction": "column",
+        "align-items": "flex-start",
+        "background": "var(--secondary-softBg, #F7F7F9)"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "height": "860px",
+          "flex-direction": "column",
+          "align-items": "flex-start",
+          "background": "var(--secondary-softBg, #F7F7F9)"
+        },
+        "children": []
+      }
+    }
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "component": "💙 01.11_Home Indicator",
+  "figma_page": "01.11 Home Indicator",
+  "description": "iOS Home Indicator（手势条），位于页面底部安全区（34px）。Default 色系用于浅色背景，White 色系用于深色/图片背景。Bottom 变体在上方附加 Divider 分隔线，适合内容页底部收尾。",
+  "variants": {
+    "Default": {
+      "figma_key": "74a01ec4929fea33d9c179977bed0a5fb69fedda",
+      "figma_name": "💙 01.11_Home Indicator",
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "height": "34px",
+        "padding": "21px 120px 8px 121px",
+        "justify-content": "center",
+        "align-items": "center"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "height": "34px",
+          "padding": "21px 120px 8px 121px",
+          "justify-content": "center",
+          "align-items": "center"
+        },
+        "children": [
+          {
+            "type": "RECTANGLE",
+            "css": {
+              "width": "134px",
+              "height": "5px",
+              "flex-shrink": "0",
+              "border-radius": "100px",
+              "background": "var(--Main-neutral_05, rgba(0, 0, 0, 0.24))"
+            }
+          }
+        ]
+      },
+      "props": {
+        "Type": {
+          "options": ["Default", "Bottom"],
+          "default": "Default"
+        },
+        "Color": {
+          "options": ["Default", "White"],
+          "default": "Default",
+          "previewMap": {
+            "Default": "<div style=\"display:flex;width:375px;height:34px;padding:21px 120px 8px 121px;justify-content:center;align-items:center;box-sizing:border-box\"><div style=\"width:134px;height:5px;flex-shrink:0;border-radius:100px;background:rgba(0,0,0,0.24)\"></div></div>",
+            "White": "<div style=\"background:#1a1a1a;display:inline-flex\"><div style=\"display:flex;width:375px;height:34px;padding:21px 120px 8px 121px;justify-content:center;align-items:center;box-sizing:border-box\"><div style=\"width:134px;height:5px;flex-shrink:0;border-radius:100px;background:rgba(255,255,255,0.24)\"></div></div></div>"
+          }
+        }
+      }
+    },
+    "Bottom": {
+      "figma_key": "456c02a3b9fc5118cb50547d5cfd354a478410c6",
+      "figma_name": "💙 01.11_Home Indicator",
+      "_hidden": true,
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding-top": "16px",
+        "flex-direction": "column",
+        "align-items": "center",
+        "gap": "16px"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding-top": "16px",
+          "flex-direction": "column",
+          "align-items": "center",
+          "gap": "16px"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "355px",
+              "justify-content": "center",
+              "align-items": "center",
+              "gap": "12px"
+            },
+            "ref": "💙 00.06_Divider / Footer",
+            "key": "909a1e6293b786d905c3db4752febbb1464f8345"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "height": "34px",
+              "padding": "21px 120px 8px 121px",
+              "justify-content": "center",
+              "align-items": "center"
+            },
+            "ref": "💙 01.11_Home Indicator",
+            "key": "74a01ec4929fea33d9c179977bed0a5fb69fedda"
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "💙 00.06_Divider / Footer",
+          "css": {
+            "display": "flex",
+            "width": "355px",
+            "justify-content": "center",
+            "align-items": "center",
+            "gap": "12px"
+          }
+        }
+      ],
+      "props": {
+        "Type": {
+          "options": ["Default", "Bottom"],
+          "default": "Bottom"
+        },
+        "Color": {
+          "options": ["Default", "White"],
+          "default": "Default",
+          "previewMap": {
+            "Default": "<div style=\"width:375px;box-sizing:border-box;overflow:hidden\"><div style=\"display:flex;width:100%;padding-top:16px;flex-direction:column;align-items:center;gap:16px;box-sizing:border-box\"><div style=\"display:flex;width:355px;justify-content:center;align-items:center;gap:12px\"><div style=\"display:flex;width:355px;justify-content:center;align-items:center;gap:12px;overflow:hidden;min-width:0\"><div style=\"width:141.5px;height:1px;background:linear-gradient(270deg,rgba(0,0,0,.12) -0.35%,rgba(0,0,0,0) 97.74%)\"></div><div style=\"display:flex;justify-content:center;align-items:center;gap:2px\"><span style=\"font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:rgba(0,0,0,.40);white-space:nowrap\">文字内容</span></div><div style=\"width:141.5px;height:1px;background:linear-gradient(270deg,rgba(0,0,0,0) -0.35%,rgba(0,0,0,.12) 100%)\"></div></div></div><div style=\"display:flex;width:375px;height:34px;padding:21px 120px 8px 121px;justify-content:center;align-items:center;box-sizing:border-box\"><div style=\"width:134px;height:5px;flex-shrink:0;border-radius:100px;background:rgba(0,0,0,.24)\"></div></div></div></div>",
+            "White": "<div style=\"background:#1a1a1a;display:inline-flex\"><div style=\"width:375px;box-sizing:border-box;overflow:hidden\"><div style=\"display:flex;width:100%;padding-top:16px;flex-direction:column;align-items:center;gap:16px;box-sizing:border-box\"><div style=\"display:flex;width:355px;justify-content:center;align-items:center;gap:12px\"><div style=\"display:flex;width:355px;justify-content:center;align-items:center;gap:12px;overflow:hidden;min-width:0\"><div style=\"width:141.5px;height:1px;background:linear-gradient(270deg,rgba(255,255,255,.12) -0.35%,rgba(255,255,255,0) 97.74%)\"></div><div style=\"display:flex;justify-content:center;align-items:center;gap:2px\"><span style=\"font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:rgba(255,255,255,.40);white-space:nowrap\">文字内容</span></div><div style=\"width:141.5px;height:1px;background:linear-gradient(270deg,rgba(255,255,255,0) -0.35%,rgba(255,255,255,.12) 100%)\"></div></div></div><div style=\"display:flex;width:375px;height:34px;padding:21px 120px 8px 121px;justify-content:center;align-items:center;box-sizing:border-box\"><div style=\"width:134px;height:5px;flex-shrink:0;border-radius:100px;background:rgba(255,255,255,.24)\"></div></div></div></div></div>"
+          }
+        }
+      }
+    },
+    "Default_White": {
+      "figma_key": "20bde3e577a69cbafcd2b1fa8deeabde4b06d4ad",
+      "figma_name": "💙 01.11_Home Indicator",
+      "_hidden": true,
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "height": "34px",
+        "padding": "21px 120px 8px 121px",
+        "justify-content": "center",
+        "align-items": "center"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "height": "34px",
+          "padding": "21px 120px 8px 121px",
+          "justify-content": "center",
+          "align-items": "center"
+        },
+        "children": [
+          {
+            "type": "RECTANGLE",
+            "css": {
+              "width": "134px",
+              "height": "5px",
+              "flex-shrink": "0",
+              "border-radius": "100px",
+              "background": "var(--Main-white_05, rgba(255, 255, 255, 0.24))"
+            }
+          }
+        ]
+      }
+    },
+    "Bottom_White": {
+      "figma_key": "85bdb647bd825e77aee53cb059fbccd75a92d098",
+      "figma_name": "💙 01.11_Home Indicator",
+      "_hidden": true,
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding-top": "16px",
+        "flex-direction": "column",
+        "align-items": "center",
+        "gap": "16px"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding-top": "16px",
+          "flex-direction": "column",
+          "align-items": "center",
+          "gap": "16px"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "355px",
+              "justify-content": "center",
+              "align-items": "center",
+              "gap": "12px"
+            },
+            "ref": "💙 00.06_Divider / Footer",
+            "key": "909a1e6293b786d905c3db4752febbb1464f8345"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "height": "34px",
+              "padding": "21px 120px 8px 121px",
+              "justify-content": "center",
+              "align-items": "center"
+            },
+            "ref": "💙 01.11_Home Indicator",
+            "key": "74a01ec4929fea33d9c179977bed0a5fb69fedda"
+          }
+        ]
+      }
+    }
+  }
+}

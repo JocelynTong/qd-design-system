@@ -1,0 +1,3557 @@
+{
+  "component": "💙 01.04_SegmentedControl",
+  "figma_page": "01.04 SegmentedControl",
+  "description": "分段控制器，用于多选项切换。Default 色系适合浅色背景，White 色系适合深色/图片背景；三种尺寸 Medium(41px)/Normal(30px)/Small(24px)；支持 2–5 个选项。",
+  "variants": {
+    "Default_Medium_5": {
+      "figma_key": "2460f99c7c503e8b94954779cc39f6c413e336ef",
+      "css": {
+        "display": "flex",
+        "width": "430px",
+        "padding": "2px",
+        "align-items": "center",
+        "gap": "2px",
+        "border-radius": "var(--Radius-Normal, 8px)",
+        "background": "var(--mask-active, rgba(0, 0, 0, 0.04))"
+      },
+      "props": {
+        "Color": {
+          "options": [
+            "Default",
+            "White"
+          ],
+          "default": "Default"
+        },
+        "Size": {
+          "options": [
+            "Medium",
+            "Normal",
+            "Small"
+          ],
+          "default": "Medium"
+        },
+        "Num": {
+          "options": [
+            "5",
+            "4",
+            "3",
+            "2"
+          ],
+          "default": "5"
+        }
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "430px",
+          "padding": "2px",
+          "align-items": "center",
+          "gap": "2px",
+          "border-radius": "var(--Radius-Normal, 8px)",
+          "background": "var(--mask-active, rgba(0, 0, 0, 0.04))"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "6px",
+              "background": "var(--bg-3, #FFF)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "65a6347be72f5aabf384a1aa6999ac666cedeea3"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "6px"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "ff99327a9459c318adedacf7a785a3338ff0b5df"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "6px"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "ff99327a9459c318adedacf7a785a3338ff0b5df"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "6px"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "ff99327a9459c318adedacf7a785a3338ff0b5df"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "6px"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "ff99327a9459c318adedacf7a785a3338ff0b5df"
+          }
+        ]
+      }
+    },
+    "Default_Medium_4": {
+      "figma_key": "c8adfae45e0dbe6ccdc854301d56bce4594cd008",
+      "css": {
+        "display": "flex",
+        "width": "430px",
+        "padding": "2px",
+        "align-items": "center",
+        "gap": "2px",
+        "border-radius": "var(--Radius-Normal, 8px)",
+        "background": "var(--mask-active, rgba(0, 0, 0, 0.04))"
+      },
+      "props": {
+        "Color": {
+          "options": [
+            "Default",
+            "White"
+          ],
+          "default": "Default"
+        },
+        "Size": {
+          "options": [
+            "Medium",
+            "Normal",
+            "Small"
+          ],
+          "default": "Medium"
+        },
+        "Num": {
+          "options": [
+            "5",
+            "4",
+            "3",
+            "2"
+          ],
+          "default": "4"
+        }
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "430px",
+          "padding": "2px",
+          "align-items": "center",
+          "gap": "2px",
+          "border-radius": "var(--Radius-Normal, 8px)",
+          "background": "var(--mask-active, rgba(0, 0, 0, 0.04))"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "6px",
+              "background": "var(--bg-3, #FFF)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "65a6347be72f5aabf384a1aa6999ac666cedeea3"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "6px"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "ff99327a9459c318adedacf7a785a3338ff0b5df"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "6px"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "ff99327a9459c318adedacf7a785a3338ff0b5df"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "6px"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "ff99327a9459c318adedacf7a785a3338ff0b5df"
+          }
+        ]
+      }
+    },
+    "Default_Medium_3": {
+      "figma_key": "2fd87eb58f17419dfc0b23e1f797b7c1d87e015c",
+      "css": {
+        "display": "flex",
+        "width": "430px",
+        "padding": "2px",
+        "align-items": "center",
+        "gap": "2px",
+        "border-radius": "var(--Radius-Normal, 8px)",
+        "background": "var(--mask-active, rgba(0, 0, 0, 0.04))"
+      },
+      "props": {
+        "Color": {
+          "options": [
+            "Default",
+            "White"
+          ],
+          "default": "Default"
+        },
+        "Size": {
+          "options": [
+            "Medium",
+            "Normal",
+            "Small"
+          ],
+          "default": "Medium"
+        },
+        "Num": {
+          "options": [
+            "5",
+            "4",
+            "3",
+            "2"
+          ],
+          "default": "3"
+        }
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "430px",
+          "padding": "2px",
+          "align-items": "center",
+          "gap": "2px",
+          "border-radius": "var(--Radius-Normal, 8px)",
+          "background": "var(--mask-active, rgba(0, 0, 0, 0.04))"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "6px",
+              "background": "var(--bg-3, #FFF)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "65a6347be72f5aabf384a1aa6999ac666cedeea3"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "6px"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "ff99327a9459c318adedacf7a785a3338ff0b5df"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "6px"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "ff99327a9459c318adedacf7a785a3338ff0b5df"
+          }
+        ]
+      }
+    },
+    "Default_Medium_2": {
+      "figma_key": "a7f737aa0a4c08666ee07108e28575b6aeb6287a",
+      "css": {
+        "display": "flex",
+        "width": "430px",
+        "padding": "2px",
+        "align-items": "center",
+        "gap": "2px",
+        "border-radius": "var(--Radius-Normal, 8px)",
+        "background": "var(--mask-active, rgba(0, 0, 0, 0.04))"
+      },
+      "props": {
+        "Color": {
+          "options": [
+            "Default",
+            "White"
+          ],
+          "default": "Default"
+        },
+        "Size": {
+          "options": [
+            "Medium",
+            "Normal",
+            "Small"
+          ],
+          "default": "Medium"
+        },
+        "Num": {
+          "options": [
+            "5",
+            "4",
+            "3",
+            "2"
+          ],
+          "default": "2"
+        }
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "430px",
+          "padding": "2px",
+          "align-items": "center",
+          "gap": "2px",
+          "border-radius": "var(--Radius-Normal, 8px)",
+          "background": "var(--mask-active, rgba(0, 0, 0, 0.04))"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "6px",
+              "background": "var(--bg-3, #FFF)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "65a6347be72f5aabf384a1aa6999ac666cedeea3"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "6px"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "ff99327a9459c318adedacf7a785a3338ff0b5df"
+          }
+        ]
+      }
+    },
+    "White_Medium_5": {
+      "figma_key": "e5d38e7ddb04d4762e5a3b2c69b77a4af9b68e0d",
+      "css": {
+        "display": "flex",
+        "width": "430px",
+        "padding": "2px",
+        "align-items": "center",
+        "gap": "2px",
+        "border-radius": "var(--Radius-Normal, 8px)",
+        "background": "var(--white-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+      },
+      "props": {
+        "Color": {
+          "options": [
+            "Default",
+            "White"
+          ],
+          "default": "White"
+        },
+        "Size": {
+          "options": [
+            "Medium",
+            "Normal",
+            "Small"
+          ],
+          "default": "Medium"
+        },
+        "Num": {
+          "options": [
+            "5",
+            "4",
+            "3",
+            "2"
+          ],
+          "default": "5"
+        }
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "430px",
+          "padding": "2px",
+          "align-items": "center",
+          "gap": "2px",
+          "border-radius": "var(--Radius-Normal, 8px)",
+          "background": "var(--white-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "6px",
+              "background": "var(--Main-white_05, rgba(255, 255, 255, 0.24))"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "c9c997a245b5da9e72153c9608450b7fae206424"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "d1d3f8226bfb72a72c26697090c1605d5a03274b"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "d1d3f8226bfb72a72c26697090c1605d5a03274b"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "d1d3f8226bfb72a72c26697090c1605d5a03274b"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "d1d3f8226bfb72a72c26697090c1605d5a03274b"
+          }
+        ]
+      }
+    },
+    "White_Medium_4": {
+      "figma_key": "e36a4928b5bc8c3780103448c2bc67883e253e41",
+      "css": {
+        "display": "flex",
+        "width": "430px",
+        "padding": "2px",
+        "align-items": "center",
+        "gap": "2px",
+        "border-radius": "var(--Radius-Normal, 8px)",
+        "background": "var(--white-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+      },
+      "props": {
+        "Color": {
+          "options": [
+            "Default",
+            "White"
+          ],
+          "default": "White"
+        },
+        "Size": {
+          "options": [
+            "Medium",
+            "Normal",
+            "Small"
+          ],
+          "default": "Medium"
+        },
+        "Num": {
+          "options": [
+            "5",
+            "4",
+            "3",
+            "2"
+          ],
+          "default": "4"
+        }
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "430px",
+          "padding": "2px",
+          "align-items": "center",
+          "gap": "2px",
+          "border-radius": "var(--Radius-Normal, 8px)",
+          "background": "var(--white-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "6px",
+              "background": "var(--Main-white_05, rgba(255, 255, 255, 0.24))"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "c9c997a245b5da9e72153c9608450b7fae206424"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "d1d3f8226bfb72a72c26697090c1605d5a03274b"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "d1d3f8226bfb72a72c26697090c1605d5a03274b"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "d1d3f8226bfb72a72c26697090c1605d5a03274b"
+          }
+        ]
+      }
+    },
+    "White_Medium_3": {
+      "figma_key": "0422385cd7c5f8cd6231d8a442f8e31d1096fbb2",
+      "css": {
+        "display": "flex",
+        "width": "430px",
+        "padding": "2px",
+        "align-items": "center",
+        "gap": "2px",
+        "border-radius": "var(--Radius-Normal, 8px)",
+        "background": "var(--white-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+      },
+      "props": {
+        "Color": {
+          "options": [
+            "Default",
+            "White"
+          ],
+          "default": "White"
+        },
+        "Size": {
+          "options": [
+            "Medium",
+            "Normal",
+            "Small"
+          ],
+          "default": "Medium"
+        },
+        "Num": {
+          "options": [
+            "5",
+            "4",
+            "3",
+            "2"
+          ],
+          "default": "3"
+        }
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "430px",
+          "padding": "2px",
+          "align-items": "center",
+          "gap": "2px",
+          "border-radius": "var(--Radius-Normal, 8px)",
+          "background": "var(--white-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "6px",
+              "background": "var(--Main-white_05, rgba(255, 255, 255, 0.24))"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "c9c997a245b5da9e72153c9608450b7fae206424"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "d1d3f8226bfb72a72c26697090c1605d5a03274b"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "d1d3f8226bfb72a72c26697090c1605d5a03274b"
+          }
+        ]
+      }
+    },
+    "White_Medium_2": {
+      "figma_key": "90d945078c828ea2bdee410c14e77067c4bdbd5b",
+      "css": {
+        "display": "flex",
+        "width": "430px",
+        "padding": "2px",
+        "align-items": "center",
+        "gap": "2px",
+        "border-radius": "var(--Radius-Normal, 8px)",
+        "background": "var(--white-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+      },
+      "props": {
+        "Color": {
+          "options": [
+            "Default",
+            "White"
+          ],
+          "default": "White"
+        },
+        "Size": {
+          "options": [
+            "Medium",
+            "Normal",
+            "Small"
+          ],
+          "default": "Medium"
+        },
+        "Num": {
+          "options": [
+            "5",
+            "4",
+            "3",
+            "2"
+          ],
+          "default": "2"
+        }
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "430px",
+          "padding": "2px",
+          "align-items": "center",
+          "gap": "2px",
+          "border-radius": "var(--Radius-Normal, 8px)",
+          "background": "var(--white-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "6px",
+              "background": "var(--Main-white_05, rgba(255, 255, 255, 0.24))"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "c9c997a245b5da9e72153c9608450b7fae206424"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "41px",
+              "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "d1d3f8226bfb72a72c26697090c1605d5a03274b"
+          }
+        ]
+      }
+    },
+    "Default_Normal_5": {
+      "figma_key": "9a50d954e383d528e1e1c733ec91e4e07204c0d6",
+      "css": {
+        "display": "flex",
+        "width": "430px",
+        "padding": "2px",
+        "align-items": "center",
+        "gap": "2px",
+        "border-radius": "6px",
+        "background": "var(--mask-active, rgba(0, 0, 0, 0.04))"
+      },
+      "props": {
+        "Color": {
+          "options": [
+            "Default",
+            "White"
+          ],
+          "default": "Default"
+        },
+        "Size": {
+          "options": [
+            "Medium",
+            "Normal",
+            "Small"
+          ],
+          "default": "Normal"
+        },
+        "Num": {
+          "options": [
+            "5",
+            "4",
+            "3",
+            "2"
+          ],
+          "default": "5"
+        }
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "430px",
+          "padding": "2px",
+          "align-items": "center",
+          "gap": "2px",
+          "border-radius": "6px",
+          "background": "var(--mask-active, rgba(0, 0, 0, 0.04))"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)",
+              "background": "var(--bg-3, #FFF)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "7d8df12bf90e8b4211a5668edd4789d033b56350"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "fec3eee305154c972bf4cec0a700f2f94b466230"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "fec3eee305154c972bf4cec0a700f2f94b466230"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "fec3eee305154c972bf4cec0a700f2f94b466230"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "fec3eee305154c972bf4cec0a700f2f94b466230"
+          }
+        ]
+      }
+    },
+    "Default_Normal_4": {
+      "figma_key": "dcc3bb6771d264aca2b7d325c9b88ed29d7115df",
+      "css": {
+        "display": "flex",
+        "width": "430px",
+        "padding": "2px",
+        "align-items": "center",
+        "gap": "2px",
+        "border-radius": "6px",
+        "background": "var(--mask-active, rgba(0, 0, 0, 0.04))"
+      },
+      "props": {
+        "Color": {
+          "options": [
+            "Default",
+            "White"
+          ],
+          "default": "Default"
+        },
+        "Size": {
+          "options": [
+            "Medium",
+            "Normal",
+            "Small"
+          ],
+          "default": "Normal"
+        },
+        "Num": {
+          "options": [
+            "5",
+            "4",
+            "3",
+            "2"
+          ],
+          "default": "4"
+        }
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "430px",
+          "padding": "2px",
+          "align-items": "center",
+          "gap": "2px",
+          "border-radius": "6px",
+          "background": "var(--mask-active, rgba(0, 0, 0, 0.04))"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)",
+              "background": "var(--bg-3, #FFF)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "7d8df12bf90e8b4211a5668edd4789d033b56350"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "fec3eee305154c972bf4cec0a700f2f94b466230"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "fec3eee305154c972bf4cec0a700f2f94b466230"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "fec3eee305154c972bf4cec0a700f2f94b466230"
+          }
+        ]
+      }
+    },
+    "Default_Normal_3": {
+      "figma_key": "9df10983fbe5f8bf175a906f5fdb32424e386cf3",
+      "css": {
+        "display": "flex",
+        "width": "430px",
+        "padding": "2px",
+        "align-items": "center",
+        "gap": "2px",
+        "border-radius": "6px",
+        "background": "var(--mask-active, rgba(0, 0, 0, 0.04))"
+      },
+      "props": {
+        "Color": {
+          "options": [
+            "Default",
+            "White"
+          ],
+          "default": "Default"
+        },
+        "Size": {
+          "options": [
+            "Medium",
+            "Normal",
+            "Small"
+          ],
+          "default": "Normal"
+        },
+        "Num": {
+          "options": [
+            "5",
+            "4",
+            "3",
+            "2"
+          ],
+          "default": "3"
+        }
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "430px",
+          "padding": "2px",
+          "align-items": "center",
+          "gap": "2px",
+          "border-radius": "6px",
+          "background": "var(--mask-active, rgba(0, 0, 0, 0.04))"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)",
+              "background": "var(--bg-3, #FFF)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "7d8df12bf90e8b4211a5668edd4789d033b56350"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "fec3eee305154c972bf4cec0a700f2f94b466230"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "fec3eee305154c972bf4cec0a700f2f94b466230"
+          }
+        ]
+      }
+    },
+    "Default_Normal_2": {
+      "figma_key": "e338c589c4caaf6070bb59199c01e78f15541987",
+      "css": {
+        "display": "flex",
+        "width": "430px",
+        "padding": "2px",
+        "align-items": "center",
+        "gap": "2px",
+        "border-radius": "6px",
+        "background": "var(--mask-active, rgba(0, 0, 0, 0.04))"
+      },
+      "props": {
+        "Color": {
+          "options": [
+            "Default",
+            "White"
+          ],
+          "default": "Default"
+        },
+        "Size": {
+          "options": [
+            "Medium",
+            "Normal",
+            "Small"
+          ],
+          "default": "Normal"
+        },
+        "Num": {
+          "options": [
+            "5",
+            "4",
+            "3",
+            "2"
+          ],
+          "default": "2"
+        }
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "430px",
+          "padding": "2px",
+          "align-items": "center",
+          "gap": "2px",
+          "border-radius": "6px",
+          "background": "var(--mask-active, rgba(0, 0, 0, 0.04))"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)",
+              "background": "var(--bg-3, #FFF)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "7d8df12bf90e8b4211a5668edd4789d033b56350"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "fec3eee305154c972bf4cec0a700f2f94b466230"
+          }
+        ]
+      }
+    },
+    "White_Normal_5": {
+      "figma_key": "47d86cdcd4f978b1e1593519d68b201e3bfefefa",
+      "css": {
+        "display": "flex",
+        "width": "430px",
+        "padding": "2px",
+        "align-items": "center",
+        "gap": "2px",
+        "border-radius": "6px",
+        "background": "var(--white-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+      },
+      "props": {
+        "Color": {
+          "options": [
+            "Default",
+            "White"
+          ],
+          "default": "White"
+        },
+        "Size": {
+          "options": [
+            "Medium",
+            "Normal",
+            "Small"
+          ],
+          "default": "Normal"
+        },
+        "Num": {
+          "options": [
+            "5",
+            "4",
+            "3",
+            "2"
+          ],
+          "default": "5"
+        }
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "430px",
+          "padding": "2px",
+          "align-items": "center",
+          "gap": "2px",
+          "border-radius": "6px",
+          "background": "var(--white-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)",
+              "background": "var(--Main-white_05, rgba(255, 255, 255, 0.24))"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "f8ab8778e19699eb5f9ca13370e27eec04dd2738"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "fd6b7b07a1ae83665fe355bec5681b9665815041"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "fd6b7b07a1ae83665fe355bec5681b9665815041"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "fd6b7b07a1ae83665fe355bec5681b9665815041"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "fd6b7b07a1ae83665fe355bec5681b9665815041"
+          }
+        ]
+      }
+    },
+    "White_Normal_4": {
+      "figma_key": "393c131a517bb5a643d2633851e5b931de3442bf",
+      "css": {
+        "display": "flex",
+        "width": "430px",
+        "padding": "2px",
+        "align-items": "center",
+        "gap": "2px",
+        "border-radius": "6px",
+        "background": "var(--white-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+      },
+      "props": {
+        "Color": {
+          "options": [
+            "Default",
+            "White"
+          ],
+          "default": "White"
+        },
+        "Size": {
+          "options": [
+            "Medium",
+            "Normal",
+            "Small"
+          ],
+          "default": "Normal"
+        },
+        "Num": {
+          "options": [
+            "5",
+            "4",
+            "3",
+            "2"
+          ],
+          "default": "4"
+        }
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "430px",
+          "padding": "2px",
+          "align-items": "center",
+          "gap": "2px",
+          "border-radius": "6px",
+          "background": "var(--white-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)",
+              "background": "var(--Main-white_05, rgba(255, 255, 255, 0.24))"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "f8ab8778e19699eb5f9ca13370e27eec04dd2738"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "fd6b7b07a1ae83665fe355bec5681b9665815041"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "fd6b7b07a1ae83665fe355bec5681b9665815041"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "fd6b7b07a1ae83665fe355bec5681b9665815041"
+          }
+        ]
+      }
+    },
+    "White_Normal_3": {
+      "figma_key": "3c4ba758f6aa62af4faf051a7618df99dec6924d",
+      "css": {
+        "display": "flex",
+        "width": "430px",
+        "padding": "2px",
+        "align-items": "center",
+        "gap": "2px",
+        "border-radius": "6px",
+        "background": "var(--white-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+      },
+      "props": {
+        "Color": {
+          "options": [
+            "Default",
+            "White"
+          ],
+          "default": "White"
+        },
+        "Size": {
+          "options": [
+            "Medium",
+            "Normal",
+            "Small"
+          ],
+          "default": "Normal"
+        },
+        "Num": {
+          "options": [
+            "5",
+            "4",
+            "3",
+            "2"
+          ],
+          "default": "3"
+        }
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "430px",
+          "padding": "2px",
+          "align-items": "center",
+          "gap": "2px",
+          "border-radius": "6px",
+          "background": "var(--white-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)",
+              "background": "var(--Main-white_05, rgba(255, 255, 255, 0.24))"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "f8ab8778e19699eb5f9ca13370e27eec04dd2738"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "fd6b7b07a1ae83665fe355bec5681b9665815041"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "fd6b7b07a1ae83665fe355bec5681b9665815041"
+          }
+        ]
+      }
+    },
+    "White_Normal_2": {
+      "figma_key": "04371257022c1c00a3fc94b05ac127d4de1c535b",
+      "css": {
+        "display": "flex",
+        "width": "430px",
+        "padding": "2px",
+        "align-items": "center",
+        "gap": "2px",
+        "border-radius": "6px",
+        "background": "var(--white-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+      },
+      "props": {
+        "Color": {
+          "options": [
+            "Default",
+            "White"
+          ],
+          "default": "White"
+        },
+        "Size": {
+          "options": [
+            "Medium",
+            "Normal",
+            "Small"
+          ],
+          "default": "Normal"
+        },
+        "Num": {
+          "options": [
+            "5",
+            "4",
+            "3",
+            "2"
+          ],
+          "default": "2"
+        }
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "430px",
+          "padding": "2px",
+          "align-items": "center",
+          "gap": "2px",
+          "border-radius": "6px",
+          "background": "var(--white-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)",
+              "background": "var(--Main-white_05, rgba(255, 255, 255, 0.24))"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "f8ab8778e19699eb5f9ca13370e27eec04dd2738"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "30px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "fd6b7b07a1ae83665fe355bec5681b9665815041"
+          }
+        ]
+      }
+    },
+    "Default_Small_5": {
+      "figma_key": "86cd7759329498bbb29273b2e9856e05bd82fb75",
+      "css": {
+        "display": "flex",
+        "width": "430px",
+        "padding": "2px",
+        "align-items": "center",
+        "gap": "2px",
+        "border-radius": "6px",
+        "background": "var(--mask-active, rgba(0, 0, 0, 0.04))"
+      },
+      "props": {
+        "Color": {
+          "options": [
+            "Default",
+            "White"
+          ],
+          "default": "Default"
+        },
+        "Size": {
+          "options": [
+            "Medium",
+            "Normal",
+            "Small"
+          ],
+          "default": "Small"
+        },
+        "Num": {
+          "options": [
+            "5",
+            "4",
+            "3",
+            "2"
+          ],
+          "default": "5"
+        }
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "430px",
+          "padding": "2px",
+          "align-items": "center",
+          "gap": "2px",
+          "border-radius": "6px",
+          "background": "var(--mask-active, rgba(0, 0, 0, 0.04))"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)",
+              "background": "var(--bg-3, #FFF)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "8472e0f002f33bfc3b17d0f6e2fd40f1aa3b7450"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "0bedfdf2e6097f753635d83584be8b6f0b34bcf8"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "0bedfdf2e6097f753635d83584be8b6f0b34bcf8"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "0bedfdf2e6097f753635d83584be8b6f0b34bcf8"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "0bedfdf2e6097f753635d83584be8b6f0b34bcf8"
+          }
+        ]
+      }
+    },
+    "Default_Small_4": {
+      "figma_key": "5b8bfd3a55011a06e3eb845fa358895b142ee100",
+      "css": {
+        "display": "flex",
+        "width": "430px",
+        "padding": "2px",
+        "align-items": "center",
+        "gap": "2px",
+        "border-radius": "6px",
+        "background": "var(--mask-active, rgba(0, 0, 0, 0.04))"
+      },
+      "props": {
+        "Color": {
+          "options": [
+            "Default",
+            "White"
+          ],
+          "default": "Default"
+        },
+        "Size": {
+          "options": [
+            "Medium",
+            "Normal",
+            "Small"
+          ],
+          "default": "Small"
+        },
+        "Num": {
+          "options": [
+            "5",
+            "4",
+            "3",
+            "2"
+          ],
+          "default": "4"
+        }
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "430px",
+          "padding": "2px",
+          "align-items": "center",
+          "gap": "2px",
+          "border-radius": "6px",
+          "background": "var(--mask-active, rgba(0, 0, 0, 0.04))"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)",
+              "background": "var(--bg-3, #FFF)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "8472e0f002f33bfc3b17d0f6e2fd40f1aa3b7450"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "0bedfdf2e6097f753635d83584be8b6f0b34bcf8"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "0bedfdf2e6097f753635d83584be8b6f0b34bcf8"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "0bedfdf2e6097f753635d83584be8b6f0b34bcf8"
+          }
+        ]
+      }
+    },
+    "Default_Small_3": {
+      "figma_key": "789111d2b5c35cde4ed41cae11e36bfe82c0da79",
+      "css": {
+        "display": "flex",
+        "width": "430px",
+        "padding": "2px",
+        "align-items": "center",
+        "gap": "2px",
+        "border-radius": "6px",
+        "background": "var(--mask-active, rgba(0, 0, 0, 0.04))"
+      },
+      "props": {
+        "Color": {
+          "options": [
+            "Default",
+            "White"
+          ],
+          "default": "Default"
+        },
+        "Size": {
+          "options": [
+            "Medium",
+            "Normal",
+            "Small"
+          ],
+          "default": "Small"
+        },
+        "Num": {
+          "options": [
+            "5",
+            "4",
+            "3",
+            "2"
+          ],
+          "default": "3"
+        }
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "430px",
+          "padding": "2px",
+          "align-items": "center",
+          "gap": "2px",
+          "border-radius": "6px",
+          "background": "var(--mask-active, rgba(0, 0, 0, 0.04))"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)",
+              "background": "var(--bg-3, #FFF)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "8472e0f002f33bfc3b17d0f6e2fd40f1aa3b7450"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "0bedfdf2e6097f753635d83584be8b6f0b34bcf8"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "0bedfdf2e6097f753635d83584be8b6f0b34bcf8"
+          }
+        ]
+      }
+    },
+    "Default_Small_2": {
+      "figma_key": "feb4f57150bfb4334155af6ea59777e23f3ee273",
+      "css": {
+        "display": "flex",
+        "width": "430px",
+        "padding": "2px",
+        "align-items": "center",
+        "gap": "2px",
+        "border-radius": "6px",
+        "background": "var(--mask-active, rgba(0, 0, 0, 0.04))"
+      },
+      "props": {
+        "Color": {
+          "options": [
+            "Default",
+            "White"
+          ],
+          "default": "Default"
+        },
+        "Size": {
+          "options": [
+            "Medium",
+            "Normal",
+            "Small"
+          ],
+          "default": "Small"
+        },
+        "Num": {
+          "options": [
+            "5",
+            "4",
+            "3",
+            "2"
+          ],
+          "default": "2"
+        }
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "430px",
+          "padding": "2px",
+          "align-items": "center",
+          "gap": "2px",
+          "border-radius": "6px",
+          "background": "var(--mask-active, rgba(0, 0, 0, 0.04))"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)",
+              "background": "var(--bg-3, #FFF)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "8472e0f002f33bfc3b17d0f6e2fd40f1aa3b7450"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "0bedfdf2e6097f753635d83584be8b6f0b34bcf8"
+          }
+        ]
+      }
+    },
+    "White_Small_5": {
+      "figma_key": "1e0aab4e00ab748a7dd3d13567d56745a75fae99",
+      "css": {
+        "display": "flex",
+        "width": "430px",
+        "padding": "2px",
+        "align-items": "center",
+        "gap": "2px",
+        "border-radius": "6px",
+        "background": "var(--white-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+      },
+      "props": {
+        "Color": {
+          "options": [
+            "Default",
+            "White"
+          ],
+          "default": "White"
+        },
+        "Size": {
+          "options": [
+            "Medium",
+            "Normal",
+            "Small"
+          ],
+          "default": "Small"
+        },
+        "Num": {
+          "options": [
+            "5",
+            "4",
+            "3",
+            "2"
+          ],
+          "default": "5"
+        }
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "430px",
+          "padding": "2px",
+          "align-items": "center",
+          "gap": "2px",
+          "border-radius": "6px",
+          "background": "var(--white-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)",
+              "background": "var(--Main-white_05, rgba(255, 255, 255, 0.24))"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "a6d43345dd640a855d54b45e30afef895e2a6c75"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "46c5ee0b934f3bc0d6aaba367c409987b3b4e143"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "46c5ee0b934f3bc0d6aaba367c409987b3b4e143"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "46c5ee0b934f3bc0d6aaba367c409987b3b4e143"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "46c5ee0b934f3bc0d6aaba367c409987b3b4e143"
+          }
+        ]
+      }
+    },
+    "White_Small_4": {
+      "figma_key": "4ca9a57572cc30ba6bde16e9a64dfc8c1a356332",
+      "css": {
+        "display": "flex",
+        "width": "430px",
+        "padding": "2px",
+        "align-items": "center",
+        "gap": "2px",
+        "border-radius": "6px",
+        "background": "var(--white-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+      },
+      "props": {
+        "Color": {
+          "options": [
+            "Default",
+            "White"
+          ],
+          "default": "White"
+        },
+        "Size": {
+          "options": [
+            "Medium",
+            "Normal",
+            "Small"
+          ],
+          "default": "Small"
+        },
+        "Num": {
+          "options": [
+            "5",
+            "4",
+            "3",
+            "2"
+          ],
+          "default": "4"
+        }
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "430px",
+          "padding": "2px",
+          "align-items": "center",
+          "gap": "2px",
+          "border-radius": "6px",
+          "background": "var(--white-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)",
+              "background": "var(--Main-white_05, rgba(255, 255, 255, 0.24))"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "a6d43345dd640a855d54b45e30afef895e2a6c75"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "46c5ee0b934f3bc0d6aaba367c409987b3b4e143"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "46c5ee0b934f3bc0d6aaba367c409987b3b4e143"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "46c5ee0b934f3bc0d6aaba367c409987b3b4e143"
+          }
+        ]
+      }
+    },
+    "White_Small_3": {
+      "figma_key": "47632f99932d5bd2bbbddab2e33db4ff4fec9b9a",
+      "css": {
+        "display": "flex",
+        "width": "430px",
+        "padding": "2px",
+        "align-items": "center",
+        "gap": "2px",
+        "border-radius": "6px",
+        "background": "var(--white-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+      },
+      "props": {
+        "Color": {
+          "options": [
+            "Default",
+            "White"
+          ],
+          "default": "White"
+        },
+        "Size": {
+          "options": [
+            "Medium",
+            "Normal",
+            "Small"
+          ],
+          "default": "Small"
+        },
+        "Num": {
+          "options": [
+            "5",
+            "4",
+            "3",
+            "2"
+          ],
+          "default": "3"
+        }
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "430px",
+          "padding": "2px",
+          "align-items": "center",
+          "gap": "2px",
+          "border-radius": "6px",
+          "background": "var(--white-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)",
+              "background": "var(--Main-white_05, rgba(255, 255, 255, 0.24))"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "a6d43345dd640a855d54b45e30afef895e2a6c75"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "46c5ee0b934f3bc0d6aaba367c409987b3b4e143"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "46c5ee0b934f3bc0d6aaba367c409987b3b4e143"
+          }
+        ]
+      }
+    },
+    "White_Small_2": {
+      "figma_key": "ab8d6e9ebec662aac947cc682e6c9ee8ed9a6762",
+      "css": {
+        "display": "flex",
+        "width": "430px",
+        "padding": "2px",
+        "align-items": "center",
+        "gap": "2px",
+        "border-radius": "6px",
+        "background": "var(--white-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+      },
+      "props": {
+        "Color": {
+          "options": [
+            "Default",
+            "White"
+          ],
+          "default": "White"
+        },
+        "Size": {
+          "options": [
+            "Medium",
+            "Normal",
+            "Small"
+          ],
+          "default": "Small"
+        },
+        "Num": {
+          "options": [
+            "5",
+            "4",
+            "3",
+            "2"
+          ],
+          "default": "2"
+        }
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "430px",
+          "padding": "2px",
+          "align-items": "center",
+          "gap": "2px",
+          "border-radius": "6px",
+          "background": "var(--white-softDisabledtempBg, rgba(255, 255, 255, 0.04))"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)",
+              "background": "var(--Main-white_05, rgba(255, 255, 255, 0.24))"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "a6d43345dd640a855d54b45e30afef895e2a6c75"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "padding": "0 var(--Spacing-Large, 16px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "flex": "1 0 0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "💙 01.04_SegmentedControl / Basic",
+            "key": "46c5ee0b934f3bc0d6aaba367c409987b3b4e143"
+          }
+        ]
+      }
+    },
+    "Basic_Selected_Medium_Default": {
+      "figma_key": "65a6347be72f5aabf384a1aa6999ac666cedeea3",
+      "figma_name": "💙 01.04_SegmentedControl / Basic",
+      "_hidden": true,
+      "css": {
+        "display": "flex",
+        "width": "82px",
+        "height": "41px",
+        "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+        "flex-direction": "column",
+        "justify-content": "center",
+        "align-items": "center",
+        "border-radius": "6px",
+        "background": "var(--bg-3, #FFF)"
+      },
+      "slots": [
+        {
+          "name": "💙 00.03_Icon / time",
+          "boolProp": "Icon#85948:8",
+          "css": {
+            "width": "12px",
+            "height": "12px"
+          }
+        },
+        {
+          "name": "Summary",
+          "boolProp": "Summary#85948:2",
+          "css": {
+            "color": "var(--text-2, rgba(0, 0, 0, 0.64))",
+            "font-family": "\"PingFang SC\"",
+            "font-size": "10px",
+            "font-weight": "400",
+            "line-height": "11px"
+          }
+        },
+        {
+          "name": "💙  03.01_Badge",
+          "boolProp": "Badge#85948:11",
+          "css": {
+            "display": "flex",
+            "justify-content": "flex-end",
+            "align-items": "flex-start",
+            "position": "absolute",
+            "right": "4px",
+            "top": "4px",
+            "border-radius": "12.8px"
+          }
+        }
+      ],
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "82px",
+          "height": "41px",
+          "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+          "flex-direction": "column",
+          "justify-content": "center",
+          "align-items": "center",
+          "border-radius": "6px",
+          "background": "var(--bg-3, #FFF)"
+        },
+        "children": [
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "justify-content": "center",
+              "align-items": "center",
+              "gap": "var(--Spacing-Small, 4px)",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "width": "12px",
+                  "height": "12px"
+                },
+                "ref": "💙 00.03_Icon / time",
+                "key": "c9f3664c2f188015bd4ddede1194075774032939"
+              },
+              {
+                "type": "TEXT",
+                "css": {
+                  "display": "-webkit-box",
+                  "-webkit-box-orient": "vertical",
+                  "-webkit-line-clamp": "1",
+                  "overflow": "hidden",
+                  "color": "var(--text-1, #000)",
+                  "font-feature-settings": "'liga' off, 'clig' off",
+                  "text-overflow": "ellipsis",
+                  "font-family": "\"PingFang SC\"",
+                  "font-size": "16px",
+                  "font-style": "normal",
+                  "font-weight": "500",
+                  "line-height": "24px"
+                },
+                "text": "文本"
+              }
+            ]
+          },
+          {
+            "type": "TEXT",
+            "css": {
+              "display": "-webkit-box",
+              "-webkit-box-orient": "vertical",
+              "-webkit-line-clamp": "1",
+              "align-self": "stretch",
+              "overflow": "hidden",
+              "color": "var(--text-2, rgba(0, 0, 0, 0.64))",
+              "text-align": "center",
+              "font-feature-settings": "'liga' off, 'clig' off",
+              "text-overflow": "ellipsis",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "10px",
+              "font-style": "normal",
+              "font-weight": "400",
+              "line-height": "11px"
+            },
+            "text": "这是副标题"
+          }
+        ]
+      }
+    },
+    "Basic_Unselected_Medium_Default": {
+      "figma_key": "ff99327a9459c318adedacf7a785a3338ff0b5df",
+      "figma_name": "💙 01.04_SegmentedControl / Basic",
+      "_hidden": true,
+      "css": {
+        "display": "flex",
+        "width": "82px",
+        "height": "41px",
+        "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+        "flex-direction": "column",
+        "justify-content": "center",
+        "align-items": "center",
+        "border-radius": "6px"
+      },
+      "slots": [
+        {
+          "name": "💙 00.03_Icon / time",
+          "boolProp": "Icon#85948:8",
+          "css": {
+            "width": "12px",
+            "height": "12px"
+          }
+        },
+        {
+          "name": "Summary",
+          "boolProp": "Summary#85948:2",
+          "css": {
+            "color": "var(--text-3, rgba(0, 0, 0, 0.40))",
+            "font-family": "\"PingFang SC\"",
+            "font-size": "10px",
+            "font-weight": "400",
+            "line-height": "11px"
+          }
+        },
+        {
+          "name": "💙  03.01_Badge",
+          "boolProp": "Badge#85948:11",
+          "css": {
+            "display": "flex",
+            "justify-content": "flex-end",
+            "align-items": "flex-start",
+            "position": "absolute",
+            "right": "4px",
+            "top": "4px",
+            "border-radius": "12.8px"
+          }
+        }
+      ],
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "82px",
+          "height": "41px",
+          "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+          "flex-direction": "column",
+          "justify-content": "center",
+          "align-items": "center",
+          "border-radius": "6px"
+        },
+        "children": [
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "justify-content": "center",
+              "align-items": "center",
+              "gap": "var(--Spacing-Small, 4px)",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "width": "12px",
+                  "height": "12px"
+                },
+                "ref": "💙 00.03_Icon / time",
+                "key": "c9f3664c2f188015bd4ddede1194075774032939"
+              },
+              {
+                "type": "TEXT",
+                "css": {
+                  "display": "-webkit-box",
+                  "-webkit-box-orient": "vertical",
+                  "-webkit-line-clamp": "1",
+                  "overflow": "hidden",
+                  "color": "var(--text-3, rgba(0, 0, 0, 0.40))",
+                  "font-feature-settings": "'liga' off, 'clig' off",
+                  "text-overflow": "ellipsis",
+                  "font-family": "\"PingFang SC\"",
+                  "font-size": "16px",
+                  "font-style": "normal",
+                  "font-weight": "400",
+                  "line-height": "24px"
+                },
+                "text": "文本"
+              }
+            ]
+          },
+          {
+            "type": "TEXT",
+            "css": {
+              "display": "-webkit-box",
+              "-webkit-box-orient": "vertical",
+              "-webkit-line-clamp": "1",
+              "align-self": "stretch",
+              "overflow": "hidden",
+              "color": "var(--text-3, rgba(0, 0, 0, 0.40))",
+              "text-align": "center",
+              "font-feature-settings": "'liga' off, 'clig' off",
+              "text-overflow": "ellipsis",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "10px",
+              "font-style": "normal",
+              "font-weight": "400",
+              "line-height": "11px"
+            },
+            "text": "这是副标题"
+          }
+        ]
+      }
+    },
+    "Basic_Selected_Normal_Default": {
+      "figma_key": "7d8df12bf90e8b4211a5668edd4789d033b56350",
+      "figma_name": "💙 01.04_SegmentedControl / Basic",
+      "_hidden": true,
+      "css": {
+        "display": "flex",
+        "width": "82px",
+        "height": "30px",
+        "padding": "0 var(--Spacing-Large, 16px)",
+        "flex-direction": "column",
+        "justify-content": "center",
+        "align-items": "center",
+        "border-radius": "var(--Radius-Small, 4px)",
+        "background": "var(--bg-3, #FFF)"
+      },
+      "slots": [
+        {
+          "name": "💙 00.03_Icon / time",
+          "boolProp": "Icon#85948:8",
+          "css": {
+            "width": "12px",
+            "height": "12px"
+          }
+        },
+        {
+          "name": "💙  03.01_Badge",
+          "boolProp": "Badge#85948:11",
+          "css": {
+            "display": "flex",
+            "justify-content": "flex-end",
+            "align-items": "flex-start",
+            "position": "absolute",
+            "right": "4px",
+            "top": "4px",
+            "border-radius": "12.8px"
+          }
+        }
+      ],
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "82px",
+          "height": "30px",
+          "padding": "0 var(--Spacing-Large, 16px)",
+          "flex-direction": "column",
+          "justify-content": "center",
+          "align-items": "center",
+          "border-radius": "var(--Radius-Small, 4px)",
+          "background": "var(--bg-3, #FFF)"
+        },
+        "children": [
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "justify-content": "center",
+              "align-items": "center",
+              "gap": "var(--Spacing-Small, 4px)",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "width": "12px",
+                  "height": "12px"
+                },
+                "ref": "💙 00.03_Icon / time",
+                "key": "c9f3664c2f188015bd4ddede1194075774032939"
+              },
+              {
+                "type": "TEXT",
+                "css": {
+                  "display": "-webkit-box",
+                  "-webkit-box-orient": "vertical",
+                  "-webkit-line-clamp": "1",
+                  "overflow": "hidden",
+                  "color": "var(--text-1, #000)",
+                  "font-feature-settings": "'liga' off, 'clig' off",
+                  "text-overflow": "ellipsis",
+                  "font-family": "\"PingFang SC\"",
+                  "font-size": "14px",
+                  "font-style": "normal",
+                  "font-weight": "500",
+                  "line-height": "22px"
+                },
+                "text": "文本"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Basic_Unselected_Normal_Default": {
+      "figma_key": "fec3eee305154c972bf4cec0a700f2f94b466230",
+      "figma_name": "💙 01.04_SegmentedControl / Basic",
+      "_hidden": true,
+      "css": {
+        "display": "flex",
+        "width": "82px",
+        "height": "30px",
+        "padding": "0 var(--Spacing-Large, 16px)",
+        "flex-direction": "column",
+        "justify-content": "center",
+        "align-items": "center",
+        "border-radius": "var(--Radius-Small, 4px)"
+      },
+      "slots": [
+        {
+          "name": "💙 00.03_Icon / time",
+          "boolProp": "Icon#85948:8",
+          "css": {
+            "width": "12px",
+            "height": "12px"
+          }
+        },
+        {
+          "name": "💙  03.01_Badge",
+          "boolProp": "Badge#85948:11",
+          "css": {
+            "display": "flex",
+            "justify-content": "flex-end",
+            "align-items": "flex-start",
+            "position": "absolute",
+            "right": "4px",
+            "top": "4px",
+            "border-radius": "12.8px"
+          }
+        }
+      ],
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "82px",
+          "height": "30px",
+          "padding": "0 var(--Spacing-Large, 16px)",
+          "flex-direction": "column",
+          "justify-content": "center",
+          "align-items": "center",
+          "border-radius": "var(--Radius-Small, 4px)"
+        },
+        "children": [
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "justify-content": "center",
+              "align-items": "center",
+              "gap": "var(--Spacing-Small, 4px)",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "width": "12px",
+                  "height": "12px"
+                },
+                "ref": "💙 00.03_Icon / time",
+                "key": "c9f3664c2f188015bd4ddede1194075774032939"
+              },
+              {
+                "type": "TEXT",
+                "css": {
+                  "display": "-webkit-box",
+                  "-webkit-box-orient": "vertical",
+                  "-webkit-line-clamp": "1",
+                  "overflow": "hidden",
+                  "color": "var(--text-3, rgba(0, 0, 0, 0.40))",
+                  "font-feature-settings": "'liga' off, 'clig' off",
+                  "text-overflow": "ellipsis",
+                  "font-family": "\"PingFang SC\"",
+                  "font-size": "14px",
+                  "font-style": "normal",
+                  "font-weight": "400",
+                  "line-height": "22px"
+                },
+                "text": "文本"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Basic_Selected_Small_Default": {
+      "figma_key": "8472e0f002f33bfc3b17d0f6e2fd40f1aa3b7450",
+      "figma_name": "💙 01.04_SegmentedControl / Basic",
+      "_hidden": true,
+      "css": {
+        "display": "flex",
+        "width": "82px",
+        "height": "24px",
+        "padding": "0 var(--Spacing-Large, 16px)",
+        "flex-direction": "column",
+        "justify-content": "center",
+        "align-items": "center",
+        "border-radius": "var(--Radius-Small, 4px)",
+        "background": "var(--bg-3, #FFF)"
+      },
+      "slots": [
+        {
+          "name": "💙 00.03_Icon / time",
+          "boolProp": "Icon#85948:8",
+          "css": {
+            "width": "12px",
+            "height": "12px"
+          }
+        },
+        {
+          "name": "💙  03.01_Badge",
+          "boolProp": "Badge#85948:11",
+          "css": {
+            "display": "flex",
+            "justify-content": "flex-end",
+            "align-items": "flex-start",
+            "position": "absolute",
+            "right": "4px",
+            "top": "4px",
+            "border-radius": "12.8px"
+          }
+        }
+      ],
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "82px",
+          "height": "24px",
+          "padding": "0 var(--Spacing-Large, 16px)",
+          "flex-direction": "column",
+          "justify-content": "center",
+          "align-items": "center",
+          "border-radius": "var(--Radius-Small, 4px)",
+          "background": "var(--bg-3, #FFF)"
+        },
+        "children": [
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "justify-content": "center",
+              "align-items": "center",
+              "gap": "var(--Spacing-Small, 4px)",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "width": "12px",
+                  "height": "12px"
+                },
+                "ref": "💙 00.03_Icon / time",
+                "key": "c9f3664c2f188015bd4ddede1194075774032939"
+              },
+              {
+                "type": "TEXT",
+                "css": {
+                  "display": "-webkit-box",
+                  "-webkit-box-orient": "vertical",
+                  "-webkit-line-clamp": "1",
+                  "overflow": "hidden",
+                  "color": "var(--text-1, #000)",
+                  "font-feature-settings": "'liga' off, 'clig' off",
+                  "text-overflow": "ellipsis",
+                  "font-family": "\"PingFang SC\"",
+                  "font-size": "12px",
+                  "font-style": "normal",
+                  "font-weight": "500",
+                  "line-height": "18px"
+                },
+                "text": "文本"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Basic_Unselected_Small_Default": {
+      "figma_key": "0bedfdf2e6097f753635d83584be8b6f0b34bcf8",
+      "figma_name": "💙 01.04_SegmentedControl / Basic",
+      "_hidden": true,
+      "css": {
+        "display": "flex",
+        "width": "82px",
+        "height": "24px",
+        "padding": "0 var(--Spacing-Large, 16px)",
+        "flex-direction": "column",
+        "justify-content": "center",
+        "align-items": "center",
+        "border-radius": "var(--Radius-Small, 4px)"
+      },
+      "slots": [
+        {
+          "name": "💙 00.03_Icon / time",
+          "boolProp": "Icon#85948:8",
+          "css": {
+            "width": "12px",
+            "height": "12px"
+          }
+        },
+        {
+          "name": "💙  03.01_Badge",
+          "boolProp": "Badge#85948:11",
+          "css": {
+            "display": "flex",
+            "justify-content": "flex-end",
+            "align-items": "flex-start",
+            "position": "absolute",
+            "right": "4px",
+            "top": "4px",
+            "border-radius": "12.8px"
+          }
+        }
+      ],
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "82px",
+          "height": "24px",
+          "padding": "0 var(--Spacing-Large, 16px)",
+          "flex-direction": "column",
+          "justify-content": "center",
+          "align-items": "center",
+          "border-radius": "var(--Radius-Small, 4px)"
+        },
+        "children": [
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "justify-content": "center",
+              "align-items": "center",
+              "gap": "var(--Spacing-Small, 4px)",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "width": "12px",
+                  "height": "12px"
+                },
+                "ref": "💙 00.03_Icon / time",
+                "key": "c9f3664c2f188015bd4ddede1194075774032939"
+              },
+              {
+                "type": "TEXT",
+                "css": {
+                  "display": "-webkit-box",
+                  "-webkit-box-orient": "vertical",
+                  "-webkit-line-clamp": "1",
+                  "overflow": "hidden",
+                  "color": "var(--text-3, rgba(0, 0, 0, 0.40))",
+                  "font-feature-settings": "'liga' off, 'clig' off",
+                  "text-overflow": "ellipsis",
+                  "font-family": "\"PingFang SC\"",
+                  "font-size": "12px",
+                  "font-style": "normal",
+                  "font-weight": "400",
+                  "line-height": "18px"
+                },
+                "text": "文本"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Basic_Selected_Medium_White": {
+      "figma_key": "c9c997a245b5da9e72153c9608450b7fae206424",
+      "figma_name": "💙 01.04_SegmentedControl / Basic",
+      "_hidden": true,
+      "css": {
+        "display": "inline-flex",
+        "height": "41px",
+        "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+        "flex-direction": "column",
+        "justify-content": "center",
+        "align-items": "center",
+        "border-radius": "6px",
+        "background": "var(--Main-white_05, rgba(255, 255, 255, 0.24))"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "height": "41px",
+          "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+          "flex-direction": "column",
+          "justify-content": "center",
+          "align-items": "center",
+          "border-radius": "6px",
+          "background": "var(--Main-white_05, rgba(255, 255, 255, 0.24))"
+        },
+        "children": [
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "justify-content": "center",
+              "align-items": "center",
+              "gap": "var(--Spacing-Small, 4px)",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "width": "12px",
+                  "height": "12px"
+                },
+                "ref": "💙 00.03_Icon / time",
+                "key": "c9f3664c2f188015bd4ddede1194075774032939"
+              },
+              {
+                "type": "TEXT",
+                "css": {
+                  "color": "var(--white-textColor, #FFF)",
+                  "font-family": "\"PingFang SC\"",
+                  "font-size": "16px",
+                  "font-weight": "500",
+                  "line-height": "24px"
+                },
+                "text": "文本"
+              }
+            ]
+          },
+          {
+            "type": "TEXT",
+            "css": {
+              "color": "var(--white-textColor2, rgba(255, 255, 255, 0.64))",
+              "text-align": "center",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "10px",
+              "font-weight": "400",
+              "line-height": "11px"
+            },
+            "text": "这是副标题"
+          }
+        ]
+      }
+    },
+    "Basic_Unselected_Medium_White": {
+      "figma_key": "d1d3f8226bfb72a72c26697090c1605d5a03274b",
+      "figma_name": "💙 01.04_SegmentedControl / Basic",
+      "_hidden": true,
+      "css": {
+        "display": "inline-flex",
+        "height": "41px",
+        "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+        "flex-direction": "column",
+        "justify-content": "center",
+        "align-items": "center",
+        "border-radius": "var(--Small, 4px)"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "height": "41px",
+          "padding": "0 var(--Spacing-Large, 16px) var(--Spacing-Mini, 2px) var(--Spacing-Large, 16px)",
+          "flex-direction": "column",
+          "justify-content": "center",
+          "align-items": "center",
+          "border-radius": "var(--Small, 4px)"
+        },
+        "children": [
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "justify-content": "center",
+              "align-items": "center",
+              "gap": "var(--Spacing-Small, 4px)",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "width": "12px",
+                  "height": "12px"
+                },
+                "ref": "💙 00.03_Icon / time",
+                "key": "c9f3664c2f188015bd4ddede1194075774032939"
+              },
+              {
+                "type": "TEXT",
+                "css": {
+                  "color": "var(--white-textColor2, rgba(255, 255, 255, 0.64))",
+                  "font-family": "\"PingFang SC\"",
+                  "font-size": "16px",
+                  "font-weight": "400",
+                  "line-height": "24px"
+                },
+                "text": "文本"
+              }
+            ]
+          },
+          {
+            "type": "TEXT",
+            "css": {
+              "color": "var(--white-textColor2, rgba(255, 255, 255, 0.64))",
+              "text-align": "center",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "10px",
+              "font-weight": "400",
+              "line-height": "11px"
+            },
+            "text": "这是副标题"
+          }
+        ]
+      }
+    },
+    "Basic_Selected_Normal_White": {
+      "figma_key": "f8ab8778e19699eb5f9ca13370e27eec04dd2738",
+      "figma_name": "💙 01.04_SegmentedControl / Basic",
+      "_hidden": true,
+      "css": {
+        "display": "flex",
+        "width": "82px",
+        "height": "30px",
+        "padding": "0 var(--Spacing-Large, 16px)",
+        "flex-direction": "column",
+        "justify-content": "center",
+        "align-items": "center",
+        "border-radius": "var(--Radius-Small, 4px)",
+        "background": "var(--Main-white_05, rgba(255, 255, 255, 0.24))"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "82px",
+          "height": "30px",
+          "padding": "0 var(--Spacing-Large, 16px)",
+          "flex-direction": "column",
+          "justify-content": "center",
+          "align-items": "center",
+          "border-radius": "var(--Radius-Small, 4px)",
+          "background": "var(--Main-white_05, rgba(255, 255, 255, 0.24))"
+        },
+        "children": [
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "justify-content": "center",
+              "align-items": "center",
+              "gap": "var(--Spacing-Small, 4px)",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "width": "12px",
+                  "height": "12px"
+                },
+                "ref": "💙 00.03_Icon / time",
+                "key": "c9f3664c2f188015bd4ddede1194075774032939"
+              },
+              {
+                "type": "TEXT",
+                "css": {
+                  "color": "var(--white-textColor, #FFF)",
+                  "font-family": "\"PingFang SC\"",
+                  "font-size": "14px",
+                  "font-weight": "500",
+                  "line-height": "22px"
+                },
+                "text": "文本"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Basic_Unselected_Normal_White": {
+      "figma_key": "fd6b7b07a1ae83665fe355bec5681b9665815041",
+      "figma_name": "💙 01.04_SegmentedControl / Basic",
+      "_hidden": true,
+      "css": {
+        "display": "flex",
+        "width": "82px",
+        "height": "30px",
+        "padding": "0 var(--Spacing-Large, 16px)",
+        "flex-direction": "column",
+        "justify-content": "center",
+        "align-items": "center",
+        "border-radius": "var(--Radius-Small, 4px)"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "82px",
+          "height": "30px",
+          "padding": "0 var(--Spacing-Large, 16px)",
+          "flex-direction": "column",
+          "justify-content": "center",
+          "align-items": "center",
+          "border-radius": "var(--Radius-Small, 4px)"
+        },
+        "children": [
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "justify-content": "center",
+              "align-items": "center",
+              "gap": "var(--Spacing-Small, 4px)",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "width": "12px",
+                  "height": "12px"
+                },
+                "ref": "💙 00.03_Icon / time",
+                "key": "c9f3664c2f188015bd4ddede1194075774032939"
+              },
+              {
+                "type": "TEXT",
+                "css": {
+                  "color": "var(--white-textColor2, rgba(255, 255, 255, 0.64))",
+                  "font-family": "\"PingFang SC\"",
+                  "font-size": "14px",
+                  "font-weight": "400",
+                  "line-height": "22px"
+                },
+                "text": "文本"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Basic_Selected_Small_White": {
+      "figma_key": "a6d43345dd640a855d54b45e30afef895e2a6c75",
+      "figma_name": "💙 01.04_SegmentedControl / Basic",
+      "_hidden": true,
+      "css": {
+        "display": "flex",
+        "width": "82px",
+        "height": "24px",
+        "padding": "0 var(--Spacing-Large, 16px)",
+        "flex-direction": "column",
+        "justify-content": "center",
+        "align-items": "center",
+        "border-radius": "var(--Radius-Small, 4px)",
+        "background": "var(--Main-white_05, rgba(255, 255, 255, 0.24))"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "82px",
+          "height": "24px",
+          "padding": "0 var(--Spacing-Large, 16px)",
+          "flex-direction": "column",
+          "justify-content": "center",
+          "align-items": "center",
+          "border-radius": "var(--Radius-Small, 4px)",
+          "background": "var(--Main-white_05, rgba(255, 255, 255, 0.24))"
+        },
+        "children": [
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "justify-content": "center",
+              "align-items": "center",
+              "gap": "var(--Spacing-Small, 4px)",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "width": "12px",
+                  "height": "12px"
+                },
+                "ref": "💙 00.03_Icon / time",
+                "key": "c9f3664c2f188015bd4ddede1194075774032939"
+              },
+              {
+                "type": "TEXT",
+                "css": {
+                  "color": "var(--white-textColor, #FFF)",
+                  "font-family": "\"PingFang SC\"",
+                  "font-size": "12px",
+                  "font-weight": "500",
+                  "line-height": "18px"
+                },
+                "text": "文本"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Basic_Unselected_Small_White": {
+      "figma_key": "46c5ee0b934f3bc0d6aaba367c409987b3b4e143",
+      "figma_name": "💙 01.04_SegmentedControl / Basic",
+      "_hidden": true,
+      "css": {
+        "display": "flex",
+        "width": "82px",
+        "height": "24px",
+        "padding": "0 var(--Spacing-Large, 16px)",
+        "flex-direction": "column",
+        "justify-content": "center",
+        "align-items": "center",
+        "border-radius": "var(--Radius-Small, 4px)"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "82px",
+          "height": "24px",
+          "padding": "0 var(--Spacing-Large, 16px)",
+          "flex-direction": "column",
+          "justify-content": "center",
+          "align-items": "center",
+          "border-radius": "var(--Radius-Small, 4px)"
+        },
+        "children": [
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "justify-content": "center",
+              "align-items": "center",
+              "gap": "var(--Spacing-Small, 4px)",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "width": "12px",
+                  "height": "12px"
+                },
+                "ref": "💙 00.03_Icon / time",
+                "key": "c9f3664c2f188015bd4ddede1194075774032939"
+              },
+              {
+                "type": "TEXT",
+                "css": {
+                  "color": "var(--white-textColor2, rgba(255, 255, 255, 0.64))",
+                  "font-family": "\"PingFang SC\"",
+                  "font-size": "12px",
+                  "font-weight": "400",
+                  "line-height": "18px"
+                },
+                "text": "文本"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

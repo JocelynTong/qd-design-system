@@ -222,6 +222,16 @@ figma_page: "00.08 Button"          →  文件名: 00.08 Button.json
    - 以上两者都没有 → **该 prop 的 chips 在浏览器里是死的，必须补 `previewMap`**
    - **单 variant 组件（如 Tag/Basic）：所有 `options` prop 都必须有 `previewMap`，无例外**
    - **previewMap prop 的 options 禁止使用 `False`/`True` 字面量**：`buildPropsHtml` 检测到 options 排序小写 = `["false","true"]` 时会强制渲染为 toggle switch，完全绕过 previewMap。改用语义名称（`Small`/`Large`、`Off`/`On`、`Hidden`/`Visible` 等）
+   - **同色异主题变体合并规则**：当某 prop 的两个 option 仅表达「浅色 vs 深色主题」（典型：`Color=Default/White`、`Color=Light/Dark`）时，不得拆分为多个可见 cell。正确做法：
+     1. **可见变体命名去掉色彩后缀**：只保留主维度名（如 `Default`、`Bottom`），不写 `Default_Default`、`Bottom_Default`
+     2. 将 White/Dark 系变体保留但全部标记为 `_hidden: true`（figma_key 仍需在 fkmap 里），名字用完整名（如 `Default_White`、`Bottom_White`）
+     3. 在可见变体的色彩 prop 上添加 `previewMap`；`_canSwitch` 查找时在变体名 `Default` / `Bottom` 里找不到 "White" 子串，自动退到 `previewMap` ✅
+     4. `previewMap`：Default option 给浅色 HTML，White/Dark option 给 `background:#1a1a1a` 深色包裹的 HTML
+     5. 效果：浏览器只渲染 1 个 cell，Color chip 切换主题，零冗余 cell
+   - **最少 cell 原则**：每个组件只保留 **1 个可见主变体**，其余所有变体（不同 Type、不同 State、不同 Size）全部 `_hidden: true`。通过 `_canSwitch` chip 在 cell 内切换。规则：
+     1. 主变体命名包含各 prop 的默认值子串，使 `_canSwitch` 能替换到其他 hidden 变体（如 `Default_Selected` → 替换 "Default"→"Ranking" 找到 `Ranking_Selected`）
+     2. `_canSwitch` 查找时 `_allVks` 包含所有 hidden 变体，切换后 cell 渲染 hidden 变体内容 ✅
+     3. Color=Default/White 例外：因去掉色彩后缀后无法靠 `_canSwitch` 找到 White 变体，改用 `previewMap`（见上条规则）
 3. **preview_html 完整性自查**（写完所有 variant 后执行）：
    - 遍历所有 variants
    - 有 `figma_file` 字段的 variant → 必须有 `preview_html`（除非明确是 `_hidden:true` 或靠 slots 自动生成）
