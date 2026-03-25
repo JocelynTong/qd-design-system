@@ -47,7 +47,11 @@
         ]
       },
       "props": {},
-      "preview_html": "<div style=\"display:flex;width:375px;height:44px;padding:6px 15px;justify-content:space-between;align-items:center;box-sizing:border-box;background:var(--secondary-solidBg,#2B263B)\"><div style=\"display:flex;align-items:center;gap:8px\"><i class=\"KurilIcons kuril-arrow_left\" style=\"font-size:20px;color:var(--white-textColor,#fff)\"></i></div><div style=\"display:flex;align-items:center;gap:6px\"><div style=\"width:24px;height:24px;border-radius:4px;background:var(--white-5,rgba(255,255,255,.24))\"></div><span style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:var(--white-textColor,#fff)\">Labubu</span></div><div style=\"display:flex;align-items:center;gap:8px\"><div style=\"padding:5px 12px;border-radius:4px;background:var(--primary-solidBg,#7C66FF)\"><span style=\"font:var(--font-h6,500 12px/18px 'PingFang SC',sans-serif);color:var(--white-textColor,#fff)\">发布</span></div></div></div>"
+      "component_ref": {
+        "cid": "01.01-navigation-bar",
+        "variant_key": "App_Ghost",
+        "css": {"background": "var(--secondary-solidBg, #2B263B)"}
+      }
     },
     "User": {
       "figma_name": "👻 Post / User",

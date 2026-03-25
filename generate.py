@@ -325,8 +325,10 @@ def _css_to_embed(css):
 
 def resolve_component_refs(components):
     """对有 component_ref 的 variant，从引用组件查找 preview_html 并设为 _composed_preview_html。
-    component_ref 格式：{"cid": "03.07-feed", "props": {"Column": "2", "Size": "Large(3:4)", "Img": "True"}}
-    匹配策略：variant key 字符串包含 "k=v" 子串最多的为最优匹配。"""
+    支持两种查找方式：
+      - variant_key: "App_Ghost"         直接指定 variant key（精确）
+      - props: {"Column": "2", ...}      按 k=v 子串最多匹配（模糊）
+    支持可选 css: {"background": "..."}  在解析结果外层包一个 wrapper div。"""
     count = 0
     for cid, cdata in components.items():
         for vk, vdata in (cdata.get('variants') or {}).items():
@@ -334,29 +336,40 @@ def resolve_component_refs(components):
             if not cref:
                 continue
             ref_cid = cref.get('cid', '')
-            ref_props = cref.get('props', {})
             ref_comp = components.get(ref_cid)
             if not ref_comp:
                 print(f'⚠️ [component_ref] {ref_cid} 未找到（{cid}/{vk}）')
                 continue
-            # 找 props 匹配分最高的 variant（跳过 _hidden）
-            best_vk, best_score = None, -1
-            for rvk, rvdata in (ref_comp.get('variants') or {}).items():
-                if rvdata.get('_hidden'):
-                    continue
-                score = sum(1 for k, v in ref_props.items() if f'{k}={v}' in rvk)
-                if score > best_score:
-                    best_score, best_vk = score, rvk
+            # 查找目标 variant：优先 variant_key，否则 props 匹配
+            best_vk = cref.get('variant_key')
+            if best_vk:
+                if best_vk not in (ref_comp.get('variants') or {}):
+                    print(f'⚠️ [component_ref] variant_key "{best_vk}" 在 {ref_cid} 中不存在（{cid}/{vk}）')
+                    best_vk = None
+            else:
+                ref_props = cref.get('props', {})
+                best_score = -1
+                for rvk, rvdata in (ref_comp.get('variants') or {}).items():
+                    if rvdata.get('_hidden'):
+                        continue
+                    score = sum(1 for k, v in ref_props.items() if f'{k}={v}' in rvk)
+                    if score > best_score:
+                        best_score, best_vk = score, rvk
+                if not best_vk:
+                    print(f'⚠️ [component_ref] {ref_cid} 无匹配 variant（props={ref_props}）')
             if best_vk:
                 ref_vdata = ref_comp['variants'][best_vk]
                 html = (ref_vdata.get('preview_html') or
                         ref_vdata.get('_composed_preview_html') or
                         ref_vdata.get('_tree_preview_html') or '')
+                # 可选 css wrapper（用于主题覆盖，如深色背景）
+                wrap_css = cref.get('css', {})
+                if html and wrap_css:
+                    style = ';'.join(f'{k}:{v}' for k, v in wrap_css.items())
+                    html = f'<div style="{style}">{html}</div>'
                 if html and not vdata.get('preview_html') and not vdata.get('_composed_preview_html'):
                     vdata['_composed_preview_html'] = html
                     count += 1
-            else:
-                print(f'⚠️ [component_ref] {ref_cid} 无匹配 variant（props={ref_props}）')
     if count:
         print(f'✓ [component_ref] {count} 个引用已解析')
 
