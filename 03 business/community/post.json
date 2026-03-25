@@ -1,0 +1,2231 @@
+{
+  "component": "👻 Post",
+  "figma_page": "02_业务组件_👻_社区",
+  "figma_file": "uXywt7Ca6AR4dNm7f3zR7d",
+  "description": "帖子详情页业务组件集合，包含帖子 Header、作者信息、内容区（15种类型）、元信息行、评论区、帖子描述等。",
+  "usage_rules": [
+    "Header 为详情页导航栏，使用深色主题 NavBar（secondary-solidBg）",
+    "User 展示作者信息行：头像（32px）+ 用户名 + 发布时间 + 分区标签 + 关注/更多按钮",
+    "Contents 支持 15 种类型：LargeImage3:4 / LargeImage4:3 / NineGrid / NineGridHorizontal / NineGridVertical / MainText20260118 / FollowPost / Webview / Vote / Label / IslandLink / PoiMap / Plugin & Poi / MarkLabel / MarkLabelGrid",
+    "Info 展示帖子元数据（IP 地址、点赞评论数、可见范围、浏览量、More Action），各项均为 boolProp 可控",
+    "Comments 区分 Default（有评论列表）和 Empty（无评论空态）两种变体，均含相机/表情 boolProp",
+    "Description 展示帖子正文（带展开收起，链接紫色高亮）"
+  ],
+  "variants": {
+    "Header": {
+      "figma_name": "👻 Post / Header",
+      "desc": "帖子详情页导航栏：深色主题 NavBar（secondary-solidBg），包含返回、发布目的地（Island 缩图+名称）、发布按钮",
+      "figma_key": "cb0eab1b81a0a45d20a3bb1bb935dc5a78149dce",
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "height": "44px",
+        "padding": "6px 15px",
+        "justify-content": "space-between",
+        "align-items": "center"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "height": "44px",
+          "padding": "6px 15px",
+          "justify-content": "space-between",
+          "align-items": "center"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "height": "44px",
+              "padding": "0 var(--Spacing-Small, 4px)",
+              "align-items": "center",
+              "gap": "var(--Spacing-Small, 4px)",
+              "flex-shrink": "0",
+              "background": "var(--secondary-solidBg, #2B263B)"
+            },
+            "ref": "💙 01.01_Navigation Bar",
+            "key": "6de4c828380492f977d1fbd34d7c0dbf0416bb57"
+          }
+        ]
+      },
+      "props": {},
+      "preview_html": "<div style=\"display:flex;width:375px;height:44px;padding:6px 15px;justify-content:space-between;align-items:center;box-sizing:border-box;background:var(--secondary-solidBg,#2B263B)\"><div style=\"display:flex;align-items:center;gap:8px\"><i class=\"KurilIcons kuril-arrow_left\" style=\"font-size:20px;color:var(--white-textColor,#fff)\"></i></div><div style=\"display:flex;align-items:center;gap:6px\"><div style=\"width:24px;height:24px;border-radius:4px;background:var(--white-5,rgba(255,255,255,.24))\"></div><span style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:var(--white-textColor,#fff)\">Labubu</span></div><div style=\"display:flex;align-items:center;gap:8px\"><div style=\"padding:5px 12px;border-radius:4px;background:var(--primary-solidBg,#7C66FF)\"><span style=\"font:var(--font-h6,500 12px/18px 'PingFang SC',sans-serif);color:var(--white-textColor,#fff)\">发布</span></div></div></div>"
+    },
+    "User": {
+      "figma_name": "👻 Post / User",
+      "desc": "帖子作者信息行：头像（32px圆形）+ 用户名 + 发布时间 + 分区标签 + 关注/更多按钮",
+      "figma_key": "b6eac960c5bb3bf9df0d8e79db07f9b16a5dbdf2",
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding-left": "10px",
+        "align-items": "center",
+        "gap": "8px"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding-left": "10px",
+          "align-items": "center",
+          "gap": "8px"
+        },
+        "children": [
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "align-items": "center",
+              "gap": "var(--Spacing-Small, 4px)",
+              "flex": "1 0 0"
+            },
+            "children": [
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "display": "flex",
+                  "width": "32px",
+                  "height": "32px",
+                  "justify-content": "center",
+                  "align-items": "center",
+                  "border-radius": "32px"
+                },
+                "ref": "03.05_Avatar",
+                "key": "c6a921ee70436945b0a939bebfc19374ab7f0532"
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "flex-direction": "column",
+                  "align-items": "flex-start",
+                  "gap": "var(--Spacing-Mini, 2px)"
+                },
+                "children": [
+                  {
+                    "type": "FRAME",
+                    "css": {
+                      "display": "flex",
+                      "align-items": "center",
+                      "gap": "2px"
+                    },
+                    "children": [
+                      {
+                        "type": "TEXT",
+                        "css": {
+                          "color": "var(--text-1, #000)",
+                          "font-feature-settings": "'liga' off, 'clig' off",
+                          "font-family": "\"PingFang SC\"",
+                          "font-size": "14px",
+                          "font-style": "normal",
+                          "font-weight": "500",
+                          "line-height": "22px /* 157.143% */"
+                        },
+                        "text": "JocelynTong✨"
+                      },
+                      {
+                        "type": "INSTANCE",
+                        "css": {
+                          "display": "flex",
+                          "align-items": "center",
+                          "gap": "var(--Spacing-Small, 4px)"
+                        },
+                        "ref": "👻 Post / CommentTag",
+                        "key": "dbd2fb0334b45fc501d72ae7a689eff373d05110"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "FRAME",
+                    "css": {
+                      "display": "flex",
+                      "height": "15px",
+                      "align-items": "center",
+                      "gap": "4px"
+                    },
+                    "children": [
+                      {
+                        "type": "TEXT",
+                        "css": {
+                          "color": "var(--text-3, rgba(0, 0, 0, 0.40))",
+                          "text-align": "right",
+                          "font-feature-settings": "'liga' off, 'clig' off",
+                          "font-family": "\"PingFang SC\"",
+                          "font-size": "10px",
+                          "font-style": "normal",
+                          "font-weight": "400",
+                          "line-height": "11px /* 110% */"
+                        },
+                        "text": "2022-07-18"
+                      },
+                      {
+                        "type": "FRAME",
+                        "css": {
+                          "display": "flex",
+                          "align-items": "center",
+                          "gap": "4px"
+                        },
+                        "children": [
+                          {
+                            "type": "TEXT",
+                            "css": {
+                              "color": "var(--text-2, rgba(0, 0, 0, 0.64))",
+                              "text-align": "right",
+                              "font-feature-settings": "'liga' off, 'clig' off",
+                              "font-family": "\"PingFang SC\"",
+                              "font-size": "10px",
+                              "font-style": "normal",
+                              "font-weight": "400",
+                              "line-height": "11px /* 110% */"
+                            },
+                            "text": "发布在"
+                          },
+                          {
+                            "type": "INSTANCE",
+                            "css": {
+                              "display": "flex",
+                              "padding": "2px 4px 2px 6px",
+                              "align-items": "center",
+                              "gap": "4px",
+                              "border-radius": "4px",
+                              "background": "var(--bg-2, #F7F7F9)"
+                            },
+                            "ref": "👻 Label / Tag",
+                            "key": "97eff709bad4efdaa32bffdea347d0fe71fd7e9a"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "INSTANCE",
+                        "css": {
+                          "display": "flex",
+                          "padding": "2px",
+                          "justify-content": "center",
+                          "align-items": "center",
+                          "gap": "10px",
+                          "border-radius": "2px",
+                          "background": "var(--trade-softBg, #FFEBE9)"
+                        },
+                        "ref": "💙 03.02_Tag / Spec（旧版未合并）",
+                        "key": "c16565ac0c70b2e8b0c655cb6f4b2b453b31614c"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "align-items": "center",
+              "gap": "var(--Spacing-Small, 4px)"
+            },
+            "children": [
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "display": "flex",
+                  "padding": "5px 10px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "center",
+                  "gap": "10px",
+                  "border-radius": "var(--Small, 4px)",
+                  "border": "1px solid var(--primary-bt-border, #7C66FF)"
+                },
+                "ref": "💙 00.08_Button",
+                "key": "2db477181bf2776a45bc83d12e9ce8a82bf2265b"
+              },
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "display": "flex",
+                  "width": "40px",
+                  "height": "40px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "center",
+                  "gap": "var(--Spacing-Mini, 2px)"
+                },
+                "ref": "💙 00.05_Button / Icon",
+                "key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5"
+              }
+            ]
+          }
+        ]
+      },
+      "props": {},
+      "preview_html": "<div style=\"display:flex;width:375px;padding-left:10px;align-items:center;gap:8px;box-sizing:border-box;background:var(--bg-1,#fff)\"><div style=\"display:flex;align-items:center;gap:4px;flex:1;overflow:hidden;min-width:0\"><div style=\"width:32px;height:32px;border-radius:32px;background:var(--bg-3,#e8e8ee);flex-shrink:0\"></div><div style=\"display:flex;flex-direction:column;gap:2px;overflow:hidden;min-width:0\"><div style=\"display:flex;align-items:center;gap:2px\"><span style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:var(--text-1,#000);white-space:nowrap\">JocelynTong✨</span></div><div style=\"display:flex;height:15px;align-items:center;gap:4px\"><span style=\"font:400 10px/11px 'PingFang SC',sans-serif;color:var(--text-3,rgba(0,0,0,.4))\">2022-07-18</span><span style=\"font:400 10px/11px 'PingFang SC',sans-serif;color:var(--text-2,rgba(0,0,0,.64))\">发布在</span><div style=\"display:inline-flex;padding:2px 4px 2px 6px;align-items:center;gap:4px;border-radius:4px;background:var(--bg-2,#F7F7F9)\"><span style=\"font:400 10px/11px 'PingFang SC',sans-serif;color:var(--text-2,rgba(0,0,0,.64));white-space:nowrap\">Labubu岛</span></div></div></div></div><div style=\"display:flex;align-items:center;gap:4px;flex-shrink:0\"><div style=\"padding:5px 10px;border-radius:4px;border:1px solid var(--primary-bt-border,#7C66FF)\"><span style=\"font:var(--font-h6,500 12px/18px 'PingFang SC',sans-serif);color:var(--primary-textColor,#7C66FF)\">关注</span></div><div style=\"width:40px;height:40px;display:flex;flex-direction:column;justify-content:center;align-items:center\"><i class=\"KurilIcons kuril-more\" style=\"font-size:20px;color:var(--text-2,rgba(0,0,0,.64))\"></i></div></div></div>"
+    },
+    "Contents_LargeImage3_4": {
+      "figma_name": "👻 Post / Contents · LargeImage3:4",
+      "desc": "帖子内容区 - LargeImage3:4 类型",
+      "figma_key": "0db8b003a07bb39b759da6186f9f3ed2d2ec1bc5",
+      "css": {
+        "width": "375px",
+        "height": "500px"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "width": "375px",
+          "height": "500px"
+        },
+        "children": [
+          {
+            "type": "RECTANGLE",
+            "css": {
+              "width": "375px",
+              "height": "500px",
+              "background": "url(<path-to-image>) lightgray 50% / cover no-repeat"
+            }
+          },
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "inline-flex",
+              "padding": "1px 12px",
+              "align-items": "flex-start",
+              "gap": "10px",
+              "border-radius": "18px",
+              "background": "var(--mask-2, rgba(0, 0, 0, 0.64))"
+            },
+            "children": [
+              {
+                "type": "TEXT",
+                "css": {
+                  "color": "var(--white-textColor, #FFF)",
+                  "text-align": "right",
+                  "font-feature-settings": "'liga' off, 'clig' off",
+                  "font-family": "\"PingFang SC\"",
+                  "font-size": "12px",
+                  "font-style": "normal",
+                  "font-weight": "500",
+                  "line-height": "18px /* 150% */"
+                },
+                "text": "1/5"
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "height": "40px",
+              "padding": "var(--Spacing-Normal, 8px) var(--Spacing-Medium, 12px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "position": "absolute",
+              "background": "linear-gradient(180deg, var(--mask-2, rgba(0, 0, 0, 0.64)) 0%, rgba(0, 0, 0, 0.00) 100%)"
+            },
+            "ref": "💙 04.01_NoticeBar",
+            "key": "1e00c2f6ce6b09f07c9e0bcc0bec7360b94eda42"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "inline-flex",
+              "padding-left": "4px",
+              "align-items": "center",
+              "gap": "8px"
+            },
+            "ref": "💙 03.02_Tag / Post",
+            "key": "894bcbe03c914b72b2a0a2dc96bb39d5a7535f28"
+          },
+          {
+            "type": "RECTANGLE",
+            "css": {
+              "width": "48px",
+              "height": "48px",
+              "aspect-ratio": "1/1",
+              "background": "rgba(217, 74, 78, 0.20)"
+            }
+          }
+        ]
+      },
+      "props": {
+        "Type": {
+          "options": [
+            "LargeImage3:4",
+            "LargeImage4:3",
+            "FollowPost",
+            "MainText20260118",
+            "NineGrid",
+            "NineGridHorizontal",
+            "NineGridVertical",
+            "Webview",
+            "Vote",
+            "Label",
+            "IslandLink",
+            "PoiMap",
+            "Plugin & Poi",
+            "MarkLabel",
+            "MarkLabelGrid"
+          ],
+          "default": "LargeImage3:4"
+        }
+      },
+      "preview_html": "<div style=\"width:375px;height:500px;background:var(--bg-2,#F7F7F9);position:relative;overflow:hidden\"><div style=\"position:absolute;bottom:8px;right:8px;padding:1px 8px;border-radius:18px;background:rgba(0,0,0,.64)\"><span style=\"color:#fff;font:var(--font-h6,500 12px/18px 'PingFang SC',sans-serif)\">1/5</span></div></div>"
+    },
+    "Contents_LargeImage4_3": {
+      "figma_name": "👻 Post / Contents · LargeImage4:3",
+      "desc": "帖子内容区 - LargeImage4:3 类型",
+      "figma_key": "9a4e80ea008538345b1798d8f777a9ffcce4652e",
+      "css": {
+        "width": "375px",
+        "height": "250px"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "width": "375px",
+          "height": "250px"
+        },
+        "children": [
+          {
+            "type": "RECTANGLE",
+            "css": {
+              "width": "375px",
+              "height": "250px",
+              "background": "url(<path-to-image>) lightgray 50% / cover no-repeat"
+            }
+          },
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "inline-flex",
+              "padding": "1px 12px",
+              "align-items": "flex-start",
+              "gap": "10px",
+              "border-radius": "18px",
+              "background": "var(--mask-2, rgba(0, 0, 0, 0.64))"
+            },
+            "children": [
+              {
+                "type": "TEXT",
+                "css": {
+                  "color": "var(--white-textColor, #FFF)",
+                  "text-align": "right",
+                  "font-feature-settings": "'liga' off, 'clig' off",
+                  "font-family": "\"PingFang SC\"",
+                  "font-size": "12px",
+                  "font-style": "normal",
+                  "font-weight": "500",
+                  "line-height": "18px /* 150% */"
+                },
+                "text": "1/5"
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "height": "40px",
+              "padding": "var(--Spacing-Normal, 8px) var(--Spacing-Medium, 12px)",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "position": "absolute",
+              "background": "linear-gradient(180deg, var(--mask-2, rgba(0, 0, 0, 0.64)) 0%, rgba(0, 0, 0, 0.00) 100%)"
+            },
+            "ref": "💙 04.01_NoticeBar",
+            "key": "1e00c2f6ce6b09f07c9e0bcc0bec7360b94eda42"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "inline-flex",
+              "padding-left": "4px",
+              "align-items": "center",
+              "gap": "8px"
+            },
+            "ref": "💙 03.02_Tag / Post",
+            "key": "894bcbe03c914b72b2a0a2dc96bb39d5a7535f28"
+          },
+          {
+            "type": "RECTANGLE",
+            "css": {
+              "width": "48px",
+              "height": "48px",
+              "aspect-ratio": "1/1",
+              "background": "rgba(217, 74, 78, 0.20)"
+            }
+          }
+        ]
+      },
+      "props": {
+        "Type": {
+          "options": [
+            "LargeImage3:4",
+            "LargeImage4:3",
+            "FollowPost",
+            "MainText20260118",
+            "NineGrid",
+            "NineGridHorizontal",
+            "NineGridVertical",
+            "Webview",
+            "Vote",
+            "Label",
+            "IslandLink",
+            "PoiMap",
+            "Plugin & Poi",
+            "MarkLabel",
+            "MarkLabelGrid"
+          ],
+          "default": "LargeImage4:3"
+        }
+      },
+      "preview_html": "<div style=\"width:375px;height:250px;background:var(--bg-2,#F7F7F9);position:relative;overflow:hidden\"><div style=\"position:absolute;bottom:8px;right:8px;padding:1px 8px;border-radius:18px;background:rgba(0,0,0,.64)\"><span style=\"color:#fff;font:var(--font-h6,500 12px/18px 'PingFang SC',sans-serif)\">1/5</span></div></div>",
+      "_hidden": true
+    },
+    "Contents_FollowPost": {
+      "figma_name": "👻 Post / Contents · FollowPost",
+      "desc": "帖子内容区 - FollowPost 类型",
+      "figma_key": "d87b5cd97ba08cecefea5844eb839f7e96a2e388",
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "0 10px",
+        "align-items": "center",
+        "gap": "4px",
+        "border-radius": "8px"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "0 10px",
+          "align-items": "center",
+          "gap": "4px",
+          "border-radius": "8px"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "justify-content": "center",
+              "align-items": "center",
+              "gap": "var(--Spacing-Small, 4px)",
+              "flex": "1 0 0"
+            },
+            "ref": "标题",
+            "key": "33cc96aea0cc2647d7acce33531f81bb64bc1556"
+          }
+        ]
+      },
+      "props": {
+        "Type": {
+          "options": [
+            "LargeImage3:4",
+            "LargeImage4:3",
+            "FollowPost",
+            "MainText20260118",
+            "NineGrid",
+            "NineGridHorizontal",
+            "NineGridVertical",
+            "Webview",
+            "Vote",
+            "Label",
+            "IslandLink",
+            "PoiMap",
+            "Plugin & Poi",
+            "MarkLabel",
+            "MarkLabelGrid"
+          ],
+          "default": "FollowPost"
+        }
+      },
+      "preview_html": "<div style=\"display:flex;width:375px;padding:0 10px;align-items:center;gap:4px;border-radius:8px;box-sizing:border-box;background:var(--bg-1,#fff)\"><div style=\"display:flex;justify-content:center;align-items:center;gap:4px;flex:1;min-height:44px\"><span style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:var(--text-1,#000)\">关注动态标题内容</span></div></div>",
+      "_hidden": true
+    },
+    "Contents_MainText20260118": {
+      "figma_name": "👻 Post / Contents · MainText20260118",
+      "desc": "帖子内容区 - MainText20260118 类型",
+      "figma_key": "f53ed1436faf8d996e5dca9133a6a315a2346080",
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "0 10px",
+        "flex-direction": "column",
+        "justify-content": "center",
+        "align-items": "flex-start",
+        "gap": "var(--Spacing-Small, 4px)"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "0 10px",
+          "flex-direction": "column",
+          "justify-content": "center",
+          "align-items": "flex-start",
+          "gap": "var(--Spacing-Small, 4px)"
+        },
+        "children": [
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "align-items": "center",
+                  "gap": "4px",
+                  "align-self": "stretch"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "min-width": "15px",
+                      "padding": "2px 3px",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "2px",
+                      "border-radius": "var(--Radius-Small, 4px)",
+                      "background": "var(--warning-tag-solidBg, #FC7E22)"
+                    },
+                    "ref": " 💙 03.02_Tag / Basic",
+                    "key": "7e155ffb10304083e90f25c85a8e087caf47b30c"
+                  },
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "min-width": "15px",
+                      "padding": "2px 3px",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "gap": "2px",
+                      "border-radius": "var(--Radius-Small, 4px)",
+                      "background": "var(--warning-tag-solidBg, #FC7E22)"
+                    },
+                    "ref": " 💙 03.02_Tag / Basic",
+                    "key": "7e155ffb10304083e90f25c85a8e087caf47b30c"
+                  },
+                  {
+                    "type": "TEXT",
+                    "css": {
+                      "flex": "1 0 0",
+                      "color": "var(--text-1, #000)",
+                      "font-feature-settings": "'liga' off, 'clig' off",
+                      "font-family": "\"PingFang SC\"",
+                      "font-size": "16px",
+                      "font-style": "normal",
+                      "font-weight": "400",
+                      "line-height": "26px /* 162.5% */"
+                    },
+                    "text": "Yoshitomo Nara 奈良美智玩偶🔥"
+                  }
+                ]
+              },
+              {
+                "type": "TEXT",
+                "css": {
+                  "align-self": "stretch",
+                  "color": "var(--primary-textColor, #7C66FF)",
+                  "font-feature-settings": "'liga' off, 'clig' off",
+                  "font-family": "\"PingFang SC\"",
+                  "font-size": "16px",
+                  "font-style": "normal",
+                  "font-weight": "500",
+                  "line-height": "26px /* 162.5% */"
+                },
+                "text": "Daolink:转换成中文需求拍卖名称1"
+              },
+              {
+                "type": "TEXT",
+                "css": {
+                  "align-self": "stretch",
+                  "color": "var(--text-1, #000)",
+                  "font-feature-settings": "'liga' off, 'clig' off",
+                  "font-family": "\"PingFang SC\"",
+                  "font-size": "16px",
+                  "font-style": "normal",
+                  "font-weight": "400",
+                  "line-height": "26px /* 162.5% */"
+                },
+                "text": "Yoshitomo Nara x  How2work最新联名\n奈良美智「123 Drumming Girls」\n“Three sisters”迷你木头人玩偶套装 即将发布\n“每天都有新鲜事发生，觉得自己就像一个孩子般充满好奇心。” — 奈良美智"
+              }
+            ]
+          },
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "height": "24px",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "flex-start"
+            },
+            "children": [
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "display": "flex",
+                  "padding": "8px 0",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "center",
+                  "border-radius": "var(--bt-Radius-Large, 8px)"
+                },
+                "ref": "💙 00.08_Button",
+                "key": "ea09915955471f57321ac2e23ef7d4b61be36554"
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "18px",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "align-self": "stretch"
+            },
+            "ref": "💙 04.01_NoticeBar",
+            "key": "1e00c2f6ce6b09f07c9e0bcc0bec7360b94eda42"
+          }
+        ]
+      },
+      "props": {
+        "Type": {
+          "options": [
+            "LargeImage3:4",
+            "LargeImage4:3",
+            "FollowPost",
+            "MainText20260118",
+            "NineGrid",
+            "NineGridHorizontal",
+            "NineGridVertical",
+            "Webview",
+            "Vote",
+            "Label",
+            "IslandLink",
+            "PoiMap",
+            "Plugin & Poi",
+            "MarkLabel",
+            "MarkLabelGrid"
+          ],
+          "default": "MainText20260118"
+        }
+      },
+      "preview_html": "<div style=\"display:flex;width:375px;padding:0 10px;flex-direction:column;gap:4px;box-sizing:border-box;background:var(--bg-1,#fff)\"><div style=\"display:flex;align-items:flex-start;gap:4px\"><div style=\"padding:2px 3px;border-radius:4px;background:var(--warning-tag-solidBg,#FC7E22);display:flex;align-items:center;flex-shrink:0\"><span style=\"font:var(--font-h7,500 11px/13px 'PingFang SC',sans-serif);color:#fff\">排行</span></div><span style=\"font:400 16px/26px 'PingFang SC',sans-serif;color:var(--text-1,#000)\">Yoshitomo Nara 奈良美智玩偶🔥</span></div><span style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:var(--primary-textColor,#7C66FF)\">Daolink:转换成中文需求拍卖名称</span><p style=\"font:400 16px/26px 'PingFang SC',sans-serif;color:var(--text-1,#000);margin:0\">Yoshitomo Nara x How2work最新联名<br>奈良美智「123 Drumming Girls」<br>\"Three sisters\"迷你木头人玩偶套装</p></div>",
+      "_hidden": true
+    },
+    "Contents_NineGrid": {
+      "figma_name": "👻 Post / Contents · NineGrid",
+      "desc": "帖子内容区 - NineGrid 类型",
+      "figma_key": "ed86390c4894edb322d6632672ffc38871a0f65e",
+      "css": {
+        "display": "flex",
+        "width": "356px",
+        "flex-direction": "column",
+        "align-items": "flex-start",
+        "gap": "var(--Spacing-Small, 4px)"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "356px",
+          "flex-direction": "column",
+          "align-items": "flex-start",
+          "gap": "var(--Spacing-Small, 4px)"
+        },
+        "children": [
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "justify-content": "center",
+              "align-items": "center",
+              "gap": "4px",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "RECTANGLE",
+                "css": {
+                  "height": "116px",
+                  "flex": "1 0 0",
+                  "border-radius": "var(--Radius-Normal, 8px)",
+                  "background": "var(--bg-2, #F7F7F9)"
+                }
+              },
+              {
+                "type": "RECTANGLE",
+                "css": {
+                  "height": "116px",
+                  "flex": "1 0 0",
+                  "border-radius": "var(--Radius-Normal, 8px)",
+                  "background": "var(--bg-2, #F7F7F9)"
+                }
+              },
+              {
+                "type": "RECTANGLE",
+                "css": {
+                  "height": "116px",
+                  "flex": "1 0 0",
+                  "border-radius": "var(--Radius-Normal, 8px)",
+                  "background": "var(--bg-2, #F7F7F9)"
+                }
+              }
+            ]
+          },
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "justify-content": "center",
+              "align-items": "center",
+              "gap": "4px",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "RECTANGLE",
+                "css": {
+                  "height": "116px",
+                  "flex": "1 0 0",
+                  "border-radius": "var(--Radius-Normal, 8px)",
+                  "background": "var(--bg-2, #F7F7F9)"
+                }
+              },
+              {
+                "type": "RECTANGLE",
+                "css": {
+                  "height": "116px",
+                  "flex": "1 0 0",
+                  "border-radius": "var(--Radius-Normal, 8px)",
+                  "background": "var(--bg-2, #F7F7F9)"
+                }
+              },
+              {
+                "type": "RECTANGLE",
+                "css": {
+                  "height": "116px",
+                  "flex": "1 0 0",
+                  "border-radius": "var(--Radius-Normal, 8px)",
+                  "background": "var(--bg-2, #F7F7F9)"
+                }
+              }
+            ]
+          },
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "justify-content": "center",
+              "align-items": "center",
+              "gap": "4px",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "RECTANGLE",
+                "css": {
+                  "height": "116px",
+                  "flex": "1 0 0",
+                  "border-radius": "var(--Radius-Normal, 8px)",
+                  "background": "var(--bg-2, #F7F7F9)"
+                }
+              },
+              {
+                "type": "RECTANGLE",
+                "css": {
+                  "height": "116px",
+                  "flex": "1 0 0",
+                  "border-radius": "var(--Radius-Normal, 8px)",
+                  "background": "var(--bg-2, #F7F7F9)"
+                }
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "height": "116px",
+                  "padding": "8px",
+                  "flex-direction": "column",
+                  "justify-content": "flex-end",
+                  "align-items": "flex-end",
+                  "gap": "10px",
+                  "flex": "1 0 0",
+                  "border-radius": "var(--Radius-Normal, 8px)",
+                  "background": "var(--bg-2, #F7F7F9)"
+                },
+                "children": [
+                  {
+                    "type": "FRAME",
+                    "css": {
+                      "display": "flex",
+                      "padding": "0 4px",
+                      "align-items": "center",
+                      "gap": "2px",
+                      "border-radius": "16px",
+                      "background": "var(--text-2, rgba(0, 0, 0, 0.64))"
+                    },
+                    "children": [
+                      {
+                        "type": "INSTANCE",
+                        "css": {
+                          "width": "12px",
+                          "height": "12px",
+                          "filter": "drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.60))"
+                        },
+                        "ref": "💙 00.03_Icon / photo",
+                        "key": "efb99bc6fd259682c2d70df70df39cccc2e2da0a"
+                      },
+                      {
+                        "type": "TEXT",
+                        "css": {
+                          "color": "var(--white-textColor, #FFF)",
+                          "font-feature-settings": "'liga' off, 'clig' off",
+                          "text-shadow": "1px 1px 0 rgba(0, 0, 0, 0.60)",
+                          "font-family": "\"PingFang SC\"",
+                          "font-size": "12px",
+                          "font-style": "normal",
+                          "font-weight": "400",
+                          "line-height": "18px /* 150% */"
+                        },
+                        "text": "9"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "props": {
+        "Type": {
+          "options": [
+            "LargeImage3:4",
+            "LargeImage4:3",
+            "FollowPost",
+            "MainText20260118",
+            "NineGrid",
+            "NineGridHorizontal",
+            "NineGridVertical",
+            "Webview",
+            "Vote",
+            "Label",
+            "IslandLink",
+            "PoiMap",
+            "Plugin & Poi",
+            "MarkLabel",
+            "MarkLabelGrid"
+          ],
+          "default": "NineGrid"
+        }
+      },
+      "preview_html": "<div style=\"display:flex;width:356px;flex-direction:column;gap:4px;margin:0 10px;box-sizing:border-box\"><div style=\"display:flex;gap:4px\"><div style=\"height:116px;flex:1;border-radius:8px;background:var(--bg-2,#F7F7F9)\"></div><div style=\"height:116px;flex:1;border-radius:8px;background:var(--bg-2,#F7F7F9)\"></div><div style=\"height:116px;flex:1;border-radius:8px;background:var(--bg-2,#F7F7F9)\"></div></div><div style=\"display:flex;gap:4px\"><div style=\"height:116px;flex:1;border-radius:8px;background:var(--bg-2,#F7F7F9)\"></div><div style=\"height:116px;flex:1;border-radius:8px;background:var(--bg-2,#F7F7F9)\"></div><div style=\"height:116px;flex:1;border-radius:8px;background:var(--bg-2,#F7F7F9)\"></div></div><div style=\"display:flex;gap:4px\"><div style=\"height:116px;flex:1;border-radius:8px;background:var(--bg-2,#F7F7F9)\"></div><div style=\"height:116px;flex:1;border-radius:8px;background:var(--bg-2,#F7F7F9)\"></div><div style=\"height:116px;flex:1;border-radius:8px;background:var(--bg-2,#F7F7F9);position:relative\"><div style=\"position:absolute;bottom:8px;right:8px;display:flex;align-items:center;gap:2px;padding:0 4px;border-radius:16px;background:rgba(0,0,0,.64)\"><span style=\"color:#fff;font:400 12px/18px 'PingFang SC',sans-serif\">9</span></div></div></div></div>",
+      "_hidden": true
+    },
+    "Contents_NineGridHorizontal": {
+      "figma_name": "👻 Post / Contents · NineGridHorizontal",
+      "desc": "帖子内容区 - NineGridHorizontal 类型",
+      "figma_key": "a048d86dccbbf4f0a45147752e43d1d63d5e6fae",
+      "css": {
+        "display": "inline-flex",
+        "align-items": "flex-start"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "align-items": "flex-start"
+        },
+        "children": [
+          {
+            "type": "RECTANGLE",
+            "css": {
+              "width": "170px",
+              "height": "128px",
+              "border-radius": "var(--Radius-Normal, 8px)",
+              "background": "var(--bg-2, #F7F7F9)"
+            }
+          }
+        ]
+      },
+      "props": {
+        "Type": {
+          "options": [
+            "LargeImage3:4",
+            "LargeImage4:3",
+            "FollowPost",
+            "MainText20260118",
+            "NineGrid",
+            "NineGridHorizontal",
+            "NineGridVertical",
+            "Webview",
+            "Vote",
+            "Label",
+            "IslandLink",
+            "PoiMap",
+            "Plugin & Poi",
+            "MarkLabel",
+            "MarkLabelGrid"
+          ],
+          "default": "NineGridHorizontal"
+        }
+      },
+      "preview_html": "<div style=\"display:inline-flex;align-items:flex-start\"><div style=\"width:170px;height:128px;border-radius:8px;background:var(--bg-2,#F7F7F9)\"></div></div>",
+      "_hidden": true
+    },
+    "Contents_NineGridVertical": {
+      "figma_name": "👻 Post / Contents · NineGridVertical",
+      "desc": "帖子内容区 - NineGridVertical 类型",
+      "figma_key": "0c80eb583746cda3cdd02402fb6a6716a053a21c",
+      "css": {
+        "display": "inline-flex",
+        "align-items": "flex-start"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "align-items": "flex-start"
+        },
+        "children": [
+          {
+            "type": "RECTANGLE",
+            "css": {
+              "width": "170px",
+              "height": "226px",
+              "border-radius": "var(--Radius-Normal, 8px)",
+              "background": "var(--bg-2, #F7F7F9)"
+            }
+          }
+        ]
+      },
+      "props": {
+        "Type": {
+          "options": [
+            "LargeImage3:4",
+            "LargeImage4:3",
+            "FollowPost",
+            "MainText20260118",
+            "NineGrid",
+            "NineGridHorizontal",
+            "NineGridVertical",
+            "Webview",
+            "Vote",
+            "Label",
+            "IslandLink",
+            "PoiMap",
+            "Plugin & Poi",
+            "MarkLabel",
+            "MarkLabelGrid"
+          ],
+          "default": "NineGridVertical"
+        }
+      },
+      "preview_html": "<div style=\"display:inline-flex;align-items:flex-start\"><div style=\"width:170px;height:226px;border-radius:8px;background:var(--bg-2,#F7F7F9)\"></div></div>",
+      "_hidden": true
+    },
+    "Contents_Webview": {
+      "figma_name": "👻 Post / Contents · Webview",
+      "desc": "帖子内容区 - Webview 类型",
+      "figma_key": "99ac713df8ad056eada1f4d34808c072779f04c7",
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "align-items": "center",
+        "gap": "12px"
+      },
+      "_tree": {},
+      "props": {
+        "Type": {
+          "options": [
+            "LargeImage3:4",
+            "LargeImage4:3",
+            "FollowPost",
+            "MainText20260118",
+            "NineGrid",
+            "NineGridHorizontal",
+            "NineGridVertical",
+            "Webview",
+            "Vote",
+            "Label",
+            "IslandLink",
+            "PoiMap",
+            "Plugin & Poi",
+            "MarkLabel",
+            "MarkLabelGrid"
+          ],
+          "default": "Webview"
+        }
+      },
+      "preview_html": "<div style=\"display:flex;width:375px;align-items:center;gap:12px;padding:0 10px;box-sizing:border-box;background:var(--bg-1,#fff)\"><div style=\"height:48px;flex:1;border-radius:8px;background:var(--bg-2,#F7F7F9)\"></div></div>",
+      "_hidden": true
+    },
+    "Contents_Vote": {
+      "figma_name": "👻 Post / Contents · Vote",
+      "desc": "帖子内容区 - Vote 类型",
+      "figma_key": "4fe5177834e9890ad193511ab5c3a4b47378df98",
+      "css": {
+        "display": "inline-flex",
+        "flex-direction": "column",
+        "align-items": "center",
+        "gap": "12px"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "inline-flex",
+          "flex-direction": "column",
+          "align-items": "center",
+          "gap": "12px"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "padding": "0 10px",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "flex-start",
+              "border-radius": "var(--Radius-Normal, 8px)"
+            },
+            "ref": "👻 Post / Vote20260118",
+            "key": "08577b17cf4ddcd37bd9800d8e0580330be88eea"
+          }
+        ]
+      },
+      "props": {
+        "Type": {
+          "options": [
+            "LargeImage3:4",
+            "LargeImage4:3",
+            "FollowPost",
+            "MainText20260118",
+            "NineGrid",
+            "NineGridHorizontal",
+            "NineGridVertical",
+            "Webview",
+            "Vote",
+            "Label",
+            "IslandLink",
+            "PoiMap",
+            "Plugin & Poi",
+            "MarkLabel",
+            "MarkLabelGrid"
+          ],
+          "default": "Vote"
+        }
+      },
+      "preview_html": "<div style=\"display:inline-flex;flex-direction:column;align-items:center;gap:12px;width:375px;box-sizing:border-box;background:var(--bg-1,#fff)\"><div style=\"width:355px;border-radius:8px;padding:12px;box-sizing:border-box;background:var(--bg-2,#F7F7F9)\"><span style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:var(--text-1,#000)\">投票选项</span></div></div>",
+      "_hidden": true
+    },
+    "Contents_Label": {
+      "figma_name": "👻 Post / Contents · Label",
+      "desc": "帖子内容区 - Label 类型",
+      "figma_key": "f5e025ef12f1da4628a2016c2f539aab9d02c11a",
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "flex-direction": "column",
+        "align-items": "flex-start"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "flex-direction": "column",
+          "align-items": "flex-start"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "padding": "0 62px 0 10px",
+              "align-items": "center",
+              "gap": "var(--Spacing-Normal, 8px)",
+              "align-self": "stretch"
+            },
+            "ref": "💙 Post / Label",
+            "key": "c40dddf39ffc6226e34527ffc6e25c23e127a2a6"
+          }
+        ]
+      },
+      "props": {
+        "Type": {
+          "options": [
+            "LargeImage3:4",
+            "LargeImage4:3",
+            "FollowPost",
+            "MainText20260118",
+            "NineGrid",
+            "NineGridHorizontal",
+            "NineGridVertical",
+            "Webview",
+            "Vote",
+            "Label",
+            "IslandLink",
+            "PoiMap",
+            "Plugin & Poi",
+            "MarkLabel",
+            "MarkLabelGrid"
+          ],
+          "default": "Label"
+        }
+      },
+      "preview_html": "<div style=\"display:flex;width:375px;flex-direction:column;box-sizing:border-box;background:var(--bg-1,#fff)\"><div style=\"display:flex;padding:0 62px 0 10px;align-items:center;gap:8px\"><div style=\"height:32px;flex:1;border-radius:4px;background:var(--bg-2,#F7F7F9)\"></div></div></div>",
+      "_hidden": true
+    },
+    "Contents_IslandLink": {
+      "figma_name": "👻 Post / Contents · IslandLink",
+      "desc": "帖子内容区 - IslandLink 类型",
+      "figma_key": "9623f8782e6a9259577890c3ff7912eedafe09a7",
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "0 10px",
+        "align-items": "center"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "0 10px",
+          "align-items": "center"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "height": "23px",
+              "align-items": "center",
+              "gap": "4px",
+              "border-radius": "4px"
+            },
+            "ref": "💙 03.02_Tag / Echo / Tag",
+            "key": "cd97bd51d73c7311cfe96f3905fbd86203f1602e"
+          }
+        ]
+      },
+      "props": {
+        "Type": {
+          "options": [
+            "LargeImage3:4",
+            "LargeImage4:3",
+            "FollowPost",
+            "MainText20260118",
+            "NineGrid",
+            "NineGridHorizontal",
+            "NineGridVertical",
+            "Webview",
+            "Vote",
+            "Label",
+            "IslandLink",
+            "PoiMap",
+            "Plugin & Poi",
+            "MarkLabel",
+            "MarkLabelGrid"
+          ],
+          "default": "IslandLink"
+        }
+      },
+      "preview_html": "<div style=\"display:flex;width:375px;padding:0 10px;align-items:center;box-sizing:border-box;background:var(--bg-1,#fff)\"><div style=\"display:inline-flex;height:23px;align-items:center;gap:4px;border-radius:4px;background:var(--bg-2,#F7F7F9);padding:0 8px\"><span style=\"font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:var(--text-2,rgba(0,0,0,.64))\">Labubu岛</span></div></div>",
+      "_hidden": true
+    },
+    "Contents_PoiMap": {
+      "figma_name": "👻 Post / Contents · PoiMap",
+      "desc": "帖子内容区 - PoiMap 类型",
+      "figma_key": "41f569cda6284a4b60356f77af77e0b360ef3f5a",
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "0 10px",
+        "align-items": "flex-start",
+        "gap": "8px"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "0 10px",
+          "align-items": "flex-start",
+          "gap": "8px"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "width": "355px",
+              "height": "44px",
+              "flex-shrink": "0",
+              "border-radius": "var(--Radius-Small, 4px)"
+            },
+            "ref": "👻 Post Published / Site",
+            "key": "e95fdab0dd67702bd9386b3ae96e284b5b6d50fd"
+          }
+        ]
+      },
+      "props": {
+        "Type": {
+          "options": [
+            "LargeImage3:4",
+            "LargeImage4:3",
+            "FollowPost",
+            "MainText20260118",
+            "NineGrid",
+            "NineGridHorizontal",
+            "NineGridVertical",
+            "Webview",
+            "Vote",
+            "Label",
+            "IslandLink",
+            "PoiMap",
+            "Plugin & Poi",
+            "MarkLabel",
+            "MarkLabelGrid"
+          ],
+          "default": "PoiMap"
+        }
+      },
+      "preview_html": "<div style=\"display:flex;width:375px;padding:0 10px;align-items:flex-start;gap:8px;box-sizing:border-box;background:var(--bg-1,#fff)\"><div style=\"width:355px;height:44px;border-radius:4px;background:var(--bg-2,#F7F7F9)\"></div></div>",
+      "_hidden": true
+    },
+    "Contents_Plugin_Poi": {
+      "figma_name": "👻 Post / Contents · Plugin & Poi",
+      "desc": "帖子内容区 - Plugin & Poi 类型",
+      "figma_key": "cdc8748414c8a7ecedcce5fc6733c2957f480630",
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "0 10px",
+        "align-items": "flex-start",
+        "align-content": "flex-start",
+        "gap": "8px",
+        "flex-wrap": "wrap"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "0 10px",
+          "align-items": "flex-start",
+          "align-content": "flex-start",
+          "gap": "8px",
+          "flex-wrap": "wrap"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "align-items": "flex-start"
+            },
+            "ref": "👻 Post Published / Site",
+            "key": "6aaba88677203821e9762f00594fbad022414465"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "align-items": "flex-start"
+            },
+            "ref": "👻 Post / PluginLink",
+            "key": "822630afd5833d5a8cd5c76706f17e81ce9eecd0"
+          }
+        ]
+      },
+      "props": {
+        "Type": {
+          "options": [
+            "LargeImage3:4",
+            "LargeImage4:3",
+            "FollowPost",
+            "MainText20260118",
+            "NineGrid",
+            "NineGridHorizontal",
+            "NineGridVertical",
+            "Webview",
+            "Vote",
+            "Label",
+            "IslandLink",
+            "PoiMap",
+            "Plugin & Poi",
+            "MarkLabel",
+            "MarkLabelGrid"
+          ],
+          "default": "Plugin & Poi"
+        }
+      },
+      "preview_html": "<div style=\"display:flex;width:375px;padding:0 10px;align-items:flex-start;gap:8px;flex-wrap:wrap;box-sizing:border-box;background:var(--bg-1,#fff)\"><div style=\"height:32px;border-radius:4px;background:var(--bg-2,#F7F7F9);padding:0 8px;display:flex;align-items:center\"><span style=\"font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:var(--text-2,rgba(0,0,0,.64))\">插件</span></div><div style=\"height:32px;border-radius:4px;background:var(--bg-2,#F7F7F9);padding:0 8px;display:flex;align-items:center\"><span style=\"font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:var(--text-2,rgba(0,0,0,.64))\">地点</span></div></div>",
+      "_hidden": true
+    },
+    "Contents_MarkLabel": {
+      "figma_name": "👻 Post / Contents · MarkLabel",
+      "desc": "帖子内容区 - MarkLabel 类型",
+      "figma_key": "d56f832ac158e9f4269973134dd05b26a06b7ee1",
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "0 10px",
+        "flex-direction": "column",
+        "align-items": "flex-start",
+        "gap": "10px"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "0 10px",
+          "flex-direction": "column",
+          "align-items": "flex-start",
+          "gap": "10px"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "padding": "var(--Spacing-Normal, 8px)",
+              "align-items": "center",
+              "gap": "4px",
+              "align-self": "stretch",
+              "border-radius": "var(--Radius-Normal, 8px)",
+              "background": "var(--bg-2, #F7F7F9)"
+            },
+            "ref": "👻 Mark 20260127",
+            "key": "23b5c7b8dd644848722be90c5355b61a2f3a4e54"
+          }
+        ]
+      },
+      "props": {
+        "Type": {
+          "options": [
+            "LargeImage3:4",
+            "LargeImage4:3",
+            "FollowPost",
+            "MainText20260118",
+            "NineGrid",
+            "NineGridHorizontal",
+            "NineGridVertical",
+            "Webview",
+            "Vote",
+            "Label",
+            "IslandLink",
+            "PoiMap",
+            "Plugin & Poi",
+            "MarkLabel",
+            "MarkLabelGrid"
+          ],
+          "default": "MarkLabel"
+        }
+      },
+      "preview_html": "<div style=\"display:flex;width:375px;padding:0 10px;flex-direction:column;gap:10px;box-sizing:border-box;background:var(--bg-1,#fff)\"><div style=\"display:flex;padding:8px;align-items:center;gap:4px;border-radius:8px;background:var(--bg-2,#F7F7F9)\"><div style=\"width:32px;height:32px;border-radius:4px;background:var(--bg-3,#e8e8ee);flex-shrink:0\"></div><div style=\"display:flex;flex-direction:column;flex:1;gap:2px;overflow:hidden;min-width:0\"><span style=\"font:500 10px/11px 'PingFang SC',sans-serif;color:var(--text-1,#000);overflow:hidden;text-overflow:ellipsis;white-space:nowrap\">Labubu 泡泡玛特经典系列</span><span style=\"font:400 10px/11px 'PingFang SC',sans-serif;color:var(--text-3,rgba(0,0,0,.4))\">数量 <b style=\"color:var(--text-1,#000)\">1个</b></span></div></div></div>",
+      "_hidden": true
+    },
+    "Contents_MarkLabelGrid": {
+      "figma_name": "👻 Post / Contents · MarkLabelGrid",
+      "desc": "帖子内容区 - MarkLabelGrid 类型",
+      "figma_key": "4157a8134985f279406bef60122bb04bd51dece8",
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "0 10px",
+        "flex-direction": "column",
+        "align-items": "flex-start",
+        "gap": "10px"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "0 10px",
+          "flex-direction": "column",
+          "align-items": "flex-start",
+          "gap": "10px"
+        },
+        "children": [
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "355px",
+              "padding": "8px 0",
+              "flex-direction": "column",
+              "align-items": "center",
+              "gap": "var(--Spacing-Mini, 2px)",
+              "border-radius": "8px",
+              "background": "var(--bg-2, #F7F7F9)"
+            },
+            "ref": "MarkLabelGrid",
+            "key": "de936e5bae35fce44c508f8732fd8e57c4e810b6"
+          }
+        ]
+      },
+      "props": {
+        "Type": {
+          "options": [
+            "LargeImage3:4",
+            "LargeImage4:3",
+            "FollowPost",
+            "MainText20260118",
+            "NineGrid",
+            "NineGridHorizontal",
+            "NineGridVertical",
+            "Webview",
+            "Vote",
+            "Label",
+            "IslandLink",
+            "PoiMap",
+            "Plugin & Poi",
+            "MarkLabel",
+            "MarkLabelGrid"
+          ],
+          "default": "MarkLabelGrid"
+        }
+      },
+      "preview_html": "<div style=\"display:flex;width:375px;padding:0 10px;flex-direction:column;gap:10px;box-sizing:border-box;background:var(--bg-1,#fff)\"><div style=\"width:355px;padding:8px 0;border-radius:8px;background:var(--bg-2,#F7F7F9);display:flex;justify-content:center;gap:4px\"><div style=\"width:48px;height:48px;border-radius:4px;background:var(--bg-3,#e8e8ee)\"></div><div style=\"width:48px;height:48px;border-radius:4px;background:var(--bg-3,#e8e8ee)\"></div></div></div>",
+      "_hidden": true
+    },
+    "Info": {
+      "figma_name": "👻 Post / Info",
+      "desc": "帖子元信息行：IP 地址（省份）、点赞评论数、可见范围（仅自己可见）、浏览量、More Action，各项均可通过 boolProp 控制显隐",
+      "figma_key": "391fcf6eecd471b9ba66e281bd9ad19e681721d1",
+      "css": {
+        "display": "flex",
+        "padding": "0 10px",
+        "align-items": "center",
+        "gap": "8px",
+        "align-self": "stretch"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "padding": "0 10px",
+          "align-items": "center",
+          "gap": "8px",
+          "align-self": "stretch"
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "css": {
+              "flex": "1 0 0",
+              "color": "var(--text-3, rgba(0, 0, 0, 0.40))",
+              "font-feature-settings": "'liga' off, 'clig' off",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "12px",
+              "font-style": "normal",
+              "font-weight": "400",
+              "line-height": "18px /* 150% */"
+            },
+            "text": "上海"
+          },
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "align-items": "center",
+              "gap": "8px"
+            },
+            "children": [
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "align-items": "center",
+                  "gap": "2px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "width": "12px",
+                      "height": "12px"
+                    },
+                    "ref": "💙 00.03_Icon / lock",
+                    "key": "f6eaebf8adf880423cdd05574ada5169189e8b42"
+                  },
+                  {
+                    "type": "TEXT",
+                    "css": {
+                      "color": "var(--text-2, rgba(0, 0, 0, 0.64))",
+                      "font-feature-settings": "'liga' off, 'clig' off",
+                      "font-family": "\"PingFang SC\"",
+                      "font-size": "12px",
+                      "font-style": "normal",
+                      "font-weight": "400",
+                      "line-height": "18px /* 150% */"
+                    },
+                    "text": "仅自己可见"
+                  }
+                ]
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "align-items": "center",
+                  "gap": "2px",
+                  "border-radius": "24px"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "width": "12px",
+                      "height": "12px"
+                    },
+                    "ref": "💙 00.03_Icon / visitor",
+                    "key": "83829697dfc62e1b5bce7e82911a7faa0cdaaec2"
+                  },
+                  {
+                    "type": "TEXT",
+                    "css": {
+                      "color": "var(--text-2, rgba(0, 0, 0, 0.64))",
+                      "font-feature-settings": "'liga' off, 'clig' off",
+                      "font-family": "\"PingFang SC\"",
+                      "font-size": "12px",
+                      "font-style": "normal",
+                      "font-weight": "400",
+                      "line-height": "18px /* 150% */"
+                    },
+                    "text": "348"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "IP 地址",
+          "boolProp": "IP 地址#3457:0",
+          "css": {
+            "display": "inline"
+          }
+        },
+        {
+          "name": "点赞评论",
+          "boolProp": "点赞评论#3457:1",
+          "css": {
+            "display": "inline"
+          }
+        },
+        {
+          "name": "可见范围说明",
+          "boolProp": "可见范围说明#3457:2",
+          "css": {
+            "display": "inline"
+          }
+        },
+        {
+          "name": "浏览量",
+          "boolProp": "浏览量#3457:3",
+          "css": {
+            "display": "inline"
+          }
+        },
+        {
+          "name": "More Action",
+          "boolProp": "More Action#3457:4",
+          "css": {
+            "display": "inline"
+          }
+        }
+      ],
+      "props": {},
+      "preview_html": "<div style=\"display:flex;padding:0 10px;align-items:center;gap:8px;background:var(--bg-1,#fff);box-sizing:border-box\"><span style=\"flex:1;font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:var(--text-3,rgba(0,0,0,.4))\">上海</span><div style=\"display:flex;align-items:center;gap:8px\"><div style=\"display:flex;align-items:center;gap:2px\"><i class=\"KurilIcons kuril-lock\" style=\"font-size:12px;color:var(--text-2,rgba(0,0,0,.64))\"></i><span style=\"font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:var(--text-2,rgba(0,0,0,.64))\">仅自己可见</span></div><div style=\"display:flex;align-items:center;gap:2px\"><i class=\"KurilIcons kuril-visitor\" style=\"font-size:12px;color:var(--text-2,rgba(0,0,0,.64))\"></i><span style=\"font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:var(--text-2,rgba(0,0,0,.64))\">348</span></div></div></div>"
+    },
+    "Comments": {
+      "figma_name": "👻 Post / Comments · Default",
+      "desc": "评论区（有评论）：Group 评论列表 + 评论输入框（含相机/表情图标）+ 查看更多按钮 + 分隔线 + 底部互动栏",
+      "figma_key": "5b3fe9d88dd39248b843fb8635dbc642b3d572ff",
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "flex-direction": "column",
+        "align-items": "flex-start",
+        "gap": "var(--Spacing-Large, 16px)"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "flex-direction": "column",
+          "align-items": "flex-start",
+          "gap": "var(--Spacing-Large, 16px)"
+        },
+        "children": [
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "flex-start",
+              "gap": "8px",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "display": "flex",
+                  "padding": "0 10px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "var(--Spacing-Small, 4px)",
+                  "align-self": "stretch"
+                },
+                "ref": "💙 02.02_Group / Basic",
+                "key": "df50bd231f3c4f82f318be1e91b72793a2567041"
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "padding": "0 10px",
+                  "align-items": "center",
+                  "gap": "8px",
+                  "align-self": "stretch"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "32px",
+                      "height": "32px",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "border-radius": "32px"
+                    },
+                    "ref": "03.05_Avatar",
+                    "key": "c6a921ee70436945b0a939bebfc19374ab7f0532"
+                  },
+                  {
+                    "type": "FRAME",
+                    "css": {
+                      "display": "flex",
+                      "height": "34px",
+                      "padding": "8px var(--Spacing-Normal, 8px) 8px 8px",
+                      "justify-content": "flex-end",
+                      "align-items": "center",
+                      "gap": "4px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--Radius-Normal, 8px)",
+                      "background": "var(--bg-2, #F7F7F9)"
+                    },
+                    "children": [
+                      {
+                        "type": "TEXT",
+                        "css": {
+                          "flex": "1 0 0",
+                          "color": "var(--text-3, rgba(0, 0, 0, 0.40))",
+                          "font-feature-settings": "'liga' off, 'clig' off",
+                          "font-family": "\"PingFang SC\"",
+                          "font-size": "12px",
+                          "font-style": "normal",
+                          "font-weight": "400",
+                          "line-height": "18px /* 150% */"
+                        },
+                        "text": "说点什么..."
+                      },
+                      {
+                        "type": "FRAME",
+                        "css": {
+                          "display": "flex",
+                          "align-items": "center",
+                          "gap": "var(--Spacing-Medium, 12px)"
+                        },
+                        "children": [
+                          {
+                            "type": "INSTANCE",
+                            "css": {
+                              "width": "16px",
+                              "height": "16px"
+                            },
+                            "ref": "💙 00.03_Icon / photo",
+                            "key": "efb99bc6fd259682c2d70df70df39cccc2e2da0a"
+                          },
+                          {
+                            "type": "INSTANCE",
+                            "css": {
+                              "width": "16px",
+                              "height": "16px"
+                            },
+                            "ref": "💙 00.03_Icon / emoticon_circle",
+                            "key": "19324cd785333d81210c3a39d6748b5bb00eee67"
+                          },
+                          {
+                            "type": "INSTANCE",
+                            "css": {
+                              "display": "flex",
+                              "justify-content": "flex-end",
+                              "align-items": "flex-start",
+                              "position": "absolute",
+                              "right": "-1px",
+                              "top": "-1px",
+                              "border-radius": "12.8px"
+                            },
+                            "ref": "💙  03.01_Badge",
+                            "key": "f1818c73f188257cf73961a665583469bfc35e56"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "align-self": "stretch"
+            },
+            "ref": "👻 Post / CommentCell",
+            "key": "cc7a0bc53812e2c2b536eb5e7d8e4c56d1dcddbd"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "align-self": "stretch"
+            },
+            "ref": "👻 Post / CommentCell",
+            "key": "cc7a0bc53812e2c2b536eb5e7d8e4c56d1dcddbd"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "align-self": "stretch"
+            },
+            "ref": "👻 Post / CommentCell",
+            "key": "cc7a0bc53812e2c2b536eb5e7d8e4c56d1dcddbd"
+          },
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "padding": "var(--Spacing-Normal, 8px) 44px var(--Spacing-Normal, 8px) 50px",
+              "flex-direction": "column",
+              "align-items": "flex-start",
+              "gap": "10px",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "display": "flex",
+                  "padding": "5px 12px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "center",
+                  "gap": "10px",
+                  "align-self": "stretch",
+                  "border-radius": "var(--Small, 4px)",
+                  "border": "1px solid var(--default-bt-border, rgba(0, 0, 0, 0.16))"
+                },
+                "ref": "💙 00.08_Button",
+                "key": "1046cc0504ea70903d5c66157b20476054b6d2df"
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "padding": "0 15px",
+              "justify-content": "center",
+              "align-items": "center",
+              "gap": "12px",
+              "align-self": "stretch"
+            },
+            "ref": "💙 00.06_Divider / Footer",
+            "key": "909a1e6293b786d905c3db4752febbb1464f8345"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "padding": "0 10px",
+              "align-items": "center",
+              "gap": "var(--Spacing-Large, 16px)",
+              "background": "var(--bg-1, #FFF)"
+            },
+            "ref": "CommentInfo20260118",
+            "key": "ad544c67ed0ecc59e1879c3a1176ce9e689af85e"
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "💙 00.03_Icon / photo",
+          "boolProp": "showPhoto#14812:0",
+          "css": {
+            "width": "16px",
+            "height": "16px"
+          }
+        },
+        {
+          "name": "💙 00.03_Icon / emoticon_circle",
+          "boolProp": "showEmoticon#14812:4",
+          "css": {
+            "width": "16px",
+            "height": "16px"
+          }
+        }
+      ],
+      "props": {
+        "Type": {
+          "options": [
+            "Default",
+            "Empty"
+          ],
+          "default": "Default"
+        }
+      },
+      "preview_html": "<div style=\"display:flex;width:375px;flex-direction:column;align-items:flex-start;gap:16px;background:var(--bg-1,#fff);box-sizing:border-box\"><div style=\"display:flex;flex-direction:column;gap:8px;align-self:stretch\"><div style=\"display:flex;padding:0 10px;align-items:center;gap:8px;align-self:stretch\"><div style=\"width:32px;height:32px;border-radius:32px;background:var(--bg-3,#e8e8ee);flex-shrink:0\"></div><div style=\"display:flex;height:34px;padding:8px;justify-content:flex-end;align-items:center;gap:4px;flex:1;border-radius:8px;background:var(--bg-2,#F7F7F9)\"><span style=\"flex:1;font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:var(--text-3,rgba(0,0,0,.4))\">说点什么...</span><div style=\"display:flex;align-items:center;gap:12px\"><i class=\"KurilIcons kuril-photo\" style=\"font-size:16px;color:var(--text-3,rgba(0,0,0,.4))\"></i><i class=\"KurilIcons kuril-emoticon_circle\" style=\"font-size:16px;color:var(--text-3,rgba(0,0,0,.4))\"></i></div></div></div><div style=\"height:88px;align-self:stretch;display:flex;flex-direction:column;gap:4px;padding:0 10px 0 50px\"><div style=\"height:40px;border-radius:4px;background:var(--bg-2,#F7F7F9)\"></div><div style=\"height:40px;border-radius:4px;background:var(--bg-2,#F7F7F9)\"></div></div></div></div>"
+    },
+    "Comments_Empty": {
+      "figma_name": "👻 Post / Comments · Empty",
+      "desc": "评论区（空态）：评论输入框 + 空态插图 + 底部互动栏",
+      "figma_key": "3a7f143be35176e5f0fae92ec31acf62add9b059",
+      "_hidden": true,
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "flex-direction": "column",
+        "align-items": "center",
+        "gap": "24px"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "flex-direction": "column",
+          "align-items": "center",
+          "gap": "24px"
+        },
+        "children": [
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "padding-bottom": "2px",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "flex-start",
+              "gap": "8px",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "INSTANCE",
+                "css": {
+                  "display": "flex",
+                  "padding": "0 10px",
+                  "flex-direction": "column",
+                  "justify-content": "center",
+                  "align-items": "flex-start",
+                  "gap": "var(--Spacing-Small, 4px)",
+                  "align-self": "stretch"
+                },
+                "ref": "💙 02.02_Group / Basic",
+                "key": "df50bd231f3c4f82f318be1e91b72793a2567041"
+              },
+              {
+                "type": "FRAME",
+                "css": {
+                  "display": "flex",
+                  "padding": "0 10px",
+                  "align-items": "center",
+                  "gap": "8px",
+                  "align-self": "stretch"
+                },
+                "children": [
+                  {
+                    "type": "INSTANCE",
+                    "css": {
+                      "display": "flex",
+                      "width": "32px",
+                      "height": "32px",
+                      "justify-content": "center",
+                      "align-items": "center",
+                      "border-radius": "32px"
+                    },
+                    "ref": "03.05_Avatar",
+                    "key": "c6a921ee70436945b0a939bebfc19374ab7f0532"
+                  },
+                  {
+                    "type": "FRAME",
+                    "css": {
+                      "display": "flex",
+                      "height": "34px",
+                      "padding": "8px var(--Spacing-Normal, 8px) 8px 8px",
+                      "justify-content": "flex-end",
+                      "align-items": "center",
+                      "gap": "4px",
+                      "flex": "1 0 0",
+                      "border-radius": "var(--Radius-Normal, 8px)",
+                      "background": "var(--bg-2, #F7F7F9)"
+                    },
+                    "children": [
+                      {
+                        "type": "TEXT",
+                        "css": {
+                          "flex": "1 0 0",
+                          "color": "var(--text-3, rgba(0, 0, 0, 0.40))",
+                          "font-feature-settings": "'liga' off, 'clig' off",
+                          "font-family": "\"PingFang SC\"",
+                          "font-size": "12px",
+                          "font-style": "normal",
+                          "font-weight": "400",
+                          "line-height": "18px /* 150% */"
+                        },
+                        "text": "说点什么..."
+                      },
+                      {
+                        "type": "FRAME",
+                        "css": {
+                          "display": "flex",
+                          "align-items": "center",
+                          "gap": "var(--Spacing-Medium, 12px)"
+                        },
+                        "children": [
+                          {
+                            "type": "INSTANCE",
+                            "css": {
+                              "width": "16px",
+                              "height": "16px"
+                            },
+                            "ref": "💙 00.03_Icon / photo",
+                            "key": "efb99bc6fd259682c2d70df70df39cccc2e2da0a"
+                          },
+                          {
+                            "type": "INSTANCE",
+                            "css": {
+                              "width": "16px",
+                              "height": "16px"
+                            },
+                            "ref": "💙 00.03_Icon / emoticon_circle",
+                            "key": "19324cd785333d81210c3a39d6748b5bb00eee67"
+                          },
+                          {
+                            "type": "INSTANCE",
+                            "css": {
+                              "display": "flex",
+                              "justify-content": "flex-end",
+                              "align-items": "flex-start",
+                              "position": "absolute",
+                              "right": "-1px",
+                              "top": "-1px",
+                              "border-radius": "12.8px"
+                            },
+                            "ref": "💙  03.01_Badge",
+                            "key": "f1818c73f188257cf73961a665583469bfc35e56"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "311px",
+              "padding": "var(--Spacing-Large, 16px) 0 24px 0",
+              "flex-direction": "column",
+              "justify-content": "center",
+              "align-items": "center",
+              "gap": "12px"
+            },
+            "ref": "💙 03.03_Empty",
+            "key": "6a5ba29420b87372c28ce1349cbdb9003fbb849f"
+          },
+          {
+            "type": "INSTANCE",
+            "css": {
+              "display": "flex",
+              "width": "375px",
+              "padding": "0 10px",
+              "align-items": "center",
+              "gap": "var(--Spacing-Large, 16px)",
+              "background": "var(--bg-1, #FFF)"
+            },
+            "ref": "CommentInfo20260118",
+            "key": "ad544c67ed0ecc59e1879c3a1176ce9e689af85e"
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "💙 00.03_Icon / photo",
+          "boolProp": "showPhoto#14812:0",
+          "css": {
+            "width": "16px",
+            "height": "16px"
+          }
+        },
+        {
+          "name": "💙 00.03_Icon / emoticon_circle",
+          "boolProp": "showEmoticon#14812:4",
+          "css": {
+            "width": "16px",
+            "height": "16px"
+          }
+        }
+      ],
+      "props": {
+        "Type": {
+          "options": [
+            "Default",
+            "Empty"
+          ],
+          "default": "Empty"
+        }
+      }
+    },
+    "Description": {
+      "figma_name": "👻 Post / Description",
+      "desc": "帖子描述文本区：正文（可截断+展开）+ 链接高亮（紫色）+ 展开按钮",
+      "figma_key": "059e26c0dab5204619d673572e4a46f609633fa5",
+      "css": {
+        "display": "flex",
+        "width": "375px",
+        "padding": "0 10px",
+        "flex-direction": "column",
+        "justify-content": "center",
+        "align-items": "center",
+        "background": "#FFF"
+      },
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "375px",
+          "padding": "0 10px",
+          "flex-direction": "column",
+          "justify-content": "center",
+          "align-items": "center",
+          "background": "#FFF"
+        },
+        "children": [
+          {
+            "type": "TEXT",
+            "css": {
+              "align-self": "stretch",
+              "color": "var(--text-2, rgba(0, 0, 0, 0.64))",
+              "font-feature-settings": "'liga' off, 'clig' off",
+              "font-family": "\"PingFang SC\"",
+              "font-size": "14px",
+              "font-style": "normal",
+              "font-weight": "400",
+              "line-height": "22px /* 157.143% */"
+            },
+            "text": "这里是活动介绍说明这里是活动介绍说明这里是活动介绍说明这里是活动介绍说明这里是活动介绍说明这里是活动"
+          },
+          {
+            "type": "FRAME",
+            "css": {
+              "display": "flex",
+              "align-items": "center",
+              "gap": "var(--Spacing-Small, 4px)",
+              "align-self": "stretch"
+            },
+            "children": [
+              {
+                "type": "TEXT",
+                "css": {
+                  "display": "-webkit-box",
+                  "-webkit-box-orient": "vertical",
+                  "-webkit-line-clamp": "1",
+                  "flex": "1 0 0",
+                  "overflow": "hidden",
+                  "color": "var(--primary-textColor, #7C66FF)",
+                  "font-feature-settings": "'liga' off, 'clig' off",
+                  "text-overflow": "ellipsis",
+                  "font-family": "\"PingFang SC\"",
+                  "font-size": "14px",
+                  "font-style": "normal",
+                  "font-weight": "500",
+                  "line-height": "22px"
+                },
+                "text": "介绍http://qiandao.com这里是链接的样式这里是活动介绍说明这里是活动介绍说明这里是活动介绍说明"
+              },
+              {
+                "type": "TEXT",
+                "css": {
+                  "color": "var(--text-3, rgba(0, 0, 0, 0.40))",
+                  "font-feature-settings": "'liga' off, 'clig' off",
+                  "font-family": "\"PingFang SC\"",
+                  "font-size": "14px",
+                  "font-style": "normal",
+                  "font-weight": "400",
+                  "line-height": "22px /* 157.143% */"
+                },
+                "text": "展开"
+              }
+            ]
+          }
+        ]
+      },
+      "props": {},
+      "preview_html": "<div style=\"display:flex;width:375px;padding:0 10px;flex-direction:column;align-items:center;box-sizing:border-box;background:var(--bg-1,#fff)\"><span style=\"align-self:stretch;font:var(--font-b5,400 14px/22px 'PingFang SC',sans-serif);color:var(--text-2,rgba(0,0,0,.64))\">这里是活动介绍说明这里是活动介绍说明这里是活动介绍说明</span><div style=\"display:flex;align-items:center;gap:4px;align-self:stretch\"><span style=\"flex:1;font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:var(--primary-textColor,#7C66FF);overflow:hidden;text-overflow:ellipsis;white-space:nowrap\">介绍链接内容这里是链接的样式</span><span style=\"font:var(--font-b5,400 14px/22px 'PingFang SC',sans-serif);color:var(--text-3,rgba(0,0,0,.4))\">展开</span></div></div>"
+    }
+  }
+}
