@@ -354,8 +354,11 @@ def _check_one_ref(cref, components, cid, vk, label='component_ref', ref_map=Non
     else:
         match_props = cref.get('props') or cref.get('variants') or {}
         if match_props:
+            def _hay(rvk):
+                fn = (ref_comp.get('variants') or {}).get(rvk, {}).get('figma_name', '')
+                return rvk + ' ' + fn
             found = any(
-                all(f'{k}={v}' in rvk for k, v in match_props.items())
+                all(f'{k}={v}' in _hay(rvk) for k, v in match_props.items())
                 for rvk in (ref_comp.get('variants') or {})
             )
             if not found:

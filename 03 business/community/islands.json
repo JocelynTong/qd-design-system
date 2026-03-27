@@ -47,11 +47,11 @@
         "overflow": "hidden"
       },
       "component_refs": [
-        { "cid": "👻 Islands / PinCell, Type=Islands" },
-        { "cid": "👻 Islands / PinCell, Type=Home" },
-        { "cid": "👻 Islands / PinCell, Type=Home" },
-        { "cid": "👻 Islands / PinCell, Type=Home" },
-        { "cid": "👻 Islands / PinCell, Type=Home" }
+        { "cid": "👻 Islands / PinCell", "variants": { "Type": "Islands" } },
+        { "cid": "👻 Islands / PinCell", "variants": { "Type": "Home" } },
+        { "cid": "👻 Islands / PinCell", "variants": { "Type": "Home" } },
+        { "cid": "👻 Islands / PinCell", "variants": { "Type": "Home" } },
+        { "cid": "👻 Islands / PinCell", "variants": { "Type": "Home" } }
       ]
     },
     "PinCell_Home": {
@@ -181,9 +181,9 @@
         "box-sizing": "border-box"
       },
       "component_refs": [
-        { "cid": "👻 Islands / GridCell, Type=ISLANDS" },
-        { "cid": "👻 Islands / GridCell, Type=ISLANDS" },
-        { "cid": "👻 Islands / GridCell, Type=ISLANDS" }
+        { "cid": "👻 Islands / GridCell", "variants": { "Type": "ISLANDS" } },
+        { "cid": "👻 Islands / GridCell", "variants": { "Type": "ISLANDS" } },
+        { "cid": "👻 Islands / GridCell", "variants": { "Type": "ISLANDS" } }
       ]
     },
     "Slide": {
