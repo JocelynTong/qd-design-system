@@ -34,14 +34,23 @@
         {
           "cid": "💙 01.00_Status Bar",
           "props": {
-            "Color": "White"
+            "Color": {
+              "type": "VARIANT",
+              "value": "White"
+            }
           }
         },
         {
           "cid": "💙 01.01_Navigation Bar",
           "props": {
-            "Terminal": "App",
-            "Color": "White"
+            "Terminal": {
+              "type": "VARIANT",
+              "value": "App"
+            },
+            "Color": {
+              "type": "VARIANT",
+              "value": "White"
+            }
           }
         }
       ],
@@ -88,37 +97,55 @@
         {
           "cid": "👻 Islands / Pin / Basic",
           "props": {
-            "Type": "Home"
+            "Type": {
+              "type": "VARIANT",
+              "value": "Home"
+            }
           }
         },
         {
           "cid": "👻 Islands / Pin / Basic",
           "props": {
-            "Type": "Islands"
+            "Type": {
+              "type": "VARIANT",
+              "value": "Islands"
+            }
           }
         },
         {
           "cid": "👻 Islands / Pin / Basic",
           "props": {
-            "Type": "Islands"
+            "Type": {
+              "type": "VARIANT",
+              "value": "Islands"
+            }
           }
         },
         {
           "cid": "👻 Islands / Pin / Basic",
           "props": {
-            "Type": "Islands"
+            "Type": {
+              "type": "VARIANT",
+              "value": "Islands"
+            }
           }
         },
         {
           "cid": "👻 Islands / Pin / Basic",
           "props": {
-            "Type": "Islands"
+            "Type": {
+              "type": "VARIANT",
+              "value": "Islands"
+            }
           }
         },
         {
           "cid": "👻 Islands / Pin / Basic",
           "props": {
-            "Type": "MyIslands"
+            "Type": {
+              "type": "VARIANT",
+              "value": "MyIslands"
+            }
           }
         }
       ]
@@ -288,25 +315,37 @@
         {
           "cid": "👻 Islands / Grid / Basic",
           "props": {
-            "Type": "ISLANDS"
+            "Type": {
+              "type": "VARIANT",
+              "value": "ISLANDS"
+            }
           }
         },
         {
           "cid": "👻 Islands / Grid / Basic",
           "props": {
-            "Type": "ISLANDS"
+            "Type": {
+              "type": "VARIANT",
+              "value": "ISLANDS"
+            }
           }
         },
         {
           "cid": "👻 Islands / Grid / Basic",
           "props": {
-            "Type": "ISLANDS"
+            "Type": {
+              "type": "VARIANT",
+              "value": "ISLANDS"
+            }
           }
         },
         {
           "cid": "👻 Islands / Grid / Basic",
           "props": {
-            "Type": "ISLANDS"
+            "Type": {
+              "type": "VARIANT",
+              "value": "ISLANDS"
+            }
           }
         }
       ]
@@ -326,7 +365,10 @@
         {
           "cid": "👻 Islands / Slide / Basic",
           "props": {
-            "Type": "Notice"
+            "Type": {
+              "type": "VARIANT",
+              "value": "Notice"
+            }
           }
         },
         {

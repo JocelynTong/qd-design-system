@@ -294,13 +294,8 @@ async function handleExport() {
           var refName = getCanonicalName(child.mainComponent);
           var props = parseComponentProps(child);
           var ref = { cid: refName };
-          if (props) {
-            var flatProps = {};
-            if (props.variants) Object.keys(props.variants).forEach(function(k){ flatProps[k] = props.variants[k]; });
-            if (props.booleans) Object.keys(props.booleans).forEach(function(k){ flatProps[k] = props.booleans[k]; });
-            if (props.swaps)    Object.keys(props.swaps).forEach(function(k){ flatProps[k] = '💙 ' + props.swaps[k]; });
-            if (Object.keys(flatProps).length > 0) ref.props = flatProps;
-          }
+          var cp = child.componentProperties;
+          if (cp && Object.keys(cp).length > 0) ref.props = cp;
           refs.push(ref);
         }
       }
