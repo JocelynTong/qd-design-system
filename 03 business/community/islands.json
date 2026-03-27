@@ -158,10 +158,10 @@
         "display": "flex",
         "width": "68px",
         "height": "85px",
-        "padding": "8px 0",
+        "padding": "var(--Normal, 8px) 0",
         "flex-direction": "column",
         "align-items": "center",
-        "gap": "8px"
+        "gap": "var(--Spacing-Normal, 8px)"
       },
       "props": {
         "Type": {
@@ -188,7 +188,44 @@
           }
         }
       },
-      "preview_html": "<div style=\"display:flex;flex-direction:column;width:68px;height:85px;align-items:center;gap:var(--Spacing-Normal,8px);padding:var(--Spacing-Normal,8px) 0;position:relative;flex-shrink:0;overflow:hidden\"><div style=\"position:relative;width:48px;height:48px;border-radius:var(--Radius-Normal,8px);background:var(--white-soft-bg,rgba(255,255,255,.12));overflow:hidden;flex-shrink:0;z-index:3\"><div style=\"position:absolute;top:35%;left:21%;right:21%;bottom:35%;display:flex;align-items:center;gap:1.5px\"><div style=\"width:13px;height:14px;background:var(--white-8,rgba(255,255,255,.88));border-radius:2px;flex-shrink:0\"></div><div style=\"width:13px;height:14px;background:var(--white-8,rgba(255,255,255,.88));border-radius:2px;flex-shrink:0\"></div></div></div><span style=\"font:500 10px/11px 'PingFang SC',sans-serif;color:var(--white-text-color,#fff);text-align:center;white-space:nowrap;position:relative;z-index:2\">首页</span><div style=\"position:absolute;width:54px;height:56px;left:7px;top:4px;border:2px solid var(--white-8,rgba(255,255,255,.88));border-radius:10px;z-index:1;box-sizing:border-box\"></div></div>"
+      "preview_html": "<div style=\"display:flex;flex-direction:column;width:68px;height:85px;align-items:center;gap:var(--Spacing-Normal,8px);padding:var(--Spacing-Normal,8px) 0;position:relative;flex-shrink:0;overflow:hidden\"><div style=\"position:relative;width:48px;height:48px;border-radius:var(--Radius-Normal,8px);background:var(--white-soft-bg,rgba(255,255,255,.12));overflow:hidden;flex-shrink:0;z-index:3\"><div style=\"position:absolute;top:35%;left:21%;right:21%;bottom:35%;display:flex;align-items:center;gap:1.5px\"><div style=\"width:13px;height:14px;background:var(--white-8,rgba(255,255,255,.88));border-radius:2px;flex-shrink:0\"></div><div style=\"width:13px;height:14px;background:var(--white-8,rgba(255,255,255,.88));border-radius:2px;flex-shrink:0\"></div></div></div><span style=\"font:500 10px/11px 'PingFang SC',sans-serif;color:var(--white-text-color,#fff);text-align:center;white-space:nowrap;position:relative;z-index:2\">首页</span><div style=\"position:absolute;width:54px;height:56px;left:7px;top:4px;border:2px solid var(--white-8,rgba(255,255,255,.88));border-radius:10px;z-index:1;box-sizing:border-box\"></div></div>",
+      "slots": [
+        {
+          "name": "Vector",
+          "boolProp": "Selected#14210:9",
+          "css": {
+            "width": "73.34px",
+            "height": "25.08px",
+            "transform": "rotate(-8.438deg)",
+            "stroke-width": "2px",
+            "stroke": "var(--primary-border, #7C66FF)"
+          }
+        },
+        {
+          "name": "Vector",
+          "boolProp": "Selected#14210:9",
+          "css": {
+            "width": "95.2px",
+            "height": "11.56px",
+            "transform": "rotate(-8.438deg)",
+            "stroke-width": "2px",
+            "stroke": "var(--primary-border, #7C66FF)"
+          }
+        },
+        {
+          "name": "Selected",
+          "boolProp": "Selected#14210:9",
+          "css": {
+            "width": "56.118px",
+            "height": "56px",
+            "position": "absolute",
+            "right": "5.882px",
+            "top": "4.071px",
+            "stroke-width": "2px",
+            "stroke": "var(--primary-border, #7C66FF)"
+          }
+        }
+      ]
     },
     "PinCell_Islands": {
       "figma_name": "👻 Islands / Pin / Basic, Type=Islands",
@@ -199,10 +236,10 @@
         "display": "flex",
         "width": "68px",
         "height": "85px",
-        "padding": "8px 0",
+        "padding": "var(--Normal, 8px) 0",
         "flex-direction": "column",
         "align-items": "center",
-        "gap": "8px"
+        "gap": "var(--Spacing-Normal, 8px)"
       },
       "props": {
         "Type": {
@@ -229,7 +266,54 @@
           }
         }
       },
-      "preview_html": "<div style=\"display:flex;flex-direction:column;width:68px;height:85px;align-items:center;gap:var(--Spacing-Normal,8px);padding:var(--Spacing-Normal,8px) 0;position:relative;flex-shrink:0;overflow:hidden\"><div style=\"position:relative;width:48px;height:48px;border-radius:7px;background:var(--white-soft-bg,rgba(255,255,255,.12));flex-shrink:0;z-index:4;box-shadow:0 1px 10px rgba(0,0,0,.06)\"></div><div style=\"position:absolute;width:54px;height:54px;left:7px;top:5px;border:2px solid var(--primary-border,#7c66ff);border-radius:10px;z-index:3;box-sizing:border-box\"></div><span style=\"font:500 10px/11px 'PingFang SC',sans-serif;color:var(--white-text-color,#fff);text-align:center;white-space:nowrap;position:relative;z-index:2;overflow:hidden;text-overflow:ellipsis;max-width:68px\">Labubu</span><div style=\"position:absolute;top:7px;left:calc(50% + 16px);transform:translateX(-50%);min-width:18px;height:18px;border-radius:16px;background:var(--error-solid-bg,#d94a4e);display:flex;align-items:center;justify-content:center;padding:0 4px;box-sizing:border-box;z-index:5\"><span style=\"font:500 12px/18px Roboto,sans-serif;color:var(--white-text-color,#fff)\">6</span></div></div>"
+      "preview_html": "<div style=\"display:flex;flex-direction:column;width:68px;height:85px;align-items:center;gap:var(--Spacing-Normal,8px);padding:var(--Spacing-Normal,8px) 0;position:relative;flex-shrink:0;overflow:hidden\"><div style=\"position:relative;width:48px;height:48px;border-radius:7px;background:var(--white-soft-bg,rgba(255,255,255,.12));flex-shrink:0;z-index:4;box-shadow:0 1px 10px rgba(0,0,0,.06)\"></div><div style=\"position:absolute;width:54px;height:54px;left:7px;top:5px;border:2px solid var(--primary-border,#7c66ff);border-radius:10px;z-index:3;box-sizing:border-box\"></div><span style=\"font:500 10px/11px 'PingFang SC',sans-serif;color:var(--white-text-color,#fff);text-align:center;white-space:nowrap;position:relative;z-index:2;overflow:hidden;text-overflow:ellipsis;max-width:68px\">Labubu</span><div style=\"position:absolute;top:7px;left:calc(50% + 16px);transform:translateX(-50%);min-width:18px;height:18px;border-radius:16px;background:var(--error-solid-bg,#d94a4e);display:flex;align-items:center;justify-content:center;padding:0 4px;box-sizing:border-box;z-index:5\"><span style=\"font:500 12px/18px Roboto,sans-serif;color:var(--white-text-color,#fff)\">6</span></div></div>",
+      "slots": [
+        {
+          "name": "💙  03.01_Badge",
+          "boolProp": "Badge#14211:12",
+          "css": {
+            "display": "flex",
+            "min-width": "18px",
+            "max-width": "36px",
+            "min-height": "18px",
+            "max-height": "18px",
+            "padding": "0 4px",
+            "justify-content": "flex-end",
+            "align-items": "flex-start",
+            "gap": "10px",
+            "position": "absolute",
+            "right": "9px",
+            "top": "7px",
+            "border-radius": "16px",
+            "background": "var(--error-solidBg, #D94A4E)"
+          }
+        },
+        {
+          "name": "Selected",
+          "boolProp": "Selected#14210:9",
+          "css": {
+            "display": "flex",
+            "width": "54px",
+            "height": "54px",
+            "align-items": "flex-start",
+            "position": "absolute",
+            "left": "7px",
+            "top": "5.071px",
+            "border-radius": "10px",
+            "border": "2px solid var(--primary-border, #7C66FF)"
+          }
+        },
+        {
+          "name": "气泡",
+          "boolProp": "Selected#14210:9",
+          "css": {
+            "width": "65px",
+            "height": "28px",
+            "position": "absolute",
+            "bottom": "-20px"
+          }
+        }
+      ]
     },
     "PinCell_MyIslands": {
       "figma_name": "👻 Islands / Pin / Basic, Type=MyIslands",
@@ -240,10 +324,10 @@
         "display": "flex",
         "width": "68px",
         "height": "85px",
-        "padding": "8px 0",
+        "padding": "var(--Normal, 8px) 0",
         "flex-direction": "column",
         "align-items": "center",
-        "gap": "8px"
+        "gap": "var(--Spacing-Normal, 8px)"
       },
       "props": {
         "Type": {
@@ -267,7 +351,24 @@
           }
         }
       },
-      "preview_html": "<div style=\"display:flex;flex-direction:column;width:68px;height:85px;align-items:center;gap:var(--Spacing-Normal,8px);padding:var(--Spacing-Normal,8px) 0;position:relative;flex-shrink:0;overflow:hidden\"><div style=\"position:absolute;top:20px;left:50%;transform:translateX(-50%);width:24px;height:24px;border-radius:4px;background:var(--white-5,rgba(255,255,255,.24));z-index:4\"></div><div style=\"width:48px;height:48px;border-radius:var(--Radius-Normal,8px);background:var(--white-soft-bg,rgba(255,255,255,.12));flex-shrink:0;z-index:3\"></div><span style=\"font:500 10px/11px 'PingFang SC',sans-serif;color:var(--white-text-color,#fff);text-align:center;white-space:nowrap;position:relative;z-index:2;overflow:hidden;text-overflow:ellipsis;max-width:68px\">我加入的岛</span></div>"
+      "preview_html": "<div style=\"display:flex;flex-direction:column;width:68px;height:85px;align-items:center;gap:var(--Spacing-Normal,8px);padding:var(--Spacing-Normal,8px) 0;position:relative;flex-shrink:0;overflow:hidden\"><div style=\"position:absolute;top:20px;left:50%;transform:translateX(-50%);width:24px;height:24px;border-radius:4px;background:var(--white-5,rgba(255,255,255,.24));z-index:4\"></div><div style=\"width:48px;height:48px;border-radius:var(--Radius-Normal,8px);background:var(--white-soft-bg,rgba(255,255,255,.12));flex-shrink:0;z-index:3\"></div><span style=\"font:500 10px/11px 'PingFang SC',sans-serif;color:var(--white-text-color,#fff);text-align:center;white-space:nowrap;position:relative;z-index:2;overflow:hidden;text-overflow:ellipsis;max-width:68px\">我加入的岛</span></div>",
+      "slots": [
+        {
+          "name": "Selected",
+          "boolProp": "Selected#14210:9",
+          "css": {
+            "display": "flex",
+            "width": "54px",
+            "height": "54px",
+            "align-items": "flex-start",
+            "position": "absolute",
+            "left": "7px",
+            "top": "5.071px",
+            "border-radius": "10px",
+            "border": "2px solid var(--primary-border, #7C66FF)"
+          }
+        }
+      ]
     },
     "PinCell_Empty": {
       "figma_name": "👻 Islands / Pin / Basic, Type=Empty",
@@ -399,8 +500,8 @@
         "display": "inline-flex",
         "flex-direction": "column",
         "align-items": "center",
-        "gap": "4px",
-        "border-radius": "4px"
+        "gap": "var(--Spacing-Small, 4px)",
+        "border-radius": "var(--Small, 4px)"
       },
       "props": {
         "Type": {
@@ -417,10 +518,10 @@
       "figma_key": "86678f6945c04d9df33ae08a12475a4491c60090",
       "css": {
         "display": "inline-flex",
-        "padding": "4px 8px 4px 4px",
+        "padding": "var(--Spacing-Small, 4px) var(--Spacing-Normal, 8px) var(--Spacing-Small, 4px) var(--Spacing-Small, 4px)",
         "align-items": "center",
-        "gap": "4px",
-        "border-radius": "8px",
+        "gap": "var(--Spacing-Small, 4px)",
+        "border-radius": "var(--Radius-Normal, 8px)",
         "background": "var(--bg-2, #F7F7F9)"
       },
       "props": {
@@ -447,7 +548,42 @@
           }
         }
       },
-      "preview_html": "<div style=\"display:inline-flex;background:var(--bg-2,#f7f7f9);align-items:center;gap:var(--Spacing-Small,4px);overflow:hidden;padding:var(--Spacing-Small,4px) var(--Spacing-Normal,8px) var(--Spacing-Small,4px) var(--Spacing-Small,4px);border-radius:var(--Radius-Normal,8px);flex-shrink:0\"><div style=\"display:flex;width:28px;height:32px;align-items:center;justify-content:flex-end;padding-left:4px;padding-right:1px;flex-shrink:0\"><div style=\"width:20px;height:20px;border-radius:var(--Radius-Small,4px);background:var(--bg-3,#eeeef1);flex-shrink:0\"></div></div><div style=\"width:24px;height:32px;border-radius:var(--Radius-Small,4px);background:var(--bg-3,#eeeef1);flex-shrink:0\"></div><div style=\"display:flex;height:14px;align-items:center;justify-content:center;flex-shrink:0\"><span style=\"font:700 14.5px/14px 'PingFang SC',sans-serif;color:var(--secondary-textcolor,#2b263b);white-space:nowrap;display:inline-block;transform:skewX(-2.54deg)\">潮玩系列</span></div><div style=\"width:8px;height:8px;flex-shrink:0;background:var(--icon-disabled,#c5c1d1);border-radius:1px\"></div></div>"
+      "preview_html": "<div style=\"display:inline-flex;background:var(--bg-2,#f7f7f9);align-items:center;gap:var(--Spacing-Small,4px);overflow:hidden;padding:var(--Spacing-Small,4px) var(--Spacing-Normal,8px) var(--Spacing-Small,4px) var(--Spacing-Small,4px);border-radius:var(--Radius-Normal,8px);flex-shrink:0\"><div style=\"display:flex;width:28px;height:32px;align-items:center;justify-content:flex-end;padding-left:4px;padding-right:1px;flex-shrink:0\"><div style=\"width:20px;height:20px;border-radius:var(--Radius-Small,4px);background:var(--bg-3,#eeeef1);flex-shrink:0\"></div></div><div style=\"width:24px;height:32px;border-radius:var(--Radius-Small,4px);background:var(--bg-3,#eeeef1);flex-shrink:0\"></div><div style=\"display:flex;height:14px;align-items:center;justify-content:center;flex-shrink:0\"><span style=\"font:700 14.5px/14px 'PingFang SC',sans-serif;color:var(--secondary-textcolor,#2b263b);white-space:nowrap;display:inline-block;transform:skewX(-2.54deg)\">潮玩系列</span></div><div style=\"width:8px;height:8px;flex-shrink:0;background:var(--icon-disabled,#c5c1d1);border-radius:1px\"></div></div>",
+      "slots": [
+        {
+          "name": "icon Padding",
+          "boolProp": "Show Icon#14202:6",
+          "css": {
+            "display": "flex",
+            "width": "28px",
+            "height": "32px",
+            "padding": "0 1px 0 4px",
+            "justify-content": "flex-end",
+            "align-items": "center",
+            "gap": "10px"
+          }
+        },
+        {
+          "name": "💙 03.08_SPU / Basic",
+          "boolProp": "Show SPU#14202:3",
+          "css": {
+            "width": "24px",
+            "height": "32px"
+          }
+        },
+        {
+          "name": "💙 03.06_Tag",
+          "boolProp": "Show Tag#14202:0",
+          "css": {
+            "display": "flex",
+            "width": "32px",
+            "height": "32px",
+            "justify-content": "center",
+            "align-items": "center",
+            "aspect-ratio": "1/1"
+          }
+        }
+      ]
     },
     "GridCell_Search": {
       "figma_name": "👻 Islands / Grid / Basic, Type=Search",
@@ -456,10 +592,10 @@
       "figma_key": "1ee4d24fc36777f53c8678406847ad28c93774a5",
       "css": {
         "display": "inline-flex",
-        "padding": "4px 8px 4px 4px",
+        "padding": "var(--Spacing-Small, 4px) var(--Spacing-Normal, 8px) var(--Spacing-Small, 4px) var(--Spacing-Small, 4px)",
         "align-items": "center",
-        "gap": "4px",
-        "border-radius": "8px",
+        "gap": "var(--Spacing-Small, 4px)",
+        "border-radius": "var(--Radius-Normal, 8px)",
         "background": "var(--bg-2, #F7F7F9)"
       },
       "props": {
@@ -485,7 +621,42 @@
             "default": true
           }
         }
-      }
+      },
+      "slots": [
+        {
+          "name": "icon Padding",
+          "boolProp": "Show Icon#14202:6",
+          "css": {
+            "display": "flex",
+            "width": "28px",
+            "height": "28px",
+            "padding": "0 1px 0 4px",
+            "justify-content": "flex-end",
+            "align-items": "center",
+            "gap": "10px"
+          }
+        },
+        {
+          "name": "💙 03.08_SPU / Basic",
+          "boolProp": "Show SPU#14202:3",
+          "css": {
+            "width": "24px",
+            "height": "32px"
+          }
+        },
+        {
+          "name": "💙 03.06_Tag",
+          "boolProp": "Show Tag#14202:0",
+          "css": {
+            "display": "flex",
+            "width": "32px",
+            "height": "32px",
+            "justify-content": "center",
+            "align-items": "center",
+            "aspect-ratio": "1/1"
+          }
+        }
+      ]
     },
     "PairQuickEntry_1": {
       "figma_name": "👻 Islands / QuickEntry, 数量=1",
@@ -558,7 +729,7 @@
         "padding": "0 10px",
         "flex-direction": "column",
         "align-items": "center",
-        "gap": "8px"
+        "gap": "var(--Normal, 8px)"
       },
       "props": {
         "数量": {
@@ -588,7 +759,7 @@
         "padding": "0 10px",
         "flex-direction": "column",
         "align-items": "center",
-        "gap": "8px"
+        "gap": "var(--Normal, 8px)"
       },
       "props": {
         "数量": {
@@ -1472,7 +1643,7 @@
       }
     },
     "Ad_双列_首位": {
-      "figma_name": "👻 Ad, 视图=双列, 类型=首位",
+      "figma_name": "👻 Islands / Feed / Ad, 视图=双列, 类型=首位",
       "desc": "广告卡片（双列·首位），标准双列瀑布流第一位，支持轮播小点",
       "figma_key": "ec85b4878bba24a10cc471d8bcd8c18ef362575c",
       "css": {
@@ -1517,7 +1688,7 @@
       "preview_html": "<div style=\"width:173.5px;border-radius:var(--Radius-Normal,8px);background:var(--bg-1,#fff);overflow:hidden;flex-shrink:0;position:relative\"><div style=\"position:absolute;top:6px;right:6px;background:var(--mask-2,rgba(0,0,0,.64));border-radius:var(--Radius-Small,4px);padding:2px 4px;z-index:1\"><span style=\"font:var(--font-h8,500 10px/11px 'PingFang SC',sans-serif);color:var(--white-text-color,#fff)\">广告</span></div><div style=\"width:173.5px;height:131px;background:var(--bg-4,#ededf2);display:flex;align-items:center;justify-content:center\"><div style=\"width:60px;height:60px;border-radius:var(--Radius-Normal,8px);background:var(--primary-soft-bg,#f2f0ff)\"></div></div><div style=\"padding:6px 8px 8px\"><p style=\"font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:var(--text-1,#000);margin:0 0 4px\">限时特惠 Labubu 泰坦系列</p><div style=\"display:flex;align-items:center;gap:4px\"><span style=\"font:var(--font-n6,500 12px/18px Roboto,sans-serif);color:var(--trade-text-color,#f96464)\">¥399</span><span style=\"flex:1;font:var(--font-b7,400 11px/13px 'PingFang SC',sans-serif);color:var(--text-3,rgba(0,0,0,.4));text-decoration:line-through\">¥599</span><div style=\"background:var(--primary-solid-bg,#7c66ff);border-radius:var(--Radius-Small,4px);padding:2px 6px\"><span style=\"font:var(--font-h8,500 10px/11px 'PingFang SC',sans-serif);color:var(--primary-solid-color,#fff)\">领取</span></div></div></div></div>"
     },
     "Ad_双列_单图": {
-      "figma_name": "👻 Ad, 视图=双列, 类型=单图",
+      "figma_name": "👻 Islands / Feed / Ad, 视图=双列, 类型=单图",
       "_hidden": true,
       "desc": "广告卡片（双列·单图），纯图片展示型",
       "figma_key": "99e8d967c65868c01786634e43d133f2c50b169a",
@@ -1566,7 +1737,7 @@
       "preview_html": "<div style=\"width:173.5px;border-radius:var(--Radius-Normal,8px);background:var(--bg-1,#fff);overflow:hidden;flex-shrink:0;position:relative\"><div style=\"width:173.5px;height:173px;background:var(--bg-4,#ededf2)\"></div><div style=\"position:absolute;top:6px;right:6px;background:var(--mask-2,rgba(0,0,0,.64));border-radius:var(--Radius-Small,4px);padding:2px 4px;z-index:1\"><span style=\"font:var(--font-h8,500 10px/11px 'PingFang SC',sans-serif);color:var(--white-text-color,#fff)\">广告</span></div><div style=\"display:flex;align-items:center;gap:4px;height:32px;padding:0 8px\"><div style=\"width:20px;height:20px;border-radius:50%;background:var(--bg-4,#ededf2);flex-shrink:0\"></div><span style=\"flex:1;font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:var(--text-3,rgba(0,0,0,.4));overflow:hidden;white-space:nowrap;text-overflow:ellipsis\">潮玩品牌官方</span></div></div>"
     },
     "Ad_双列_帖子": {
-      "figma_name": "👻 Ad, 视图=双列, 类型=帖子",
+      "figma_name": "👻 Islands / Feed / Ad, 视图=双列, 类型=帖子",
       "_hidden": true,
       "desc": "广告卡片（双列·帖子），内容社区原生广告格式",
       "figma_key": "1d8d58a67ecb341481700e04507643cbfe9093e1",
@@ -1615,7 +1786,7 @@
       "preview_html": "<div style=\"width:173.5px;border-radius:var(--Radius-Normal,8px);background:var(--bg-1,#fff);overflow:hidden;flex-shrink:0\"><div style=\"position:relative;width:100%;height:173px;background:var(--bg-4,#ededf2)\"><div style=\"position:absolute;top:6px;right:6px;background:var(--mask-2,rgba(0,0,0,.64));border-radius:var(--Radius-Small,4px);padding:2px 4px;z-index:1\"><span style=\"font:var(--font-h8,500 10px/11px 'PingFang SC',sans-serif);color:var(--white-text-color,#fff)\">广告</span></div></div><div style=\"padding:4px 8px 0\"><p style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:var(--text-1,#000);margin:0;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical\">限量联名 潮玩新品发布</p></div><div style=\"display:flex;align-items:center;gap:4px;height:36px;padding:0 8px\"><div style=\"width:24px;height:24px;border-radius:50%;background:var(--bg-4,#ededf2);flex-shrink:0\"></div><span style=\"flex:1;font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:var(--text-3,rgba(0,0,0,.4));overflow:hidden;white-space:nowrap;text-overflow:ellipsis\">潮玩品牌官方</span></div></div>"
     },
     "Ad_单列_首位": {
-      "figma_name": "👻 Ad, 视图=单列, 类型=首位",
+      "figma_name": "👻 Islands / Feed / Ad, 视图=单列, 类型=首位",
       "_hidden": true,
       "desc": "广告卡片（单列·首位），全宽大图首位，支持轮播小点",
       "figma_key": "7d6ce71ad815f83710e4df406c39ffaea400e7eb",
@@ -1663,7 +1834,7 @@
       "preview_html": "<div style=\"width:365px;border-radius:var(--Radius-Normal,8px);background:var(--bg-4,#ededf2);overflow:hidden;position:relative;height:150px\"><div style=\"position:absolute;top:8px;right:8px;background:var(--mask-2,rgba(0,0,0,.64));border-radius:var(--Radius-Small,4px);padding:2px 4px;z-index:1\"><span style=\"font:var(--font-h8,500 10px/11px 'PingFang SC',sans-serif);color:var(--white-text-color,#fff)\">广告</span></div><div style=\"position:absolute;bottom:8px;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:0 8px\"><div style=\"display:flex;gap:4px;align-items:center\"><div style=\"width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.9)\"></div><div style=\"width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.4)\"></div><div style=\"width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.4)\"></div></div><div style=\"background:var(--primary-solid-bg,#7c66ff);border-radius:var(--Radius-Small,4px);padding:4px 10px\"><span style=\"font:var(--font-h6,500 12px/18px 'PingFang SC',sans-serif);color:var(--primary-solid-color,#fff)\">查看详情</span></div></div></div>"
     },
     "Ad_单列_单图": {
-      "figma_name": "👻 Ad, 视图=单列, 类型=单图",
+      "figma_name": "👻 Islands / Feed / Ad, 视图=单列, 类型=单图",
       "_hidden": true,
       "desc": "广告卡片（单列·单图），全宽纯图片",
       "figma_key": "2d3a71b94b5ce5a13cbec0bb6908fbf3cf08b3bb",
@@ -1703,7 +1874,7 @@
       "preview_html": "<div style=\"width:375px;position:relative;overflow:hidden\"><div style=\"width:375px;height:200px;background:var(--bg-4,#ededf2)\"></div><div style=\"position:absolute;top:8px;right:8px;background:var(--mask-2,rgba(0,0,0,.64));border-radius:var(--Radius-Small,4px);padding:2px 4px\"><span style=\"font:var(--font-h8,500 10px/11px 'PingFang SC',sans-serif);color:var(--white-text-color,#fff)\">广告</span></div></div>"
     },
     "Ad_单列_帖子": {
-      "figma_name": "👻 Ad, 视图=单列, 类型=帖子",
+      "figma_name": "👻 Islands / Feed / Ad, 视图=单列, 类型=帖子",
       "_hidden": true,
       "desc": "广告卡片（单列·帖子），全宽帖子原生广告格式",
       "figma_key": "38b26bd9f4ba8e4aa747305e96689a7f3d29f46b",
