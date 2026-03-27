@@ -150,7 +150,7 @@
         }
       ]
     },
-    "PinCell_Home": {
+    "PinBasic_Home": {
       "figma_name": "👻 Islands / Pin / Basic, Type=Home",
       "desc": "固钉格子（首页态），老机型圆角岛圆形头像，可显示选中边框",
       "figma_key": "0ee323d2a0cc150322dd836552a8923f8dbddb4f",
@@ -227,7 +227,7 @@
         }
       ]
     },
-    "PinCell_Islands": {
+    "PinBasic_Islands": {
       "figma_name": "👻 Islands / Pin / Basic, Type=Islands",
       "_hidden": true,
       "desc": "固钉格子（千岛选中态），显示品牌边框选中效果和气泡提示",
@@ -315,7 +315,7 @@
         }
       ]
     },
-    "PinCell_MyIslands": {
+    "PinBasic_MyIslands": {
       "figma_name": "👻 Islands / Pin / Basic, Type=MyIslands",
       "_hidden": true,
       "desc": "固钉格子（我的岛态），显示选中边框",
@@ -370,7 +370,7 @@
         }
       ]
     },
-    "PinCell_Empty": {
+    "PinBasic_Empty": {
       "figma_name": "👻 Islands / Pin / Basic, Type=Empty",
       "_hidden": true,
       "desc": "固钉格子（空态），无岛加入时的占位展示",
@@ -512,7 +512,7 @@
         }
       }
     },
-    "GridCell_ISLANDS": {
+    "GridBasic_ISLANDS": {
       "figma_name": "👻 Islands / Grid / Basic, Type=ISLANDS",
       "desc": "格子单元（社区展示态），含图标/SPU/Tag 三个可选插槽",
       "figma_key": "86678f6945c04d9df33ae08a12475a4491c60090",
@@ -585,7 +585,7 @@
         }
       ]
     },
-    "GridCell_Search": {
+    "GridBasic_Search": {
       "figma_name": "👻 Islands / Grid / Basic, Type=Search",
       "_hidden": true,
       "desc": "格子单元（搜索态），与 ISLANDS 态相同布局但用于搜索场景",
