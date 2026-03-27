@@ -31,9 +31,45 @@
         "background": "var(--secondary-solid-bg, #2b263b)"
       },
       "component_refs": [
-        { "cid": "💙 01.00_Status Bar" },
-        { "cid": "💙 01.01_Navigation Bar", "variants": { "Terminal": "App", "Color": "White" } }
-      ]
+        {
+          "cid": "💙 01.00_Status Bar",
+          "ghost": true
+        },
+        {
+          "cid": "💙 01.01_Navigation Bar",
+          "variants": {
+            "Terminal": "App",
+            "Color": "White"
+          }
+        }
+      ],
+      "props": {
+        "Terminal": {
+          "options": [
+            "App",
+            "小程序"
+          ],
+          "default": "App",
+          "previewMap": {
+            "App": "<div style=\"display:flex;flex-direction:column;width:375px;background:var(--secondary-solid-bg,#2b263b)\"><div style=\"width:375px;height:59px;position:relative;color:var(--white-text-color,rgba(255,255,255,.88))\"><span style=\"font:600 15px/17px 'PingFang SC',sans-serif;letter-spacing:-0.3px;position:absolute;left:21px;top:21px\">11:27</span><div style=\"position:absolute;right:15px;top:24px;display:flex;align-items:center;gap:6px\"><svg width=\"17\" height=\"11\" viewBox=\"0 0 17 11\" fill=\"currentColor\" style=\"flex-shrink:0\"><rect x=\"0\" y=\"8\" width=\"3\" height=\"3\" rx=\"0.5\" opacity=\"0.35\"/><rect x=\"4.7\" y=\"5.5\" width=\"3\" height=\"5.5\" rx=\"0.5\" opacity=\"0.6\"/><rect x=\"9.3\" y=\"3\" width=\"3\" height=\"8\" rx=\"0.5\"/><rect x=\"14\" y=\"0\" width=\"3\" height=\"11\" rx=\"0.5\"/></svg><svg width=\"16\" height=\"12\" viewBox=\"0 0 16 12\" fill=\"currentColor\" overflow=\"visible\" style=\"flex-shrink:0\"><circle cx=\"8\" cy=\"11\" r=\"1.5\"/><path d=\"M5.2 8A4 4 0 0 1 10.8 8L12 6.5A5.8 5.8 0 0 0 4 6.5Z\" opacity=\"0.6\"/><path d=\"M2.4 5.3A7.6 7.6 0 0 1 13.6 5.3L14.9 3.8A9.5 9.5 0 0 0 1.1 3.8Z\" opacity=\"0.3\"/></svg><svg width=\"25\" height=\"12\" viewBox=\"0 0 25 12\" style=\"flex-shrink:0\"><rect x=\"0.5\" y=\"0.5\" width=\"22\" height=\"11\" rx=\"2.5\" stroke=\"currentColor\" stroke-opacity=\"0.35\" fill=\"none\"/><rect x=\"23\" y=\"3.5\" width=\"1.5\" height=\"5\" rx=\"0.75\" fill=\"currentColor\" opacity=\"0.4\"/><rect x=\"1.5\" y=\"1.5\" width=\"18\" height=\"9\" rx=\"1.5\" fill=\"currentColor\"/></svg></div></div><div style=\"display:flex;width:375px;height:44px;padding:0 4px;align-items:center;gap:4px;background:linear-gradient(to bottom,rgba(0,0,0,0.3) 0%,transparent 100%);box-sizing:border-box;border-radius:4px\"><div data-bool=\"👁️ Left\" style=\"display:inline-flex;height:44px;align-items:center\"><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-arrow_left\" style=\"font-size:20px;color:#fff\"></i></div></div><div data-bool=\"👁️ Center\" style=\"flex:1;display:flex;justify-content:center;align-items:center\"><span style=\"font:var(--font-h4);color:#fff\">页面标题</span></div><div data-bool=\"👁️ Right\" style=\"display:inline-flex;height:44px;align-items:center;gap:4px\"><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-share\" style=\"font-size:20px;color:#fff\"></i></div><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-more\" style=\"font-size:20px;color:#fff\"></i></div></div></div></div>",
+            "小程序": "<div style=\"display:flex;flex-direction:column;width:375px;background:var(--secondary-solid-bg,#2b263b)\"><div style=\"width:375px;height:59px;position:relative;color:var(--white-text-color,rgba(255,255,255,.88))\"><span style=\"font:600 15px/17px 'PingFang SC',sans-serif;letter-spacing:-0.3px;position:absolute;left:21px;top:21px\">11:27</span><div style=\"position:absolute;right:15px;top:24px;display:flex;align-items:center;gap:6px\"><svg width=\"17\" height=\"11\" viewBox=\"0 0 17 11\" fill=\"currentColor\" style=\"flex-shrink:0\"><rect x=\"0\" y=\"8\" width=\"3\" height=\"3\" rx=\"0.5\" opacity=\"0.35\"/><rect x=\"4.7\" y=\"5.5\" width=\"3\" height=\"5.5\" rx=\"0.5\" opacity=\"0.6\"/><rect x=\"9.3\" y=\"3\" width=\"3\" height=\"8\" rx=\"0.5\"/><rect x=\"14\" y=\"0\" width=\"3\" height=\"11\" rx=\"0.5\"/></svg><svg width=\"16\" height=\"12\" viewBox=\"0 0 16 12\" fill=\"currentColor\" overflow=\"visible\" style=\"flex-shrink:0\"><circle cx=\"8\" cy=\"11\" r=\"1.5\"/><path d=\"M5.2 8A4 4 0 0 1 10.8 8L12 6.5A5.8 5.8 0 0 0 4 6.5Z\" opacity=\"0.6\"/><path d=\"M2.4 5.3A7.6 7.6 0 0 1 13.6 5.3L14.9 3.8A9.5 9.5 0 0 0 1.1 3.8Z\" opacity=\"0.3\"/></svg><svg width=\"25\" height=\"12\" viewBox=\"0 0 25 12\" style=\"flex-shrink:0\"><rect x=\"0.5\" y=\"0.5\" width=\"22\" height=\"11\" rx=\"2.5\" stroke=\"currentColor\" stroke-opacity=\"0.35\" fill=\"none\"/><rect x=\"23\" y=\"3.5\" width=\"1.5\" height=\"5\" rx=\"0.75\" fill=\"currentColor\" opacity=\"0.4\"/><rect x=\"1.5\" y=\"1.5\" width=\"18\" height=\"9\" rx=\"1.5\" fill=\"currentColor\"/></svg></div></div><div style=\"display:flex;width:375px;height:44px;padding:0 4px;align-items:center;gap:4px;background:linear-gradient(to bottom,rgba(0,0,0,0.3) 0%,transparent 100%);box-sizing:border-box;border-radius:4px\"><div data-bool=\"👁️ Left\" style=\"display:inline-flex;height:44px;align-items:center\"><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-arrow_left\" style=\"font-size:20px;color:rgba(255,255,255,0.9)\"></i></div></div><div data-bool=\"👁️ Center\" style=\"flex:1;display:flex;justify-content:center;align-items:center\"><span style=\"font:var(--font-h4);color:rgba(255,255,255,0.9)\">页面标题</span></div><div style=\"display:flex;height:44px;align-items:center;padding-right:4px;flex-shrink:0\"><div style=\"display:inline-flex;height:32px;padding:0 10px;align-items:center;border:1px solid rgba(255,255,255,0.35);border-radius:10px;box-sizing:border-box;gap:0\"><i class=\"KurilIcons kuril-more\" style=\"font-size:16px;color:rgba(255,255,255,0.9)\"></i><span style=\"width:1px;height:16px;background:rgba(255,255,255,0.3);margin:0 8px;flex-shrink:0\"></span><i class=\"KurilIcons kuril-close\" style=\"font-size:16px;color:rgba(255,255,255,0.9)\"></i></div></div></div></div>"
+          }
+        },
+        "Booleans": {
+          "👁️ Left": {
+            "default": true,
+            "desc": "显隐左侧插槽"
+          },
+          "👁️ Center": {
+            "default": true,
+            "desc": "显隐中间插槽"
+          },
+          "👁️ Right": {
+            "default": true,
+            "desc": "显隐右侧插槽"
+          }
+        }
+      }
     },
     "Pin": {
       "figma_name": "👻 Islands / Pin",
@@ -47,12 +83,42 @@
         "overflow": "hidden"
       },
       "component_refs": [
-        { "cid": "👻 Islands / Pin / Basic", "variants": { "Type": "Home" } },
-        { "cid": "👻 Islands / Pin / Basic", "variants": { "Type": "Islands" } },
-        { "cid": "👻 Islands / Pin / Basic", "variants": { "Type": "Islands" } },
-        { "cid": "👻 Islands / Pin / Basic", "variants": { "Type": "Islands" } },
-        { "cid": "👻 Islands / Pin / Basic", "variants": { "Type": "Islands" } },
-        { "cid": "👻 Islands / Pin / Basic", "variants": { "Type": "MyIslands" } }
+        {
+          "cid": "👻 Islands / Pin / Basic",
+          "variants": {
+            "Type": "Home"
+          }
+        },
+        {
+          "cid": "👻 Islands / Pin / Basic",
+          "variants": {
+            "Type": "Islands"
+          }
+        },
+        {
+          "cid": "👻 Islands / Pin / Basic",
+          "variants": {
+            "Type": "Islands"
+          }
+        },
+        {
+          "cid": "👻 Islands / Pin / Basic",
+          "variants": {
+            "Type": "Islands"
+          }
+        },
+        {
+          "cid": "👻 Islands / Pin / Basic",
+          "variants": {
+            "Type": "Islands"
+          }
+        },
+        {
+          "cid": "👻 Islands / Pin / Basic",
+          "variants": {
+            "Type": "MyIslands"
+          }
+        }
       ]
     },
     "PinCell_Home": {
@@ -187,7 +253,12 @@
       },
       "props": {
         "Type": {
-          "options": ["Home", "Islands", "MyIslands", "Empty"],
+          "options": [
+            "Home",
+            "Islands",
+            "MyIslands",
+            "Empty"
+          ],
           "default": "Empty",
           "variantMap": {
             "Home": "PinCell_Home",
@@ -212,10 +283,30 @@
         "box-sizing": "border-box"
       },
       "component_refs": [
-        { "cid": "👻 Islands / Grid / Basic", "variants": { "Type": "ISLANDS" } },
-        { "cid": "👻 Islands / Grid / Basic", "variants": { "Type": "ISLANDS" } },
-        { "cid": "👻 Islands / Grid / Basic", "variants": { "Type": "ISLANDS" } },
-        { "cid": "👻 Islands / Grid / Basic", "variants": { "Type": "ISLANDS" } }
+        {
+          "cid": "👻 Islands / Grid / Basic",
+          "variants": {
+            "Type": "ISLANDS"
+          }
+        },
+        {
+          "cid": "👻 Islands / Grid / Basic",
+          "variants": {
+            "Type": "ISLANDS"
+          }
+        },
+        {
+          "cid": "👻 Islands / Grid / Basic",
+          "variants": {
+            "Type": "ISLANDS"
+          }
+        },
+        {
+          "cid": "👻 Islands / Grid / Basic",
+          "variants": {
+            "Type": "ISLANDS"
+          }
+        }
       ]
     },
     "Slide": {
@@ -230,13 +321,30 @@
         "align-self": "stretch"
       },
       "component_refs": [
-        { "cid": "👻 Islands / Slide / Basic", "variants": { "Type": "Notice" } },
-        { "cid": "💙 03.08_SPU" },
-        { "cid": "💙 03.08_SPU" },
-        { "cid": "💙 03.08_SPU" },
-        { "cid": "💙 03.08_SPU" },
-        { "cid": "💙 03.08_SPU" },
-        { "cid": "💙 03.08_SPU" }
+        {
+          "cid": "👻 Islands / Slide / Basic",
+          "variants": {
+            "Type": "Notice"
+          }
+        },
+        {
+          "cid": "💙 03.08_SPU"
+        },
+        {
+          "cid": "💙 03.08_SPU"
+        },
+        {
+          "cid": "💙 03.08_SPU"
+        },
+        {
+          "cid": "💙 03.08_SPU"
+        },
+        {
+          "cid": "💙 03.08_SPU"
+        },
+        {
+          "cid": "💙 03.08_SPU"
+        }
       ]
     },
     "SlideCell_Notice": {
