@@ -240,7 +240,7 @@
       ]
     },
     "SlideCell_Notice": {
-      "figma_name": "👻 Islands / Slide / Basic, Type= Notice",
+      "figma_name": "👻 Islands / Slide / Basic, Type=Notice",
       "desc": "横滑单元（公告/通知类型），纵向排列内容",
       "figma_key": "aa0156e774187570f2820701d3ed571c996c39c4",
       "css": {
