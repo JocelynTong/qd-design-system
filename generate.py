@@ -357,8 +357,13 @@ def _check_one_ref(cref, components, cid, vk, label='component_ref', ref_map=Non
             def _hay(rvk):
                 fn = (ref_comp.get('variants') or {}).get(rvk, {}).get('figma_name', '')
                 return rvk + ' ' + fn
-            found = any(
-                all(f'{k}={v}' in _hay(rvk) for k, v in match_props.items())
+            def _pval(v):
+                return v['value'] if isinstance(v, dict) and 'value' in v else v
+            variant_props = {k: _pval(v) for k, v in match_props.items()
+                             if not (isinstance(v, dict) and v.get('type') == 'BOOLEAN')
+                             and not isinstance(v, bool)}
+            found = not variant_props or any(
+                all(f'{k}={v}' in _hay(rvk) for k, v in variant_props.items())
                 for rvk in (ref_comp.get('variants') or {})
             )
             if not found:
