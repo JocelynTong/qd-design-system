@@ -1,5 +1,17 @@
 {
-  "enabledPlugins": {
-    "figma@claude-plugins-official": true
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cmd=$(jq -r '.tool_input.command // \"\"'); echo \"$cmd\" | grep -q 'generate\\.py' && (git add -A && git diff --cached --quiet || (git commit -m \"auto: sync after generate.py\" && git push origin main)) 2>/dev/null || true",
+            "timeout": 60,
+            "statusMessage": "同步到 GitHub..."
+          }
+        ]
+      }
+    ]
   }
 }
