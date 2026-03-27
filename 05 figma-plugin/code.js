@@ -297,6 +297,9 @@ async function handleExport() {
           if (props && props.variants && Object.keys(props.variants).length > 0) {
             ref.variants = props.variants;
           }
+          if (props && props.booleans && Object.keys(props.booleans).length > 0) {
+            ref.booleans = props.booleans;
+          }
           refs.push(ref);
         }
       }

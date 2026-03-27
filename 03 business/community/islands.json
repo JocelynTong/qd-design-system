@@ -33,7 +33,9 @@
       "component_refs": [
         {
           "cid": "💙 01.00_Status Bar",
-          "ghost": true
+          "variants": {
+            "Color": "White"
+          }
         },
         {
           "cid": "💙 01.01_Navigation Bar",
