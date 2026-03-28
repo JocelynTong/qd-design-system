@@ -37,12 +37,28 @@
             "Color": {
               "type": "VARIANT",
               "value": "White"
+            },
+            "Type": {
+              "type": "VARIANT",
+              "value": "iPhone14pro"
             }
           }
         },
         {
           "cid": "💙 01.01_Navigation Bar",
           "props": {
+            "👁️ Right#66481:63": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "👁️ Center#66481:21": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "👁️ Left#66481:0": {
+              "type": "BOOLEAN",
+              "value": true
+            },
             "Terminal": {
               "type": "VARIANT",
               "value": "App"
@@ -97,6 +113,14 @@
         {
           "cid": "👻 Islands / Pin / Basic",
           "props": {
+            "Badge#14211:12": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Selected#14210:9": {
+              "type": "BOOLEAN",
+              "value": false
+            },
             "Type": {
               "type": "VARIANT",
               "value": "Home"
@@ -106,6 +130,14 @@
         {
           "cid": "👻 Islands / Pin / Basic",
           "props": {
+            "Badge#14211:12": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Selected#14210:9": {
+              "type": "BOOLEAN",
+              "value": true
+            },
             "Type": {
               "type": "VARIANT",
               "value": "Islands"
@@ -115,6 +147,14 @@
         {
           "cid": "👻 Islands / Pin / Basic",
           "props": {
+            "Badge#14211:12": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Selected#14210:9": {
+              "type": "BOOLEAN",
+              "value": false
+            },
             "Type": {
               "type": "VARIANT",
               "value": "Islands"
@@ -124,6 +164,14 @@
         {
           "cid": "👻 Islands / Pin / Basic",
           "props": {
+            "Badge#14211:12": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Selected#14210:9": {
+              "type": "BOOLEAN",
+              "value": false
+            },
             "Type": {
               "type": "VARIANT",
               "value": "Islands"
@@ -133,6 +181,14 @@
         {
           "cid": "👻 Islands / Pin / Basic",
           "props": {
+            "Badge#14211:12": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Selected#14210:9": {
+              "type": "BOOLEAN",
+              "value": false
+            },
             "Type": {
               "type": "VARIANT",
               "value": "Islands"
@@ -142,6 +198,14 @@
         {
           "cid": "👻 Islands / Pin / Basic",
           "props": {
+            "Badge#14211:12": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Selected#14210:9": {
+              "type": "BOOLEAN",
+              "value": false
+            },
             "Type": {
               "type": "VARIANT",
               "value": "MyIslands"
@@ -416,6 +480,18 @@
         {
           "cid": "👻 Islands / Grid / Basic",
           "props": {
+            "Show Icon#14202:6": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Show SPU#14202:3": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Show Tag#14202:0": {
+              "type": "BOOLEAN",
+              "value": false
+            },
             "Type": {
               "type": "VARIANT",
               "value": "ISLANDS"
@@ -425,6 +501,18 @@
         {
           "cid": "👻 Islands / Grid / Basic",
           "props": {
+            "Show Icon#14202:6": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Show SPU#14202:3": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Show Tag#14202:0": {
+              "type": "BOOLEAN",
+              "value": true
+            },
             "Type": {
               "type": "VARIANT",
               "value": "ISLANDS"
@@ -434,6 +522,18 @@
         {
           "cid": "👻 Islands / Grid / Basic",
           "props": {
+            "Show Icon#14202:6": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Show SPU#14202:3": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Show Tag#14202:0": {
+              "type": "BOOLEAN",
+              "value": false
+            },
             "Type": {
               "type": "VARIANT",
               "value": "ISLANDS"
@@ -443,6 +543,18 @@
         {
           "cid": "👻 Islands / Grid / Basic",
           "props": {
+            "Show Icon#14202:6": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Show SPU#14202:3": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Show Tag#14202:0": {
+              "type": "BOOLEAN",
+              "value": false
+            },
             "Type": {
               "type": "VARIANT",
               "value": "ISLANDS"
@@ -473,22 +585,274 @@
           }
         },
         {
-          "cid": "💙 03.08_SPU"
+          "cid": "💙 03.08_SPU",
+          "props": {
+            "Spec#43605:14": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Amount#43605:13": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Close#32864:0": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Spu Name#31626:0": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Checked#48941:0": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "SecondInfo#82916:9": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "FirstInfo#82916:0": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Summary#43605:18": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Main Tag#32168:0": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Type": {
+              "type": "VARIANT",
+              "value": "SpuSlideCard"
+            }
+          }
         },
         {
-          "cid": "💙 03.08_SPU"
+          "cid": "💙 03.08_SPU",
+          "props": {
+            "Spec#43605:14": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Amount#43605:13": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Close#32864:0": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Spu Name#31626:0": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Checked#48941:0": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "SecondInfo#82916:9": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "FirstInfo#82916:0": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Summary#43605:18": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Main Tag#32168:0": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Type": {
+              "type": "VARIANT",
+              "value": "SpuSlideCard"
+            }
+          }
         },
         {
-          "cid": "💙 03.08_SPU"
+          "cid": "💙 03.08_SPU",
+          "props": {
+            "Spec#43605:14": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Amount#43605:13": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Close#32864:0": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Spu Name#31626:0": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Checked#48941:0": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "SecondInfo#82916:9": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "FirstInfo#82916:0": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Summary#43605:18": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Main Tag#32168:0": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Type": {
+              "type": "VARIANT",
+              "value": "SpuSlideCard"
+            }
+          }
         },
         {
-          "cid": "💙 03.08_SPU"
+          "cid": "💙 03.08_SPU",
+          "props": {
+            "Spec#43605:14": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Amount#43605:13": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Close#32864:0": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Spu Name#31626:0": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Checked#48941:0": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "SecondInfo#82916:9": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "FirstInfo#82916:0": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Summary#43605:18": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Main Tag#32168:0": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Type": {
+              "type": "VARIANT",
+              "value": "SpuSlideCard"
+            }
+          }
         },
         {
-          "cid": "💙 03.08_SPU"
+          "cid": "💙 03.08_SPU",
+          "props": {
+            "Spec#43605:14": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Amount#43605:13": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Close#32864:0": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Spu Name#31626:0": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Checked#48941:0": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "SecondInfo#82916:9": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "FirstInfo#82916:0": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Summary#43605:18": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Main Tag#32168:0": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Type": {
+              "type": "VARIANT",
+              "value": "SpuSlideCard"
+            }
+          }
         },
         {
-          "cid": "💙 03.08_SPU"
+          "cid": "💙 03.08_SPU",
+          "props": {
+            "Spec#43605:14": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Amount#43605:13": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Close#32864:0": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Spu Name#31626:0": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Checked#48941:0": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "SecondInfo#82916:9": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "FirstInfo#82916:0": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Summary#43605:18": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Main Tag#32168:0": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Type": {
+              "type": "VARIANT",
+              "value": "SpuSlideCard"
+            }
+          }
         }
       ]
     },
