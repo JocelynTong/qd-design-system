@@ -373,6 +373,25 @@ NavBar 上下文不加 background，其余属性（flex-direction/gap/border-rad
 - `Scene`（`/` 前）= 场景/页面上下文，对应 `{scene}.scene.json`
 - `Component`（`/` 后）= 可复用业务组件，对应 `{component}.json`
 
+**JSON variants key 命名规则：`{ComponentPath}_{VariantValues}`**
+
+- `ComponentPath` = figma_name 中 Scene 之后的所有 `/` 分隔段，去空格后 CamelCase 拼接
+- `VariantValues` = 各 prop 值去空格后用 `_` 连接，多个 prop 按 figma_name 顺序排列
+- 无 variant 的单体变体直接用 `ComponentPath`（不加 `_`）
+
+| figma_name | variant key |
+|---|---|
+| `👻 Islands / Header` | `Header` |
+| `👻 Islands / Pin / Basic, Type=Home` | `PinBasic_Home` |
+| `👻 Islands / Slide / Basic, Type=Notice` | `SlideBasic_Notice` |
+| `👻 Islands / QuickEntry, 数量=4~9` | `QuickEntry_4to9` |
+| `👻 Islands / QuickEntry, 数量=3 Old Vision` | `QuickEntry_3_OldVision` |
+| `👻 Islands / QuickEntry / Title, Type=闲置` | `QuickEntryTitle_闲置` |
+| `👻 Islands / ScreenshotLogo, i18n=中文` | `ScreenshotLogo_中文` |
+| `👻 Islands / Feed / Ad, 视图=双列, 类型=首位` | `FeedAd_双列_首位` |
+
+**同步时必须检查**：新增变体的 key 是否符合此规则，不符合立即重命名后再 generate.py。
+
 ### 插件组件识别规则（💙 / 👻）
 
 插件导出时递归扫描选中区域，**只认前缀，不认 Frame 结构**：

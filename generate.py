@@ -354,6 +354,10 @@ def _check_one_ref(cref, components, cid, vk, label='component_ref', ref_map=Non
     else:
         match_props = cref.get('props') or cref.get('variants') or {}
         if match_props:
+            # 旧格式检测：裸值（非 {type,value} dict）说明未迁移到 componentProperties 透传格式
+            for _k, _val in match_props.items():
+                if not isinstance(_val, dict) or 'type' not in _val:
+                    print(f'⚠️ [{label}] ref.props["{_k}"] 为旧格式（裸值 {_val!r}），应迁移为 {{type, value}} 格式（直接透传 componentProperties）')
             def _hay(rvk):
                 fn = (ref_comp.get('variants') or {}).get(rvk, {}).get('figma_name', '')
                 return rvk + ' ' + fn
@@ -1109,6 +1113,47 @@ def repair_component_slots(components=None):
     return repaired
 
 
+def _derive_expected_key(figma_name):
+    """从 👻 业务组件的 figma_name 推导期望的 variant key。
+    规则：👻 {Scene} / {ComponentPath}, {prop=value, ...}
+      ComponentPath = Scene 之后各路径段去空格直接拼接（已是 CamelCase）
+      VariantValues = 各 prop 的 value，~ → to，多词值首词保留其余首字母大写后用 _ 连接
+    示例：
+      👻 Islands / Feed / Ad, 视图=双列, 类型=首位  →  FeedAd_双列_首位
+      👻 Islands / QuickEntry, 数量=3 Old Vision    →  QuickEntry_3_OldVision
+      👻 Islands / QuickEntry, 数量=4~9             →  QuickEntry_4to9
+      👻 Islands / Pin / Basic, Type=Home            →  PinBasic_Home
+    """
+    if not figma_name or '👻' not in figma_name:
+        return None
+    s = re.sub(r'^👻\s*', '', figma_name.strip())
+    # 分离路径段和 variant 属性
+    if ', ' in s:
+        path_part, variant_part = s.split(', ', 1)
+    else:
+        path_part, variant_part = s, ''
+    # ComponentPath：Scene 之后各段去空格拼接
+    path_segs = [seg.strip().replace(' ', '') for seg in path_part.split('/')]
+    component_path = ''.join(path_segs[1:]) if len(path_segs) > 1 else path_segs[0]
+    if not variant_part:
+        return component_path
+    # VariantValues：多个 prop=value 按 ', ' 分割
+    def _transform_val(val):
+        val = val.replace('~', 'to')
+        words = val.split()
+        if len(words) <= 1:
+            return val
+        first = words[0]
+        rest = ''.join((w[0].upper() + w[1:]) if w else '' for w in words[1:])
+        return first + '_' + rest
+    props = [p.strip() for p in variant_part.split(', ')]
+    values = []
+    for p in props:
+        raw_val = p.split('=', 1)[1].strip() if '=' in p else p.strip()
+        values.append(_transform_val(raw_val))
+    return component_path + '_' + '_'.join(values) if values else component_path
+
+
 def validate_components(components=None, ref_map=None):
     """
     校验 02 components/*.json 中的引用完整性，生成完成后自动运行。
@@ -1271,6 +1316,29 @@ def validate_components(components=None, ref_map=None):
                     ghost_vk = vk + '_Ghost'
                     if ghost_vk not in all_vks:
                         warnings.append(f'  ⚠️  {fn} [{vk}]: 有 Ghost prop 但缺少 `{ghost_vk}` 变体，Ghost 切换将无效')
+
+    # ── 03 business/ variant key 一致性校验 ─────────────────────────────────────
+    biz_dir = os.path.join(BASE, '03 business')
+    if os.path.isdir(biz_dir):
+        for biz_module in sorted(os.listdir(biz_dir)):
+            module_dir = os.path.join(biz_dir, biz_module)
+            if not os.path.isdir(module_dir):
+                continue
+            for biz_fn in sorted(os.listdir(module_dir)):
+                if not biz_fn.endswith('.json') or biz_fn.startswith('_'):
+                    continue
+                try:
+                    biz_data = json.loads(open(os.path.join(module_dir, biz_fn), encoding='utf-8').read())
+                except Exception:
+                    continue
+                for bvk, bvdata in (biz_data.get('variants') or {}).items():
+                    fn_str = biz_fn.replace('.json', '')
+                    biz_fn_name = figma_name_biz = bvdata.get('figma_name', '')
+                    if not figma_name_biz or '👻' not in figma_name_biz:
+                        continue
+                    expected = _derive_expected_key(figma_name_biz)
+                    if expected and expected != bvk:
+                        warnings.append(f'  ⚠️  {biz_module}/{biz_fn} [{bvk}]: key 与 figma_name 不符，建议改为 "{expected}"')
 
     if warnings:
         print('\n── 组件校验警告 ──')
