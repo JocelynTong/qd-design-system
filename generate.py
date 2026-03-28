@@ -1336,6 +1336,9 @@ def validate_components(components=None, ref_map=None):
                     biz_fn_name = figma_name_biz = bvdata.get('figma_name', '')
                     if not figma_name_biz or '👻' not in figma_name_biz:
                         continue
+                    # key 含中文字符：提示改为 ASCII 命名
+                    if re.search(r'[^\x00-\x7F]', bvk):
+                        warnings.append(f'  ⚠️  {biz_module}/{biz_fn} [{bvk}]: key 含中文字符，建议改为 ASCII 命名')
                     expected = _derive_expected_key(figma_name_biz)
                     # 只在期望 key 是合法标识符（仅含字母/数字/下划线）时才警告
                     if expected and expected != bvk and re.match(r'^[\w]+$', expected):

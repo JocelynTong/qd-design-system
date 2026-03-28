@@ -392,6 +392,16 @@ NavBar 上下文不加 background，其余属性（flex-direction/gap/border-rad
 
 **同步时必须检查**：新增变体的 key 是否符合此规则，不符合立即重命名后再 generate.py。
 
+**generate.py 自动校验（运行时触发）：**
+
+| 规则 | 触发条件 | 输出 |
+|------|---------|------|
+| variant key 一致性 | 每次运行，遍历 `03 business/` 所有 JSON | `⚠️ [module/file.json] [实际key]: key 与 figma_name 不符，建议改为 "期望key"` |
+| `ref.props` 旧格式 | 每次运行，遍历所有 `component_ref` / `component_refs` | `⚠️ [component_refs[n]] ref.props["PropName"] 为旧格式（裸值），应迁移为 {type, value} 格式` |
+
+- key 校验只在期望 key 为合法标识符（`\w+`）时才报警；含 `·` `:` 等特殊字符的 figma_name 自动跳过
+- `ref.props` 每个 prop 值必须是 `{ "type": "VARIANT"|"BOOLEAN", "value": ... }` 格式（直接透传 Figma `componentProperties`）
+
 ### 插件组件识别规则（💙 / 👻）
 
 插件导出时递归扫描选中区域，**只认前缀，不认 Frame 结构**：
