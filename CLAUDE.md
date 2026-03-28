@@ -375,7 +375,7 @@ NavBar 上下文不加 background，其余属性（flex-direction/gap/border-rad
 
 **JSON variants key 命名规则：`{ComponentPath}_{VariantValues}`**
 
-- `ComponentPath` = figma_name 中 Scene 之后的所有 `/` 分隔段，去空格后 CamelCase 拼接
+- `ComponentPath` = figma_name 固定三层结构 `Scene / Component / SubComponent`，将 Component 和 SubComponent 各自去空格后直接拼接（无分隔符）；无 SubComponent 时只用 Component
 - `VariantValues` = 各 prop 值去空格后用 `_` 连接，多个 prop 按 figma_name 顺序排列
 - 无 variant 的单体变体直接用 `ComponentPath`（不加 `_`）
 
