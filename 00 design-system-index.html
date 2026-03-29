@@ -2014,6 +2014,20 @@ function _resolveRef(ref){
 function _genBizVisual(vk,v){
   // 优先用 JSON 里的 preview_html（设计师手填）
   if(v.preview_html)return v.preview_html;
+  // previewMap default：有 previewMap 且设了 default 时，用 default 值的 previewMap HTML 作为初始视觉
+  // 这保证初始渲染和 chip 点击选中 default 值时视觉一致（如 Header Terminal=App 右侧 share+more 双图标）
+  if(v.props){
+    var _pmDefaultHtml=null;
+    Object.keys(v.props).some(function(pk){
+      var pv=v.props[pk];
+      if(pv&&pv.previewMap){
+        var dv=String(pv.default!==undefined?pv.default:(pv.options&&pv.options[0])||'');
+        if(dv&&pv.previewMap[dv]){_pmDefaultHtml=pv.previewMap[dv];return true;}
+      }
+      return false;
+    });
+    if(_pmDefaultHtml)return _pmDefaultHtml;
+  }
   // component_refs (Wrapper): css 容器 + 多个子组件 ref 数组，浏览器实时组合
   if(v.component_refs&&v.component_refs.length){
     var wCss=v.css||{};
@@ -2247,7 +2261,7 @@ function selectVariantOpt(sel,key){
   var comp=typeof COMPONENTS_DATA!=='undefined'&&COMPONENTS_DATA[cid];
   var targetV=comp&&comp.variants&&comp.variants[targetVk];
   // 用 closest 找当前卡片，避免切换后 getElementById 找到错误卡片
-  var card=sel.closest('.cmp-variant');
+  var card=sel.closest('.cmp-variant,.biz-variant-card');
   if(!card||!targetV)return;
   var ph=targetV.preview_html||targetV._composed_preview_html||targetV._tree_preview_html||'';
   var preview=_getPreviewEl(card);
@@ -2311,7 +2325,7 @@ function selectPreviewChip(btn,key){
   var _pmStr=wrap.getAttribute('data-preview-map');
   var _pm=_pmStr?JSON.parse(_pmStr):null;
   if(!_pm||!_pm[val])return;
-  var card=wrap.closest('.cmp-variant');
+  var card=wrap.closest('.cmp-variant,.biz-variant-card');
   if(!card)return;
   // --cv chip (subVariantMap)：直接替换预览 + 重建 sub-props + 更新 data-vk
   if(wrap.classList.contains('cmp-prop-chips--cv')){
@@ -2436,7 +2450,7 @@ function _applyTokenPattern(card,result,patterns){
   });
 }
 function toggleGhostMode(input){
-  var card=input.closest('.cmp-variant');
+  var card=input.closest('.cmp-variant,.biz-variant-card');
   if(!card)return;
   var cid=card.getAttribute('data-cid');
   var vk=card.getAttribute('data-vk');
@@ -2466,7 +2480,7 @@ function handleBoolToggle(input){
   var isOn=input.checked;
   var lbl=input.parentElement.querySelector('.cmp-bool-lbl');
   if(lbl)lbl.textContent=isOn?(input.getAttribute('data-opt-on')||'on'):(input.getAttribute('data-opt-off')||'off');
-  var card=input.closest('.cmp-variant');
+  var card=input.closest('.cmp-variant,.biz-variant-card');
   if(!card)return;
   // Ghost prop：直接切换 ghost 预览，不依赖 header 控件
   if(key==='Ghost'||key==='Color'){
