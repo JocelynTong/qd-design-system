@@ -822,13 +822,14 @@ function _scrollBizPhone(cid, vk, el) {
 
 **`component_refs` 子对象格式：**
 ```json
-{ "cid": "💙 01.00 Status Bar", "variants": { "Color": "White", "Type": "iphone14" } }
+{ "cid": "💙 01.00 Status Bar", "props": { "Color": { "type": "VARIANT", "value": "White" }, "Type": { "type": "VARIANT", "value": "iPhoneX" } } }
 ```
 
 **`component_ref` 格式（1:1 Ref）：**
 ```json
-{ "cid": "💙 tab_bar", "variant_key": "Islands" }
+{ "cid": "💙 tab_bar", "props": { "Scene": { "type": "VARIANT", "value": "Islands" } } }
 ```
+单变体组件可省略 props，解析时自动取唯一 variant。
 
 ---
 

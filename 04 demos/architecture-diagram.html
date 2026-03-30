@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>组件递归渲染架构图</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0d1117; color:#c9d1d9; font-family:-apple-system,sans-serif; padding:40px; min-width:1100px; }
+
+  h1 { text-align:center; font-size:20px; color:#58a6ff; margin-bottom:32px; font-weight:500; }
+
+  /* === 上半部分：三种节点 === */
+  .nodes-row { display:flex; gap:16px; justify-content:center; margin-bottom:12px; }
+  .node-box { flex:1; max-width:320px; border-radius:12px; padding:20px; position:relative; }
+  .node-box.leaf { background:#0b2e1a; border:1.5px solid #238636; }
+  .node-box.ref { background:#1c1e2e; border:1.5px solid #8b5cf6; }
+  .node-box.wrapper { background:#1e1409; border:1.5px solid #d29922; }
+
+  .node-label { font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; margin-bottom:6px; }
+  .leaf .node-label { color:#3fb950; }
+  .ref .node-label { color:#a78bfa; }
+  .wrapper .node-label { color:#e3b341; }
+
+  .node-title { font-size:16px; font-weight:600; color:#f0f6fc; margin-bottom:8px; }
+  .node-field { font-size:12px; color:#8b949e; font-family:'SF Mono',monospace; background:rgba(0,0,0,.3); padding:4px 8px; border-radius:4px; display:inline-block; margin-bottom:6px; }
+  .node-metaphor { font-size:13px; color:#c9d1d9; line-height:1.5; margin-top:8px; padding-top:8px; border-top:1px solid rgba(255,255,255,.08); }
+  .node-metaphor em { font-style:normal; color:#f0f6fc; font-weight:500; }
+  .node-examples { font-size:11px; color:#6e7681; margin-top:6px; }
+
+  /* 箭头连接 */
+  .arrow-row { display:flex; justify-content:center; gap:16px; margin-bottom:12px; }
+  .arrow-row .arr { flex:1; max-width:320px; text-align:center; }
+  .arrow-row .arr span { font-size:11px; color:#484f58; }
+  .arr-down { text-align:center; margin:16px 0; color:#484f58; font-size:20px; }
+  .arr-down span { font-size:11px; display:block; color:#6e7681; }
+
+  /* === 下半部分：流程 === */
+  .flow { max-width:1020px; margin:0 auto; }
+  .flow-title { text-align:center; font-size:15px; color:#58a6ff; margin-bottom:20px; font-weight:500; }
+
+  .step-row { display:flex; align-items:stretch; gap:12px; margin-bottom:8px; }
+  .step { border-radius:10px; padding:14px 16px; flex:1; position:relative; }
+  .step-num { position:absolute; top:-8px; left:12px; background:#0d1117; padding:0 6px; font-size:10px; font-weight:700; letter-spacing:1px; }
+
+  .step.decide { background:#161b22; border:1.5px solid #30363d; }
+  .step.decide .step-num { color:#8b949e; }
+  .step.action { background:rgba(56,139,253,.08); border:1.5px solid rgba(56,139,253,.3); }
+  .step.action .step-num { color:#58a6ff; }
+  .step.recurse { background:rgba(139,92,246,.08); border:1.5px solid rgba(139,92,246,.3); }
+  .step.recurse .step-num { color:#a78bfa; }
+
+  .step-q { font-size:14px; font-weight:600; color:#f0f6fc; margin-bottom:4px; }
+  .step-a { font-size:12.5px; color:#8b949e; line-height:1.5; }
+  .step-a em { font-style:normal; color:#c9d1d9; font-weight:500; }
+  .step-metaphor { margin-top:8px; font-size:12px; padding:8px 10px; border-radius:6px; line-height:1.6; }
+  .step.leaf-m .step-metaphor { background:rgba(63,185,80,.08); color:#7ee787; }
+  .step.dc-m .step-metaphor { background:rgba(56,139,253,.08); color:#79c0ff; }
+  .step.composed-m .step-metaphor { background:rgba(227,179,65,.08); color:#e3b341; }
+  .step.tree-m .step-metaphor { background:rgba(139,92,246,.08); color:#a78bfa; }
+  .step.skeleton-m .step-metaphor { background:rgba(110,118,129,.1); color:#8b949e; }
+
+  .flow-arrow { text-align:center; color:#30363d; font-size:16px; margin:4px 0; }
+  .flow-arrow span { font-size:10px; color:#6e7681; margin-left:6px; }
+
+  /* 递归回环 */
+  .recurse-box { max-width:1020px; margin:16px auto 0; border:1.5px dashed rgba(139,92,246,.3); border-radius:12px; padding:16px 20px; background:rgba(139,92,246,.04); }
+  .recurse-box h3 { font-size:13px; color:#a78bfa; margin-bottom:8px; }
+  .recurse-steps { display:flex; gap:12px; }
+  .recurse-step { flex:1; background:rgba(0,0,0,.2); border-radius:8px; padding:10px 12px; }
+  .recurse-step .rs-title { font-size:12px; font-weight:600; color:#c9d1d9; margin-bottom:4px; }
+  .recurse-step .rs-desc { font-size:11px; color:#6e7681; line-height:1.5; }
+  .recurse-step .rs-loop { font-size:11px; color:#a78bfa; margin-top:6px; }
+
+  .tag { display:inline-block; font-size:10px; padding:2px 6px; border-radius:3px; font-weight:600; margin-right:4px; vertical-align:middle; }
+  .tag.green { background:rgba(63,185,80,.15); color:#3fb950; }
+  .tag.purple { background:rgba(139,92,246,.15); color:#a78bfa; }
+  .tag.yellow { background:rgba(227,179,65,.15); color:#e3b341; }
+  .tag.gray { background:rgba(110,118,129,.15); color:#8b949e; }
+  .tag.blue { background:rgba(56,139,253,.15); color:#58a6ff; }
+  .tag.red { background:rgba(248,81,73,.15); color:#f85149; }
+</style>
+</head>
+<body>
+
+<h1>组件递归渲染架构图</h1>
+
+<!-- ========= 上半部分：三种节点 ========= -->
+<div class="nodes-row">
+  <div class="node-box leaf">
+    <div class="node-label">① Leaf 叶子</div>
+    <div class="node-title">递归终点，不再展开</div>
+    <div class="node-field">preview_html</div>
+    <div class="node-metaphor"><em>一道做好的菜</em>，端上桌直接吃，不需要再加工</div>
+    <div class="node-examples">Button / Tag / Badge / Avatar</div>
+  </div>
+  <div class="node-box ref">
+    <div class="node-label">② 1:1 Ref 单引用</div>
+    <div class="node-title">指向一道具体的菜</div>
+    <div class="node-field">component_ref {cid, props}</div>
+    <div class="node-metaphor"><em>点菜单上的一道菜</em>，告诉后厨"我要 XX 的 YY 口味"，端来的可能是成品，也可能又是个套餐</div>
+    <div class="node-examples">TabBar → 某个具体 variant</div>
+  </div>
+  <div class="node-box wrapper">
+    <div class="node-label">③ Wrapper 容器</div>
+    <div class="node-title">一张套餐菜单 + 摆盘方式</div>
+    <div class="node-field">css</div> + <div class="node-field">component_refs [{cid, props}...]</div>
+    <div class="node-metaphor"><em>css = 摆盘</em>（竖着排还是横着排），<em>component_refs = 菜单</em>（StatusBar + NavBar + 封面），后厨逐道出</div>
+    <div class="node-examples">Islands/Header = 3 道菜拼一桌</div>
+  </div>
+</div>
+
+<div class="arrow-row">
+  <div class="arr"><span>递归深度 0</span></div>
+  <div class="arr"><span>递归深度 1 — 目标可能是 Leaf 也可能是 Wrapper</span></div>
+  <div class="arr"><span>递归深度 N — 每道菜各自解析</span></div>
+</div>
+
+<div class="arr-down">▼<span>全部交给后厨处理</span></div>
+
+<!-- ========= 下半部分：流程 ========= -->
+<div class="flow">
+  <div class="flow-title">_genBizVisual(vk, v) — 后厨出餐流程</div>
+
+  <!-- 第1步 -->
+  <div class="step-row">
+    <div class="step decide leaf-m" style="flex:2">
+      <div class="step-num">STEP 1</div>
+      <div class="step-q">有 preview_html？<span class="tag green">最高优先</span></div>
+      <div class="step-a">成品菜直接端上桌</div>
+      <div class="step-metaphor">🍽️ <em>做好的菜</em> — 设计师亲手做好的成品，原样呈上，不加工。<br>大部分组件走这条路。</div>
+    </div>
+    <div class="step action dc-m" style="flex:3">
+      <div class="step-num">STEP 1.1</div>
+      <div class="step-q">HTML 里有 data-component 占位？</div>
+      <div class="step-a"><em>data-component</em> = 餐盘上的<em>占位卡片</em></div>
+      <div class="step-metaphor">🪧 菜端上来了，但盘子上有张卡片写着"<em>这个位置放 Button/Icon</em>"。<br>传菜员 <code style="color:#79c0ff">_resolveDataComponents()</code> 看到卡片 → 跑去后厨拿对应的菜填上。<br><br>
+      <strong>例</strong>：NavBar 的 preview_html 里：<br>
+      <code style="font-size:11px;color:#79c0ff">&lt;div data-component="💙 00.05_Button / Icon" style="width:40px;height:40px"&gt;&lt;/div&gt;</code><br>
+      ↑ 这就是占位卡片。渲染时自动塞入 Button/Icon 的真实 HTML。</div>
+    </div>
+  </div>
+
+  <div class="flow-arrow">▼ <span>没有 preview_html？往下找</span></div>
+
+  <!-- 第2步 -->
+  <div class="step-row">
+    <div class="step recurse" style="flex:1">
+      <div class="step-num">STEP 2</div>
+      <div class="step-q">有 component_ref？<span class="tag purple">单引用</span></div>
+      <div class="step-a">点了一道菜 → <em>_resolveRef()</em> 去后厨查</div>
+    </div>
+    <div class="step recurse" style="flex:1">
+      <div class="step-num">STEP 3</div>
+      <div class="step-q">有 component_refs？<span class="tag yellow">套餐</span></div>
+      <div class="step-a">点了一桌套餐 → 遍历菜单，每道菜各调一次 <em>_resolveRef()</em></div>
+    </div>
+  </div>
+
+  <div class="flow-arrow">▼ <span>连引用都没有？自动生成 fallback</span></div>
+
+  <!-- 第3步 -->
+  <div class="step-row">
+    <div class="step decide composed-m">
+      <div class="step-num">STEP 4</div>
+      <div class="step-q">有 _composed_preview_html？<span class="tag yellow">slots 拼装</span></div>
+      <div class="step-metaphor">👨‍🍳 <em>后厨有配菜单</em> — 没有成品菜，但配菜单上写着"这道菜要 A 食材（Button）+ B 食材（SearchBar），各多少克"。<br>后厨照着配菜单现做，<em>出来的是真菜</em>，能吃能尝（chip 能切子组件 variant）。<br><br>来源：generate.py 读 <code style="color:#e3b341">slots</code> 配菜单，查每个食材的做法，拼成一道完整的菜。</div>
+    </div>
+    <div class="step decide tree-m">
+      <div class="step-num">STEP 5</div>
+      <div class="step-q">有 _tree_preview_html？<span class="tag gray">图层翻译</span><span class="tag red">过渡期</span></div>
+      <div class="step-metaphor">📸 <em>照着菜品照片摆盘</em> — 没有配菜单也没有成品，但有一张菜品照片（Figma 图层树 _tree）。<br>后厨照着照片用现有食材<em>摆出个样子</em>，看着像但<em>味道不对</em>（不能交互）。<br><br>⚠️ 这是<em>过渡期应急</em>：等厨师写好真正的菜谱（preview_html），这道"照片菜"就会自然淘汰。</div>
+    </div>
+    <div class="step decide skeleton-m">
+      <div class="step-num">STEP 6</div>
+      <div class="step-q">都没有？<span class="tag gray">CSS 骨架</span></div>
+      <div class="step-metaphor">🍽️ <em>空餐盘</em> — 只知道盘子多大（width/height）、怎么摆（flex-direction），但上面没有菜。<br><br>看到这个 = 提示设计师"<em>该补 preview 了</em>"。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========= 递归回环 ========= -->
+<div class="recurse-box">
+  <h3>🔄 _resolveRef(ref) — 后厨查菜谱的递归过程</h3>
+  <div class="recurse-steps">
+    <div class="recurse-step">
+      <div class="rs-title">1. 查 COMPONENTS_DATA[cid]</div>
+      <div class="rs-desc">菜谱里找这道菜。找不到就查 COMPONENT_REF_MAP（别名索引）。</div>
+    </div>
+    <div class="recurse-step">
+      <div class="rs-title">2. 确定要哪个口味（variant）</div>
+      <div class="rs-desc">
+        <span class="tag blue">props 描述口味</span> <em>告诉后厨你要什么</em> — "我要白色的、iPhoneX 款的"。后厨拿菜单逐道比对：<br>
+        &nbsp;&nbsp;A 菜：白色 ✓ iPhoneX ✗ → 1 分<br>
+        &nbsp;&nbsp;B 菜：白色 ✓ iPhoneX ✓ → 2 分 ← <em>最高分，选它</em><br>
+        &nbsp;&nbsp;C 菜：白色 ✗ iPhoneX ✗ → 0 分<br><br>
+        <span class="tag green">单变体组件</span> 没传 props 但菜单上只有一道菜 → <em>直接上唯一的那道</em>
+      </div>
+    </div>
+    <div class="recurse-step">
+      <div class="rs-title">3. 取到 variant → 看它是什么类型</div>
+      <div class="rs-desc">
+        <span class="tag green">成品菜</span> preview_html → 出餐，递归结束<br>
+        <span class="tag purple">又点了别的菜</span> component_ref → 再来一轮<br>
+        <span class="tag yellow">又是套餐</span> component_refs → 展开菜单，逐道再来
+      </div>
+      <div class="rs-loop">↩ 回到 Step 1，直到所有菜都变成成品（Leaf）为止</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -49,7 +49,10 @@
       "props": {},
       "component_ref": {
         "cid": "01.01_navigation_bar",
-        "variant_key": "App_Ghost",
+        "props": {
+          "Terminal": { "type": "VARIANT", "value": "App" },
+          "Color": { "type": "VARIANT", "value": "White" }
+        },
         "css": {
           "background": "var(--secondary-solidBg, #2B263B)"
         }

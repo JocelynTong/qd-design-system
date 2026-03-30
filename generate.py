@@ -346,16 +346,15 @@ def _resolve_ref_comp(ref_cid, components, ref_map):
 
 
 def _check_one_ref(cref, components, cid, vk, label='component_ref', ref_map=None):
-    """校验单个 ref 对象（{ cid, variant_key } 或 { cid, props/variants }）"""
+    """校验单个 ref 对象（{ cid, props/variants }）"""
     ref_cid = cref.get('cid', '')
     ref_comp, resolved_vk = _resolve_ref_comp(ref_cid, components, ref_map or {})
     if not ref_comp:
         print(f'⚠️ [{label}] {ref_cid} 未找到（{cid}/{vk}）')
         return
-    vk_direct = cref.get('variant_key') or resolved_vk
-    if vk_direct:
-        if vk_direct not in (ref_comp.get('variants') or {}):
-            print(f'⚠️ [{label}] variant_key "{vk_direct}" 在 {ref_cid} 中不存在（{cid}/{vk}）')
+    if resolved_vk:
+        if resolved_vk not in (ref_comp.get('variants') or {}):
+            print(f'⚠️ [{label}] resolved variant "{resolved_vk}" 在 {ref_cid} 中不存在（{cid}/{vk}）')
     else:
         match_props = cref.get('props') or cref.get('variants') or {}
         if match_props:
@@ -384,8 +383,8 @@ def resolve_component_refs(components, ref_map=None):
     不复制 HTML——浏览器侧 _genBizVisual 在运行时从 COMPONENTS_DATA 直接解析。
     支持三种节点：
       Leaf       → preview_html（无需校验）
-      1:1 Ref    → component_ref: { cid, variant_key | props }
-      Wrapper    → component_refs: [{ cid, variant_key | variants }, ...]
+      1:1 Ref    → component_ref: { cid, props }
+      Wrapper    → component_refs: [{ cid, props }, ...]
     cid 支持 kebab 格式（01.01-navigation-bar）和 figma 原名（💙 01.01_Navigation Bar）。"""
     if ref_map is None:
         ref_map = build_ref_map(components)

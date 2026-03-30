@@ -78,8 +78,7 @@
       },
       "props": {},
       "component_ref": {
-        "cid": "mark-20260127",
-        "variant_key": "SingleMark"
+        "cid": "mark-20260127"
       },
       "_tree": {
         "type": "COMPONENT",
@@ -211,8 +210,7 @@
       },
       "props": {},
       "component_ref": {
-        "cid": "02.02_input",
-        "variant_key": "InputLine"
+        "cid": "02.02_input"
       },
       "_tree": {
         "type": "COMPONENT",
