@@ -3,37 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>组件递归渲染架构图</title>
+<title>组件递归渲染架构图 v2 — Layout DSL</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body { background:#0d1117; color:#c9d1d9; font-family:-apple-system,sans-serif; padding:40px; min-width:1100px; }
 
-  h1 { text-align:center; font-size:20px; color:#58a6ff; margin-bottom:32px; font-weight:500; }
+  h1 { text-align:center; font-size:20px; color:#58a6ff; margin-bottom:8px; font-weight:500; }
+  .subtitle { text-align:center; font-size:12px; color:#6e7681; margin-bottom:32px; }
 
-  /* === 上半部分：三种节点 === */
-  .nodes-row { display:flex; gap:16px; justify-content:center; margin-bottom:12px; }
-  .node-box { flex:1; max-width:320px; border-radius:12px; padding:20px; position:relative; }
+  /* === 上半部分：两种节点 === */
+  .nodes-row { display:flex; gap:24px; justify-content:center; margin-bottom:12px; }
+  .node-box { flex:1; max-width:460px; border-radius:12px; padding:20px; position:relative; }
   .node-box.leaf { background:#0b2e1a; border:1.5px solid #238636; }
-  .node-box.ref { background:#1c1e2e; border:1.5px solid #8b5cf6; }
   .node-box.wrapper { background:#1e1409; border:1.5px solid #d29922; }
 
   .node-label { font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; margin-bottom:6px; }
   .leaf .node-label { color:#3fb950; }
-  .ref .node-label { color:#a78bfa; }
   .wrapper .node-label { color:#e3b341; }
 
   .node-title { font-size:16px; font-weight:600; color:#f0f6fc; margin-bottom:8px; }
-  .node-field { font-size:12px; color:#8b949e; font-family:'SF Mono',monospace; background:rgba(0,0,0,.3); padding:4px 8px; border-radius:4px; display:inline-block; margin-bottom:6px; }
+  .node-field { font-size:12px; color:#8b949e; font-family:'SF Mono',monospace; background:rgba(0,0,0,.3); padding:4px 8px; border-radius:4px; display:inline-block; margin-bottom:4px; margin-right:4px; }
   .node-metaphor { font-size:13px; color:#c9d1d9; line-height:1.5; margin-top:8px; padding-top:8px; border-top:1px solid rgba(255,255,255,.08); }
   .node-metaphor em { font-style:normal; color:#f0f6fc; font-weight:500; }
   .node-examples { font-size:11px; color:#6e7681; margin-top:6px; }
+  .node-detail { font-size:12px; color:#8b949e; margin-top:6px; line-height:1.6; }
+  .node-detail code { font-size:11px; color:#79c0ff; }
 
   /* 箭头连接 */
-  .arrow-row { display:flex; justify-content:center; gap:16px; margin-bottom:12px; }
-  .arrow-row .arr { flex:1; max-width:320px; text-align:center; }
+  .arrow-row { display:flex; justify-content:center; gap:24px; margin-bottom:12px; }
+  .arrow-row .arr { flex:1; max-width:460px; text-align:center; }
   .arrow-row .arr span { font-size:11px; color:#484f58; }
   .arr-down { text-align:center; margin:16px 0; color:#484f58; font-size:20px; }
   .arr-down span { font-size:11px; display:block; color:#6e7681; }
+
+  /* === DSL 词汇速查 === */
+  .dsl-ref { max-width:960px; margin:0 auto 24px; border:1px solid #30363d; border-radius:10px; padding:14px 20px; background:#161b22; }
+  .dsl-ref h3 { font-size:13px; color:#e3b341; margin-bottom:10px; }
+  .dsl-table { width:100%; border-collapse:collapse; font-size:12px; }
+  .dsl-table th { text-align:left; color:#8b949e; font-weight:500; padding:4px 8px; border-bottom:1px solid #21262d; }
+  .dsl-table td { padding:4px 8px; border-bottom:1px solid rgba(33,38,45,.5); color:#c9d1d9; }
+  .dsl-table td:first-child { font-family:'SF Mono',monospace; color:#e3b341; }
+  .dsl-table td:nth-child(2) { color:#79c0ff; font-family:'SF Mono',monospace; }
+  .dsl-table td:last-child { color:#8b949e; }
 
   /* === 下半部分：流程 === */
   .flow { max-width:1020px; margin:0 auto; }
@@ -56,8 +67,9 @@
   .step-metaphor { margin-top:8px; font-size:12px; padding:8px 10px; border-radius:6px; line-height:1.6; }
   .step.leaf-m .step-metaphor { background:rgba(63,185,80,.08); color:#7ee787; }
   .step.dc-m .step-metaphor { background:rgba(56,139,253,.08); color:#79c0ff; }
+  .step.dsl-m .step-metaphor { background:rgba(227,179,65,.08); color:#e3b341; }
+  .step.legacy-m .step-metaphor { background:rgba(139,92,246,.08); color:#a78bfa; }
   .step.composed-m .step-metaphor { background:rgba(227,179,65,.08); color:#e3b341; }
-  .step.tree-m .step-metaphor { background:rgba(139,92,246,.08); color:#a78bfa; }
   .step.skeleton-m .step-metaphor { background:rgba(110,118,129,.1); color:#8b949e; }
 
   .flow-arrow { text-align:center; color:#30363d; font-size:16px; margin:4px 0; }
@@ -79,41 +91,71 @@
   .tag.gray { background:rgba(110,118,129,.15); color:#8b949e; }
   .tag.blue { background:rgba(56,139,253,.15); color:#58a6ff; }
   .tag.red { background:rgba(248,81,73,.15); color:#f85149; }
+
+  /* 对比框 */
+  .compare { max-width:1020px; margin:24px auto 0; display:flex; gap:12px; }
+  .compare-box { flex:1; border-radius:10px; padding:14px 16px; }
+  .compare-box.new-way { background:rgba(63,185,80,.06); border:1px solid rgba(63,185,80,.2); }
+  .compare-box.old-way { background:rgba(110,118,129,.06); border:1px solid rgba(110,118,129,.2); }
+  .compare-box h4 { font-size:12px; margin-bottom:8px; }
+  .compare-box.new-way h4 { color:#3fb950; }
+  .compare-box.old-way h4 { color:#8b949e; }
+  .compare-box pre { font-size:11px; line-height:1.6; color:#c9d1d9; white-space:pre-wrap; }
+  .compare-box pre .k { color:#e3b341; }
+  .compare-box pre .v { color:#79c0ff; }
+  .compare-box pre .c { color:#6e7681; }
 </style>
 </head>
 <body>
 
-<h1>组件递归渲染架构图</h1>
+<h1>组件递归渲染架构图 v2</h1>
+<div class="subtitle">Layout DSL — 跨平台唯一数据源（Web 导出 CSS，iOS/Android 直接消费）</div>
 
-<!-- ========= 上半部分：三种节点 ========= -->
+<!-- ========= 上半部分：两种节点 ========= -->
 <div class="nodes-row">
   <div class="node-box leaf">
-    <div class="node-label">① Leaf 叶子</div>
+    <div class="node-label">① Leaf 积木块</div>
     <div class="node-title">递归终点，不再展开</div>
     <div class="node-field">preview_html</div>
-    <div class="node-metaphor"><em>一块成品积木</em>，拿来直接拼上，不需要再拆解</div>
-    <div class="node-examples">Button / Tag / Badge / Avatar</div>
-  </div>
-  <div class="node-box ref">
-    <div class="node-label">② 1:1 Ref 单引用</div>
-    <div class="node-title">从零件库里取一块指定积木</div>
-    <div class="node-field">component_ref {cid, props}</div>
-    <div class="node-metaphor"><em>翻零件目录找一块积木</em>，告诉仓库"我要白色的、iPhoneX 款的"，拿到的可能是成品块，也可能是个需要再拼的子模型</div>
-    <div class="node-examples">TabBar → 某个具体 variant</div>
+    <div class="node-field">cid</div> + <div class="node-field">props</div>
+    <div class="node-metaphor">🧱 <em>一块成品积木</em>，拿来直接拼上，不需要再拆解。<br>两种形态：① 自带完整造型（preview_html），② 只有零件编号（cid），去零件库取。</div>
+    <div class="node-detail">有 <code>cid</code> 时 = 旧 1:1 Ref，通过 <code>_resolveRef()</code> 递归查找。<br>有 <code>props</code> 时 = 告诉零件库"我要白色的、iPhoneX 款的"。</div>
+    <div class="node-examples">Button / Tag / Badge / Avatar / StatusBar 引用</div>
   </div>
   <div class="node-box wrapper">
-    <div class="node-label">③ Wrapper 容器</div>
-    <div class="node-title">一份拼装说明书 + 底板</div>
-    <div class="node-field">css</div> + <div class="node-field">component_refs [{cid, props}...]</div>
-    <div class="node-metaphor"><em>css = 底板</em>（竖着排还是横着排），<em>component_refs = 零件清单</em>（StatusBar + NavBar + 封面），逐块取来拼上</div>
-    <div class="node-examples">Islands/Header = 3 块积木拼成一个模型</div>
+    <div class="node-label">② Wrapper 底板</div>
+    <div class="node-title">一份拼装说明书 + 底板 + 子积木清单</div>
+    <div class="node-field">layout</div> + <div class="node-field">children</div>
+    <div class="node-metaphor">🧱 <em>layout = 底板方向</em>（row 横排 / column 竖排 / stack 堆叠），<br><em>children = 子积木清单</em>，每块子积木可以是 Leaf 也可以是更小的 Wrapper。<br>像一块<em>带卡槽的大底板</em>，卡槽里可以再嵌套小底板。</div>
+    <div class="node-detail">
+      DSL 属性：<code>gap</code> 间距 · <code>padding</code> 内边距 · <code>align</code> 交叉轴对齐 · <code>justify</code> 主轴对齐 · <code>width/height</code> 尺寸 · <code>flex</code> 弹性<br>
+      Web 渲染：<code>_dslToStyle()</code> 将 DSL → inline CSS；iOS/Android 直接读 JSON
+    </div>
+    <div class="node-examples">Islands/Header = layout:column → [StatusBar, NavBar, 封面, 信息区]</div>
   </div>
 </div>
 
 <div class="arrow-row">
-  <div class="arr"><span>递归深度 0</span></div>
-  <div class="arr"><span>递归深度 1 — 目标可能是 Leaf 也可能是 Wrapper</span></div>
-  <div class="arr"><span>递归深度 N — 每块积木各自解析</span></div>
+  <div class="arr"><span>递归终点 — 成品积木 / 零件编号</span></div>
+  <div class="arr"><span>递归展开 — 底板 + 子积木，每块各自解析</span></div>
+</div>
+
+<!-- ========= DSL 词汇速查 ========= -->
+<div class="dsl-ref">
+  <h3>📐 Layout DSL 词汇速查（跨平台通用）</h3>
+  <table class="dsl-table">
+    <tr><th>DSL 字段</th><th>Web CSS 映射</th><th>说明</th></tr>
+    <tr><td>layout: "row"</td><td>display:flex; flex-direction:row</td><td>横向排列（Figma HORIZONTAL）</td></tr>
+    <tr><td>layout: "column"</td><td>display:flex; flex-direction:column</td><td>纵向排列（Figma VERTICAL）</td></tr>
+    <tr><td>layout: "stack"</td><td>position:relative（子元素 absolute）</td><td>堆叠（Figma 自由定位子元素）</td></tr>
+    <tr><td>gap: 8</td><td>gap: 8px</td><td>子元素间距（Figma itemSpacing）</td></tr>
+    <tr><td>padding: [16,16,16,16]</td><td>padding: 16px 16px 16px 16px</td><td>内边距 [上,右,下,左]</td></tr>
+    <tr><td>align: "center"</td><td>align-items: center</td><td>交叉轴对齐（start/center/end/stretch）</td></tr>
+    <tr><td>justify: "spaceBetween"</td><td>justify-content: space-between</td><td>主轴分布（start/center/end/spaceBetween）</td></tr>
+    <tr><td>width: "fill" / 375</td><td>width: 100% / 375px</td><td>fill = 撑满父容器，数字 = 固定 px</td></tr>
+    <tr><td>height: "fill" / 44</td><td>height: 100% / 44px</td><td>同上</td></tr>
+    <tr><td>flex: 1</td><td>flex: 1</td><td>弹性权重</td></tr>
+  </table>
 </div>
 
 <div class="arr-down">▼<span>全部交给拼装流水线</span></div>
@@ -122,13 +164,13 @@
 <div class="flow">
   <div class="flow-title">_genBizVisual(vk, v) — 乐高拼装流水线</div>
 
-  <!-- 第1步 -->
+  <!-- 第1步：preview_html -->
   <div class="step-row">
     <div class="step decide leaf-m" style="flex:2">
       <div class="step-num">STEP 1</div>
       <div class="step-q">有 preview_html？<span class="tag green">最高优先</span></div>
       <div class="step-a">成品积木直接拼上</div>
-      <div class="step-metaphor">🧱 <em>成品块</em> — 设计师已经拼好的完整积木，直接放到底板上，不用拆。<br>大部分组件走这条路。</div>
+      <div class="step-metaphor">🧱 <em>成品块</em> — 设计师已经拼好的完整积木，直接放到底板上，不用拆。<br>大部分原子分子组件走这条路。</div>
     </div>
     <div class="step action dc-m" style="flex:3">
       <div class="step-num">STEP 1.1</div>
@@ -143,36 +185,47 @@
 
   <div class="flow-arrow">▼ <span>没有 preview_html？往下找</span></div>
 
-  <!-- 第2步 -->
+  <!-- 第2步：children DSL（新） -->
   <div class="step-row">
-    <div class="step recurse" style="flex:1">
+    <div class="step decide dsl-m" style="flex:1">
       <div class="step-num">STEP 2</div>
-      <div class="step-q">有 component_ref？<span class="tag purple">单引用</span></div>
-      <div class="step-a">取一块积木 → <em>_resolveRef()</em> 去零件库找</div>
+      <div class="step-q">有 children？<span class="tag yellow">DSL 递归拼装</span></div>
+      <div class="step-a"><code style="color:#e3b341">_renderDSL()</code> 递归遍历子积木树</div>
+      <div class="step-metaphor">📐 <em>一份跨平台拼装说明书</em> — 不写 CSS，只描述"竖着排、间距 8、居中"。<br><br>
+      流水线递归执行：遇到 Wrapper（有 layout+children）→ 造底板 + 递归每块子积木；<br>遇到 Leaf（有 cid）→ 调 <code style="color:#e3b341">_resolveRef()</code> 去零件库取积木。<br><br>
+      <strong>例</strong>：Islands/Header 的 children 树：<br>
+      <code style="font-size:11px;color:#e3b341">{ layout:"column", children: [</code><br>
+      <code style="font-size:11px;color:#79c0ff">&nbsp;&nbsp;{ cid:"💙 StatusBar", props:{Color:"White"} },</code> ← Leaf<br>
+      <code style="font-size:11px;color:#79c0ff">&nbsp;&nbsp;{ cid:"💙 NavBar", props:{Ghost:"True"} },</code> ← Leaf<br>
+      <code style="font-size:11px;color:#e3b341">&nbsp;&nbsp;{ layout:"column", gap:8, children:[...] }</code> ← 嵌套 Wrapper<br>
+      <code style="font-size:11px;color:#e3b341">]}</code><br><br>
+      🧱 好比一块<em>有嵌套卡槽的大底板</em>：顶层竖排底板 → 插入 StatusBar 积木 → NavBar 积木 → 再嵌套一块小底板装封面和信息区。</div>
     </div>
-    <div class="step recurse" style="flex:1">
+  </div>
+
+  <div class="flow-arrow">▼ <span>没有 children？查旧格式 fallback</span></div>
+
+  <!-- 第3步：component_refs 旧格式（兼容） -->
+  <div class="step-row">
+    <div class="step recurse legacy-m" style="flex:1">
       <div class="step-num">STEP 3</div>
-      <div class="step-q">有 component_refs？<span class="tag yellow">套餐</span></div>
-      <div class="step-a">照说明书拼模型 → 遍历零件清单，每块各调一次 <em>_resolveRef()</em></div>
+      <div class="step-q">有 component_refs？<span class="tag purple">旧格式兼容</span><span class="tag red">过渡期</span></div>
+      <div class="step-a">扁平零件清单 → 遍历每块调 <em>_resolveRef()</em></div>
+      <div class="step-metaphor">📦 <em>旧版零件清单</em> — 没有嵌套结构，只是一个扁平列表（StatusBar、NavBar、封面…），逐块取来按 css 属性排列。<br><br>⚠️ 插件已升级为输出 <code style="color:#a78bfa">children</code> DSL，同时向下兼容输出 <code style="color:#a78bfa">component_refs</code>。<br>新数据走 Step 2，旧数据走这里。逐步淘汰。</div>
     </div>
   </div>
 
   <div class="flow-arrow">▼ <span>连引用都没有？自动生成 fallback</span></div>
 
-  <!-- 第3步 -->
+  <!-- 第4步：_composed / _tree / skeleton -->
   <div class="step-row">
     <div class="step decide composed-m">
       <div class="step-num">STEP 4</div>
       <div class="step-q">有 _composed_preview_html？<span class="tag yellow">slots 拼装</span></div>
-      <div class="step-metaphor">📋 <em>有零件编号 + 尺寸规格表</em> — slots 里精确记录着每块零件的<em>编号</em>（cid: Button / SearchBar）和<em>尺寸</em>（css: 40×40 / flex:1）。<br>流水线拿着编号去零件库取<em>真正的积木</em>，按规格拼好 → 出来的模型<em>能交互</em>（chip 能切子组件 variant）。<br><br>关键：零件编号是确定的，不是猜的 → <em>零误差拼装</em>。<br>来源：generate.py 读 <code style="color:#e3b341">slots</code> 规格表，逐个查零件库，拼成完整模型。</div>
-    </div>
-    <div class="step decide tree-m">
-      <div class="step-num">STEP 5</div>
-      <div class="step-q">有 _tree_preview_html？<span class="tag gray">图层翻译</span><span class="tag red">过渡期</span></div>
-      <div class="step-metaphor">📸 <em>照 X 光片描轮廓</em> — 没有零件编号也没成品，但 Figma 插件导出时自动拍了张"X 光片"（_tree：每个图层的类型 + 位置 + 尺寸）。<br>流水线<em>机械复印</em>：FRAME→div，TEXT→span，RECTANGLE→div，每个像素位置都准 → 但它<em>不知道哪块是 Button 哪块是背景</em>，只知道"这里有个 40×40 的方块"。<br>外形准，<em>不能交互</em>。<br><br>⚠️ 这是<em>过渡期应急</em>：等设计师补上真正的积木（preview_html），这个"X 光复印件"就会自然淘汰。</div>
+      <div class="step-metaphor">📋 <em>有零件编号 + 尺寸规格表</em> — slots 精确记录每块零件的<em>编号</em>和<em>尺寸</em>。<br>流水线拿编号去零件库取<em>真正的积木</em>，按规格拼好 → 出来的模型<em>能交互</em>。<br>来源：generate.py 读 slots 规格表，逐个查零件库拼成完整模型。</div>
     </div>
     <div class="step decide skeleton-m">
-      <div class="step-num">STEP 6</div>
+      <div class="step-num">STEP 5</div>
       <div class="step-q">都没有？<span class="tag gray">CSS 骨架</span></div>
       <div class="step-metaphor">🔲 <em>空底板</em> — 只知道底板多大（width/height）、横着还是竖着（flex-direction），但上面没有积木。<br><br>看到这个 = 提示设计师"<em>该补积木了</em>"。</div>
     </div>
@@ -181,31 +234,73 @@
 
 <!-- ========= 递归回环 ========= -->
 <div class="recurse-box">
-  <h3>🔄 _resolveRef(ref) — 去零件库取积木的递归过程</h3>
+  <h3>🔄 递归核心 — _renderDSL(node) 与 _resolveRef(ref)</h3>
   <div class="recurse-steps">
     <div class="recurse-step">
-      <div class="rs-title">1. 查 COMPONENTS_DATA[cid]</div>
-      <div class="rs-desc">在零件库里找这块积木。找不到就查 COMPONENT_REF_MAP（别名货架）。</div>
+      <div class="rs-title">1. _renderDSL(node) — 遍历说明书</div>
+      <div class="rs-desc">拿到一个节点：<br>
+        • 有 <span class="tag yellow">layout + children</span> → 它是底板，<code>_dslToStyle()</code> 生成样式，递归每块子积木<br>
+        • 有 <span class="tag green">cid</span> → 它是积木编号，调 <code>_resolveRef()</code> 去取
+      </div>
+      <div class="rs-loop">↩ children 里可以无限嵌套 Wrapper，形成递归树</div>
     </div>
     <div class="recurse-step">
-      <div class="rs-title">2. 确定要哪个款式（variant）</div>
+      <div class="rs-title">2. _resolveRef(ref) — 零件库取积木</div>
       <div class="rs-desc">
-        <span class="tag blue">props 描述特征</span> <em>告诉仓库你要什么</em> — "我要白色的、iPhoneX 款的"。仓库拿货架逐个比对：<br>
-        &nbsp;&nbsp;A 款：白色 ✓ iPhoneX ✗ → 1 分<br>
-        &nbsp;&nbsp;B 款：白色 ✓ iPhoneX ✓ → 2 分 ← <em>最高分，选它</em><br>
-        &nbsp;&nbsp;C 款：白色 ✗ iPhoneX ✗ → 0 分<br><br>
-        <span class="tag green">单变体组件</span> 没传 props 但货架上只有一款 → <em>直接拿唯一的那块</em>
+        ① 查 <code>COMPONENTS_DATA[cid]</code>（找不到查别名货架 COMPONENT_REF_MAP）<br>
+        ② <span class="tag blue">props 打分匹配</span> — "我要白色 iPhoneX 款"，逐个比对货架上的 variant，匹配属性最多的胜出<br>
+        ③ <span class="tag green">单变体</span> 货架只有一款 → 直接拿
       </div>
     </div>
     <div class="recurse-step">
-      <div class="rs-title">3. 取到 variant → 看它是什么类型</div>
+      <div class="rs-title">3. 取到 variant → 看它的类型</div>
       <div class="rs-desc">
         <span class="tag green">成品块</span> preview_html → 拼上，递归结束<br>
-        <span class="tag purple">又指向别的积木</span> component_ref → 再去取一轮<br>
-        <span class="tag yellow">又是子模型</span> component_refs → 展开零件清单，逐块再取
+        <span class="tag yellow">又是底板</span> 有 children → _renderDSL 继续拆<br>
+        <span class="tag purple">旧格式</span> component_refs → 扁平遍历取积木
       </div>
-      <div class="rs-loop">↩ 回到 Step 1，直到所有积木都变成成品块（Leaf）为止</div>
+      <div class="rs-loop">↩ 直到所有节点都变成成品块（Leaf）为止</div>
     </div>
+  </div>
+</div>
+
+<!-- ========= 新旧对比 ========= -->
+<div class="compare">
+  <div class="compare-box new-way">
+    <h4>✅ 新架构 — Layout DSL（children 树）</h4>
+    <pre><span class="c">// 插件导出，跨平台通用</span>
+{
+  <span class="k">"layout"</span>: <span class="v">"column"</span>,
+  <span class="k">"gap"</span>: <span class="v">0</span>,
+  <span class="k">"children"</span>: [
+    { <span class="k">"cid"</span>: <span class="v">"💙 StatusBar"</span>, <span class="k">"props"</span>: {<span class="v">"Color":"White"</span>} },
+    { <span class="k">"cid"</span>: <span class="v">"💙 NavBar"</span>, <span class="k">"props"</span>: {<span class="v">"Ghost":"True"</span>} },
+    { <span class="k">"layout"</span>: <span class="v">"column"</span>, <span class="k">"children"</span>: [<span class="c">...</span>] }
+  ]
+}
+
+<span class="c">// Web: _dslToStyle() → inline CSS</span>
+<span class="c">// iOS: 直接读 layout/gap/padding → UIStackView</span>
+<span class="c">// Android: 直接读 → LinearLayout / ConstraintLayout</span></pre>
+  </div>
+  <div class="compare-box old-way">
+    <h4>⚠️ 旧架构 — css + component_refs（扁平）</h4>
+    <pre><span class="c">// 仅 Web 可用，iOS/Android 需二次翻译</span>
+{
+  <span class="k">"css"</span>: {
+    <span class="v">"display":"flex"</span>,
+    <span class="v">"flex-direction":"column"</span>,
+    <span class="v">"gap":"0"</span>
+  },
+  <span class="k">"component_refs"</span>: [
+    { <span class="k">"cid"</span>: <span class="v">"💙 StatusBar"</span>, <span class="k">"props"</span>: {...} },
+    { <span class="k">"cid"</span>: <span class="v">"💙 NavBar"</span>, <span class="k">"props"</span>: {...} }
+  ]
+}
+
+<span class="c">// ❌ 无嵌套结构，扁平列表</span>
+<span class="c">// ❌ css 是 Web 专属，其他端不能直接用</span>
+<span class="c">// ❌ 已停止使用，仅兼容旧数据</span></pre>
   </div>
 </div>
 
