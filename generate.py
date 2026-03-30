@@ -641,17 +641,17 @@ def write_components_html(components=None, ref_map=None):
     # 解析 component_ref 引用，从被引用组件复用 preview_html
     resolve_component_refs(components, ref_map)
 
-    # 合并 _Ghost 变体：将 Foo_Ghost 的预览挂载到 Foo._ghost_preview_html，并标记隐藏
+    # 合并 _White 变体：将 Foo_White 的预览挂载到 Foo._white_preview_html，并标记隐藏
     for cdata in components.values():
         variants = cdata.get('variants') or {}
-        for gk in [k for k in list(variants) if k.endswith('_Ghost')]:
+        for gk in [k for k in list(variants) if k.endswith('_White')]:
             base_key = gk[:-6]
             if base_key in variants:
                 gv = variants[gk]
-                variants[base_key]['_ghost_preview_html'] = (
+                variants[base_key]['_white_preview_html'] = (
                     gv.get('_composed_preview_html') or gv.get('preview_html', ''))
                 if gv.get('_code_html'):
-                    variants[base_key]['_ghost_code_html'] = gv['_code_html']
+                    variants[base_key]['_white_code_html'] = gv['_code_html']
                 gv['_hidden'] = True
 
     data_js = ('var COMPONENTS_DATA=' + json.dumps(components, ensure_ascii=False, separators=(',', ':')) + ';'
@@ -725,14 +725,14 @@ def write_design_system_html(all_processed, components=None, ref_map=None):
 
     for cdata in components.values():
         variants = cdata.get('variants') or {}
-        for gk in [k for k in list(variants) if k.endswith('_Ghost')]:
+        for gk in [k for k in list(variants) if k.endswith('_White')]:
             base_key = gk[:-6]
             if base_key in variants:
                 gv = variants[gk]
-                variants[base_key]['_ghost_preview_html'] = (
+                variants[base_key]['_white_preview_html'] = (
                     gv.get('_composed_preview_html') or gv.get('preview_html', ''))
                 if gv.get('_code_html'):
-                    variants[base_key]['_ghost_code_html'] = gv['_code_html']
+                    variants[base_key]['_white_code_html'] = gv['_code_html']
                 gv['_hidden'] = True
 
     comp_js = ('var COMPONENTS_DATA=' + json.dumps(components, ensure_ascii=False, separators=(',', ':')) + ';'
@@ -1372,7 +1372,7 @@ def validate_components(components=None, ref_map=None):
                 all_html_sources = ph or ''
                 for pk2, pv2 in props_data.items():
                     if isinstance(pv2, dict):
-                        for pm_key in ('previewMap', 'ghostPreviewMap'):
+                        for pm_key in ('previewMap', 'whitePreviewMap'):
                             pm = pv2.get(pm_key)
                             if isinstance(pm, dict):
                                 all_html_sources += ''.join(pm.values())
@@ -1423,22 +1423,22 @@ def validate_components(components=None, ref_map=None):
                     if not child_v.get('embed_html'):
                         warnings.append(f'  ⚠️  {fn} [{vk}]: slot `{sname}` 有 swapProp 但子组件缺少 embed_html，组合预览将跳过')
 
-            # 检查有 Ghost prop 的 variant 是否存在对应 _Ghost 变体
-            # 例外1：任一 prop 含 ghostPreviewMap → Ghost 已由 previewMap 机制处理
-            # 例外2：variant 自身有 _ghost_preview_html → Ghost 切换直接可用
-            ghost_prop = props_data.get('Ghost')
-            if isinstance(ghost_prop, dict) and ghost_prop.get('options'):
-                opt_low = sorted(str(o).lower() for o in ghost_prop['options'])
-                has_ghost_preview_map = any(
-                    isinstance(pv, dict) and pv.get('ghostPreviewMap')
+            # 检查有 Color=White prop 的 variant 是否存在对应 _White 变体
+            # 例外1：任一 prop 含 whitePreviewMap → White 已由 previewMap 机制处理
+            # 例外2：variant 自身有 _white_preview_html → White 切换直接可用
+            color_prop = props_data.get('Color')
+            if isinstance(color_prop, dict) and color_prop.get('options'):
+                has_white_opt = 'White' in [str(o) for o in color_prop['options']]
+                has_white_preview_map = any(
+                    isinstance(pv, dict) and pv.get('whitePreviewMap')
                     for pv in props_data.values()
                     if isinstance(pv, dict)
                 )
-                has_ghost_html = bool(v.get('_ghost_preview_html'))
-                if opt_low == ['false', 'true'] and not has_ghost_preview_map and not has_ghost_html:
-                    ghost_vk = vk + '_Ghost'
-                    if ghost_vk not in all_vks:
-                        warnings.append(f'  ⚠️  {fn} [{vk}]: 有 Ghost prop 但缺少 `{ghost_vk}` 变体，Ghost 切换将无效')
+                has_white_html = bool(v.get('_white_preview_html'))
+                if has_white_opt and not has_white_preview_map and not has_white_html:
+                    white_vk = vk + '_White'
+                    if white_vk not in all_vks:
+                        warnings.append(f'  ⚠️  {fn} [{vk}]: 有 Color=White 选项但缺少 `{white_vk}` 变体，White 切换将无效')
 
     # ── 03 business/ variant key 一致性校验 ─────────────────────────────────────
     biz_dir = os.path.join(BASE, '03 business')

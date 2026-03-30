@@ -200,7 +200,7 @@ async function handleExport() {
   }
 
   // 递归收集带 componentPropertyReferences 的子节点（boolean / INSTANCE_SWAP 槽位）
-  // 对每个匹配子节点记录：boolProp / swapProp / instanceKey / instanceName / css
+  // 对每个匹配子节点记录：boolProp / swapProp / instanceKey / instanceName / css / contents
   async function collectChildSlots(node) {
     var slots = [];
     async function walk(n) {
@@ -214,10 +214,35 @@ async function handleExport() {
           if (refs.mainComponent && child.type === 'INSTANCE' && child.mainComponent) {
             slot.swapProp     = refs.mainComponent;
             slot.instanceKey  = child.mainComponent.key;
-            slot.instanceName = child.mainComponent.name;
+            slot.instanceName = getCanonicalName(child.mainComponent);
           }
           var css = await getCss(child);
           if (css) slot.css = css;
+          // slot 本身是 nested instance 且没有 swapProp → 直接记录其组件名
+          if (!slot.swapProp && child.type === 'INSTANCE' && child.mainComponent) {
+            slot.instanceKey  = child.mainComponent.key;
+            slot.instanceName = getCanonicalName(child.mainComponent);
+          }
+          // 收集 slot 内部的 INSTANCE 子节点（不限制 slot 是否为 INSTANCE 类型）
+          if ('children' in child) {
+            var contents = [];
+            (function gather(n2, depth) {
+              if (!('children' in n2)) return;
+              for (var ci = 0; ci < n2.children.length; ci++) {
+                var c = n2.children[ci];
+                if (c.type === 'INSTANCE' && c.mainComponent) {
+                  var item = { cid: getCanonicalName(c.mainComponent), figma_key: c.mainComponent.key };
+                  // 捕获每个 nested instance 的 componentProperties（VARIANT / BOOLEAN / INSTANCE_SWAP）
+                  var cp = c.componentProperties;
+                  if (cp && Object.keys(cp).length > 0) item.props = cp;
+                  contents.push(item);
+                } else if ('children' in c) {
+                  gather(c, depth + 1);
+                }
+              }
+            })(child, 0);
+            if (contents.length > 0) slot.contents = contents;
+          }
           slots.push(slot);
         }
         // 非实例节点继续递归，实例内部由 Figma 自行管理，不深入
@@ -295,7 +320,30 @@ async function handleExport() {
           var props = parseComponentProps(child);
           var ref = { cid: refName };
           var cp = child.componentProperties;
-          if (cp && Object.keys(cp).length > 0) ref.props = cp;
+          if (cp && Object.keys(cp).length > 0) {
+            // INSTANCE_SWAP 条目：用 importComponentByKeyAsync 把 figma_key → 组件名
+            // VARIANT / BOOLEAN 原样保留
+            var resolvedProps = {};
+            for (var pn of Object.keys(cp)) {
+              var p = cp[pn];
+              if (p.type === 'INSTANCE_SWAP' && p.value) {
+                var entry = { type: 'INSTANCE_SWAP', figma_key: p.value };
+                try {
+                  var mc = await figma.importComponentByKeyAsync(p.value);
+                  entry.value = mc ? getCanonicalName(mc) : p.value;
+                } catch(e) {
+                  entry.value = p.value;
+                }
+                resolvedProps[pn] = entry;
+              } else {
+                resolvedProps[pn] = p;
+              }
+            }
+            ref.props = resolvedProps;
+          }
+          // 走进 INSTANCE 内部，收集槽位的实际 swap 内容
+          var childSlots = await collectChildSlots(child);
+          if (childSlots.length > 0) ref.slots = childSlots;
           refs.push(ref);
         }
       }

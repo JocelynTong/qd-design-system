@@ -22,6 +22,7 @@
       "figma_name": "💙 00.08_Button",
       "figma_key": "54d17fc84f5b461a4d705a6ccc8f9437a397b56a",
       "embed_html": "<div style=\"display:inline-flex;align-items:center;gap:4px;height:40px;padding:8px 16px;border-radius:8px;background:var(--primary-bt-solid-bg,#7C66FF)\"><span style=\"font:500 14px/22px 'PingFang SC';color:#FFF\">按钮</span></div>",
+      "_white_embed_html": "<div style=\"display:inline-flex;align-items:center;justify-content:center;padding:5px 10px;background:rgba(255,255,255,0.16);border-radius:var(--radius-small,4px)\"><span style=\"font:var(--font-h6,500 12px/18px 'PingFang SC',sans-serif);color:rgba(255,255,255,0.8);white-space:nowrap\">关注</span></div>",
       "desc": "主按钮，多色系全功能版本，是绝大多数场景的标准按钮",
       "props": {
         "Color": {
@@ -513,6 +514,7 @@
       "figma_name": "💙 00.05_Button / Icon",
       "figma_key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5",
       "embed_html": "<div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini, 2px);border-radius:6px;background:var(--bg-2,#f7f7f9)\"><i class=\"KurilIcons kuril-time\" style=\"font-size:20px;color:var(--text-1,#2B263B)\"></i></div>",
+      "_white_embed_html": "<div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini, 2px);border-radius:6px\"><i class=\"KurilIcons kuril-time\" style=\"font-size:20px;color:rgba(255,255,255,0.8)\"></i></div>",
       "_tree": {
         "type": "COMPONENT",
         "css": {

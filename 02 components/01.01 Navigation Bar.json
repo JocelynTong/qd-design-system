@@ -28,55 +28,7 @@
     "App": {
       "figma_name": "Terminal=App, Color=Default",
       "figma_key": "360f770dbdab8921993cf27def796d9fd3d0f172",
-      "_tree": {
-        "type": "COMPONENT",
-        "css": {
-          "display": "flex",
-          "width": "375px",
-          "height": "44px",
-          "padding": "0 var(--Spacing-Small, 4px)",
-          "align-items": "center",
-          "gap": "4px"
-        },
-        "children": [
-          {
-            "type": "INSTANCE",
-            "key": "236afe26560ec45f986725229d24c04ad7ddb387",
-            "ref": "01.01-navigation-bar",
-            "css": {
-              "display": "inline-flex",
-              "height": "44px",
-              "align-items": "center"
-            }
-          },
-          {
-            "type": "INSTANCE",
-            "key": "dabc0579a072650911824fb4c077ab86539c3d52",
-            "ref": "01.01-navigation-bar",
-            "css": {
-              "flex": "1",
-              "display": "flex",
-              "justify-content": "center",
-              "align-items": "center"
-            }
-          },
-          {
-            "type": "INSTANCE",
-            "key": "46bd85a18d60962234cd0a3e97c0233bc606400b",
-            "ref": "01.01-navigation-bar",
-            "css": {
-              "display": "inline-flex",
-              "height": "44px",
-              "justify-content": "flex-end",
-              "align-items": "center",
-              "gap": "4px"
-            }
-          }
-        ]
-      },
-      "embed_html": "<div style=\"display:flex;width:375px;height:44px;padding:0 4px;align-items:center;gap:4px;background:var(--bg-card,#fff);box-sizing:border-box\"><div style=\"display:inline-flex;height:44px;align-items:center\"><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-arrow_left\" style=\"font-size:20px;color:var(--text-1,#2B263B)\"></i></div></div><div style=\"flex:1;display:flex;justify-content:center;align-items:center\"><span style=\"font:var(--font-h4,500 16px/24px 'PingFang SC',sans-serif);color:var(--text-1,#000)\">页面标题</span></div><div style=\"display:inline-flex;height:44px;align-items:center;gap:4px\"><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-share\" style=\"font-size:20px;color:var(--text-1,#2B263B)\"></i></div></div></div>",
       "desc": "原生 App 标准形态，左侧返回箭头，中间标题，右侧图标组",
-      "preview_html": "<div style=\"display:flex;width:375px;height:44px;padding:0 4px;align-items:center;gap:4px;background:var(--bg-card,#fff);box-sizing:border-box\"><div data-bool=\"👁️ Left\" style=\"display:inline-flex;height:44px;align-items:center\"><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-arrow_left\" style=\"font-size:20px;color:var(--text-1,#2B263B)\"></i></div></div><div data-bool=\"👁️ Center\" style=\"flex:1;display:flex;justify-content:center;align-items:center\"><span style=\"font:var(--font-h4);color:var(--text-1,#000)\">页面标题</span></div><div data-bool=\"👁️ Right\" style=\"display:inline-flex;height:44px;align-items:center;gap:4px\"><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-share\" style=\"font-size:20px;color:var(--text-1,#2B263B)\"></i></div></div></div>",
       "css": {
         "display": "flex",
         "width": "375px",
@@ -93,11 +45,9 @@
           ],
           "default": "App",
           "previewMap": {
-            "App": "<div style=\"display:flex;width:375px;height:44px;padding:0 4px;align-items:center;gap:4px;background:var(--bg-card,#fff);box-sizing:border-box\"><div data-bool=\"👁️ Left\" style=\"display:inline-flex;height:44px;align-items:center\"><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-arrow_left\" style=\"font-size:20px;color:var(--text-1,#2B263B)\"></i></div></div><div data-bool=\"👁️ Center\" style=\"flex:1;display:flex;justify-content:center;align-items:center\"><span style=\"font:var(--font-h4);color:var(--text-1,#000)\">页面标题</span></div><div data-bool=\"👁️ Right\" style=\"display:inline-flex;height:44px;align-items:center;gap:4px\"><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-share\" style=\"font-size:20px;color:var(--text-1,#2B263B)\"></i></div></div></div>",
             "小程序": "<div style=\"display:flex;width:375px;height:44px;padding:0 4px;align-items:center;gap:4px;background:var(--bg-card,#fff);box-sizing:border-box\"><div data-bool=\"👁️ Left\" style=\"display:inline-flex;height:44px;align-items:center\"><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-arrow_left\" style=\"font-size:20px;color:var(--text-1,#2B263B)\"></i></div></div><div data-bool=\"👁️ Center\" style=\"flex:1;display:flex;justify-content:center;align-items:center\"><span style=\"font:var(--font-h4);color:var(--text-1,#000)\">页面标题</span></div><div style=\"display:flex;height:44px;align-items:center;padding-right:4px;flex-shrink:0\"><div style=\"display:inline-flex;height:32px;padding:0 10px;align-items:center;border:1px solid rgba(0,0,0,0.12);border-radius:10px;box-sizing:border-box;gap:0\"><i class=\"KurilIcons kuril-more\" style=\"font-size:16px;color:rgba(0,0,0,0.6)\"></i><span style=\"width:1px;height:16px;background:rgba(0,0,0,0.12);margin:0 8px;flex-shrink:0\"></span><i class=\"KurilIcons kuril-close\" style=\"font-size:16px;color:rgba(0,0,0,0.6)\"></i></div></div></div>"
           },
-          "ghostPreviewMap": {
-            "App": "<div style=\"display:flex;width:375px;height:44px;padding:0 4px;align-items:center;gap:4px;background:linear-gradient(to bottom,rgba(0,0,0,0.3) 0%,transparent 100%);box-sizing:border-box;border-radius:4px\"><div data-bool=\"👁️ Left\" style=\"display:inline-flex;height:44px;align-items:center\"><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-arrow_left\" style=\"font-size:20px;color:#fff\"></i></div></div><div data-bool=\"👁️ Center\" style=\"flex:1;display:flex;justify-content:center;align-items:center\"><span style=\"font:var(--font-h4);color:#fff\">页面标题</span></div><div data-bool=\"👁️ Right\" style=\"display:inline-flex;height:44px;align-items:center;gap:4px\"><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-share\" style=\"font-size:20px;color:#fff\"></i></div><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-more\" style=\"font-size:20px;color:#fff\"></i></div></div></div>",
+          "whitePreviewMap": {
             "小程序": "<div style=\"display:flex;width:375px;height:44px;padding:0 4px;align-items:center;gap:4px;background:linear-gradient(to bottom,rgba(0,0,0,0.3) 0%,transparent 100%);box-sizing:border-box;border-radius:4px\"><div data-bool=\"👁️ Left\" style=\"display:inline-flex;height:44px;align-items:center\"><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-arrow_left\" style=\"font-size:20px;color:rgba(255,255,255,0.9)\"></i></div></div><div data-bool=\"👁️ Center\" style=\"flex:1;display:flex;justify-content:center;align-items:center\"><span style=\"font:var(--font-h4);color:rgba(255,255,255,0.9)\">页面标题</span></div><div style=\"display:flex;height:44px;align-items:center;padding-right:4px;flex-shrink:0\"><div style=\"display:inline-flex;height:32px;padding:0 10px;align-items:center;border:1px solid rgba(255,255,255,0.35);border-radius:10px;box-sizing:border-box;gap:0\"><i class=\"KurilIcons kuril-more\" style=\"font-size:16px;color:rgba(255,255,255,0.9)\"></i><span style=\"width:1px;height:16px;background:rgba(255,255,255,0.3);margin:0 8px;flex-shrink:0\"></span><i class=\"KurilIcons kuril-close\" style=\"font-size:16px;color:rgba(255,255,255,0.9)\"></i></div></div></div>"
           }
         },
@@ -125,59 +75,67 @@
             "desc": "显隐右侧插槽"
           }
         }
-      }
-    },
-    "App_Ghost": {
-      "figma_name": "Terminal=App, Color=White",
-      "figma_key": "6de4c828380492f977d1fbd34d7c0dbf0416bb57",
-      "_tree": {
-        "type": "COMPONENT",
-        "css": {
-          "display": "flex",
-          "width": "375px",
-          "height": "44px",
-          "padding": "0 var(--Spacing-Small, 4px)",
-          "align-items": "center",
-          "gap": "var(--Spacing-Small, 4px)",
-          "background": "transparent"
-        },
-        "children": [
-          {
-            "type": "INSTANCE",
-            "key": "d478b3d2e08159596eb39c3c3b8ef6b039915bbe",
-            "ref": "01.01-navigation-bar",
-            "css": {
-              "display": "inline-flex",
-              "height": "44px",
-              "align-items": "center"
-            }
-          },
-          {
-            "type": "INSTANCE",
-            "key": "dd578eead69ce60186b40c3be63cdeb50de56894",
-            "ref": "01.01-navigation-bar",
-            "css": {
-              "flex": "1",
-              "display": "flex",
-              "justify-content": "center",
-              "align-items": "center"
-            }
-          },
-          {
-            "type": "INSTANCE",
-            "key": "ffb44622472830243ea748fa21ce14810521dd67",
-            "ref": "01.01-navigation-bar",
-            "css": {
-              "display": "inline-flex",
-              "height": "44px",
-              "justify-content": "flex-end",
-              "align-items": "center",
-              "gap": "4px"
+      },
+      "component_refs": [
+        {
+          "cid": "💙 01.01_Navigation Bar / Left",
+          "boolProp": "👁️ Left",
+          "props": {
+            "Color": {
+              "type": "VARIANT",
+              "value": "Default"
             }
           }
-        ]
-      },
-      "embed_html": "<div style=\"display:flex;width:375px;height:44px;padding:0 4px;align-items:center;gap:4px;background:transparent;box-sizing:border-box\"><div style=\"display:inline-flex;height:44px;align-items:center\"><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-arrow_left\" style=\"font-size:20px;color:#fff\"></i></div></div><div style=\"flex:1;display:flex;justify-content:center;align-items:center\"><span style=\"font:var(--font-h4,500 16px/24px 'PingFang SC',sans-serif);color:#fff\">页面标题</span></div><div style=\"display:inline-flex;height:44px;align-items:center;gap:4px\"><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-share\" style=\"font-size:20px;color:#fff\"></i></div></div></div>",
+        },
+        {
+          "cid": "💙 01.01_Navigation Bar / Center",
+          "boolProp": "👁️ Center",
+          "props": {
+            "Type": {
+              "type": "VARIANT",
+              "value": "Search"
+            },
+            "Color": {
+              "type": "VARIANT",
+              "value": "Default"
+            }
+          }
+        },
+        {
+          "cid": "💙 01.01_Navigation Bar / Right",
+          "boolProp": "👁️ Right",
+          "props": {
+            "Type": {
+              "type": "VARIANT",
+              "value": "Button"
+            },
+            "Color": {
+              "type": "VARIANT",
+              "value": "Default"
+            },
+            "Icon 1#66453:75": {
+              "type": "BOOLEAN",
+              "value": true
+            },
+            "Icon 2#66453:77": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Icon 3#66453:74": {
+              "type": "BOOLEAN",
+              "value": false
+            },
+            "Button#66545:6": {
+              "type": "BOOLEAN",
+              "value": false
+            }
+          }
+        }
+      ]
+    },
+    "App_White": {
+      "figma_name": "Terminal=App, Color=White",
+      "figma_key": "6de4c828380492f977d1fbd34d7c0dbf0416bb57",
       "desc": "沉浸式透明导航栏，用于图片/视频封面顶部，图标和文字白色",
       "preview_html": "<div style=\"display:flex;width:375px;height:44px;padding:0 4px;align-items:center;gap:4px;background:linear-gradient(to bottom,rgba(0,0,0,0.3) 0%,transparent 100%);box-sizing:border-box;border-radius:4px\"><div data-bool=\"👁️ Left\" style=\"display:inline-flex;height:44px;align-items:center\"><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-arrow_left\" style=\"font-size:20px;color:#fff\"></i></div></div><div data-bool=\"👁️ Center\" style=\"flex:1;display:flex;justify-content:center;align-items:center\"><span style=\"font:var(--font-h4);color:#fff\">页面标题</span></div><div data-bool=\"👁️ Right\" style=\"display:inline-flex;height:44px;align-items:center;gap:4px\"><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-share\" style=\"font-size:20px;color:#fff\"></i></div></div></div>",
       "css": {
@@ -228,7 +186,7 @@
       },
       "_hidden": true
     },
-    "MiniProgram_Ghost": {
+    "MiniProgram_White": {
       "figma_name": "Terminal=MiniProgram, Color=White",
       "figma_key": "94586e914348c3684ea5e88aa8f6da80d72f2954",
       "_tree": {
@@ -265,7 +223,6 @@
       "embed_html": "<div style=\"display:inline-flex;height:44px;align-items:center\"><div style=\"display:flex;width:40px;height:40px;flex-direction:column;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-arrow_left\" style=\"font-size:20px;color:var(--text-1,#2B263B)\"></i></div></div>",
       "desc": "左侧插槽，默认含 IconButton（返回）和可选 Logo。Color=White 时图标/Logo 变白",
       "preview_html": "<div style=\"display:inline-flex;height:44px;align-items:center\"><div data-bool=\"IconButton\" style=\"display:flex;width:40px;height:40px;flex-direction:column;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-arrow_left\" style=\"font-size:20px;color:var(--text-1,#2B263B)\"></i></div><div data-bool=\"Logo\" style=\"display:flex;width:53px;justify-content:center;align-items:center;align-self:stretch\"><div style=\"display:flex;width:37px;height:20px;align-items:center;gap:1px\"><div style=\"flex:1 0 0;height:100%;min-height:1px;min-width:1px;position:relative\"><svg preserveAspectRatio=\"none\" width=\"100%\" height=\"100%\" overflow=\"visible\" style=\"position:absolute;inset:0;display:block\" viewBox=\"0 0 17.9995 19.9996\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M11.5739 5.4625C11.7838 5.44041 11.954 5.60361 11.9392 5.81113L11.7439 8.61387C11.7317 8.76929 11.8503 8.89491 12.0056 8.89512H17.6726C17.8652 8.8952 18.0111 9.05396 17.9988 9.24668L17.8894 10.7936C17.8176 11.7993 16.9463 12.6147 15.9411 12.6148H11.7439C11.5885 12.615 11.4532 12.7407 11.4431 12.8961L11.0749 18.1656C11.0033 19.1789 10.1258 19.9996 9.11301 19.9996H6.85129C6.65876 19.9996 6.513 19.8416 6.52512 19.649L6.9968 12.8961C7.00884 12.7407 6.89035 12.615 6.73508 12.6148H0.326875C0.134501 12.6147 -0.0114147 12.4567 0.000703328 12.2643L0.110078 10.7164C0.181888 9.71084 1.05329 8.89536 2.05832 8.89512H6.9968C7.1522 8.89498 7.28753 8.76933 7.29758 8.61387L7.46359 6.22617C7.47594 6.04823 7.62168 5.89731 7.79953 5.87754L11.5739 5.4625ZM17.2624 0.0035161C17.4551 -0.0236565 17.6231 0.109578 17.6355 0.302344L17.737 1.82481C17.8035 2.8206 17.04 3.73956 16.0349 3.87559L1.74777 5.80625C1.57937 5.83001 1.42969 5.73078 1.38645 5.57676L1.37473 5.50938L1.27316 3.98691C1.20654 2.99097 1.97001 2.07206 2.97531 1.93613L17.2624 0.0035161Z\" fill=\"var(--text-1,#2B263B)\"/></svg></div><div style=\"flex:1 0 0;height:100%;min-height:1px;min-width:1px;position:relative\"><svg preserveAspectRatio=\"none\" width=\"100%\" height=\"100%\" overflow=\"visible\" style=\"position:absolute;inset:0;display:block\" viewBox=\"0 0 17.9989 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M11.809 0.0244141C12.0541 0.0269706 12.2119 0.268692 12.1225 0.507812L11.8842 1.21387H16.3315C17.3199 1.21396 18.0625 2.02812 17.9945 3.03223L17.7836 6.0918C17.7132 7.09591 16.856 7.91005 15.8676 7.91016H13.8734C13.684 7.91016 13.541 7.75202 13.5531 7.55957L13.7524 4.68066C13.7645 4.48575 13.6205 4.33008 13.4311 4.33008H5.86075C5.66888 4.33008 5.50376 4.48821 5.49161 4.68066L5.22403 8.55176C5.21194 8.74663 5.35591 8.90234 5.54532 8.90234H16.2826C17.2712 8.90234 18.0147 9.71651 17.9467 10.7207L17.9438 10.7227L17.4311 18.1816C17.3606 19.1858 16.5035 20 15.5151 20H13.2787C13.0893 20 12.9453 19.8419 12.9574 19.6494L13.4262 12.8223C13.4382 12.6275 13.2952 12.4727 13.1059 12.4727H2.85392C1.86555 12.4727 1.12212 11.6583 1.18986 10.6543L1.71427 3.03027C1.7847 2.02608 2.64274 1.21191 3.63126 1.21191H7.12833L7.47794 0.253906C7.53863 0.101101 7.68938 0.00016594 7.84708 0L11.809 0.0244141ZM6.29532 13.0947C7.28391 13.0947 8.0274 13.9089 7.95939 14.9131L7.88126 16.0381C7.87647 16.1169 7.93498 16.1786 8.01017 16.1787H8.9506C9.02816 16.1786 9.09314 16.1144 9.09806 16.0381L9.22696 14.1826C9.24153 13.9878 9.40678 13.8322 9.59611 13.832H10.3764L10.3734 13.8369C11.3619 13.8369 12.1054 14.6512 12.0375 15.6553L11.9067 17.5703C11.8362 18.5745 10.9782 19.3887 9.98966 19.3887H1.66837C0.679829 19.3887 -0.0636254 18.5744 0.00430831 17.5703L0.237707 14.1875C0.252286 13.9926 0.417392 13.8369 0.606847 13.8369H1.38614C2.37464 13.8369 3.11807 14.6512 3.05021 15.6553L3.02384 16.04C3.01898 16.119 3.07745 16.1807 3.15275 16.1807H4.0922C4.16993 16.1807 4.23578 16.1165 4.24064 16.04L4.41837 13.4453C4.43294 13.2504 4.59805 13.0947 4.78751 13.0947H6.29532ZM9.56583 4.71973C10.5932 4.7198 11.3701 5.56673 11.2973 6.61035C11.2242 7.65373 10.3333 8.49985 9.30607 8.5C8.27876 8.5 7.50103 7.65382 7.57364 6.61035C7.64651 5.56668 8.53838 4.71973 9.56583 4.71973Z\" fill=\"var(--text-1,#2B263B)\"/></svg></div></div></div></div>",
-      "_ghost_preview_html": "<div style=\"display:inline-flex;height:44px;align-items:center\"><div data-bool=\"IconButton\" style=\"display:flex;width:40px;height:40px;flex-direction:column;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px;background:transparent\"><i class=\"KurilIcons kuril-arrow_left\" style=\"font-size:20px;color:rgba(255,255,255,0.8)\"></i></div><div data-bool=\"Logo\" style=\"display:flex;width:53px;justify-content:center;align-items:center;align-self:stretch\"><div style=\"display:flex;width:37px;height:20px;align-items:center;gap:1px\"><div style=\"flex:1 0 0;height:100%;min-height:1px;min-width:1px;position:relative\"><svg preserveAspectRatio=\"none\" width=\"100%\" height=\"100%\" overflow=\"visible\" style=\"position:absolute;inset:0;display:block\" viewBox=\"0 0 17.9995 19.9996\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M11.5739 5.4625C11.7838 5.44041 11.954 5.60361 11.9392 5.81113L11.7439 8.61387C11.7317 8.76929 11.8503 8.89491 12.0056 8.89512H17.6726C17.8652 8.8952 18.0111 9.05396 17.9988 9.24668L17.8894 10.7936C17.8176 11.7993 16.9463 12.6147 15.9411 12.6148H11.7439C11.5885 12.615 11.4532 12.7407 11.4431 12.8961L11.0749 18.1656C11.0033 19.1789 10.1258 19.9996 9.11301 19.9996H6.85129C6.65876 19.9996 6.513 19.8416 6.52512 19.649L6.9968 12.8961C7.00884 12.7407 6.89035 12.615 6.73508 12.6148H0.326875C0.134501 12.6147 -0.0114147 12.4567 0.000703328 12.2643L0.110078 10.7164C0.181888 9.71084 1.05329 8.89536 2.05832 8.89512H6.9968C7.1522 8.89498 7.28753 8.76933 7.29758 8.61387L7.46359 6.22617C7.47594 6.04823 7.62168 5.89731 7.79953 5.87754L11.5739 5.4625ZM17.2624 0.0035161C17.4551 -0.0236565 17.6231 0.109578 17.6355 0.302344L17.737 1.82481C17.8035 2.8206 17.04 3.73956 16.0349 3.87559L1.74777 5.80625C1.57937 5.83001 1.42969 5.73078 1.38645 5.57676L1.37473 5.50938L1.27316 3.98691C1.20654 2.99097 1.97001 2.07206 2.97531 1.93613L17.2624 0.0035161Z\" fill=\"white\"/></svg></div><div style=\"flex:1 0 0;height:100%;min-height:1px;min-width:1px;position:relative\"><svg preserveAspectRatio=\"none\" width=\"100%\" height=\"100%\" overflow=\"visible\" style=\"position:absolute;inset:0;display:block\" viewBox=\"0 0 17.9989 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M11.809 0.0244141C12.0541 0.0269706 12.2119 0.268692 12.1225 0.507812L11.8842 1.21387H16.3315C17.3199 1.21396 18.0625 2.02812 17.9945 3.03223L17.7836 6.0918C17.7132 7.09591 16.856 7.91005 15.8676 7.91016H13.8734C13.684 7.91016 13.541 7.75202 13.5531 7.55957L13.7524 4.68066C13.7645 4.48575 13.6205 4.33008 13.4311 4.33008H5.86075C5.66888 4.33008 5.50376 4.48821 5.49161 4.68066L5.22403 8.55176C5.21194 8.74663 5.35591 8.90234 5.54532 8.90234H16.2826C17.2712 8.90234 18.0147 9.71651 17.9467 10.7207L17.9438 10.7227L17.4311 18.1816C17.3606 19.1858 16.5035 20 15.5151 20H13.2787C13.0893 20 12.9453 19.8419 12.9574 19.6494L13.4262 12.8223C13.4382 12.6275 13.2952 12.4727 13.1059 12.4727H2.85392C1.86555 12.4727 1.12212 11.6583 1.18986 10.6543L1.71427 3.03027C1.7847 2.02608 2.64274 1.21191 3.63126 1.21191H7.12833L7.47794 0.253906C7.53863 0.101101 7.68938 0.00016594 7.84708 0L11.809 0.0244141ZM6.29532 13.0947C7.28391 13.0947 8.0274 13.9089 7.95939 14.9131L7.88126 16.0381C7.87647 16.1169 7.93498 16.1786 8.01017 16.1787H8.9506C9.02816 16.1786 9.09314 16.1144 9.09806 16.0381L9.22696 14.1826C9.24153 13.9878 9.40678 13.8322 9.59611 13.832H10.3764L10.3734 13.8369C11.3619 13.8369 12.1054 14.6512 12.0375 15.6553L11.9067 17.5703C11.8362 18.5745 10.9782 19.3887 9.98966 19.3887H1.66837C0.679829 19.3887 -0.0636254 18.5744 0.00430831 17.5703L0.237707 14.1875C0.252286 13.9926 0.417392 13.8369 0.606847 13.8369H1.38614C2.37464 13.8369 3.11807 14.6512 3.05021 15.6553L3.02384 16.04C3.01898 16.119 3.07745 16.1807 3.15275 16.1807H4.0922C4.16993 16.1807 4.23578 16.1165 4.24064 16.04L4.41837 13.4453C4.43294 13.2504 4.59805 13.0947 4.78751 13.0947H6.29532ZM9.56583 4.71973C10.5932 4.7198 11.3701 5.56673 11.2973 6.61035C11.2242 7.65373 10.3333 8.49985 9.30607 8.5C8.27876 8.5 7.50103 7.65382 7.57364 6.61035C7.64651 5.56668 8.53838 4.71973 9.56583 4.71973Z\" fill=\"white\"/></svg></div></div></div></div>",
       "css": {
         "display": "inline-flex",
         "height": "44px",
@@ -334,9 +291,10 @@
             "flex-shrink": "0"
           }
         }
-      ]
+      ],
+      "_white_preview_html": "<div style=\"display:inline-flex;height:44px;align-items:center\"><div data-bool=\"IconButton\" style=\"display:flex;width:40px;height:40px;flex-direction:column;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px;background:transparent\"><i class=\"KurilIcons kuril-arrow_left\" style=\"font-size:20px;color:rgba(255,255,255,0.8)\"></i></div><div data-bool=\"Logo\" style=\"display:flex;width:53px;justify-content:center;align-items:center;align-self:stretch\"><div style=\"display:flex;width:37px;height:20px;align-items:center;gap:1px\"><div style=\"flex:1 0 0;height:100%;min-height:1px;min-width:1px;position:relative\"><svg preserveAspectRatio=\"none\" width=\"100%\" height=\"100%\" overflow=\"visible\" style=\"position:absolute;inset:0;display:block\" viewBox=\"0 0 17.9995 19.9996\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M11.5739 5.4625C11.7838 5.44041 11.954 5.60361 11.9392 5.81113L11.7439 8.61387C11.7317 8.76929 11.8503 8.89491 12.0056 8.89512H17.6726C17.8652 8.8952 18.0111 9.05396 17.9988 9.24668L17.8894 10.7936C17.8176 11.7993 16.9463 12.6147 15.9411 12.6148H11.7439C11.5885 12.615 11.4532 12.7407 11.4431 12.8961L11.0749 18.1656C11.0033 19.1789 10.1258 19.9996 9.11301 19.9996H6.85129C6.65876 19.9996 6.513 19.8416 6.52512 19.649L6.9968 12.8961C7.00884 12.7407 6.89035 12.615 6.73508 12.6148H0.326875C0.134501 12.6147 -0.0114147 12.4567 0.000703328 12.2643L0.110078 10.7164C0.181888 9.71084 1.05329 8.89536 2.05832 8.89512H6.9968C7.1522 8.89498 7.28753 8.76933 7.29758 8.61387L7.46359 6.22617C7.47594 6.04823 7.62168 5.89731 7.79953 5.87754L11.5739 5.4625ZM17.2624 0.0035161C17.4551 -0.0236565 17.6231 0.109578 17.6355 0.302344L17.737 1.82481C17.8035 2.8206 17.04 3.73956 16.0349 3.87559L1.74777 5.80625C1.57937 5.83001 1.42969 5.73078 1.38645 5.57676L1.37473 5.50938L1.27316 3.98691C1.20654 2.99097 1.97001 2.07206 2.97531 1.93613L17.2624 0.0035161Z\" fill=\"white\"/></svg></div><div style=\"flex:1 0 0;height:100%;min-height:1px;min-width:1px;position:relative\"><svg preserveAspectRatio=\"none\" width=\"100%\" height=\"100%\" overflow=\"visible\" style=\"position:absolute;inset:0;display:block\" viewBox=\"0 0 17.9989 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M11.809 0.0244141C12.0541 0.0269706 12.2119 0.268692 12.1225 0.507812L11.8842 1.21387H16.3315C17.3199 1.21396 18.0625 2.02812 17.9945 3.03223L17.7836 6.0918C17.7132 7.09591 16.856 7.91005 15.8676 7.91016H13.8734C13.684 7.91016 13.541 7.75202 13.5531 7.55957L13.7524 4.68066C13.7645 4.48575 13.6205 4.33008 13.4311 4.33008H5.86075C5.66888 4.33008 5.50376 4.48821 5.49161 4.68066L5.22403 8.55176C5.21194 8.74663 5.35591 8.90234 5.54532 8.90234H16.2826C17.2712 8.90234 18.0147 9.71651 17.9467 10.7207L17.9438 10.7227L17.4311 18.1816C17.3606 19.1858 16.5035 20 15.5151 20H13.2787C13.0893 20 12.9453 19.8419 12.9574 19.6494L13.4262 12.8223C13.4382 12.6275 13.2952 12.4727 13.1059 12.4727H2.85392C1.86555 12.4727 1.12212 11.6583 1.18986 10.6543L1.71427 3.03027C1.7847 2.02608 2.64274 1.21191 3.63126 1.21191H7.12833L7.47794 0.253906C7.53863 0.101101 7.68938 0.00016594 7.84708 0L11.809 0.0244141ZM6.29532 13.0947C7.28391 13.0947 8.0274 13.9089 7.95939 14.9131L7.88126 16.0381C7.87647 16.1169 7.93498 16.1786 8.01017 16.1787H8.9506C9.02816 16.1786 9.09314 16.1144 9.09806 16.0381L9.22696 14.1826C9.24153 13.9878 9.40678 13.8322 9.59611 13.832H10.3764L10.3734 13.8369C11.3619 13.8369 12.1054 14.6512 12.0375 15.6553L11.9067 17.5703C11.8362 18.5745 10.9782 19.3887 9.98966 19.3887H1.66837C0.679829 19.3887 -0.0636254 18.5744 0.00430831 17.5703L0.237707 14.1875C0.252286 13.9926 0.417392 13.8369 0.606847 13.8369H1.38614C2.37464 13.8369 3.11807 14.6512 3.05021 15.6553L3.02384 16.04C3.01898 16.119 3.07745 16.1807 3.15275 16.1807H4.0922C4.16993 16.1807 4.23578 16.1165 4.24064 16.04L4.41837 13.4453C4.43294 13.2504 4.59805 13.0947 4.78751 13.0947H6.29532ZM9.56583 4.71973C10.5932 4.7198 11.3701 5.56673 11.2973 6.61035C11.2242 7.65373 10.3333 8.49985 9.30607 8.5C8.27876 8.5 7.50103 7.65382 7.57364 6.61035C7.64651 5.56668 8.53838 4.71973 9.56583 4.71973Z\" fill=\"white\"/></svg></div></div></div></div>"
     },
-    "Left_Ghost": {
+    "Left_White": {
       "_hidden": true,
       "figma_key": "d478b3d2e08159596eb39c3c3b8ef6b039915bbe",
       "_tree": {
@@ -358,7 +316,7 @@
       }
     },
     "Center": {
-      "figma_name": "Type=Search, Layout=Center, Color=Default",
+      "figma_name": "💙 01.01_Navigation Bar / Center",
       "figma_key": "dabc0579a072650911824fb4c077ab86539c3d52",
       "_tree": {
         "type": "COMPONENT",
@@ -409,7 +367,7 @@
             "Text": "<div style=\"display:flex;width:396px;height:44px;align-items:center;position:relative\"><div data-bool=\"Bg\" style=\"display:none;position:absolute;inset:0;background:var(--bg-2);border-radius:var(--radius-s,4px)\"></div><div style=\"flex:1;display:flex;align-items:center;padding:4px;gap:8px;min-width:0;position:relative;z-index:1\"><span data-bool=\"iconLeading\" style=\"display:none;flex-shrink:0;line-height:0\"><i class=\"KurilIcons kuril-arrow_left\" style=\"font-size:16px;color:var(--text-1,#2B263B)\"></i></span><span data-bool=\"imgLeading\" style=\"display:none;flex-shrink:0\"><span style=\"width:24px;height:24px;border-radius:50%;background:var(--border-c);display:inline-block;vertical-align:middle\"></span></span><span data-bool=\"textLeading\" style=\"display:none;font-size:14px;font-weight:400;color:var(--text-2,rgba(0,0,0,0.6));white-space:nowrap;flex-shrink:0\">分享到</span><div style=\"flex:1;display:flex;flex-direction:column;gap:1px;min-width:0\"><span style=\"font-size:16px;font-weight:500;line-height:24px;color:var(--text-1,#2B263B);overflow:hidden;text-overflow:ellipsis;white-space:nowrap\">文字标题最大宽度</span><span data-bool=\"Subtitle\" style=\"display:none;font-size:10px;line-height:14px;color:var(--text-3,rgba(0,0,0,0.4))\">副标题 · 所属分区</span></div><span data-bool=\"tagTrailing\" style=\"display:none;font-size:10px;color:var(--text-3);background:var(--bg-card,#fff);border:1px solid var(--border-c);border-radius:4px;padding:1px 5px;white-space:nowrap;flex-shrink:0\">岛</span><span data-bool=\"arrowTrailing\" style=\"display:none;flex-shrink:0;line-height:0\"><i class=\"KurilIcons kuril-arrow_right\" style=\"font-size:14px;color:var(--text-3,rgba(0,0,0,0.4))\"></i></span></div></div>",
             "Img": "<div data-bool=\"Image\" data-orig-display=\"flex\" style=\"display:flex;width:279px;height:44px;align-items:center;justify-content:center\"><div style=\"display:flex;width:37px;height:20px;align-items:center;gap:1px\"><div style=\"flex:1 0 0;height:100%;min-height:1px;min-width:1px;position:relative\"><svg preserveAspectRatio=\"none\" width=\"100%\" height=\"100%\" overflow=\"visible\" style=\"position:absolute;inset:0;display:block\" viewBox=\"0 0 17.9995 19.9996\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M11.5739 5.4625C11.7838 5.44041 11.954 5.60361 11.9392 5.81113L11.7439 8.61387C11.7317 8.76929 11.8503 8.89491 12.0056 8.89512H17.6726C17.8652 8.8952 18.0111 9.05396 17.9988 9.24668L17.8894 10.7936C17.8176 11.7993 16.9463 12.6147 15.9411 12.6148H11.7439C11.5885 12.615 11.4532 12.7407 11.4431 12.8961L11.0749 18.1656C11.0033 19.1789 10.1258 19.9996 9.11301 19.9996H6.85129C6.65876 19.9996 6.513 19.8416 6.52512 19.649L6.9968 12.8961C7.00884 12.7407 6.89035 12.615 6.73508 12.6148H0.326875C0.134501 12.6147 -0.0114147 12.4567 0.000703328 12.2643L0.110078 10.7164C0.181888 9.71084 1.05329 8.89536 2.05832 8.89512H6.9968C7.1522 8.89498 7.28753 8.76933 7.29758 8.61387L7.46359 6.22617C7.47594 6.04823 7.62168 5.89731 7.79953 5.87754L11.5739 5.4625ZM17.2624 0.0035161C17.4551 -0.0236565 17.6231 0.109578 17.6355 0.302344L17.737 1.82481C17.8035 2.8206 17.04 3.73956 16.0349 3.87559L1.74777 5.80625C1.57937 5.83001 1.42969 5.73078 1.38645 5.57676L1.37473 5.50938L1.27316 3.98691C1.20654 2.99097 1.97001 2.07206 2.97531 1.93613L17.2624 0.0035161Z\" fill=\"var(--text-1,#2B263B)\"/></svg></div><div style=\"flex:1 0 0;height:100%;min-height:1px;min-width:1px;position:relative\"><svg preserveAspectRatio=\"none\" width=\"100%\" height=\"100%\" overflow=\"visible\" style=\"position:absolute;inset:0;display:block\" viewBox=\"0 0 17.9989 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M11.809 0.0244141C12.0541 0.0269706 12.2119 0.268692 12.1225 0.507812L11.8842 1.21387H16.3315C17.3199 1.21396 18.0625 2.02812 17.9945 3.03223L17.7836 6.0918C17.7132 7.09591 16.856 7.91005 15.8676 7.91016H13.8734C13.684 7.91016 13.541 7.75202 13.5531 7.55957L13.7524 4.68066C13.7645 4.48575 13.6205 4.33008 13.4311 4.33008H5.86075C5.66888 4.33008 5.50376 4.48821 5.49161 4.68066L5.22403 8.55176C5.21194 8.74663 5.35591 8.90234 5.54532 8.90234H16.2826C17.2712 8.90234 18.0147 9.71651 17.9467 10.7207L17.9438 10.7227L17.4311 18.1816C17.3606 19.1858 16.5035 20 15.5151 20H13.2787C13.0893 20 12.9453 19.8419 12.9574 19.6494L13.4262 12.8223C13.4382 12.6275 13.2952 12.4727 13.1059 12.4727H2.85392C1.86555 12.4727 1.12212 11.6583 1.18986 10.6543L1.71427 3.03027C1.7847 2.02608 2.64274 1.21191 3.63126 1.21191H7.12833L7.47794 0.253906C7.53863 0.101101 7.68938 0.00016594 7.84708 0L11.809 0.0244141ZM6.29532 13.0947C7.28391 13.0947 8.0274 13.9089 7.95939 14.9131L7.88126 16.0381C7.87647 16.1169 7.93498 16.1786 8.01017 16.1787H8.9506C9.02816 16.1786 9.09314 16.1144 9.09806 16.0381L9.22696 14.1826C9.24153 13.9878 9.40678 13.8322 9.59611 13.832H10.3764L10.3734 13.8369C11.3619 13.8369 12.1054 14.6512 12.0375 15.6553L11.9067 17.5703C11.8362 18.5745 10.9782 19.3887 9.98966 19.3887H1.66837C0.679829 19.3887 -0.0636254 18.5744 0.00430831 17.5703L0.237707 14.1875C0.252286 13.9926 0.417392 13.8369 0.606847 13.8369H1.38614C2.37464 13.8369 3.11807 14.6512 3.05021 15.6553L3.02384 16.04C3.01898 16.119 3.07745 16.1807 3.15275 16.1807H4.0922C4.16993 16.1807 4.23578 16.1165 4.24064 16.04L4.41837 13.4453C4.43294 13.2504 4.59805 13.0947 4.78751 13.0947H6.29532ZM9.56583 4.71973C10.5932 4.7198 11.3701 5.56673 11.2973 6.61035C11.2242 7.65373 10.3333 8.49985 9.30607 8.5C8.27876 8.5 7.50103 7.65382 7.57364 6.61035C7.64651 5.56668 8.53838 4.71973 9.56583 4.71973Z\" fill=\"var(--text-1,#2B263B)\"/></svg></div></div></div>"
           },
-          "ghostPreviewMap": {
+          "whitePreviewMap": {
             "Tabs": "<div style=\"display:flex;width:396px;height:44px;align-items:center;justify-content:center\"><div style=\"display:flex;align-items:center\"><div style=\"padding:4px 10px;display:flex;align-items:center;gap:2px\"><span style=\"font-size:18px;font-weight:500;line-height:25px;color:var(--white-text-color,#fff);white-space:nowrap\">想要</span></div><div style=\"padding:4px 10px;display:flex;align-items:center;gap:2px\"><span style=\"font-size:18px;font-weight:400;line-height:25px;color:var(--white-text-color2,rgba(255,255,255,.64));white-space:nowrap\">推荐</span></div><div style=\"padding:4px 10px;display:flex;align-items:center;gap:2px\"><span style=\"font-size:18px;font-weight:400;line-height:25px;color:var(--white-text-color2,rgba(255,255,255,.64));white-space:nowrap\">上海</span><i class=\"KurilIcons kuril-arrow_up\" style=\"font-size:12px;color:var(--white-text-color2,rgba(255,255,255,.64))\"></i></div></div></div>",
             "SegmentedControl": "<div style=\"display:flex;width:279px;height:34px;align-items:center;justify-content:center\"><div style=\"display:flex;flex:1;gap:2px;align-items:center;padding:2px;border-radius:6px\"><div style=\"flex:1;height:30px;display:flex;align-items:center;justify-content:center;border-radius:4px;background:rgba(255,255,255,0.2);padding:0 16px\"><span style=\"font-size:14px;font-weight:500;line-height:22px;color:var(--white-text-color,#fff);overflow:hidden;text-overflow:ellipsis;white-space:nowrap\">文本</span></div><div style=\"flex:1;height:30px;display:flex;align-items:center;justify-content:center;border-radius:4px;padding:0 16px\"><span style=\"font-size:14px;font-weight:400;line-height:22px;color:var(--white-text-color2,rgba(255,255,255,.64));overflow:hidden;text-overflow:ellipsis;white-space:nowrap\">文本</span></div></div></div>",
             "Text": "<div style=\"display:flex;width:396px;height:44px;align-items:center;position:relative\"><div data-bool=\"Bg\" style=\"display:none;position:absolute;inset:0;background:rgba(255,255,255,0.12);border-radius:var(--radius-s,4px)\"></div><div style=\"flex:1;display:flex;align-items:center;padding:4px;gap:8px;min-width:0;position:relative;z-index:1\"><span data-bool=\"iconLeading\" style=\"display:none;flex-shrink:0;line-height:0\"><i class=\"KurilIcons kuril-arrow_left\" style=\"font-size:16px;color:#fff\"></i></span><span data-bool=\"imgLeading\" style=\"display:none;flex-shrink:0\"><span style=\"width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,0.2);display:inline-block;vertical-align:middle\"></span></span><span data-bool=\"textLeading\" style=\"display:none;font-size:14px;font-weight:400;color:rgba(255,255,255,0.72);white-space:nowrap;flex-shrink:0\">分享到</span><div style=\"flex:1;display:flex;flex-direction:column;gap:1px;min-width:0\"><span style=\"font-size:16px;font-weight:500;line-height:24px;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap\">文字标题最大宽度</span><span data-bool=\"Subtitle\" style=\"display:none;font-size:10px;line-height:14px;color:rgba(255,255,255,0.5)\">副标题 · 所属分区</span></div><span data-bool=\"tagTrailing\" style=\"display:none;font-size:10px;color:rgba(255,255,255,0.7);background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:4px;padding:1px 5px;white-space:nowrap;flex-shrink:0\">岛</span><span data-bool=\"arrowTrailing\" style=\"display:none;flex-shrink:0;line-height:0\"><i class=\"KurilIcons kuril-arrow_right\" style=\"font-size:14px;color:rgba(255,255,255,0.5)\"></i></span></div></div>",
@@ -523,7 +481,7 @@
         }
       ]
     },
-    "Center_Ghost": {
+    "Center_White": {
       "figma_name": "Type=Search, Layout=Center, Color=White",
       "figma_key": "dd578eead69ce60186b40c3be63cdeb50de56894",
       "_tree": {
@@ -549,6 +507,7 @@
         ]
       },
       "embed_html": "<div style=\"display:flex;flex-direction:column;width:232px\"><div style=\"display:flex;min-width:0;height:44px;padding:6px 12px;align-items:center;gap:12px;background:var(--white-soft-bg,rgba(255,255,255,0.12));border-radius:8px;box-sizing:border-box\"><div style=\"display:flex;flex:1;align-items:center;gap:8px;min-width:0\"><i class=\"KurilIcons kuril-search\" style=\"font-size:18px;color:rgba(255,255,255,0.64);flex-shrink:0\"></i><span style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:rgba(255,255,255,0.4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0\">Labubu泰坦</span></div><div style=\"display:flex;align-items:center;gap:12px;flex-shrink:0\"><div style=\"width:1px;height:12px;background:rgba(255,255,255,0.2)\"></div><div style=\"display:flex;align-items:center;gap:4px\"><i class=\"KurilIcons kuril-camera\" style=\"font-size:18px;color:#fff\"></i><span style=\"font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:#fff\">识物</span></div></div></div></div>",
+      "preview_html": "<div style=\"display:inline-flex;padding:8px;background:rgba(0,0,0,.72);border-radius:var(--radius-small,4px)\"><div style=\"display:flex;flex-direction:column;width:232px\"><div style=\"display:flex;min-width:0;height:44px;padding:6px 12px;align-items:center;gap:12px;background:var(--white-soft-bg,rgba(255,255,255,0.12));border-radius:8px;box-sizing:border-box\"><div style=\"display:flex;flex:1;align-items:center;gap:8px;min-width:0\"><i class=\"KurilIcons kuril-search\" style=\"font-size:18px;color:rgba(255,255,255,0.64);flex-shrink:0\"></i><span style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:rgba(255,255,255,0.4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0\">Labubu泰坦</span></div><div style=\"display:flex;align-items:center;gap:12px;flex-shrink:0\"><div style=\"width:1px;height:12px;background:rgba(255,255,255,0.2)\"></div><div style=\"display:flex;align-items:center;gap:4px\"><i class=\"KurilIcons kuril-camera\" style=\"font-size:18px;color:#fff\"></i><span style=\"font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:#fff\">识物</span></div></div></div></div></div>",
       "desc": "中间搜索框 Ghost 形态，深色/图片背景，搜索框使用半透明白色底",
       "css": {
         "display": "flex",
@@ -606,7 +565,7 @@
             "Search": "<div style=\"display:inline-flex;height:44px;justify-content:flex-end;align-items:center;gap:4px\"><div style=\"display:flex;width:145px;padding:6px 12px;align-items:center;gap:12px;background:var(--bg-2,#F7F7F9);border-radius:8px;box-sizing:border-box\"><div style=\"display:flex;flex:1;align-items:center;gap:8px;min-width:0\"><i class=\"KurilIcons kuril-search\" style=\"font-size:18px;color:var(--text-3,rgba(0,0,0,0.4));flex-shrink:0\"></i><div data-bool=\"tagIslands\" data-orig-display=\"flex\" style=\"display:none;height:20px;padding:1px 4px;align-items:center;gap:3px;border-radius:4px;background:var(--primary-tag-soft-bg,#F2F0FF);flex-shrink:0\"><span style=\"font:var(--font-h6,500 12px/18px 'PingFang SC',sans-serif);color:var(--primary-tag-color,#7C66FF);white-space:nowrap\">潮玩族</span><svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\"><circle cx=\"6\" cy=\"6\" r=\"6\" fill=\"var(--primary-tag-color,#7C66FF)\" fill-opacity=\"0.2\"/><path d=\"M3.8 3.8l4.4 4.4M8.2 3.8l-4.4 4.4\" stroke=\"var(--primary-tag-color,#7C66FF)\" stroke-width=\"1.2\" stroke-linecap=\"round\"/></svg></div><span style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:var(--text-3,rgba(0,0,0,0.4));white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0\">Labubu泰坦</span></div><div data-bool=\"iconVisualSearch\" data-orig-display=\"flex\" style=\"display:flex;align-items:center;gap:12px;flex-shrink:0\"><div style=\"width:1px;height:12px;background:rgba(0,0,0,0.12)\"></div><div style=\"display:flex;align-items:center;gap:4px\"><i class=\"KurilIcons kuril-camera\" style=\"font-size:18px;color:var(--text-1,#2B263B)\"></i><span style=\"font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:var(--text-1,#2B263B)\">识物</span></div></div></div><div data-bool=\"Icon 1\" style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-share\" style=\"font-size:20px;color:var(--text-1,#2B263B)\"></i></div></div>",
             "Img": "<div style=\"display:inline-flex;height:44px;justify-content:flex-end;align-items:center\"><div style=\"width:44px;height:44px;padding:8px 0;box-sizing:border-box;display:flex;align-items:center;justify-content:center\"><div style=\"width:44px;height:28px;background:var(--bg-2,#f7f7f9);border-radius:4px;display:flex;align-items:center;justify-content:center\"><i class=\"KurilIcons kuril-photo\" style=\"font-size:16px;color:var(--text-3,rgba(0,0,0,0.4))\"></i></div></div></div>"
           },
-          "ghostPreviewMap": {
+          "whitePreviewMap": {
             "Search": "<div style=\"display:inline-flex;height:44px;justify-content:flex-end;align-items:center;gap:4px\"><div style=\"display:flex;width:145px;padding:6px 12px;align-items:center;gap:12px;background:rgba(255,255,255,0.12);border-radius:8px;box-sizing:border-box\"><div style=\"display:flex;flex:1;align-items:center;gap:8px;min-width:0\"><i class=\"KurilIcons kuril-search\" style=\"font-size:18px;color:rgba(255,255,255,0.64);flex-shrink:0\"></i><div data-bool=\"tagIslands\" data-orig-display=\"flex\" style=\"display:none;height:20px;padding:1px 4px;align-items:center;gap:3px;border-radius:4px;background:var(--white-tag-soft-bg,rgba(255,255,255,0.12));flex-shrink:0\"><span style=\"font:var(--font-h6,500 12px/18px 'PingFang SC',sans-serif);color:var(--white-tag-color,rgba(255,255,255,0.88));white-space:nowrap\">潮玩族</span><svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\"><circle cx=\"6\" cy=\"6\" r=\"6\" fill=\"rgba(255,255,255,0.2)\"/><path d=\"M3.8 3.8l4.4 4.4M8.2 3.8l-4.4 4.4\" stroke=\"var(--white-tag-color,rgba(255,255,255,0.88))\" stroke-width=\"1.2\" stroke-linecap=\"round\"/></svg></div><span style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:rgba(255,255,255,0.4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0\">Labubu泰坦</span></div><div data-bool=\"iconVisualSearch\" data-orig-display=\"flex\" style=\"display:flex;align-items:center;gap:12px;flex-shrink:0\"><div style=\"width:1px;height:12px;background:rgba(255,255,255,0.2)\"></div><div style=\"display:flex;align-items:center;gap:4px\"><i class=\"KurilIcons kuril-camera\" style=\"font-size:18px;color:#fff\"></i><span style=\"font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:#fff\">识物</span></div></div></div><div data-bool=\"Icon 1\" style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-share\" style=\"font-size:20px;color:rgba(255,255,255,0.8)\"></i></div></div>"
           }
         },
@@ -726,7 +685,7 @@
         "children": []
       }
     },
-    "Right_Ghost": {
+    "Right_White": {
       "_hidden": true,
       "embed_html": "<div style=\"display:inline-flex;height:44px;justify-content:flex-end;align-items:center;gap:4px\"><div style=\"height:44px;display:flex;align-items:center;padding-right:6px\"><div style=\"display:inline-flex;align-items:center;justify-content:center;padding:5px 10px;background:rgba(255,255,255,0.16);border-radius:var(--radius-small,4px)\"><span style=\"font:var(--font-h6,500 12px/18px 'PingFang SC',sans-serif);color:rgba(255,255,255,0.8);white-space:nowrap\">关注</span></div></div><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-share\" style=\"font-size:20px;color:rgba(255,255,255,0.8)\"></i></div><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-search\" style=\"font-size:20px;color:rgba(255,255,255,0.8)\"></i></div><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-more\" style=\"font-size:20px;color:rgba(255,255,255,0.8)\"></i></div></div>",
       "desc": "右侧按钮插槽 Ghost 形态，图标变白、背景半透明",

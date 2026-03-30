@@ -3,7 +3,11 @@
   "figma_page": "01.04 Search Bar",
   "figma_file": "HjpmfUPwU7HGMRj9X80TAY",
   "figma_key": "efcaa7eed2c22b5e28225b2b3aec62ba9035ce99",
-  "chips": ["搜索", "识物", "White"],
+  "chips": [
+    "搜索",
+    "识物",
+    "White"
+  ],
   "description": "搜索框，宽度 345px，padding:6px 12px。Normal 态显示占位符与识物入口；Inputted 态显示已输入内容与清除按钮。支持 Color=White 沉浸式形态。",
   "usage_rules": [
     "宽度固定 345px，通常配合父容器 padding:0 15px 使用",
@@ -14,13 +18,24 @@
   ],
   "variants": {
     "Normal": {
-      "figma_name": "State=Normal, Color=Default",
+      "figma_name": "💙 01.04_Search Bar",
       "figma_key": "8b129ca6225476095227df191a7f630654612077",
-      "_tree": {"type":"COMPONENT","css":{"display":"flex","width":"345px","padding":"6px 12px","align-items":"center","gap":"12px","border-radius":"8px","background":"var(--bg-2,#F7F7F9)"},"children":[]},
+      "_tree": {
+        "type": "COMPONENT",
+        "css": {
+          "display": "flex",
+          "width": "345px",
+          "padding": "6px 12px",
+          "align-items": "center",
+          "gap": "12px",
+          "border-radius": "8px",
+          "background": "var(--bg-2,#F7F7F9)"
+        },
+        "children": []
+      },
       "desc": "默认搜索框，显示占位文字与识物入口",
-      "embed_html": "<div style=\"display:flex;width:345px;padding:6px 12px;align-items:center;gap:12px;background:var(--bg-2,#F7F7F9);border-radius:8px;box-sizing:border-box\"><div style=\"display:flex;flex:1;align-items:center;gap:8px;min-width:0\"><i class=\"KurilIcons kuril-search\" style=\"font-size:18px;color:var(--text-3,rgba(0,0,0,.4));flex-shrink:0\"></i><div style=\"display:flex;height:20px;padding:1px 4px;align-items:center;gap:3px;border-radius:4px;background:var(--primary-tag-soft-bg,#F2F0FF);flex-shrink:0\"><span style=\"font:var(--font-h6,500 12px/18px 'PingFang SC',sans-serif);color:var(--primary-tag-color,#7C66FF);white-space:nowrap\">潮玩族</span></div><span style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:var(--text-3,rgba(0,0,0,.4));white-space:nowrap\">Labubu泰坦</span></div><div style=\"display:flex;align-items:center;gap:12px;flex-shrink:0\"><div style=\"width:1px;height:12px;background:rgba(0,0,0,.12)\"></div><div style=\"display:flex;align-items:center;gap:4px\"><i class=\"KurilIcons kuril-camera\" style=\"font-size:18px;color:var(--text-1,#2B263B)\"></i><span style=\"font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:var(--text-1,#2B263B)\">识物</span></div></div></div>",
+      "embed_html": "<div style=\"display:flex;flex:1;min-width:0;padding:6px 12px;align-items:center;gap:12px;background:var(--bg-2,#F7F7F9);border-radius:8px;box-sizing:border-box\"><div style=\"display:flex;flex:1;align-items:center;gap:8px;min-width:0\"><i class=\"KurilIcons kuril-search\" style=\"font-size:18px;color:var(--text-3,rgba(0,0,0,.4));flex-shrink:0\"></i><div style=\"display:flex;height:20px;padding:1px 4px;align-items:center;gap:3px;border-radius:4px;background:var(--primary-tag-soft-bg,#F2F0FF);flex-shrink:0\"><span style=\"font:var(--font-h6,500 12px/18px 'PingFang SC',sans-serif);color:var(--primary-tag-color,#7C66FF);white-space:nowrap\">潮玩族</span></div><span style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:var(--text-3,rgba(0,0,0,.4));white-space:nowrap\">Labubu泰坦</span></div><div style=\"display:flex;align-items:center;gap:12px;flex-shrink:0\"><div style=\"width:1px;height:12px;background:rgba(0,0,0,.12)\"></div><div style=\"display:flex;align-items:center;gap:4px\"><i class=\"KurilIcons kuril-camera\" style=\"font-size:18px;color:var(--text-1,#2B263B)\"></i><span style=\"font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:var(--text-1,#2B263B)\">识物</span></div></div></div>",
       "preview_html": "<div style=\"display:flex;width:345px;padding:6px 12px;align-items:center;gap:12px;background:var(--bg-2,#F7F7F9);border-radius:8px;box-sizing:border-box\"><div style=\"display:flex;flex:1;align-items:center;gap:8px;min-width:0\"><i class=\"KurilIcons kuril-search\" style=\"font-size:18px;color:var(--text-3,rgba(0,0,0,0.4));flex-shrink:0\"></i><div data-bool=\"tagIslands\" data-orig-display=\"flex\" style=\"display:flex;height:20px;padding:1px 4px;align-items:center;gap:3px;border-radius:4px;background:var(--primary-tag-soft-bg,#F2F0FF);flex-shrink:0\"><span style=\"font:var(--font-h6,500 12px/18px 'PingFang SC',sans-serif);color:var(--primary-tag-color,#7C66FF);white-space:nowrap\">潮玩族</span><svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\"><circle cx=\"6\" cy=\"6\" r=\"6\" fill=\"var(--primary-tag-color,#7C66FF)\" fill-opacity=\"0.2\"/><path d=\"M3.8 3.8l4.4 4.4M8.2 3.8l-4.4 4.4\" stroke=\"var(--primary-tag-color,#7C66FF)\" stroke-width=\"1.2\" stroke-linecap=\"round\"/></svg></div><span style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:var(--text-3,rgba(0,0,0,0.4));white-space:nowrap\">Labubu泰坦</span></div><div data-bool=\"iconVisualSearch\" data-orig-display=\"flex\" style=\"display:flex;align-items:center;gap:12px;flex-shrink:0\"><div style=\"width:1px;height:12px;background:rgba(0,0,0,0.12)\"></div><div style=\"display:flex;align-items:center;gap:4px\"><i class=\"KurilIcons kuril-camera\" style=\"font-size:18px;color:var(--text-1,#2B263B)\"></i><span style=\"font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:var(--text-1,#2B263B)\">识物</span></div></div><svg data-bool=\"iconDelete\" data-orig-display=\"block\" style=\"display:none;flex-shrink:0\" width=\"14\" height=\"14\" viewBox=\"0 0 14 14\"><circle cx=\"7\" cy=\"7\" r=\"7\" fill=\"rgba(0,0,0,0.2)\"/><path d=\"M4.5 4.5l5 5M9.5 4.5l-5 5\" stroke=\"white\" stroke-width=\"1.2\" stroke-linecap=\"round\"/></svg></div>",
-      "_ghost_preview_html": "<div style=\"display:flex;width:345px;padding:6px 12px;align-items:center;gap:12px;background:rgba(255,255,255,0.12);border-radius:8px;box-sizing:border-box\"><div style=\"display:flex;flex:1;align-items:center;gap:8px;min-width:0\"><i class=\"KurilIcons kuril-search\" style=\"font-size:18px;color:rgba(255,255,255,0.64);flex-shrink:0\"></i><div data-bool=\"tagIslands\" data-orig-display=\"flex\" style=\"display:flex;height:20px;padding:1px 4px;align-items:center;gap:3px;border-radius:4px;background:var(--white-tag-soft-bg,rgba(255,255,255,0.12));flex-shrink:0\"><span style=\"font:var(--font-h6,500 12px/18px 'PingFang SC',sans-serif);color:var(--white-tag-color,rgba(255,255,255,0.88));white-space:nowrap\">潮玩族</span><svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\"><circle cx=\"6\" cy=\"6\" r=\"6\" fill=\"rgba(255,255,255,0.2)\"/><path d=\"M3.8 3.8l4.4 4.4M8.2 3.8l-4.4 4.4\" stroke=\"var(--white-tag-color,rgba(255,255,255,0.88))\" stroke-width=\"1.2\" stroke-linecap=\"round\"/></svg></div><span style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:rgba(255,255,255,0.4);white-space:nowrap\">Labubu泰坦</span></div><div data-bool=\"iconVisualSearch\" data-orig-display=\"flex\" style=\"display:flex;align-items:center;gap:12px;flex-shrink:0\"><div style=\"width:1px;height:12px;background:rgba(255,255,255,0.2)\"></div><div style=\"display:flex;align-items:center;gap:4px\"><i class=\"KurilIcons kuril-camera\" style=\"font-size:18px;color:#fff\"></i><span style=\"font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:#fff\">识物</span></div></div><svg data-bool=\"iconDelete\" data-orig-display=\"block\" style=\"display:none;flex-shrink:0\" width=\"14\" height=\"14\" viewBox=\"0 0 14 14\"><circle cx=\"7\" cy=\"7\" r=\"7\" fill=\"rgba(255,255,255,0.3)\"/><path d=\"M4.5 4.5l5 5M9.5 4.5l-5 5\" stroke=\"white\" stroke-width=\"1.2\" stroke-linecap=\"round\"/></svg></div>",
       "css": {
         "display": "flex",
         "width": "345px",
@@ -32,7 +47,10 @@
       },
       "props": {
         "State": {
-          "options": ["Normal", "Inputted"],
+          "options": [
+            "Normal",
+            "Inputted"
+          ],
           "default": "Normal",
           "desc": {
             "Normal": "未输入，显示占位文字和识物入口",
@@ -42,13 +60,16 @@
             "Normal": "<div style=\"display:flex;width:345px;padding:6px 12px;align-items:center;gap:12px;background:var(--bg-2,#F7F7F9);border-radius:8px;box-sizing:border-box\"><div style=\"display:flex;flex:1;align-items:center;gap:8px;min-width:0\"><i class=\"KurilIcons kuril-search\" style=\"font-size:18px;color:var(--text-3,rgba(0,0,0,0.4));flex-shrink:0\"></i><div data-bool=\"tagIslands\" data-orig-display=\"flex\" style=\"display:flex;height:20px;padding:1px 4px;align-items:center;gap:3px;border-radius:4px;background:var(--primary-tag-soft-bg,#F2F0FF);flex-shrink:0\"><span style=\"font:var(--font-h6,500 12px/18px 'PingFang SC',sans-serif);color:var(--primary-tag-color,#7C66FF);white-space:nowrap\">潮玩族</span><svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\"><circle cx=\"6\" cy=\"6\" r=\"6\" fill=\"var(--primary-tag-color,#7C66FF)\" fill-opacity=\"0.2\"/><path d=\"M3.8 3.8l4.4 4.4M8.2 3.8l-4.4 4.4\" stroke=\"var(--primary-tag-color,#7C66FF)\" stroke-width=\"1.2\" stroke-linecap=\"round\"/></svg></div><span style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:var(--text-3,rgba(0,0,0,0.4));white-space:nowrap\">Labubu泰坦</span></div><div data-bool=\"iconVisualSearch\" data-orig-display=\"flex\" style=\"display:flex;align-items:center;gap:12px;flex-shrink:0\"><div style=\"width:1px;height:12px;background:rgba(0,0,0,0.12)\"></div><div style=\"display:flex;align-items:center;gap:4px\"><i class=\"KurilIcons kuril-camera\" style=\"font-size:18px;color:var(--text-1,#2B263B)\"></i><span style=\"font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:var(--text-1,#2B263B)\">识物</span></div></div><svg data-bool=\"iconDelete\" data-orig-display=\"block\" style=\"display:none;flex-shrink:0\" width=\"14\" height=\"14\" viewBox=\"0 0 14 14\"><circle cx=\"7\" cy=\"7\" r=\"7\" fill=\"rgba(0,0,0,0.2)\"/><path d=\"M4.5 4.5l5 5M9.5 4.5l-5 5\" stroke=\"white\" stroke-width=\"1.2\" stroke-linecap=\"round\"/></svg></div>",
             "Inputted": "<div style=\"display:flex;width:345px;padding:6px 12px;align-items:center;gap:8px;background:var(--bg-2,#F7F7F9);border-radius:8px;box-sizing:border-box\"><div style=\"display:flex;flex:1;align-items:center;gap:8px;min-width:0\"><i class=\"KurilIcons kuril-search\" style=\"font-size:18px;color:var(--text-3,rgba(0,0,0,0.4));flex-shrink:0\"></i><div data-bool=\"tagIslands\" data-orig-display=\"flex\" style=\"display:flex;height:20px;padding:1px 4px;align-items:center;gap:3px;border-radius:4px;background:var(--primary-tag-soft-bg,#F2F0FF);flex-shrink:0\"><span style=\"font:var(--font-h6,500 12px/18px 'PingFang SC',sans-serif);color:var(--primary-tag-color,#7C66FF);white-space:nowrap\">潮玩族</span><svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\"><circle cx=\"6\" cy=\"6\" r=\"6\" fill=\"var(--primary-tag-color,#7C66FF)\" fill-opacity=\"0.2\"/><path d=\"M3.8 3.8l4.4 4.4M8.2 3.8l-4.4 4.4\" stroke=\"var(--primary-tag-color,#7C66FF)\" stroke-width=\"1.2\" stroke-linecap=\"round\"/></svg></div><span style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:var(--text-1,#2B263B);white-space:nowrap;overflow:hidden;text-overflow:ellipsis\">Labubu泰坦</span></div><svg data-bool=\"iconDelete\" data-orig-display=\"block\" style=\"display:block;flex-shrink:0\" width=\"14\" height=\"14\" viewBox=\"0 0 14 14\"><circle cx=\"7\" cy=\"7\" r=\"7\" fill=\"rgba(0,0,0,0.2)\"/><path d=\"M4.5 4.5l5 5M9.5 4.5l-5 5\" stroke=\"white\" stroke-width=\"1.2\" stroke-linecap=\"round\"/></svg></div></div>"
           },
-          "ghostPreviewMap": {
+          "whitePreviewMap": {
             "Normal": "<div style=\"display:flex;width:345px;padding:6px 12px;align-items:center;gap:12px;background:rgba(255,255,255,0.12);border-radius:8px;box-sizing:border-box\"><div style=\"display:flex;flex:1;align-items:center;gap:8px;min-width:0\"><i class=\"KurilIcons kuril-search\" style=\"font-size:18px;color:rgba(255,255,255,0.64);flex-shrink:0\"></i><div data-bool=\"tagIslands\" data-orig-display=\"flex\" style=\"display:flex;height:20px;padding:1px 4px;align-items:center;gap:3px;border-radius:4px;background:var(--white-tag-soft-bg,rgba(255,255,255,0.12));flex-shrink:0\"><span style=\"font:var(--font-h6,500 12px/18px 'PingFang SC',sans-serif);color:var(--white-tag-color,rgba(255,255,255,0.88));white-space:nowrap\">潮玩族</span><svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\"><circle cx=\"6\" cy=\"6\" r=\"6\" fill=\"rgba(255,255,255,0.2)\"/><path d=\"M3.8 3.8l4.4 4.4M8.2 3.8l-4.4 4.4\" stroke=\"var(--white-tag-color,rgba(255,255,255,0.88))\" stroke-width=\"1.2\" stroke-linecap=\"round\"/></svg></div><span style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:rgba(255,255,255,0.4);white-space:nowrap\">Labubu泰坦</span></div><div data-bool=\"iconVisualSearch\" data-orig-display=\"flex\" style=\"display:flex;align-items:center;gap:12px;flex-shrink:0\"><div style=\"width:1px;height:12px;background:rgba(255,255,255,0.2)\"></div><div style=\"display:flex;align-items:center;gap:4px\"><i class=\"KurilIcons kuril-camera\" style=\"font-size:18px;color:#fff\"></i><span style=\"font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:#fff\">识物</span></div></div><svg data-bool=\"iconDelete\" data-orig-display=\"block\" style=\"display:none;flex-shrink:0\" width=\"14\" height=\"14\" viewBox=\"0 0 14 14\"><circle cx=\"7\" cy=\"7\" r=\"7\" fill=\"rgba(255,255,255,0.3)\"/><path d=\"M4.5 4.5l5 5M9.5 4.5l-5 5\" stroke=\"white\" stroke-width=\"1.2\" stroke-linecap=\"round\"/></svg></div>",
             "Inputted": "<div style=\"display:flex;width:345px;padding:6px 12px;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border-radius:8px;box-sizing:border-box\"><div style=\"display:flex;flex:1;align-items:center;gap:8px;min-width:0\"><i class=\"KurilIcons kuril-search\" style=\"font-size:18px;color:rgba(255,255,255,0.64);flex-shrink:0\"></i><div data-bool=\"tagIslands\" data-orig-display=\"flex\" style=\"display:flex;height:20px;padding:1px 4px;align-items:center;gap:3px;border-radius:4px;background:var(--white-tag-soft-bg,rgba(255,255,255,0.12));flex-shrink:0\"><span style=\"font:var(--font-h6,500 12px/18px 'PingFang SC',sans-serif);color:var(--white-tag-color,rgba(255,255,255,0.88));white-space:nowrap\">潮玩族</span><svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\"><circle cx=\"6\" cy=\"6\" r=\"6\" fill=\"rgba(255,255,255,0.2)\"/><path d=\"M3.8 3.8l4.4 4.4M8.2 3.8l-4.4 4.4\" stroke=\"var(--white-tag-color,rgba(255,255,255,0.88))\" stroke-width=\"1.2\" stroke-linecap=\"round\"/></svg></div><span style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis\">Labubu泰坦</span></div><svg data-bool=\"iconDelete\" data-orig-display=\"block\" style=\"display:block;flex-shrink:0\" width=\"14\" height=\"14\" viewBox=\"0 0 14 14\"><circle cx=\"7\" cy=\"7\" r=\"7\" fill=\"rgba(255,255,255,0.3)\"/><path d=\"M4.5 4.5l5 5M9.5 4.5l-5 5\" stroke=\"white\" stroke-width=\"1.2\" stroke-linecap=\"round\"/></svg><div data-bool=\"iconVisualSearch\" style=\"display:none\"></div></div>"
           }
         },
         "Color": {
-          "options": ["Default", "White"],
+          "options": [
+            "Default",
+            "White"
+          ],
           "desc": {
             "Default": "标准形态，浅灰背景 var(--bg-2)",
             "White": "沉浸式形态，半透明白色背景，用于深色/图片背景"
@@ -68,7 +89,8 @@
             "desc": "岛名 Tag（如「潮玩族」），位于搜索图标右侧"
           }
         }
-      }
+      },
+      "_white_preview_html": "<div style=\"display:flex;width:345px;padding:6px 12px;align-items:center;gap:12px;background:rgba(255,255,255,0.12);border-radius:8px;box-sizing:border-box\"><div style=\"display:flex;flex:1;align-items:center;gap:8px;min-width:0\"><i class=\"KurilIcons kuril-search\" style=\"font-size:18px;color:rgba(255,255,255,0.64);flex-shrink:0\"></i><div data-bool=\"tagIslands\" data-orig-display=\"flex\" style=\"display:flex;height:20px;padding:1px 4px;align-items:center;gap:3px;border-radius:4px;background:var(--white-tag-soft-bg,rgba(255,255,255,0.12));flex-shrink:0\"><span style=\"font:var(--font-h6,500 12px/18px 'PingFang SC',sans-serif);color:var(--white-tag-color,rgba(255,255,255,0.88));white-space:nowrap\">潮玩族</span><svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\"><circle cx=\"6\" cy=\"6\" r=\"6\" fill=\"rgba(255,255,255,0.2)\"/><path d=\"M3.8 3.8l4.4 4.4M8.2 3.8l-4.4 4.4\" stroke=\"var(--white-tag-color,rgba(255,255,255,0.88))\" stroke-width=\"1.2\" stroke-linecap=\"round\"/></svg></div><span style=\"font:var(--font-h5,500 14px/22px 'PingFang SC',sans-serif);color:rgba(255,255,255,0.4);white-space:nowrap\">Labubu泰坦</span></div><div data-bool=\"iconVisualSearch\" data-orig-display=\"flex\" style=\"display:flex;align-items:center;gap:12px;flex-shrink:0\"><div style=\"width:1px;height:12px;background:rgba(255,255,255,0.2)\"></div><div style=\"display:flex;align-items:center;gap:4px\"><i class=\"KurilIcons kuril-camera\" style=\"font-size:18px;color:#fff\"></i><span style=\"font:var(--font-b6,400 12px/18px 'PingFang SC',sans-serif);color:#fff\">识物</span></div></div><svg data-bool=\"iconDelete\" data-orig-display=\"block\" style=\"display:none;flex-shrink:0\" width=\"14\" height=\"14\" viewBox=\"0 0 14 14\"><circle cx=\"7\" cy=\"7\" r=\"7\" fill=\"rgba(255,255,255,0.3)\"/><path d=\"M4.5 4.5l5 5M9.5 4.5l-5 5\" stroke=\"white\" stroke-width=\"1.2\" stroke-linecap=\"round\"/></svg></div>"
     },
     "Inputted": {
       "_hidden": true,
@@ -86,7 +108,7 @@
         "background": "var(--bg-2, #F7F7F9)"
       }
     },
-    "Normal_Ghost": {
+    "Normal_White": {
       "_hidden": true,
       "figma_name": "State=Normal, Color=White",
       "figma_key": "89f80ea1fec54f87ea5a6b38c9a3880d53e5a4b8",
@@ -101,7 +123,7 @@
         "background": "rgba(255, 255, 255, 0.12)"
       }
     },
-    "Inputted_Ghost": {
+    "Inputted_White": {
       "_hidden": true,
       "figma_name": "State=Inputted, Color=White",
       "figma_key": "c8f70d35dfe09480c4321361e965775e7611c5df",

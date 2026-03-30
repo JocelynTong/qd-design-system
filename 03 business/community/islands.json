@@ -67,7 +67,88 @@
               "type": "VARIANT",
               "value": "White"
             }
-          }
+          },
+          "slots": [
+            {
+              "name": "💙 01.01_Navigation Bar / Left",
+              "boolProp": "👁️ Left#66481:0",
+              "instanceKey": "d478b3d2e08159596eb39c3c3b8ef6b039915bbe",
+              "instanceName": "💙 01.01_Navigation Bar / Left",
+              "css": {
+                "display": "flex",
+                "height": "44px",
+                "align-items": "center"
+              },
+              "contents": [
+                {
+                  "cid": "💙 00.05_Button / Icon",
+                  "figma_key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5",
+                  "props": {
+                    "Icon#67047:0": {"type": "INSTANCE_SWAP", "value": "17235:161087"},
+                    "Text#51571:6": {"type": "BOOLEAN", "value": false},
+                    "Size": {"type": "VARIANT", "value": "Medium"}
+                  }
+                },
+                {
+                  "cid": "💙 Logo / Islands",
+                  "figma_key": "f9f5d1674c9c3421c1eb68b085a60f6c137f5168",
+                  "props": {
+                    "语言": {"type": "VARIANT", "value": "Chinese"}
+                  }
+                }
+              ]
+            },
+            {
+              "name": "💙 01.01_Navigation Bar / Center",
+              "boolProp": "👁️ Center#66481:21",
+              "instanceKey": "dd578eead69ce60186b40c3be63cdeb50de56894",
+              "instanceName": "💙 01.01_Navigation Bar / Center",
+              "css": {
+                "display": "flex",
+                "height": "32px",
+                "justify-content": "center",
+                "align-items": "center",
+                "flex": "1 0 0"
+              },
+              "contents": [
+                {
+                  "cid": "💙 01.04_Search Bar",
+                  "figma_key": "8b129ca6225476095227df191a7f630654612077",
+                  "props": {
+                    "iconDelete#86860:0": {"type": "BOOLEAN", "value": true},
+                    "tagIslands#86860:2": {"type": "BOOLEAN", "value": false},
+                    "iconVisualSearch#86860:1": {"type": "BOOLEAN", "value": true},
+                    "State": {"type": "VARIANT", "value": "Normal"},
+                    "Color": {"type": "VARIANT", "value": "Default"}
+                  }
+                }
+              ]
+            },
+            {
+              "name": "💙 01.01_Navigation Bar / Right",
+              "boolProp": "👁️ Right#66481:63",
+              "instanceKey": "ffb44622472830243ea748fa21ce14810521dd67",
+              "instanceName": "💙 01.01_Navigation Bar / Right",
+              "css": {
+                "display": "inline-flex",
+                "height": "44px",
+                "justify-content": "flex-end",
+                "align-items": "center",
+                "gap": "var(--Spacing-Small, 4px)"
+              },
+              "contents": [
+                {
+                  "cid": "💙 00.05_Button / Icon",
+                  "figma_key": "76d93431c52bbe79939ca8dc2ce88c2a2a3692b5",
+                  "props": {
+                    "Icon#67047:0": {"type": "INSTANCE_SWAP", "figma_key": "14922:29058", "value": "14922:29058"},
+                    "Text#51571:6": {"type": "BOOLEAN", "value": false},
+                    "Size": {"type": "VARIANT", "value": "Medium"}
+                  }
+                }
+              ]
+            }
+          ]
         }
       ],
       "props": {
@@ -76,11 +157,7 @@
             "App",
             "小程序"
           ],
-          "default": "App",
-          "previewMap": {
-            "App": "<div style=\"display:flex;flex-direction:column;width:375px;background:var(--secondary-solid-bg,#2b263b)\"><div style=\"width:375px;height:59px;position:relative;color:var(--white-text-color,rgba(255,255,255,.88))\"><span style=\"font:600 15px/17px 'PingFang SC',sans-serif;letter-spacing:-0.3px;position:absolute;left:21px;top:21px\">11:27</span><div style=\"position:absolute;right:15px;top:24px;display:flex;align-items:center;gap:6px\"><svg width=\"17\" height=\"11\" viewBox=\"0 0 17 11\" fill=\"currentColor\" style=\"flex-shrink:0\"><rect x=\"0\" y=\"8\" width=\"3\" height=\"3\" rx=\"0.5\" opacity=\"0.35\"/><rect x=\"4.7\" y=\"5.5\" width=\"3\" height=\"5.5\" rx=\"0.5\" opacity=\"0.6\"/><rect x=\"9.3\" y=\"3\" width=\"3\" height=\"8\" rx=\"0.5\"/><rect x=\"14\" y=\"0\" width=\"3\" height=\"11\" rx=\"0.5\"/></svg><svg width=\"16\" height=\"12\" viewBox=\"0 0 16 12\" fill=\"currentColor\" overflow=\"visible\" style=\"flex-shrink:0\"><circle cx=\"8\" cy=\"11\" r=\"1.5\"/><path d=\"M5.2 8A4 4 0 0 1 10.8 8L12 6.5A5.8 5.8 0 0 0 4 6.5Z\" opacity=\"0.6\"/><path d=\"M2.4 5.3A7.6 7.6 0 0 1 13.6 5.3L14.9 3.8A9.5 9.5 0 0 0 1.1 3.8Z\" opacity=\"0.3\"/></svg><svg width=\"25\" height=\"12\" viewBox=\"0 0 25 12\" style=\"flex-shrink:0\"><rect x=\"0.5\" y=\"0.5\" width=\"22\" height=\"11\" rx=\"2.5\" stroke=\"currentColor\" stroke-opacity=\"0.35\" fill=\"none\"/><rect x=\"23\" y=\"3.5\" width=\"1.5\" height=\"5\" rx=\"0.75\" fill=\"currentColor\" opacity=\"0.4\"/><rect x=\"1.5\" y=\"1.5\" width=\"18\" height=\"9\" rx=\"1.5\" fill=\"currentColor\"/></svg></div></div><div style=\"display:flex;width:375px;height:44px;padding:0 4px;align-items:center;gap:4px;background:linear-gradient(to bottom,rgba(0,0,0,0.3) 0%,transparent 100%);box-sizing:border-box;border-radius:4px\"><div data-bool=\"👁️ Left\" style=\"display:inline-flex;height:44px;align-items:center\"><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-arrow_left\" style=\"font-size:20px;color:#fff\"></i></div></div><div data-bool=\"👁️ Center\" style=\"flex:1;display:flex;justify-content:center;align-items:center\"><span style=\"font:var(--font-h4);color:#fff\">页面标题</span></div><div data-bool=\"👁️ Right\" style=\"display:inline-flex;height:44px;align-items:center;gap:4px\"><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-share\" style=\"font-size:20px;color:#fff\"></i></div><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-more\" style=\"font-size:20px;color:#fff\"></i></div></div></div></div>",
-            "小程序": "<div style=\"display:flex;flex-direction:column;width:375px;background:var(--secondary-solid-bg,#2b263b)\"><div style=\"width:375px;height:59px;position:relative;color:var(--white-text-color,rgba(255,255,255,.88))\"><span style=\"font:600 15px/17px 'PingFang SC',sans-serif;letter-spacing:-0.3px;position:absolute;left:21px;top:21px\">11:27</span><div style=\"position:absolute;right:15px;top:24px;display:flex;align-items:center;gap:6px\"><svg width=\"17\" height=\"11\" viewBox=\"0 0 17 11\" fill=\"currentColor\" style=\"flex-shrink:0\"><rect x=\"0\" y=\"8\" width=\"3\" height=\"3\" rx=\"0.5\" opacity=\"0.35\"/><rect x=\"4.7\" y=\"5.5\" width=\"3\" height=\"5.5\" rx=\"0.5\" opacity=\"0.6\"/><rect x=\"9.3\" y=\"3\" width=\"3\" height=\"8\" rx=\"0.5\"/><rect x=\"14\" y=\"0\" width=\"3\" height=\"11\" rx=\"0.5\"/></svg><svg width=\"16\" height=\"12\" viewBox=\"0 0 16 12\" fill=\"currentColor\" overflow=\"visible\" style=\"flex-shrink:0\"><circle cx=\"8\" cy=\"11\" r=\"1.5\"/><path d=\"M5.2 8A4 4 0 0 1 10.8 8L12 6.5A5.8 5.8 0 0 0 4 6.5Z\" opacity=\"0.6\"/><path d=\"M2.4 5.3A7.6 7.6 0 0 1 13.6 5.3L14.9 3.8A9.5 9.5 0 0 0 1.1 3.8Z\" opacity=\"0.3\"/></svg><svg width=\"25\" height=\"12\" viewBox=\"0 0 25 12\" style=\"flex-shrink:0\"><rect x=\"0.5\" y=\"0.5\" width=\"22\" height=\"11\" rx=\"2.5\" stroke=\"currentColor\" stroke-opacity=\"0.35\" fill=\"none\"/><rect x=\"23\" y=\"3.5\" width=\"1.5\" height=\"5\" rx=\"0.75\" fill=\"currentColor\" opacity=\"0.4\"/><rect x=\"1.5\" y=\"1.5\" width=\"18\" height=\"9\" rx=\"1.5\" fill=\"currentColor\"/></svg></div></div><div style=\"display:flex;width:375px;height:44px;padding:0 4px;align-items:center;gap:4px;background:linear-gradient(to bottom,rgba(0,0,0,0.3) 0%,transparent 100%);box-sizing:border-box;border-radius:4px\"><div data-bool=\"👁️ Left\" style=\"display:inline-flex;height:44px;align-items:center\"><div style=\"display:flex;flex-direction:column;width:40px;height:40px;justify-content:center;align-items:center;gap:var(--Spacing-Mini,2px);border-radius:6px\"><i class=\"KurilIcons kuril-arrow_left\" style=\"font-size:20px;color:rgba(255,255,255,0.9)\"></i></div></div><div data-bool=\"👁️ Center\" style=\"flex:1;display:flex;justify-content:center;align-items:center\"><span style=\"font:var(--font-h4);color:rgba(255,255,255,0.9)\">页面标题</span></div><div style=\"display:flex;height:44px;align-items:center;padding-right:4px;flex-shrink:0\"><div style=\"display:inline-flex;height:32px;padding:0 10px;align-items:center;border:1px solid rgba(255,255,255,0.35);border-radius:10px;box-sizing:border-box;gap:0\"><i class=\"KurilIcons kuril-more\" style=\"font-size:16px;color:rgba(255,255,255,0.9)\"></i><span style=\"width:1px;height:16px;background:rgba(255,255,255,0.3);margin:0 8px;flex-shrink:0\"></span><i class=\"KurilIcons kuril-close\" style=\"font-size:16px;color:rgba(255,255,255,0.9)\"></i></div></div></div></div>"
-          }
+          "default": "App"
         },
         "Booleans": {
           "👁️ Left": {
