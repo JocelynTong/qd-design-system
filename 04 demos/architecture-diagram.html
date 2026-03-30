@@ -91,53 +91,53 @@
     <div class="node-label">① Leaf 叶子</div>
     <div class="node-title">递归终点，不再展开</div>
     <div class="node-field">preview_html</div>
-    <div class="node-metaphor"><em>一道做好的菜</em>，端上桌直接吃，不需要再加工</div>
+    <div class="node-metaphor"><em>一块成品积木</em>，拿来直接拼上，不需要再拆解</div>
     <div class="node-examples">Button / Tag / Badge / Avatar</div>
   </div>
   <div class="node-box ref">
     <div class="node-label">② 1:1 Ref 单引用</div>
-    <div class="node-title">指向一道具体的菜</div>
+    <div class="node-title">从零件库里取一块指定积木</div>
     <div class="node-field">component_ref {cid, props}</div>
-    <div class="node-metaphor"><em>点菜单上的一道菜</em>，告诉后厨"我要 XX 的 YY 口味"，端来的可能是成品，也可能又是个套餐</div>
+    <div class="node-metaphor"><em>翻零件目录找一块积木</em>，告诉仓库"我要白色的、iPhoneX 款的"，拿到的可能是成品块，也可能是个需要再拼的子模型</div>
     <div class="node-examples">TabBar → 某个具体 variant</div>
   </div>
   <div class="node-box wrapper">
     <div class="node-label">③ Wrapper 容器</div>
-    <div class="node-title">一张套餐菜单 + 摆盘方式</div>
+    <div class="node-title">一份拼装说明书 + 底板</div>
     <div class="node-field">css</div> + <div class="node-field">component_refs [{cid, props}...]</div>
-    <div class="node-metaphor"><em>css = 摆盘</em>（竖着排还是横着排），<em>component_refs = 菜单</em>（StatusBar + NavBar + 封面），后厨逐道出</div>
-    <div class="node-examples">Islands/Header = 3 道菜拼一桌</div>
+    <div class="node-metaphor"><em>css = 底板</em>（竖着排还是横着排），<em>component_refs = 零件清单</em>（StatusBar + NavBar + 封面），逐块取来拼上</div>
+    <div class="node-examples">Islands/Header = 3 块积木拼成一个模型</div>
   </div>
 </div>
 
 <div class="arrow-row">
   <div class="arr"><span>递归深度 0</span></div>
   <div class="arr"><span>递归深度 1 — 目标可能是 Leaf 也可能是 Wrapper</span></div>
-  <div class="arr"><span>递归深度 N — 每道菜各自解析</span></div>
+  <div class="arr"><span>递归深度 N — 每块积木各自解析</span></div>
 </div>
 
-<div class="arr-down">▼<span>全部交给后厨处理</span></div>
+<div class="arr-down">▼<span>全部交给拼装流水线</span></div>
 
 <!-- ========= 下半部分：流程 ========= -->
 <div class="flow">
-  <div class="flow-title">_genBizVisual(vk, v) — 后厨出餐流程</div>
+  <div class="flow-title">_genBizVisual(vk, v) — 乐高拼装流水线</div>
 
   <!-- 第1步 -->
   <div class="step-row">
     <div class="step decide leaf-m" style="flex:2">
       <div class="step-num">STEP 1</div>
       <div class="step-q">有 preview_html？<span class="tag green">最高优先</span></div>
-      <div class="step-a">成品菜直接端上桌</div>
-      <div class="step-metaphor">🍽️ <em>做好的菜</em> — 设计师亲手做好的成品，原样呈上，不加工。<br>大部分组件走这条路。</div>
+      <div class="step-a">成品积木直接拼上</div>
+      <div class="step-metaphor">🧱 <em>成品块</em> — 设计师已经拼好的完整积木，直接放到底板上，不用拆。<br>大部分组件走这条路。</div>
     </div>
     <div class="step action dc-m" style="flex:3">
       <div class="step-num">STEP 1.1</div>
       <div class="step-q">HTML 里有 data-component 占位？</div>
-      <div class="step-a"><em>data-component</em> = 餐盘上的<em>占位卡片</em></div>
-      <div class="step-metaphor">🪧 菜端上来了，但盘子上有张卡片写着"<em>这个位置放 Button/Icon</em>"。<br>传菜员 <code style="color:#79c0ff">_resolveDataComponents()</code> 看到卡片 → 跑去后厨拿对应的菜填上。<br><br>
+      <div class="step-a"><em>data-component</em> = 底板上的<em>预留卡槽</em></div>
+      <div class="step-metaphor">🔲 积木拼好了，但底板上有个卡槽标着"<em>这里插 Button/Icon</em>"。<br>流水线工人 <code style="color:#79c0ff">_resolveDataComponents()</code> 看到卡槽 → 去零件库取对应积木插上。<br><br>
       <strong>例</strong>：NavBar 的 preview_html 里：<br>
       <code style="font-size:11px;color:#79c0ff">&lt;div data-component="💙 00.05_Button / Icon" style="width:40px;height:40px"&gt;&lt;/div&gt;</code><br>
-      ↑ 这就是占位卡片。渲染时自动塞入 Button/Icon 的真实 HTML。</div>
+      ↑ 这就是预留卡槽。渲染时自动填入 Button/Icon 的真实积木。</div>
     </div>
   </div>
 
@@ -148,12 +148,12 @@
     <div class="step recurse" style="flex:1">
       <div class="step-num">STEP 2</div>
       <div class="step-q">有 component_ref？<span class="tag purple">单引用</span></div>
-      <div class="step-a">点了一道菜 → <em>_resolveRef()</em> 去后厨查</div>
+      <div class="step-a">取一块积木 → <em>_resolveRef()</em> 去零件库找</div>
     </div>
     <div class="step recurse" style="flex:1">
       <div class="step-num">STEP 3</div>
       <div class="step-q">有 component_refs？<span class="tag yellow">套餐</span></div>
-      <div class="step-a">点了一桌套餐 → 遍历菜单，每道菜各调一次 <em>_resolveRef()</em></div>
+      <div class="step-a">照说明书拼模型 → 遍历零件清单，每块各调一次 <em>_resolveRef()</em></div>
     </div>
   </div>
 
@@ -164,47 +164,47 @@
     <div class="step decide composed-m">
       <div class="step-num">STEP 4</div>
       <div class="step-q">有 _composed_preview_html？<span class="tag yellow">slots 拼装</span></div>
-      <div class="step-metaphor">👨‍🍳 <em>后厨有配菜单</em> — 没有成品菜，但配菜单上写着"这道菜要 A 食材（Button）+ B 食材（SearchBar），各多少克"。<br>后厨照着配菜单现做，<em>出来的是真菜</em>，能吃能尝（chip 能切子组件 variant）。<br><br>来源：generate.py 读 <code style="color:#e3b341">slots</code> 配菜单，查每个食材的做法，拼成一道完整的菜。</div>
+      <div class="step-metaphor">📋 <em>有零件编号 + 尺寸规格表</em> — slots 里精确记录着每块零件的<em>编号</em>（cid: Button / SearchBar）和<em>尺寸</em>（css: 40×40 / flex:1）。<br>流水线拿着编号去零件库取<em>真正的积木</em>，按规格拼好 → 出来的模型<em>能交互</em>（chip 能切子组件 variant）。<br><br>关键：零件编号是确定的，不是猜的 → <em>零误差拼装</em>。<br>来源：generate.py 读 <code style="color:#e3b341">slots</code> 规格表，逐个查零件库，拼成完整模型。</div>
     </div>
     <div class="step decide tree-m">
       <div class="step-num">STEP 5</div>
       <div class="step-q">有 _tree_preview_html？<span class="tag gray">图层翻译</span><span class="tag red">过渡期</span></div>
-      <div class="step-metaphor">📸 <em>照着菜品照片摆盘</em> — 没有配菜单也没有成品，但有一张菜品照片（Figma 图层树 _tree）。<br>后厨照着照片用现有食材<em>摆出个样子</em>，看着像但<em>味道不对</em>（不能交互）。<br><br>⚠️ 这是<em>过渡期应急</em>：等厨师写好真正的菜谱（preview_html），这道"照片菜"就会自然淘汰。</div>
+      <div class="step-metaphor">📸 <em>照 X 光片描轮廓</em> — 没有零件编号也没成品，但 Figma 插件导出时自动拍了张"X 光片"（_tree：每个图层的类型 + 位置 + 尺寸）。<br>流水线<em>机械复印</em>：FRAME→div，TEXT→span，RECTANGLE→div，每个像素位置都准 → 但它<em>不知道哪块是 Button 哪块是背景</em>，只知道"这里有个 40×40 的方块"。<br>外形准，<em>不能交互</em>。<br><br>⚠️ 这是<em>过渡期应急</em>：等设计师补上真正的积木（preview_html），这个"X 光复印件"就会自然淘汰。</div>
     </div>
     <div class="step decide skeleton-m">
       <div class="step-num">STEP 6</div>
       <div class="step-q">都没有？<span class="tag gray">CSS 骨架</span></div>
-      <div class="step-metaphor">🍽️ <em>空餐盘</em> — 只知道盘子多大（width/height）、怎么摆（flex-direction），但上面没有菜。<br><br>看到这个 = 提示设计师"<em>该补 preview 了</em>"。</div>
+      <div class="step-metaphor">🔲 <em>空底板</em> — 只知道底板多大（width/height）、横着还是竖着（flex-direction），但上面没有积木。<br><br>看到这个 = 提示设计师"<em>该补积木了</em>"。</div>
     </div>
   </div>
 </div>
 
 <!-- ========= 递归回环 ========= -->
 <div class="recurse-box">
-  <h3>🔄 _resolveRef(ref) — 后厨查菜谱的递归过程</h3>
+  <h3>🔄 _resolveRef(ref) — 去零件库取积木的递归过程</h3>
   <div class="recurse-steps">
     <div class="recurse-step">
       <div class="rs-title">1. 查 COMPONENTS_DATA[cid]</div>
-      <div class="rs-desc">菜谱里找这道菜。找不到就查 COMPONENT_REF_MAP（别名索引）。</div>
+      <div class="rs-desc">在零件库里找这块积木。找不到就查 COMPONENT_REF_MAP（别名货架）。</div>
     </div>
     <div class="recurse-step">
-      <div class="rs-title">2. 确定要哪个口味（variant）</div>
+      <div class="rs-title">2. 确定要哪个款式（variant）</div>
       <div class="rs-desc">
-        <span class="tag blue">props 描述口味</span> <em>告诉后厨你要什么</em> — "我要白色的、iPhoneX 款的"。后厨拿菜单逐道比对：<br>
-        &nbsp;&nbsp;A 菜：白色 ✓ iPhoneX ✗ → 1 分<br>
-        &nbsp;&nbsp;B 菜：白色 ✓ iPhoneX ✓ → 2 分 ← <em>最高分，选它</em><br>
-        &nbsp;&nbsp;C 菜：白色 ✗ iPhoneX ✗ → 0 分<br><br>
-        <span class="tag green">单变体组件</span> 没传 props 但菜单上只有一道菜 → <em>直接上唯一的那道</em>
+        <span class="tag blue">props 描述特征</span> <em>告诉仓库你要什么</em> — "我要白色的、iPhoneX 款的"。仓库拿货架逐个比对：<br>
+        &nbsp;&nbsp;A 款：白色 ✓ iPhoneX ✗ → 1 分<br>
+        &nbsp;&nbsp;B 款：白色 ✓ iPhoneX ✓ → 2 分 ← <em>最高分，选它</em><br>
+        &nbsp;&nbsp;C 款：白色 ✗ iPhoneX ✗ → 0 分<br><br>
+        <span class="tag green">单变体组件</span> 没传 props 但货架上只有一款 → <em>直接拿唯一的那块</em>
       </div>
     </div>
     <div class="recurse-step">
       <div class="rs-title">3. 取到 variant → 看它是什么类型</div>
       <div class="rs-desc">
-        <span class="tag green">成品菜</span> preview_html → 出餐，递归结束<br>
-        <span class="tag purple">又点了别的菜</span> component_ref → 再来一轮<br>
-        <span class="tag yellow">又是套餐</span> component_refs → 展开菜单，逐道再来
+        <span class="tag green">成品块</span> preview_html → 拼上，递归结束<br>
+        <span class="tag purple">又指向别的积木</span> component_ref → 再去取一轮<br>
+        <span class="tag yellow">又是子模型</span> component_refs → 展开零件清单，逐块再取
       </div>
-      <div class="rs-loop">↩ 回到 Step 1，直到所有菜都变成成品（Leaf）为止</div>
+      <div class="rs-loop">↩ 回到 Step 1，直到所有积木都变成成品块（Leaf）为止</div>
     </div>
   </div>
 </div>
